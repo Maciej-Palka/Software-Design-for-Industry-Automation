@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="a24d9258-beb9-4443-b25f-550afce2e985" Name="FloorCarElevator" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/17/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="CarPos" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="CarAt0" />
+        <With Var="CarAt1" />
+        <With Var="CarAt2" />
+        <With Var="CarAtFloor" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="CarPos" Type="REAL" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="CarAtFloor" Type="INT" />
+      <VarDeclaration Name="CarAt0" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="CarAt1" Type="BOOL" />
+      <VarDeclaration Name="CarAt2" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="1081.647" y="724.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="864.9739" y="506.9941">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="202.2716,114.5067,230.7713,130.4371" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="811.0853" y="657.7425">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="218.5734,177.2593,190.0737,161.3289" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="// Determine floor number of elevator&#xD;&#xA;IF CarPos &lt; 30.5 THEN&#xD;&#xA;	CarAtFloor := 2;&#xD;&#xA;	CarAt2 := TRUE;&#xD;&#xA;	CarAt0 := FALSE;&#xD;&#xA;	CarAt1 := FALSE;&#xD;&#xA;ELSIF (CarPos  &gt; 224.5) AND (CarPos &lt; 225.5) THEN&#xD;&#xA;	CarAtFloor := 1;&#xD;&#xA;	CarAt1 := TRUE;&#xD;&#xA;	CarAt0 := FALSE;&#xD;&#xA;	CarAt2 := FALSE;&#xD;&#xA;ELSIF CarPos &gt; 418.5 THEN&#xD;&#xA;	CarAtFloor := 0;&#xD;&#xA;	CarAt0 := TRUE;&#xD;&#xA;	CarAt1 := FALSE;&#xD;&#xA;	CarAt2 := FALSE;&#xD;&#xA;ELSE&#xD;&#xA;	CarAt2 := FALSE;&#xD;&#xA;	CarAt0 := FALSE;&#xD;&#xA;	CarAt1 := FALSE;&#xD;&#xA;END_IF;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

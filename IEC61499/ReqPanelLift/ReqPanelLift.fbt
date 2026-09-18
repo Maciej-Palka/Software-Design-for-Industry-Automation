@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="c736aa29-43eb-4548-92c3-d4f9951e2b97" Name="ReqPanelLift" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="12" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/3/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="LightON0" />
+        <With Var="LightON1" />
+        <With Var="LightON2" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="LightON0" />
+        <With Var="LightON1" />
+        <With Var="LightON2" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="ButtonFor0" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="ButtonFor0" />
+        <With Var="ButtonFor1" />
+        <With Var="ButtonFor2" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="LightON0" Type="BOOL" />
+      <VarDeclaration Name="LightON1" Type="BOOL" />
+      <VarDeclaration Name="LightON2" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="ButtonFor0" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="ButtonFor1" Type="BOOL" />
+      <VarDeclaration Name="ButtonFor2" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="2" Name="IThis" Type="ReqPanelLift_HMI" x="2020" y="540" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <Input Name="INIT" x="1360" y="551.8542" Type="Event" />
+    <Input Name="REQ" x="1360" y="611.8542" Type="Event" />
+    <Input Name="LightON0" x="1360" y="871.8542" Type="Data" />
+    <Input Name="LightON1" x="1360" y="931.8542" Type="Data" />
+    <Input Name="LightON2" x="1360" y="991.8542" Type="Data" />
+    <Output Name="INITO" x="2760" y="551.8542" Type="Event" />
+    <Output Name="CNF" x="2760" y="611.8542" Type="Event" />
+    <Output Name="ButtonFor0" x="2760" y="931.8542" Type="Data" />
+    <Output Name="ButtonFor1" x="2760" y="991.8542" Type="Data" />
+    <Output Name="ButtonFor2" x="2760" y="1051.854" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="IThis.INIT" dx1="40" />
+      <Connection Source="REQ" Destination="IThis.REQ" dx1="48.95837" />
+      <Connection Source="IThis.INITO" Destination="INITO" dx1="104.2083" />
+      <Connection Source="IThis.CHG" Destination="CNF" dx1="104.2083" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="IThis.ButtonFor0" Destination="ButtonFor0" dx1="80" />
+      <Connection Source="IThis.ButtonFor1" Destination="ButtonFor1" dx1="60" />
+      <Connection Source="IThis.ButtonFor2" Destination="ButtonFor2" dx1="40" />
+      <Connection Source="LightON2" Destination="IThis.LightON2" dx1="40" />
+      <Connection Source="LightON1" Destination="IThis.LightON1" dx1="40" />
+      <Connection Source="LightON0" Destination="IThis.LightON0" dx1="40" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

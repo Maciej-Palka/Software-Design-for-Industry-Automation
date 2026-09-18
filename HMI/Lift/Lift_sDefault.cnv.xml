@@ -1,0 +1,10 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ" Map="REQ_1">Position</Event>
+  </EventInputs>
+  <EventOutputs />
+  <Inputs>
+    <Input Name="Position" Type="REAL" Map="SD_1" />
+  </Inputs>
+  <Outputs />
+</Mapping>

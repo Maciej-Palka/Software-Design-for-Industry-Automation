@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="85cbc1a0-032f-42fc-91a5-cf54f5a282b4" Name="ChangeDetectComp" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="3" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="Cheyan" Date="7/13/2023" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="INP" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="OUT" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="INP" Type="BOOL" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="OUT" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="ChangeDetect" x="980" y="140" Namespace="Main" />
+    <FB ID="2" Name="FB2" Type="Bool2Real" x="520" y="140" Namespace="Main" />
+    <FB ID="3" Name="FB3" Type="Real2Bool" x="1500" y="140" Namespace="Main" />
+    <Input Name="REQ" x="140" y="152" Type="Event" />
+    <Input Name="INP" x="80" y="352" Type="Data" />
+    <Output Name="CNF" x="2060" y="152" Type="Event" />
+    <Output Name="OUT" x="2040" y="352" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB2.CNF" Destination="FB1.REQ" />
+      <Connection Source="REQ" Destination="FB2.REQ" />
+      <Connection Source="FB1.CHG" Destination="FB3.REQ" />
+      <Connection Source="FB3.CNF" Destination="CNF" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB2.Output" Destination="FB1.INP" />
+      <Connection Source="INP" Destination="FB2.Input" />
+      <Connection Source="FB1.OUT" Destination="FB3.Input" />
+      <Connection Source="FB3.Output" Destination="OUT" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

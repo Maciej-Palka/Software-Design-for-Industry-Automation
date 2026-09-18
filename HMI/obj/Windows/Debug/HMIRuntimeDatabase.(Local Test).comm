@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HMIProjectDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Elevator_DumbButtons_EAE" Guid="{44893599-B978-4911-8277-189414236FBB}" xmlns="http://www.nxtcontrol.com/IEC61499.xsd">
+  <CATs />
+  <DeviceDeployments Device="System.EcoRT_0">
+    <DevAttrs Expanded="true">
+      <Property Name="IPAddress" Description="IPAddress.Description" DisplayName="IPAddress" Hidden="true" Value="127.0.0.1" Type="string" TypeConverter="NxtControl.Automation.Engineering.IPAddressTypeConverter, EngineeringData" ReadOnly="false" SaveModifiedTime="false" IsPassword="false" />
+      <ComplexProperty Name="Ports" DisplayName="Ports" Hidden="true" Expanded="true">
+        <Property Name="Deploy" Description="DeployPort.Description" DisplayName="DeployPort" Hidden="true" Value="51499" Type="string" MinInclusive="1" MaxInclusive="65535" ReadOnly="false" SaveModifiedTime="false" IsPassword="false">
+          <ProfileProperty GUID="{E0601B81-4A3A-4A96-B6C2-007BDC680D59}" Value="51499" />
+        </Property>
+      </ComplexProperty>
+    </DevAttrs>
+  </DeviceDeployments>
+</HMIProjectDatabase>

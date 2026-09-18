@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{AF3FF701-4CE1-4263-8C91-4A73AD79F2B7}</ProjectGuid>
+    <ProjectTypeGuids>{E25C2A81-DD87-490C-A304-820B0BA163F2}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AssetLinkData</RootNamespace>
+    <AssemblyName>AssetLinkData</AssemblyName>
+    <ProjectType>AssetLinkData</ProjectType>
+    <TemplateName>AssetLinkData</TemplateName>
+    <TemplateCategory>AssetLinkDataLibrary</TemplateCategory>
+    <ProjectFileExtension>.assetLinkDataproj</ProjectFileExtension>
+    <LibraryName>Main</LibraryName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'Windows' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Asset Manifest\AssetFacets.json" />
+    <None Include="Asset Manifest\AssetRelations.json" />
+    <None Include="Asset Manifest\Assets.json" />
+    <None Include="Asset Manifest\EcoRTDevices.json" />
+    <None Include="Asset Manifest\FacetRelations.json" />
+    <None Include="Config.json" />
+    <None Include="EngineeringHubConfiguration.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Knowledge Base" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AssetHierarchyViews\View1.xml">
+      <DependentUpon>AssetHierarchyViews\View1.xml</DependentUpon>
+      <Plugin>EngineeringServices</Plugin>
+      <IEC61499Type>AssetHierarchyViews\View1</IEC61499Type>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(SharpDevelopBinPath)\Plugins\EngineeringDataServicePlugin\PluginSpecificProject.targets" />
+</Project>

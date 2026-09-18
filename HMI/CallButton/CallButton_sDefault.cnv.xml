@@ -1,0 +1,14 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ" Map="REQ_1">LightON</Event>
+  </EventInputs>
+  <EventOutputs>
+    <Event Name="CHG" Map="IND_1">Button</Event>
+  </EventOutputs>
+  <Inputs>
+    <Input Name="LightON" Type="BOOL" Map="SD_1" />
+  </Inputs>
+  <Outputs>
+    <Output Name="Button" Type="BOOL" Map="RD_1" />
+  </Outputs>
+</Mapping>

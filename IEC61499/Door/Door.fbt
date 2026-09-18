@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="dbe2e863-8f87-4bbb-a7f6-2d22a150eae6" Name="Door" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="11" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/3/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="OpenDoor" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="OpenDoor" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="DoorOpened" />
+        <With Var="DoorClosed" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="DoorOpened" />
+        <With Var="DoorClosed" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="OpenDoor" Type="BOOL" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="DoorOpened" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="2" Name="FB2" Type="DoorSensor" x="1780" y="740" Namespace="Main">
+      <Parameter Name="ValueOpen" Value="49.0" />
+      <Parameter Name="ValueClosed" Value="1.0" />
+    </FB>
+    <FB ID="4" Name="FB3" Type="ChangeDetect" x="1780" y="280" Namespace="Main" />
+    <FB ID="1" Name="FB1" Type="DoorMove" x="880" y="740" Namespace="Main">
+      <Parameter Name="CycleTime" Value="0.02" />
+      <Parameter Name="MaxOpenPos" Value="50.0" />
+    </FB>
+    <FB ID="3" Name="IThis" Type="Door_HMI" x="2380" y="160" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="5" Name="FB4" Type="ChangeDetect" x="3300" y="880" Namespace="Main" />
+    <FB ID="6" Name="FB5" Type="ChangeDetect" x="3320" y="1280" Namespace="Main" />
+    <FB ID="7" Name="FB6" Type="E_MERGE" x="5060" y="880" Namespace="IEC61499.Standard" />
+    <FB ID="8" Name="FB7" Type="Real2Bool" x="3800" y="880" Namespace="Main" />
+    <FB ID="9" Name="FB8" Type="Real2Bool" x="3820" y="1280" Namespace="Main" />
+    <FB ID="10" Name="FB9" Type="Bool2Real" x="2780" y="880" Namespace="Main" />
+    <FB ID="11" Name="FB10" Type="Bool2Real" x="2800" y="1280" Namespace="Main" />
+    <Input Name="INIT" x="60" y="751.8542" Type="Event" />
+    <Input Name="REQ" x="60" y="811.8542" Type="Event" />
+    <Input Name="OpenDoor" x="60" y="1011.854" Type="Data" />
+    <Output Name="INITO" x="2640" y="751.8542" Type="Event" />
+    <Output Name="CNF" x="5440" y="892" Type="Event" />
+    <Output Name="DoorOpened" x="4380" y="1092" Type="Data" />
+    <Output Name="DoorClosed" x="4400" y="1492" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB1.CNF" Destination="FB2.REQ" />
+      <Connection Source="FB1.INITO" Destination="FB2.INIT" />
+      <Connection Source="FB2.INITO" Destination="INITO" dx1="42.02075" />
+      <Connection Source="REQ" Destination="FB1.REQ" dx1="48.95837" />
+      <Connection Source="INIT" Destination="FB1.INIT" dx1="40.83334" />
+      <Connection Source="FB1.INITO" Destination="IThis.INIT" dx1="55.50024">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.CHG" Destination="IThis.REQ" />
+      <Connection Source="FB1.CNF" Destination="FB3.REQ" dx1="135.5001">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.INITO" Destination="IThis.INITC">
+        <Points>
+          <Points>
+            <X>361.125</X>
+            <Y>195</Y>
+          </Points>
+          <Points>
+            <X>368.625</X>
+            <Y>195</Y>
+          </Points>
+          <Points>
+            <X>368.625</X>
+            <Y>50</Y>
+          </Points>
+          <Points>
+            <X>565</X>
+            <Y>50</Y>
+          </Points>
+          <Points>
+            <X>565</X>
+            <Y>65</Y>
+          </Points>
+          <Points>
+            <X>590</X>
+            <Y>65</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.CNF" Destination="FB9.REQ" dx1="186.0105">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.CNF" Destination="FB10.REQ" dx1="196.0105">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB6.EO" Destination="CNF" />
+      <Connection Source="FB4.CHG" Destination="FB7.REQ" />
+      <Connection Source="FB5.CHG" Destination="FB8.REQ" />
+      <Connection Source="FB7.CNF" Destination="FB6.EI1" />
+      <Connection Source="FB8.CNF" Destination="FB6.EI2" dx1="50" />
+      <Connection Source="FB9.CNF" Destination="FB4.REQ" />
+      <Connection Source="FB10.CNF" Destination="FB5.REQ" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="OpenDoor" Destination="FB1.OpenDoor" dx1="42.81256" />
+      <Connection Source="FB1.PosDoor" Destination="FB2.DoorPos" />
+      <Connection Source="FB3.OUT" Destination="IThis.DoorPosition" dx1="40" />
+      <Connection Source="FB1.PosDoor" Destination="FB3.INP" dx1="215.5001">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.DoorOpen" Destination="FB9.Input" dx1="186.0105">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.DoorClosed" Destination="FB10.Input" dx1="42.021" />
+      <Connection Source="FB5.OUT" Destination="FB8.Input" />
+      <Connection Source="FB4.OUT" Destination="FB7.Input" />
+      <Connection Source="FB7.Output" Destination="DoorOpened" />
+      <Connection Source="FB8.Output" Destination="DoorClosed" />
+      <Connection Source="FB9.Output" Destination="FB4.INP" />
+      <Connection Source="FB10.Output" Destination="FB5.INP" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

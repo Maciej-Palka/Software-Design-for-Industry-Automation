@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="704dc119-8f5a-4dad-84b6-61e6b93ea8aa" Name="SysFunc1" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/19/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="QI" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="QI" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="QO" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="QO" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="QI" Type="BOOL" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="QO" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1476" y="204.8375" />
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="/*IF (onfloor0 OR onfloor1 OR onfloor2) = FALSE THEN&#xD;&#xA;	RETURN;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF onfloor0 THEN&#xD;&#xA;	y:=0;&#xD;&#xA;ELSIF onfloor1 THEN&#xD;&#xA;	y:=1;&#xD;&#xA;ELSIF onfloor2 THEN&#xD;&#xA;	y:=2;&#xD;&#xA;ELSE&#xD;&#xA;	y:=-2;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF gvl.doorclosed0 AND gvl.doorclosed1 AND gvl.doorclosed2 THEN&#xD;&#xA;	allclosed := TRUE;&#xD;&#xA;ELSE&#xD;&#xA;	allclosed := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF y&lt;&gt;x THEN&#xD;&#xA;	notx := TRUE;&#xD;&#xA;ELSE&#xD;&#xA;	notX:=FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;// Liikkeelle lähtö&#xD;&#xA;IF notX AND gvl.go AND allclosed THEN&#xD;&#xA;	IF y&gt;x THEN&#xD;&#xA;		down:=TRUE;&#xD;&#xA;	ELSE&#xD;&#xA;		up:=TRUE;&#xD;&#xA;	END_IF;&#xD;&#xA;	closingX:=FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;// Saavutaan matkan varrella kerrokseen 1 ja avataan ovi&#xD;&#xA;IF (x&lt;&gt;1) AND gvl.onfloor1 AND (gvl.button1 OR gvl.call1 OR (timer1running)) THEN&#xD;&#xA;	down:=FALSE;&#xD;&#xA;	up:=FALSE;&#xD;&#xA;	gvl.open1:=TRUE;&#xD;&#xA;	t1.IN:=TRUE;&#xD;&#xA;	t1.PT:=T#3S;&#xD;&#xA;	t1();&#xD;&#xA;	IF t1.Q THEN&#xD;&#xA;		timer1running:=FALSE;&#xD;&#xA;	ELSE&#xD;&#xA;		timer1running:=TRUE;&#xD;&#xA;	END_IF;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;// Kerroksen 1 ovi kokonaan auki&#xD;&#xA;IF t1.Q THEN&#xD;&#xA;	t1.IN:=FALSE;&#xD;&#xA;	t1();&#xD;&#xA;	open1:=FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;// Ollaan tai saavutaan kerrokseen x ja avataan ovi&#xD;&#xA;IF (notX=FALSE) AND (closingX=FALSE) AND go THEN&#xD;&#xA;	down:=FALSE;&#xD;&#xA;	up:=FALSE;&#xD;&#xA;	IF x=0 THEN&#xD;&#xA;		gvl.open0:=TRUE;&#xD;&#xA;	ELSIF x=1 THEN&#xD;&#xA;		gvl.open1:=TRUE;&#xD;&#xA;	ELSIF x=2 THEN&#xD;&#xA;		gvl.open2:=TRUE;&#xD;&#xA;	END_IF;&#xD;&#xA;	tx.IN:=TRUE;&#xD;&#xA;	tx.PT:=T#3S;&#xD;&#xA;	tx();&#xD;&#xA;	debug:=tx.ET;&#xD;&#xA;	IF tx.Q THEN&#xD;&#xA;		timer_Xrunning:=FALSE;&#xD;&#xA;	ELSE&#xD;&#xA;		timer_Xrunning:=TRUE;&#xD;&#xA;	END_IF;&#xD;&#xA;	&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;// Kerroksen x ovi kokonaan auki&#xD;&#xA;IF tx.Q AND go THEN&#xD;&#xA;	IF allclosed THEN&#xD;&#xA;		go:=FALSE;&#xD;&#xA;		tx.IN:=FALSE;&#xD;&#xA;		tx();&#xD;&#xA;	END_IF;&#xD;&#xA;	closingX:=TRUE;&#xD;&#xA;	IF x=0 THEN&#xD;&#xA;		gvl.open0:=FALSE;&#xD;&#xA;	ELSIF x=1 THEN&#xD;&#xA;		gvl.open1:=FALSE;&#xD;&#xA;	ELSIF x=2 THEN&#xD;&#xA;		gvl.open2:=FALSE;&#xD;&#xA;	END_IF;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF go=FALSE THEN&#xD;&#xA;	closingX:=FALSE;&#xD;&#xA;END_IF*/;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text=";" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

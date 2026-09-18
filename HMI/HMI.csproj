@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{8DE8F5C8-E281-4202-84FD-BB0D32DFD33F}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HMI</RootNamespace>
+    <AssemblyName>HMI</AssemblyName>
+    <ProjectType>HMI</ProjectType>
+    <HMILibraries>HMIBaseSymbols:</HMILibraries>
+    <Theme>DefaultLight:Default|DefaultLight</Theme>
+    <NxtVersion>23.0.0.0</NxtVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <CanvasLookAndFeel>Theme</CanvasLookAndFeel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'Windows' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\$(Platform)\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\$(Platform)\Release</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows' ">
+    <DefineConstants>DEBUG%3bTRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows' ">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="CallButton\CallButton.def.cs" />
+    <Compile Include="CallButton\CallButton.event.cs" />
+    <Compile Include="CallButton\CallButton_sDefault.cnv.cs" />
+    <Compile Include="CallButton\CallButton_sDefault.cnv.Designer.cs">
+      <DependentUpon>CallButton_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Canvas.cnv.cs">
+      <Canvas>true</Canvas>
+    </Compile>
+    <Compile Include="Canvas.cnv.Designer.cs">
+      <DependentUpon>Canvas.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Colors\ProjectColors.cs" />
+    <Compile Include="Colors\ProjectDrawingObjects.cs" />
+    <Compile Include="Control\Control.def.cs" />
+    <Compile Include="Control\Control.event.cs" />
+    <Compile Include="Control\Control_sDefault.cnv.cs" />
+    <Compile Include="Control\Control_sDefault.cnv.Designer.cs">
+      <DependentUpon>Control_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Door\Door.def.cs" />
+    <Compile Include="Door\Door.event.cs" />
+    <Compile Include="Door\Door_sDefault.cnv.cs" />
+    <Compile Include="Door\Door_sDefault.cnv.Designer.cs">
+      <DependentUpon>Door_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FloorIndicator\FloorIndicator.def.cs" />
+    <Compile Include="FloorIndicator\FloorIndicator.event.cs" />
+    <Compile Include="FloorIndicator\FloorIndicator_sDefault.cnv.cs" />
+    <Compile Include="FloorIndicator\FloorIndicator_sDefault.cnv.Designer.cs">
+      <DependentUpon>FloorIndicator_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lift\Lift.def.cs" />
+    <Compile Include="Lift\Lift.event.cs" />
+    <Compile Include="Lift\Lift_sDefault.cnv.cs" />
+    <Compile Include="Lift\Lift_sDefault.cnv.Designer.cs">
+      <DependentUpon>Lift_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.def.cs" />
+    <Compile Include="Model\Model.event.cs" />
+    <Compile Include="Model\Model_sDefault.cnv.cs" />
+    <Compile Include="Model\Model_sDefault.cnv.Designer.cs">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReqPanelLift\ReqPanelLift.def.cs" />
+    <Compile Include="ReqPanelLift\ReqPanelLift.event.cs" />
+    <Compile Include="ReqPanelLift\ReqPanelLift_sDefault.cnv.cs" />
+    <Compile Include="ReqPanelLift\ReqPanelLift_sDefault.cnv.Designer.cs">
+      <DependentUpon>ReqPanelLift_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartCanvas_2.cnv.cs" />
+    <Compile Include="StartCanvas_2.cnv.Designer.cs">
+      <DependentUpon>StartCanvas_2.cnv.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Alarms\AlarmClasses.xml" />
+    <None Include="CallButton\CallButton.Design.resx" />
+    <None Include="Colors\Default.color.theme" />
+    <None Include="Colors\Default.do.theme" />
+    <None Include="Colors\DefaultLight.color.theme" />
+    <None Include="Colors\DefaultLight.do.theme" />
+    <None Include="Colors\ProjectColors.xml" />
+    <None Include="Colors\ProjectDrawingObjects.xml" />
+    <None Include="Control\Control.Design.resx" />
+    <None Include="Door\Door.Design.resx" />
+    <None Include="FloorIndicator\FloorIndicator.Design.resx" />
+    <None Include="ImageStorage\ImageStorage.xml" />
+    <none Include="Languages\neutral\Dictionary.Resources.xml" />
+    <None Include="Lift\Lift.Design.resx" />
+    <None Include="Model\Model.Design.resx" />
+    <None Include="ReqPanelLift\ReqPanelLift.Design.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Alarms\AlarmClasses.xml" />
+    <EmbeddedResource Include="Alarms\SystemAlarmClasses.xml" />
+    <EmbeddedResource Include="CallButton\CallButton_sDefault.cnv.resx">
+      <DependentUpon>CallButton_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CallButton\CallButton_sDefault.cnv.xml">
+      <DependentUpon>CallButton_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Canvas.cnv.resx">
+      <DependentUpon>Canvas.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configurations\HistoryTrend.xml" />
+    <EmbeddedResource Include="Configurations\Journalling.xml" />
+    <EmbeddedResource Include="Configurations\TagValueEditor.xml" />
+    <EmbeddedResource Include="Control\Control_sDefault.cnv.resx">
+      <DependentUpon>Control_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Control_sDefault.cnv.xml">
+      <DependentUpon>Control_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Door\Door_sDefault.cnv.resx">
+      <DependentUpon>Door_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Door\Door_sDefault.cnv.xml">
+      <DependentUpon>Door_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FloorIndicator\FloorIndicator_sDefault.cnv.resx">
+      <DependentUpon>FloorIndicator_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FloorIndicator\FloorIndicator_sDefault.cnv.xml">
+      <DependentUpon>FloorIndicator_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lift\Lift_sDefault.cnv.resx">
+      <DependentUpon>Lift_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lift\Lift_sDefault.cnv.xml">
+      <DependentUpon>Lift_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Model_sDefault.cnv.resx">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Model_sDefault.cnv.xml">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReqPanelLift\ReqPanelLift_sDefault.cnv.resx">
+      <DependentUpon>ReqPanelLift_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReqPanelLift\ReqPanelLift_sDefault.cnv.xml">
+      <DependentUpon>ReqPanelLift_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartCanvas_2.cnv.resx">
+      <DependentUpon>StartCanvas_2.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CommunicationProfile">
+      <HintPath>CommunicationProfile</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HMIBaseSymbols">
+      <HintPath>HMIBaseSymbols</HintPath>
+    </Reference>
+    <Reference Include="NxtControl.ComponentModel">
+      <HintPath>NxtControl.ComponentModel</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NxtControl.GuiFramework">
+      <HintPath>NxtControl.GuiFramework</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SE.DPAC.HMI">
+      <Version>23.0.0.57</Version>
+      <HintPath>SE.DPAC.HMI</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <Import Project="$(SharpDevelopBinPath)\SharpDevelop.Build.CSharp.targets" />
+</Project>

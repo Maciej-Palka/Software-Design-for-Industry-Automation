@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="2F61C58F491DB02A" Name="Control" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="6" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/3/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="ButtonAt0" />
+        <With Var="ButtonAt1" />
+        <With Var="ButtonAt2" />
+        <With Var="ButtonFor0" />
+        <With Var="ButtonFor1" />
+        <With Var="ButtonFor2" />
+        <With Var="AtFloor0" />
+        <With Var="AtFloor1" />
+        <With Var="AtFloor2" />
+        <With Var="DoorClosed0" />
+        <With Var="DoorClosed1" />
+        <With Var="DoorClosed2" />
+        <With Var="DoorOpened0" />
+        <With Var="DoorOpened1" />
+        <With Var="DoorOpened2" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="ButtonAt0" />
+        <With Var="ButtonAt1" />
+        <With Var="ButtonAt2" />
+        <With Var="ButtonFor0" />
+        <With Var="ButtonFor1" />
+        <With Var="ButtonFor2" />
+        <With Var="AtFloor0" />
+        <With Var="AtFloor1" />
+        <With Var="AtFloor2" />
+        <With Var="DoorClosed0" />
+        <With Var="DoorClosed1" />
+        <With Var="DoorClosed2" />
+        <With Var="DoorOpened0" />
+        <With Var="DoorOpened1" />
+        <With Var="DoorOpened2" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="MoveUp" />
+        <With Var="MoveDown" />
+        <With Var="Open0" />
+        <With Var="Open1" />
+        <With Var="Open2" />
+        <With Var="LightON_Button0" />
+        <With Var="LightON_Button1" />
+        <With Var="LightON_Button2" />
+        <With Var="LightON_Panel0" />
+        <With Var="LightON_Panel1" />
+        <With Var="LightON_Panel2" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="MoveUp" />
+        <With Var="MoveDown" />
+        <With Var="Open0" />
+        <With Var="Open1" />
+        <With Var="Open2" />
+        <With Var="LightON_Button0" />
+        <With Var="LightON_Button1" />
+        <With Var="LightON_Button2" />
+        <With Var="LightON_Panel0" />
+        <With Var="LightON_Panel1" />
+        <With Var="LightON_Panel2" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="ButtonAt0" Type="BOOL" />
+      <VarDeclaration Name="ButtonAt1" Type="BOOL" />
+      <VarDeclaration Name="ButtonAt2" Type="BOOL" />
+      <VarDeclaration Name="ButtonFor0" Type="BOOL" />
+      <VarDeclaration Name="ButtonFor1" Type="BOOL" />
+      <VarDeclaration Name="ButtonFor2" Type="BOOL" />
+      <VarDeclaration Name="AtFloor0" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="AtFloor1" Type="BOOL" />
+      <VarDeclaration Name="AtFloor2" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed0" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed1" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed2" Type="BOOL" />
+      <VarDeclaration Name="DoorOpened0" Type="BOOL" />
+      <VarDeclaration Name="DoorOpened1" Type="BOOL" />
+      <VarDeclaration Name="DoorOpened2" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="MoveUp" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="MoveDown" Type="BOOL" />
+      <VarDeclaration Name="Open0" Type="BOOL" />
+      <VarDeclaration Name="Open1" Type="BOOL" />
+      <VarDeclaration Name="Open2" Type="BOOL" />
+      <VarDeclaration Name="LightON_Button0" Type="BOOL" />
+      <VarDeclaration Name="LightON_Button1" Type="BOOL" />
+      <VarDeclaration Name="LightON_Button2" Type="BOOL" />
+      <VarDeclaration Name="LightON_Panel0" Type="BOOL" />
+      <VarDeclaration Name="LightON_Panel1" Type="BOOL" />
+      <VarDeclaration Name="LightON_Panel2" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="6" Name="FB1" Type="DummyControl" x="1180" y="480" Namespace="Main" />
+    <Input Name="INIT" x="520" y="451.8542" Type="Event" />
+    <Input Name="REQ" x="520" y="511.8541" Type="Event" />
+    <Input Name="AtFloor0" x="320" y="711.8541" Type="Data" />
+    <Input Name="AtFloor1" x="320" y="771.8541" Type="Data" />
+    <Input Name="AtFloor2" x="320" y="831.8541" Type="Data" />
+    <Input Name="DoorClosed0" x="320" y="891.8541" Type="Data" />
+    <Input Name="DoorClosed1" x="320" y="951.8541" Type="Data" />
+    <Input Name="DoorClosed2" x="320" y="1011.854" Type="Data" />
+    <Input Name="ButtonAt0" x="320" y="1071.854" Type="Data" />
+    <Input Name="ButtonAt1" x="320" y="1131.854" Type="Data" />
+    <Input Name="ButtonAt2" x="320" y="1191.854" Type="Data" />
+    <Input Name="ButtonFor0" x="320" y="1251.854" Type="Data" />
+    <Input Name="ButtonFor1" x="320" y="1311.854" Type="Data" />
+    <Input Name="ButtonFor2" x="320" y="1371.854" Type="Data" />
+    <Input Name="DoorOpened0" x="320" y="1431.854" Type="Data" />
+    <Input Name="DoorOpened1" x="320" y="1491.854" Type="Data" />
+    <Input Name="DoorOpened2" x="320" y="1551.854" Type="Data" />
+    <Output Name="INITO" x="2100" y="451.8542" Type="Event" />
+    <Output Name="CNF" x="2100" y="511.8541" Type="Event" />
+    <Output Name="MoveUp" x="2100" y="711.8541" Type="Data" />
+    <Output Name="MoveDown" x="2100" y="771.8541" Type="Data" />
+    <Output Name="Open0" x="2100" y="831.8541" Type="Data" />
+    <Output Name="Open1" x="2100" y="891.8541" Type="Data" />
+    <Output Name="Open2" x="2100" y="951.8541" Type="Data" />
+    <Output Name="LightON_Button0" x="2100" y="1191.854" Type="Data" />
+    <Output Name="LightON_Button1" x="2100" y="1251.854" Type="Data" />
+    <Output Name="LightON_Button2" x="2100" y="1311.854" Type="Data" />
+    <Output Name="LightON_Panel0" x="2100" y="1011.854" Type="Data" />
+    <Output Name="LightON_Panel1" x="2100" y="1071.854" Type="Data" />
+    <Output Name="LightON_Panel2" x="2100" y="1131.854" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="FB1.INIT" dx1="40.83331" />
+      <Connection Source="REQ" Destination="FB1.REQ" dx1="48.95831" />
+      <Connection Source="FB1.INITO" Destination="INITO" dx1="40" />
+      <Connection Source="FB1.CNF" Destination="CNF" dx1="73.33337" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="AtFloor0" Destination="FB1.AtFloor0" dx1="40" />
+      <Connection Source="AtFloor1" Destination="FB1.AtFloor1" dx1="40" />
+      <Connection Source="AtFloor2" Destination="FB1.AtFloor2" dx1="58.16675" />
+      <Connection Source="DoorClosed0" Destination="FB1.DoorClosed0" dx1="40" />
+      <Connection Source="DoorClosed1" Destination="FB1.DoorClosed1" dx1="40" />
+      <Connection Source="DoorClosed2" Destination="FB1.DoorClosed2" dx1="40" />
+      <Connection Source="ButtonAt0" Destination="FB1.Button0" dx1="40" />
+      <Connection Source="ButtonAt1" Destination="FB1.Button1" dx1="40" />
+      <Connection Source="ButtonAt2" Destination="FB1.Button2" dx1="40" />
+      <Connection Source="ButtonFor0" Destination="FB1.Req0" dx1="48.58337" />
+      <Connection Source="ButtonFor1" Destination="FB1.Req1" dx1="48.58337" />
+      <Connection Source="ButtonFor2" Destination="FB1.Req2" dx1="48.58337" />
+      <Connection Source="FB1.liftUp" Destination="MoveUp" dx1="93.33337" />
+      <Connection Source="FB1.liftDown" Destination="MoveDown" dx1="113.3334" />
+      <Connection Source="FB1.door0" Destination="Open0" dx1="133.3334" />
+      <Connection Source="FB1.door1" Destination="Open1" dx1="153.3334" />
+      <Connection Source="FB1.door2" Destination="Open2" dx1="173.3334" />
+      <Connection Source="FB1.LightON_Button0" Destination="LightON_Panel0" dx1="173.3334" />
+      <Connection Source="FB1.LightON_Button1" Destination="LightON_Panel1" dx1="173.3334" />
+      <Connection Source="FB1.LightON_Button2" Destination="LightON_Panel2" dx1="173.3334" />
+      <Connection Source="FB1.LightON_Panel0" Destination="LightON_Button0" dx1="173.3334" />
+      <Connection Source="FB1.LightON_Panel1" Destination="LightON_Button1" dx1="853.3334" dx2="30" dy="-68" />
+      <Connection Source="FB1.LightON_Panel2" Destination="LightON_Button2" dx1="853.3334" dx2="30" dy="12" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

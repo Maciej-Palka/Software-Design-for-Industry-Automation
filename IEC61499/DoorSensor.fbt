@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="e400a240-6448-4b03-9dd2-9070bf42bd36" Name="DoorSensor" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/3/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="DoorPos" />
+        <With Var="ValueOpen" />
+        <With Var="ValueClosed" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="DoorPos" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="DoorOpen" />
+        <With Var="DoorClosed" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="DoorOpen" />
+        <With Var="DoorClosed" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="DoorPos" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="ValueOpen" Type="REAL" />
+      <VarDeclaration Name="ValueClosed" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="DoorOpen" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="DoorClosed" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1476" y="204.8375" />
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text=";" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="IF DoorPos &gt; ValueOpen THEN&#xD;&#xA;	DoorOpen := TRUE;&#xD;&#xA;	DoorClosed := FALSE;&#xD;&#xA;ELSIF DoorPos &lt; ValueClosed THEN&#xD;&#xA;	DoorOpen := FALSE;&#xD;&#xA;	DoorClosed := TRUE;&#xD;&#xA;ELSE&#xD;&#xA;	DoorOpen := FALSE;&#xD;&#xA;	DoorClosed := FALSE;&#xD;&#xA;END_IF;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

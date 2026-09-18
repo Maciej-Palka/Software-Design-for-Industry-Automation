@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="2e98a138-e538-438e-88f8-f4c114c907df" Name="Lift" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="5" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/3/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="MoveUp" />
+        <With Var="MoveDown" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="MoveUp" />
+        <With Var="MoveDown" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="LiftPos" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="LiftPos" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="MoveUp" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="MoveDown" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="LiftPos" Type="REAL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="2" Name="FB2" Type="E_CYCLE" x="1600" y="500" Namespace="IEC61499.Standard">
+      <Parameter Name="DT" Value="t#20ms" />
+    </FB>
+    <FB ID="4" Name="FB4" Type="ChangeDetect" x="3500" y="920" Namespace="Main" />
+    <FB ID="5" Name="IThis" Type="Lift_HMI" x="4100" y="800" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="3" Name="FB3" Type="LiftMove" x="1580" y="1020" Namespace="Main" />
+    <FB ID="1" Name="FB1" Type="integEC" x="2460" y="740" Namespace="Main">
+      <Parameter Name="inv1" Value="FALSE" />
+      <Parameter Name="inv2" Value="TRUE" />
+      <Parameter Name="tBase1" Value="4.0" />
+      <Parameter Name="tBase2" Value="4.0" />
+      <Parameter Name="sp" Value="100.0" />
+      <Parameter Name="preTrip" Value="0.0" />
+      <Parameter Name="integType" Value="0" />
+      <Parameter Name="cycleTime" Value="0.02" />
+      <Parameter Name="maxValue" Value="440.0" />
+      <Parameter Name="minValue" Value="0.0" />
+      <Parameter Name="useLimits" Value="TRUE" />
+    </FB>
+    <Input Name="INIT" x="1080" y="1031.854" Type="Event" />
+    <Input Name="REQ" x="1080" y="1091.854" Type="Event" />
+    <Input Name="MoveUp" x="880" y="1291.854" Type="Data" />
+    <Input Name="MoveDown" x="880" y="1351.854" Type="Data" />
+    <Output Name="INITO" x="4720" y="811.8542" Type="Event" />
+    <Output Name="CNF" x="3060" y="1031.854" Type="Event" />
+    <Output Name="LiftPos" x="3220" y="1351.854" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB2.EO" Destination="FB1.C_CYCLE" dx1="48.5" />
+      <Connection Source="REQ" Destination="FB3.REQ" dx1="48.95837" />
+      <Connection Source="FB3.CNF" Destination="FB1.OP_UPD" dx1="112.8125">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="FB3.INIT" dx1="40.83337" />
+      <Connection Source="FB3.INITO" Destination="FB1.INIT" dx1="50" />
+      <Connection Source="FB1.CNF" Destination="FB4.REQ" dx1="44.1875" />
+      <Connection Source="FB1.INITO" Destination="IThis.INIT" dx1="44.1875" />
+      <Connection Source="FB4.CHG" Destination="IThis.REQ" dx1="40" />
+      <Connection Source="IThis.INITO" Destination="INITO" dx1="49.396" />
+      <Connection Source="IThis.INITO" Destination="FB2.START" dx1="49.396" dx2="50" dy="-408" />
+      <Connection Source="FB1.CNF" Destination="CNF" dx1="44.1875" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB3.pv1" Destination="FB1.pv1" dx1="50">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.pv2" Destination="FB1.pv2" dx1="110" />
+      <Connection Source="MoveDown" Destination="FB3.MoveDown" dx1="46.25" />
+      <Connection Source="MoveUp" Destination="FB3.MoveUp" dx1="40.79175" />
+      <Connection Source="FB1.out" Destination="FB4.INP" />
+      <Connection Source="FB4.OUT" Destination="IThis.Position" />
+      <Connection Source="FB1.out" Destination="LiftPos" dx1="174.1875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </DataConnections>
+  </FBNetwork>
+</FBType>

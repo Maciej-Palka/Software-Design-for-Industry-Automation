@@ -1,0 +1,18 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ" Map="REQ_1">LightON0;LightON1;LightON2</Event>
+  </EventInputs>
+  <EventOutputs>
+    <Event Name="CHG" Map="IND_1">ButtonFor0;ButtonFor1;ButtonFor2</Event>
+  </EventOutputs>
+  <Inputs>
+    <Input Name="LightON0" Type="BOOL" Map="SD_1" />
+    <Input Name="LightON1" Type="BOOL" Map="SD_2" />
+    <Input Name="LightON2" Type="BOOL" Map="SD_3" />
+  </Inputs>
+  <Outputs>
+    <Output Name="ButtonFor0" Type="BOOL" Map="RD_1" />
+    <Output Name="ButtonFor1" Type="BOOL" Map="RD_2" />
+    <Output Name="ButtonFor2" Type="BOOL" Map="RD_3" />
+  </Outputs>
+</Mapping>

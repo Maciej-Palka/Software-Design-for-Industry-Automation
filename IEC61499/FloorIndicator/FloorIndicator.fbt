@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="e665c451-c0ff-448f-a867-81b252d5bcc2" Name="FloorIndicator" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="1" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/3/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="FloorNumber" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="FloorNumber" />
+      </Event>
+    </EventInputs>
+    <InputVars>
+      <VarDeclaration Name="FloorNumber" Type="INT" Comment="Input event qualifier" />
+    </InputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="IThis" Type="FloorIndicator_HMI" x="900" y="440" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <Input Name="INIT" x="120" y="451.8542" Type="Event" />
+    <Input Name="REQ" x="120" y="511.8542" Type="Event" />
+    <Input Name="FloorNumber" x="120" y="771.8542" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="IThis.INIT" dx1="40.83337" />
+      <Connection Source="REQ" Destination="IThis.REQ" dx1="48.95837" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FloorNumber" Destination="IThis.FloorNr" dx1="40.29169" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

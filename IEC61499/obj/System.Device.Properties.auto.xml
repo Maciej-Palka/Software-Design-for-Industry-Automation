@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeviceProperties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DefaultProfile />
+  <Profile Name="(Local Test)">
+    <Device Name="EcoRT_0">
+      <ComplexProperty Name="Configuration" Expanded="true">
+        <ComplexProperty Name="Archiving" Expanded="true">
+          <ComplexProperty Name="Server" Expanded="true">
+            <Property Name="Port" Value="51496" ReadOnly="false" SaveModifiedTime="false" IsPassword="false" />
+          </ComplexProperty>
+        </ComplexProperty>
+        <ComplexProperty Name="Communication" Expanded="true">
+          <ComplexProperty Name="Authentication" Expanded="true">
+            <Property Name="DisableAnonymousBackend" Value="false" ReadOnly="false" SaveModifiedTime="false" IsPassword="false" />
+          </ComplexProperty>
+        </ComplexProperty>
+      </ComplexProperty>
+    </Device>
+  </Profile>
+</DeviceProperties>

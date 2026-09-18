@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="eabe488e-3869-462b-a59c-428a235a02d7" Name="DummyControl" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/17/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="AtFloor0" />
+        <With Var="AtFloor1" />
+        <With Var="AtFloor2" />
+        <With Var="DoorClosed0" />
+        <With Var="DoorClosed1" />
+        <With Var="DoorClosed2" />
+        <With Var="Button0" />
+        <With Var="Button1" />
+        <With Var="Button2" />
+        <With Var="Req0" />
+        <With Var="Req1" />
+        <With Var="Req2" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="AtFloor0" />
+        <With Var="AtFloor1" />
+        <With Var="AtFloor2" />
+        <With Var="DoorClosed0" />
+        <With Var="DoorClosed1" />
+        <With Var="DoorClosed2" />
+        <With Var="Button0" />
+        <With Var="Button1" />
+        <With Var="Button2" />
+        <With Var="Req0" />
+        <With Var="Req1" />
+        <With Var="Req2" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="liftUp" />
+        <With Var="liftDown" />
+        <With Var="door0" />
+        <With Var="door1" />
+        <With Var="door2" />
+        <With Var="LightON_Button0" />
+        <With Var="LightON_Button1" />
+        <With Var="LightON_Button2" />
+        <With Var="LightON_Panel0" />
+        <With Var="LightON_Panel1" />
+        <With Var="LightON_Panel2" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="liftUp" />
+        <With Var="liftDown" />
+        <With Var="door0" />
+        <With Var="door1" />
+        <With Var="door2" />
+        <With Var="LightON_Button0" />
+        <With Var="LightON_Button1" />
+        <With Var="LightON_Button2" />
+        <With Var="LightON_Panel0" />
+        <With Var="LightON_Panel1" />
+        <With Var="LightON_Panel2" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="AtFloor0" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="AtFloor1" Type="BOOL" />
+      <VarDeclaration Name="AtFloor2" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed0" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed1" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed2" Type="BOOL" />
+      <VarDeclaration Name="Button0" Type="BOOL" />
+      <VarDeclaration Name="Button1" Type="BOOL" />
+      <VarDeclaration Name="Button2" Type="BOOL" />
+      <VarDeclaration Name="Req0" Type="BOOL" />
+      <VarDeclaration Name="Req1" Type="BOOL" />
+      <VarDeclaration Name="Req2" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="liftUp" Type="BOOL" />
+      <VarDeclaration Name="liftDown" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="door0" Type="BOOL" />
+      <VarDeclaration Name="door1" Type="BOOL" />
+      <VarDeclaration Name="door2" Type="BOOL" />
+      <VarDeclaration Name="LightON_Button0" Type="BOOL" />
+      <VarDeclaration Name="LightON_Button1" Type="BOOL" />
+      <VarDeclaration Name="LightON_Button2" Type="BOOL" />
+      <VarDeclaration Name="LightON_Panel0" Type="BOOL" />
+      <VarDeclaration Name="LightON_Panel1" Type="BOOL" />
+      <VarDeclaration Name="LightON_Panel2" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1476" y="204.8375" />
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="liftDown := TRUE;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="IF AtFloor0 THEN&#xD;&#xA;	liftUp := TRUE;&#xD;&#xA;	liftDown := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;IF AtFloor2 THEN&#xD;&#xA;	liftDown := TRUE;&#xD;&#xA;	liftUp := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;/*IF Button0 OR Req0 THEN&#xD;&#xA;	door0 := TRUE;&#xD;&#xA;ELSE&#xD;&#xA;	door0 := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;IF Button1 OR Req1 THEN&#xD;&#xA;	door1 := TRUE;&#xD;&#xA;ELSE&#xD;&#xA;	door1 := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;IF Button2 OR Req2 THEN&#xD;&#xA;	door2 := TRUE;&#xD;&#xA;ELSE&#xD;&#xA;	door2 := FALSE;&#xD;&#xA;END_IF;*/&#xD;&#xA;door0 := Button0 OR Req0;&#xD;&#xA;door1 := Button1 OR Req1;&#xD;&#xA;door2 := Button2 OR Req2;&#xD;&#xA;&#xD;&#xA;LightON_Button0 := Button0;&#xD;&#xA;LightON_Button1 := Button1;&#xD;&#xA;LightON_Button2 := Button2;&#xD;&#xA;&#xD;&#xA;LightON_Panel0 := Req0;&#xD;&#xA;LightON_Panel1 := Req1;&#xD;&#xA;LightON_Panel2 := Req2;&#xD;&#xA;&#xD;&#xA;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

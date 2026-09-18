@@ -1,0 +1,10 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ" Map="REQ_1">FloorNr</Event>
+  </EventInputs>
+  <EventOutputs />
+  <Inputs>
+    <Input Name="FloorNr" Type="INT" Map="SD_1" />
+  </Inputs>
+  <Outputs />
+</Mapping>

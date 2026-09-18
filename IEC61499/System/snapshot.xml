@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<baseline xmlns:xsd="http://www.nxtControl.com/Snapshot" xmlns="http://tempuri.org/XMLSchema1.xsd">
+  <snapshot guid="{189D2AAA-A4B7-42B3-B099-9F2605C4CF88}" compiler="Default" created="2026-09-16T11:29:34" base="{00000000-0000-0000-0000-000000000000}">
+    <DeployInformation Type="Working">
+      <FileGroup Name="FileList" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+        <FileItem Name="Main#Bool2Real.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>17DB521105EA79F5</Hash>
+        </FileItem>
+        <FileItem Name="Main#CallButton_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>17852670AA48BFDCB</Hash>
+        </FileItem>
+        <FileItem Name="Main#ChangeDetect.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>209B78D6B227CF7AD</Hash>
+        </FileItem>
+        <FileItem Name="Main#Real2Bool.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>83E7EA0A08C6DD63</Hash>
+        </FileItem>
+        <FileItem Name="Main#CallButton.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>251CAF4104056B651</Hash>
+        </FileItem>
+        <FileItem Name="Main#ChangeDetectComp.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>2445A7F372314841B</Hash>
+        </FileItem>
+        <FileItem Name="Main#DummyControl.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>110E6DCC2503B5592</Hash>
+        </FileItem>
+        <FileItem Name="Main#Control.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>1852B9CA5690A693C</Hash>
+        </FileItem>
+        <FileItem Name="Main#Control_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>163945408B4110593</Hash>
+        </FileItem>
+        <FileItem Name="Main#DoorMove.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>3047CDC59AEACE9E</Hash>
+        </FileItem>
+        <FileItem Name="Main#DoorSensor.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>333A92442E22D8BE</Hash>
+        </FileItem>
+        <FileItem Name="Main#Door_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>905B4E7570C78953</Hash>
+        </FileItem>
+        <FileItem Name="Main#Door.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>310CA4C050C9ECE5</Hash>
+        </FileItem>
+        <FileItem Name="Main#FloorCarElevator.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>153CFA277A899FB0</Hash>
+        </FileItem>
+        <FileItem Name="Main#FloorIndicator_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>245B1751D4C29B669</Hash>
+        </FileItem>
+        <FileItem Name="Main#FloorIndicator.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>134C7C785D2C7D9BF</Hash>
+        </FileItem>
+        <FileItem Name="Main#MergeEvents.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>2141FA5E48E435D4B</Hash>
+        </FileItem>
+        <FileItem Name="Main#Real2Int.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>93505E3C40758499</Hash>
+        </FileItem>
+        <FileItem Name="Main#FloorSensors.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>186E24F8C572CCD42</Hash>
+        </FileItem>
+        <FileItem Name="Main#integEC.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>1880B60C99BC0DF79</Hash>
+        </FileItem>
+        <FileItem Name="Main#LiftMove.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>174AB2240361DE7E8</Hash>
+        </FileItem>
+        <FileItem Name="Main#Lift_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>224FD5A4B46DEB24</Hash>
+        </FileItem>
+        <FileItem Name="Main#Lift.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>845CA3A701474550</Hash>
+        </FileItem>
+        <FileItem Name="Main#ReqPanelLift_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>16C78FA24F9000BB</Hash>
+        </FileItem>
+        <FileItem Name="Main#ReqPanelLift.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>185335D9B64B215E1</Hash>
+        </FileItem>
+        <FileItem Name="Main#Model.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>228BC5996F6F7DA52</Hash>
+        </FileItem>
+        <FileItem Name="Main#Model_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>03DE3D906A59C02</Hash>
+        </FileItem>
+        <FileItem Name="Main#SR.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>16458330EC6181355</Hash>
+        </FileItem>
+        <FileItem Name="Main#SysFunc1.bin" Library="IEC61499.dll" BuildSnapshot="{563715E8-79C1-49EC-B278-45E2DE90220F}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-09-16T11:28:25</Modified>
+          <Hash>227B34BC38AB09BBE</Hash>
+        </FileItem>
+        <LibraryItem Name="Runtime.Base" Version="23.0.0.15" />
+        <LibraryItem Name="SE.DPAC" Version="23.0.0.57" />
+        <LibraryItem Name="SE.Standard" Version="23.0.0.14" />
+        <DeviceItem ID="14780785-7DA1-4739-A7C8-CEB5FA22B6B5" Hash="208904351B1C9D58F" />
+      </FileGroup>
+      <Device Name="EcoRT_0" ID="14780785-7DA1-4739-A7C8-CEB5FA22B6B5" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+        <FileItem Name="Basics/Main#DummyControl.bin">
+          <Hash>5FA4E759A604DD29325C2BEA8213841F3461F4451991FD34148BC24A1D7E8CC2</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Control.bin">
+          <Hash>E345C623ADD2C9629457D145DF032DF849BE27DC88B998DC202AAEE95A8745E4</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#ChangeDetect.bin">
+          <Hash>878BF3E1415A3DB84CB45F612D90AB2148B4F39926912923C456EEE6A82A0E39</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Lift_HMI.bin">
+          <Hash>05E69216561EA481116B8B76127AA8EC4148B6D4E4BBB996C1BDE97239F2742F</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#LiftMove.bin">
+          <Hash>6D62CD07C86257160DA982FAB4C9C7AEF3F02801F92E25B4B046C2A6DEE47837</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#integEC.bin">
+          <Hash>58C6B443798CEF7F2E40519E1F8696F9262AD62C7E813C42DF34905377C65C84</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Lift.bin">
+          <Hash>163DEA6FBF6E9753E8A604E8B2D9322416E4025ED0AD9C0AC6491A4F025BC5C6</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#FloorIndicator_HMI.bin">
+          <Hash>2687516586570E789F769BC91B262BCE09BED660E4B0A671C3DCEB5E058CD591</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#FloorIndicator.bin">
+          <Hash>0F9C14CE6C5B0CB49A61965D3EB9C242622594EBE44E93C169131CE8C40C11D3</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#ReqPanelLift_HMI.bin">
+          <Hash>85A0856CB92AB3BF84F50B51CED5EC4D64B50549EDF9B2B4D9F14F159BBB4D73</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#ReqPanelLift.bin">
+          <Hash>99D10E1D82BB15E29E10A040876F7F2B0767C6B4DEC9C3FB38A0FA5873459E01</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#DoorSensor.bin">
+          <Hash>6714C5227A69467A45B6E098DB9C2EE1B42C337D9750AF84649578B916757074</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#DoorMove.bin">
+          <Hash>BAD778F39F54203B889A5A38E197501E23348CF536E4616EE573471D561D3822</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Door_HMI.bin">
+          <Hash>AD5DD30EE6F4410AF94A02F58718C460A82767301A4B6965787B4FE033F2F634</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#Real2Bool.bin">
+          <Hash>18F8DD17CFA94BF8321518D497836414B117EC72251349F0949FA39639606BD6</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#Bool2Real.bin">
+          <Hash>DA51C38C4F5B9E607173D5F18C6FDD0E19832CA52A7D0C80CB8F3BEBF57BABD7</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Door.bin">
+          <Hash>99827EA08D207537738B6337C0C3854A0DB98F2DAA8C9DB3D280A7E741E2D966</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#CallButton_HMI.bin">
+          <Hash>63CDEFE8C86E15386AD52D67F02DA029739FC059B2437970799DDD776BA8825B</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#CallButton.bin">
+          <Hash>6586445415881FC44F3BF8EE0EB93C805635CACE0DF1C5129E2F980EC403C1E0</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#MergeEvents.bin">
+          <Hash>B22325001B7C437D09A0F330AEAE04D8CD90BAF9B590137463394B7342454BF9</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#FloorCarElevator.bin">
+          <Hash>85F073803C55FFBF7B0194CB0B83744FBB83762A9E8D90675EA11B76B7D06C47</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#Real2Int.bin">
+          <Hash>1DB7F6F7B963835CAD7825FCCC50DD58148566E691C7BF40ECD639C433FDE015</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#FloorSensors.bin">
+          <Hash>72A3AE72497E9E615801E07031CCB91B24863344FABE86F77F8CC178E5A96C6A</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Model.bin">
+          <Hash>38F5D0C49E3BC8B770A1547C3EEB7306C3845BDAD8B927326CFE3548B534D6BF</Hash>
+        </FileItem>
+      </Device>
+    </DeployInformation>
+  </snapshot>
+  <deployment>
+    <network_profile name="(Local Test)">
+      <device id="14780785-7DA1-4739-A7C8-CEB5FA22B6B5">
+        <sref snapshot="{189D2AAA-A4B7-42B3-B099-9F2605C4CF88}" state="ACTIVE" />
+      </device>
+    </network_profile>
+  </deployment>
+</baseline>

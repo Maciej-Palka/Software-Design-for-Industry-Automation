@@ -1,0 +1,13 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="INITC" Map="REQ_1" />
+    <Event Name="REQ" Map="REQ_2">DoorPosition</Event>
+  </EventInputs>
+  <EventOutputs>
+    <Event Name="CHG" Map="IND_1" />
+  </EventOutputs>
+  <Inputs>
+    <Input Name="DoorPosition" Type="REAL" Map="SD_1" />
+  </Inputs>
+  <Outputs />
+</Mapping>

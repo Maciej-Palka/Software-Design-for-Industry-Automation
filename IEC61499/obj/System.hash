@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE System SYSTEM "../LibraryElement.dtd">
+<System Name="System" Comment="System Configuration">
+  <Attribute Name="System.Device.FolderPath" Value="EcoRT_0" />
+  <Identification Standard="61499-1" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="Cheyan" Date="7/13/2023" />
+  <Application ID="9A7C7CF5C69218DE" Name="APP1">
+    <SubAppNetwork>
+      <FB ID="653102D9FAFF355C" Name="Controller" Type="Control" x="1420" y="440" Namespace="Main" />
+      <FB ID="7F3250DD4DDF5933" Name="ElevatorSystem" Type="Model" x="2620" y="440" Namespace="Main" />
+      <EventConnections>
+        <Connection Source="Controller.INITO" Destination="ElevatorSystem.INIT" />
+        <Connection Source="Controller.CNF" Destination="ElevatorSystem.REQ" />
+        <Connection Source="ElevatorSystem.CNF" Destination="Controller.REQ" dx1="49.0625" dx2="30" dy="-170" />
+      </EventConnections>
+      <DataConnections>
+        <Connection Source="Controller.MoveUp" Destination="ElevatorSystem.motorUp" />
+        <Connection Source="Controller.MoveDown" Destination="ElevatorSystem.motorDown" />
+        <Connection Source="Controller.Open0" Destination="ElevatorSystem.door0" />
+        <Connection Source="Controller.Open1" Destination="ElevatorSystem.door1" />
+        <Connection Source="Controller.Open2" Destination="ElevatorSystem.door2" />
+        <Connection Source="Controller.LightON_Button0" Destination="ElevatorSystem.LightON_Button0" />
+        <Connection Source="Controller.LightON_Button1" Destination="ElevatorSystem.LightON_Button1" />
+        <Connection Source="Controller.LightON_Button2" Destination="ElevatorSystem.LightON_Button2" />
+        <Connection Source="Controller.LightON_Panel0" Destination="ElevatorSystem.LightON_Panel0" />
+        <Connection Source="Controller.LightON_Panel1" Destination="ElevatorSystem.LightON_Panel1" />
+        <Connection Source="Controller.LightON_Panel2" Destination="ElevatorSystem.LightON_Panel2" />
+        <Connection Source="ElevatorSystem.buttonFloor0" Destination="Controller.ButtonAt0" dx1="79.0625" dx2="80" dy="-420">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.buttonFloor1" Destination="Controller.ButtonAt1" dx1="119.0625" dx2="120" dy="-540">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.buttonFloor2" Destination="Controller.ButtonAt2" dx1="159.0625" dx2="160" dy="-660">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.requestFloor0" Destination="Controller.ButtonFor0" dx1="199.0625" dx2="200" dy="-760">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.requestFloor1" Destination="Controller.ButtonFor1" dx1="239.0625" dx2="240" dy="-860">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.requestFloor2" Destination="Controller.ButtonFor2" dx1="259.0625" dx2="300" dy="900">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.elevatorAtFloor0" Destination="Controller.AtFloor0" dx1="239.0625" dx2="280" dy="820">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.elevatorAtFloor1" Destination="Controller.AtFloor1" dx1="219.0625" dx2="240" dy="740">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.elevatorAtFloor2" Destination="Controller.AtFloor2" dx1="199.0625" dx2="220" dy="660">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.door0Closed" Destination="Controller.DoorClosed0" dx1="179.0625" dx2="200" dy="580">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.door1Closed" Destination="Controller.DoorClosed1" dx1="159.0625" dx2="180" dy="480">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.door2Closed" Destination="Controller.DoorClosed2" dx1="139.0625" dx2="140" dy="380">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.door0Opened" Destination="Controller.DoorOpened0" dx1="99.0625" dx2="100" dy="280">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.door1Opened" Destination="Controller.DoorOpened1" dx1="79.0625" dx2="60" dy="180">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="ElevatorSystem.door2Opened" Destination="Controller.DoorOpened2" dx1="49.0625" dx2="30" dy="90" />
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device ID="14780785-7DA1-4739-A7C8-CEB5FA22B6B5" Name="EcoRT_0" Type="Soft_dPAC" x="700" y="700" Namespace="SE.DPAC">
+    <Resource ID="243F819B96FFBE8B" Name="RES0" Type="EMB_RES_ECO" x="800" y="800" Namespace="Runtime.Management">
+      <FBNetwork>
+        <FB ID="4A3A0BCF937FEC3C" Name="Controller" Type="Control" x="1420" y="440" Namespace="Main" />
+        <FB ID="ACBA68AC28BFA620" Name="ElevatorSystem" Type="Model" x="2620" y="440" Namespace="Main" />
+        <EventConnections>
+          <Connection Source="Controller.INITO" Destination="ElevatorSystem.INIT" />
+          <Connection Source="Controller.CNF" Destination="ElevatorSystem.REQ" />
+          <Connection Source="ElevatorSystem.CNF" Destination="Controller.REQ" dx1="49.0625" dx2="30" dy="-170" />
+          <Connection Source="START.COLD" Destination="Controller.INIT" dx1="48.60425" />
+        </EventConnections>
+        <DataConnections>
+          <Connection Source="Controller.MoveUp" Destination="ElevatorSystem.motorUp" />
+          <Connection Source="Controller.MoveDown" Destination="ElevatorSystem.motorDown" />
+          <Connection Source="Controller.Open0" Destination="ElevatorSystem.door0" />
+          <Connection Source="Controller.Open1" Destination="ElevatorSystem.door1" />
+          <Connection Source="Controller.Open2" Destination="ElevatorSystem.door2" />
+          <Connection Source="Controller.LightON_Button0" Destination="ElevatorSystem.LightON_Button0" />
+          <Connection Source="Controller.LightON_Button1" Destination="ElevatorSystem.LightON_Button1" />
+          <Connection Source="Controller.LightON_Button2" Destination="ElevatorSystem.LightON_Button2" />
+          <Connection Source="Controller.LightON_Panel0" Destination="ElevatorSystem.LightON_Panel0" />
+          <Connection Source="Controller.LightON_Panel1" Destination="ElevatorSystem.LightON_Panel1" />
+          <Connection Source="Controller.LightON_Panel2" Destination="ElevatorSystem.LightON_Panel2" />
+          <Connection Source="ElevatorSystem.buttonFloor0" Destination="Controller.ButtonAt0" dx1="79.0625" dx2="80" dy="-420">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.buttonFloor1" Destination="Controller.ButtonAt1" dx1="119.0625" dx2="120" dy="-540">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.buttonFloor2" Destination="Controller.ButtonAt2" dx1="159.0625" dx2="160" dy="-660">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.requestFloor0" Destination="Controller.ButtonFor0" dx1="199.0625" dx2="200" dy="-760">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.requestFloor1" Destination="Controller.ButtonFor1" dx1="239.0625" dx2="240" dy="-860">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.requestFloor2" Destination="Controller.ButtonFor2" dx1="259.0625" dx2="300" dy="900">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.elevatorAtFloor0" Destination="Controller.AtFloor0" dx1="239.0625" dx2="280" dy="820">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.elevatorAtFloor1" Destination="Controller.AtFloor1" dx1="219.0625" dx2="240" dy="740">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.elevatorAtFloor2" Destination="Controller.AtFloor2" dx1="199.0625" dx2="220" dy="660">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.door0Closed" Destination="Controller.DoorClosed0" dx1="179.0625" dx2="200" dy="580">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.door1Closed" Destination="Controller.DoorClosed1" dx1="159.0625" dx2="180" dy="480">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.door2Closed" Destination="Controller.DoorClosed2" dx1="139.0625" dx2="140" dy="380">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.door0Opened" Destination="Controller.DoorOpened0" dx1="99.0625" dx2="100" dy="280">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.door1Opened" Destination="Controller.DoorOpened1" dx1="79.0625" dx2="60" dy="180">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="ElevatorSystem.door2Opened" Destination="Controller.DoorOpened2" dx1="49.0625" dx2="30" dy="90" />
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+    <FBNetwork />
+  </Device>
+  <Mapping From="APP1.Controller" To="EcoRT_0.RES0" />
+  <Mapping From="APP1.ElevatorSystem" To="EcoRT_0.RES0" />
+</System>

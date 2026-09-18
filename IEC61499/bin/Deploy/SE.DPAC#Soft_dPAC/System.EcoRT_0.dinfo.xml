@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployInformation ProjectName="Elevator_DumbButtons_EAE" ProjectGuid="{44893599-B978-4911-8277-189414236FBB}" System="System" DeviceName="EcoRT_0" DeviceID="14780785-7DA1-4739-A7C8-CEB5FA22B6B5">
+  <UsedDll>IEC61499.dll|Runtime.Base.90E02843-42CC-4C2C-B657-AB6EE7D00471.dll</UsedDll>
+  <FileName>C:\Users\macie\Desktop\szwecja\SDfIA\DA2\Elevator_DumbButtons_EAE\IEC61499\System\System.sys</FileName>
+  <BuildTime>2026-09-17 10:42:33Z</BuildTime>
+  <StudioVersion>IEC 61499 IDE, Panther UAOv23.0 g5173 4181ef5 Thu Oct 12 16:53:40 2023</StudioVersion>
+  <StudioInfo>V1;59A56DF95C2653723E8F9626613B185B6ABAB92B653A1E5B6ABA92247B3A193742B59B674131184771B69D2F6B2B6D766EBCCA0F643A557677B685154C2A4E7541AC833E673150484698B271582D4C7D66BA830D7D36472A78EDC372316C162E3AF4B5733F670E233AE8C667306D14202EE8CF733C6E172530EFB1084A2218;</StudioInfo>
+  <ConfigFolder>C:\Users\macie\Desktop\szwecja\SDfIA\DA2\Elevator_DumbButtons_EAE\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\Configuration</ConfigFolder>
+  <Actions />
+  <DeviceFileName>System.EcoRT_0.smartdev.xml</DeviceFileName>
+  <DependenciesFileName>System.EcoRT_0.fbdep.txt</DependenciesFileName>
+  <SnapshotGuid>{189D2AAA-A4B7-42B3-B099-9F2605C4CF88}</SnapshotGuid>
+</DeployInformation>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="324612d9-a4f2-49dd-928e-7fcddaf265b3" Name="MergeEvents" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="7/12/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="EI1" Comment="Normal Execution Request" />
+      <Event Name="EI2" />
+      <Event Name="EI3" />
+      <Event Name="EI4" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="EO" Comment="Execution Confirmation" />
+    </EventOutputs>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="1145.647" y="880.9412">
+        <ECAction Algorithm="REQ" Output="EO" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="EI1 OR EI2 OR EI3 OR EI4" x="983.8973" y="568.4888">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="234.0159,122.4678,270.5634,149.9754" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="759.6013" y="731.3528">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="203.9662,201.7035,167.2977,174.2406" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text=";" />
+    </Algorithm>
+  </BasicFB>
+</FBType>
