@@ -11,64 +11,56 @@ This project involves the implementation and testing of basic and composite Func
 *   **`RS Latch` (and `SR Latch`)**  
     A latch block where the Set (S) event sets the output to `true`, and the Reset (R) event changes it to `false`. The output event is triggered only when the output state changes.
 
-    <div align="center">
-      <figure>
-        <img src="additional_materials/E_RS_SR_ECC.png" alt="RS/SR Latch ECC Diagram">
-        <figcaption><em>Internal structure (ECC)</em></figcaption>
-      </figure>
-      <br>
-      <figure>
-        <img src="timing_diagrams/E_RS_timing_diagram.png" alt="RS Latch Timing Diagram">
-        <figcaption><em>Timing diagram</em></figcaption>
-      </figure>
-    </div>
+<p align="center">
+  <img src="additional_materials/E_RS_SR_ECC.png" alt="RS/SR Latch ECC Diagram"><br>
+  <i>Internal structure (ECC)</i>
+</p>
+
+<p align="center">
+  <img src="timing_diagrams/E_RS_timing_diagram.png" alt="RS Latch Timing Diagram"><br>
+  <i>Timing diagram</i>
+</p>
 
 *   **`D Flip-Flop`**  
     A D-type flip-flop block. The algorithm checks the state of the `D` variable when the clock event (CLK) is triggered. The transition condition to update the output `Q` requires a difference between the input and output values: **`CLK AND (Q <> D)`**.
 
-    <div align="center">
-      <figure>
-        <img src="additional_materials/E_D_FF_ECC.png" alt="D Flip-Flop ECC Diagram">
-        <figcaption><em>Internal structure (ECC)</em></figcaption>
-      </figure>
-      <br>
-      <figure>
-        <img src="timing_diagrams/E_D_FF_timing_diagram.png" alt="D Flip-Flop Timing Diagram">
-        <figcaption><em>Timing diagram</em></figcaption>
-      </figure>
-    </div>
+<p align="center">
+  <img src="additional_materials/E_D_FF_ECC.png" alt="D Flip-Flop ECC Diagram"><br>
+  <i>Internal structure (ECC)</i>
+</p>
+
+<p align="center">
+  <img src="timing_diagrams/E_D_FF_timing_diagram.png" alt="D Flip-Flop Timing Diagram"><br>
+  <i>Timing diagram</i>
+</p>
 
 ### Composite Function Blocks
 
 *   **`Event Train` (`E_TRAIN`)**  
     Generates a specific sequence of output events after the START event is triggered. The delay between events is defined by the delay time input, and the total number of events is defined by the variable `N`.
 
-    <div align="center">
-      <figure>
-        <img src="additional_materials/E_TRAIN_FBN.png" alt="Event Train FBN Diagram">
-        <figcaption><em>Internal structure (FBN)</em></figcaption>
-      </figure>
-      <br>
-      <figure>
-        <img src="timing_diagrams/E_TRAIN_timing_diagram.png" alt="Event Train Timing Diagram">
-        <figcaption><em>Timing diagram</em></figcaption>
-      </figure>
-    </div>
+<p align="center">
+  <img src="additional_materials/E_TRAIN_FBN.png" alt="Event Train FBN Diagram"><br>
+  <i>Internal structure (FBN)</i>
+</p>
+
+<p align="center">
+  <img src="timing_diagrams/E_TRAIN_timing_diagram.png" alt="Event Train Timing Diagram"><br>
+  <i>Timing diagram</i>
+</p>
 
 *   **`Event Rising Trigger` (`E_R_TRIG`)**  
     Detects a state change of the input variable from `false` to `true`. An output event is generated exclusively on a rising edge.
 
-    <div align="center">
-      <figure>
-        <img src="additional_materials/E_R_TRIG_FBN.png" alt="Rising Trigger FBN Diagram">
-        <figcaption><em>Internal structure (FBN)</em></figcaption>
-      </figure>
-      <br>
-      <figure>
-        <img src="timing_diagrams/E_R_TRIG_timing_diagram.png" alt="Rising Trigger Timing Diagram">
-        <figcaption><em>Timing diagram</em></figcaption>
-      </figure>
-    </div>
+<p align="center">
+  <img src="additional_materials/E_R_TRIG_FBN.png" alt="Rising Trigger FBN Diagram"><br>
+  <i>Internal structure (FBN)</i>
+</p>
+
+<p align="center">
+  <img src="timing_diagrams/E_R_TRIG_timing_diagram.png" alt="Rising Trigger Timing Diagram"><br>
+  <i>Timing diagram</i>
+</p>
 
 ## Testing Methodology
 
@@ -95,64 +87,56 @@ Projekt polega na implementacji i przetestowaniu podstawowych oraz złożonych b
 *   **`RS Latch` (oraz `SR Latch`)**  
     Blok przerzutnika, w którym zdarzenie Set (S) ustawia wyjście na `true`, a zdarzenie Reset (R) zmienia je na `false`. Zdarzenie wyjściowe jest wyzwalane tylko przy zmianie stanu.
 
-    <div align="center">
-      <figure>
-        <img src="additional_materials/E_RS_SR_ECC.png" alt="Schemat ECC dla RS/SR Latch">
-        <figcaption><em>Wewnętrzna struktura (ECC)</em></figcaption>
-      </figure>
-      <br>
-      <figure>
-        <img src="timing_diagrams/E_RS_timing_diagram.png" alt="Diagram czasowy dla RS Latch">
-        <figcaption><em>Diagram czasowy</em></figcaption>
-      </figure>
-    </div>
+<p align="center">
+  <img src="additional_materials/E_RS_SR_ECC.png" alt="Schemat ECC dla RS/SR Latch"><br>
+  <i>Wewnętrzna struktura (ECC)</i>
+</p>
+
+<p align="center">
+  <img src="timing_diagrams/E_RS_timing_diagram.png" alt="Diagram czasowy dla RS Latch"><br>
+  <i>Diagram czasowy</i>
+</p>
 
 *   **`D Flip-Flop`**  
     Blok przerzutnika typu D. Algorytm sprawdza stan zmiennej `D` w momencie wyzwolenia zdarzenia zegara (CLK). Warunkiem przejścia i aktualizacji wyjścia `Q` jest wystąpienie różnicy między wartością wejściową a wyjściową: **`CLK AND (Q <> D)`**.
 
-    <div align="center">
-      <figure>
-        <img src="additional_materials/E_D_FF_ECC.png" alt="Schemat ECC dla D Flip-Flop">
-        <figcaption><em>Wewnętrzna struktura (ECC)</em></figcaption>
-      </figure>
-      <br>
-      <figure>
-        <img src="timing_diagrams/E_D_FF_timing_diagram.png" alt="Diagram czasowy dla D Flip-Flop">
-        <figcaption><em>Diagram czasowy</em></figcaption>
-      </figure>
-    </div>
+<p align="center">
+  <img src="additional_materials/E_D_FF_ECC.png" alt="Schemat ECC dla D Flip-Flop"><br>
+  <i>Wewnętrzna struktura (ECC)</i>
+</p>
+
+<p align="center">
+  <img src="timing_diagrams/E_D_FF_timing_diagram.png" alt="Diagram czasowy dla D Flip-Flop"><br>
+  <i>Diagram czasowy</i>
+</p>
 
 ### Złożone Bloki Funkcyjne (Composite Function Blocks)
 
 *   **`Event Train` (`E_TRAIN`)**  
     Generuje określoną sekwencję zdarzeń wyjściowych po wyzwoleniu zdarzenia START. Opóźnienie między zdarzeniami określa wejście czasowe, a liczbę wygenerowanych zdarzeń definiuje zmienna `N`.
 
-    <div align="center">
-      <figure>
-        <img src="additional_materials/E_TRAIN_FBN.png" alt="Schemat FBN dla Event Train">
-        <figcaption><em>Wewnętrzna struktura sieci bloków (FBN)</em></figcaption>
-      </figure>
-      <br>
-      <figure>
-        <img src="timing_diagrams/E_TRAIN_timing_diagram.png" alt="Diagram czasowy dla Event Train">
-        <figcaption><em>Diagram czasowy</em></figcaption>
-      </figure>
-    </div>
+<p align="center">
+  <img src="additional_materials/E_TRAIN_FBN.png" alt="Schemat FBN dla Event Train"><br>
+  <i>Wewnętrzna struktura sieci bloków (FBN)</i>
+</p>
+
+<p align="center">
+  <img src="timing_diagrams/E_TRAIN_timing_diagram.png" alt="Diagram czasowy dla Event Train"><br>
+  <i>Diagram czasowy</i>
+</p>
 
 *   **`Event Rising Trigger` (`E_R_TRIG`)**  
     Wykrywa zmianę stanu wejścia z `false` na `true`. Zdarzenie wyjściowe generowane jest wyłącznie przy zboczu narastającym.
 
-    <div align="center">
-      <figure>
-        <img src="additional_materials/E_R_TRIG_FBN.png" alt="Schemat FBN dla Rising Trigger">
-        <figcaption><em>Wewnętrzna struktura sieci bloków (FBN)</em></figcaption>
-      </figure>
-      <br>
-      <figure>
-        <img src="timing_diagrams/E_R_TRIG_timing_diagram.png" alt="Diagram czasowy dla Rising Trigger">
-        <figcaption><em>Diagram czasowy</em></figcaption>
-      </figure>
-    </div>
+<p align="center">
+  <img src="additional_materials/E_R_TRIG_FBN.png" alt="Schemat FBN dla Rising Trigger"><br>
+  <i>Wewnętrzna struktura sieci bloków (FBN)</i>
+</p>
+
+<p align="center">
+  <img src="timing_diagrams/E_R_TRIG_timing_diagram.png" alt="Diagram czasowy dla Rising Trigger"><br>
+  <i>Diagram czasowy</i>
+</p>
 
 ## Metodologia Testowania
 
