@@ -1,4 +1,4 @@
-# Design Assignment 1 - Software Design for Industrial Automation
+# Design Assignment 1 - Software Design for Industrial Automation (EN)
 
 This project involves the implementation and testing of basic and composite Function Blocks in the EcoStruxure Automation Expert environment by Schneider Electric. The solutions are based on the IEC 61499 standard for PLC programming.
 
@@ -74,7 +74,7 @@ A dedicated test application was created for each implemented block. Their behav
 
 ---
 
-# Zadanie Projektowe 1 - Software Design dla Rozproszonych systemów automatyki przemysłowej
+# Zadanie Projektowe 1 - Software Design dla Rozproszonych systemów automatyki przemysłowej (PL)
 
 Projekt polega na implementacji i przetestowaniu podstawowych oraz złożonych bloków funkcyjnych w środowisku EcoStruxure Automation Expert firmy Schneider Electric. Rozwiązania opierają się na standardzie IEC 61499 dla sterowników PLC.
 
