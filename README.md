@@ -13,7 +13,7 @@ This project involves the implementation and testing of basic and composite Func
     
     
     ![RS/SR Latch ECC Diagram](additional_materials/E_RS_SR_ECC.png)
-    *Internal structure (ECC):*
+    <br>*Internal structure (ECC):*
     
     
     ![RS Latch Timing Diagram](timing_diagrams/E_RS_timing_diagram.png)
