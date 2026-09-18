@@ -1,2 +1,2 @@
 <h1>Repository for materials concerning Software Design for Industry Automation Course at LTU University </h1><br>
-To maintain clarity of the repo, every assignment and project is published under separate branch.
+To maintain clarity of the repo, every assignment and project is published under its own separate branch.
