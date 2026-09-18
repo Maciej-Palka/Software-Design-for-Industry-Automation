@@ -1,0 +1,50 @@
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Project: design_assignment_1">
+<param name="Local" value="index.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="System">
+<param name="Local" value="System.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="System.APP1">
+<param name="Local" value="System.APP1.html"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="System.E_TRAIN_TEST">
+<param name="Local" value="System.E_TRAIN_TEST.html"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="System.EcoRT_0">
+<param name="Local" value="System.EcoRT_0.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="System.EcoRT_0.RES0">
+<param name="Local" value="System.EcoRT_0.RES0.html"></OBJECT></LI>
+</UL></UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Basics">
+<param name="Local" value="Basics.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="E_D_FF">
+<param name="Local" value="E_D_FF.html"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="E_RS">
+<param name="Local" value="E_RS.html"></OBJECT></LI>
+</UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Composites">
+<param name="Local" value="Composites.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="E_R_TRIG">
+<param name="Local" value="E_R_TRIG.html"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="E_TRAIN">
+<param name="Local" value="E_TRAIN.html"></OBJECT></LI>
+</UL></UL></UL>
+</BODY></HTML>

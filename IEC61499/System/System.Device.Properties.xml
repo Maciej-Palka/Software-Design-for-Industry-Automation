@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DeviceProperties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DefaultProfile />
+  <Profile Name="(Local Test)">
+    <Device Name="EcoRT_0">
+      <ComplexProperty Name="Configuration" Expanded="true">
+        <ComplexProperty Name="Communication" Expanded="true">
+          <ComplexProperty Name="ReliableCrossComm" Expanded="true">
+            <Property Name="URI" Value="udp://0.0.0.0:41500" IsPassword="false" />
+          </ComplexProperty>
+        </ComplexProperty>
+      </ComplexProperty>
+    </Device>
+  </Profile>
+</DeviceProperties>

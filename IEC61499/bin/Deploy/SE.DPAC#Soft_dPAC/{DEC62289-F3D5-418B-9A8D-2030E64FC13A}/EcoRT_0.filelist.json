@@ -1,0 +1,13 @@
+{
+  "snapshot": {
+    "guid": "dec62289-f3d5-418b-9a8d-2030e64fc13a",
+    "hash": "CEB217394ECE79C686AB4A2271DCEECD2BA28D83B73BE454BFC07A0D8C3BF201",
+    "app": {
+      "hash": "CEB217394ECE79C686AB4A2271DCEECD2BA28D83B73BE454BFC07A0D8C3BF201",
+      "items": [
+        "Main#E_TRAIN.bin",
+        "Device.bin"
+      ]
+    }
+  }
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE System SYSTEM "../LibraryElement.dtd">
+<System Name="System" Comment="System Configuration">
+  <Attribute Name="System.Device.FolderPath" Value="EcoRT_0" />
+  <Identification Standard="61499-1" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/9/2026" />
+  <Application ID="3956299444FB9279" Name="E_SR_RS_TEST">
+    <SubAppNetwork>
+      <FB ID="AD4A0A45AAB33F71" Name="RS_MP" Type="E_RS" x="1080" y="400" Namespace="Main" />
+      <FB ID="401A93D82DB4E68" Name="SR_MP" Type="E_SR" x="2040" y="400" Namespace="Main" />
+      <FB ID="B4702C4D75F6F64F" Name="RS_LIBRARY" Type="E_RS" x="1080" y="1040" Namespace="IEC61499.Standard" />
+      <FB ID="F5E5E61869931B25" Name="SR_LIBRARY" Type="E_SR" x="2040" y="1040" Namespace="IEC61499.Standard" />
+    </SubAppNetwork>
+  </Application>
+  <Application ID="ABEDE4881D29117C" Name="E_TRAIN_TEST">
+    <SubAppNetwork>
+      <FB ID="A45DBB2C66D12BCE" Name="E_TRAIN_MP" Type="E_TRAIN" x="1180" y="380" Namespace="Main" />
+      <FB ID="335C3183C015C02C" Name="E_TRAIN_LIBRARY" Type="E_TRAIN" x="1220" y="1060" Namespace="IEC61499.Standard" />
+    </SubAppNetwork>
+  </Application>
+  <Application ID="F10BE0C9E1386D4D" Name="E_D_FF_TEST">
+    <SubAppNetwork>
+      <FB ID="252145C0BD5FCB85" Name="D_LATCH_MP" Type="E_D_FF" x="1160" y="440" Namespace="Main" />
+      <FB ID="3E71B3FCF276475E" Name="D_LATCH_LIBRARY" Type="E_D_FF" x="1140" y="1060" Namespace="IEC61499.Standard" />
+    </SubAppNetwork>
+  </Application>
+  <Application ID="B097F8F24048EF86" Name="E_R_TRIG_TEST">
+    <SubAppNetwork>
+      <FB ID="990CC1D773CBCB0F" Name="E_R_TRIG_MP" Type="E_R_TRIG" x="1040" y="480" Namespace="Main" />
+      <FB ID="5CEAAD6CF2F26216" Name="E_R_TRIG_LIBRARY" Type="E_R_TRIG" x="1020" y="1000" Namespace="IEC61499.Standard" />
+    </SubAppNetwork>
+  </Application>
+  <Device ID="2B661233-DEBB-4FAD-934B-925E81E3FE02" Name="EcoRT_0" Type="Soft_dPAC" x="700" y="700.0002" Namespace="SE.DPAC">
+    <Resource ID="967BC0F72DCCD0CA" Name="RES0" Type="EMB_RES_ECO" x="800" y="800" Namespace="Runtime.Management">
+      <FBNetwork>
+        <FB ID="120B34FC4BBF0218" Name="E_TRAIN_MP" Type="E_TRAIN" x="1460" y="620" Namespace="Main" />
+        <FB ID="8F1025A57EBA7360" Name="E_TRAIN_LIBRARY" Type="E_TRAIN" x="2260" y="580" Namespace="IEC61499.Standard" />
+        <FB ID="2BA99ADF131DA2C2" Name="RS_MP" Type="E_RS" x="1080" y="400" Namespace="Main" />
+        <FB ID="F66F55D0EE925DC7" Name="SR_MP" Type="E_SR" x="2040" y="400" Namespace="Main" />
+        <FB ID="71FD36C9C7A3AE67" Name="RS_LIBRARY" Type="E_RS" x="1080" y="1040" Namespace="IEC61499.Standard" />
+        <FB ID="345AF88D8DCA0065" Name="SR_LIBRARY" Type="E_SR" x="2040" y="1040" Namespace="IEC61499.Standard" />
+        <FB ID="A8A6A98745C31AE" Name="E_R_TRIG_MP" Type="E_R_TRIG" x="920" y="240" Namespace="Main" />
+        <FB ID="90E4C61C49545B73" Name="E_R_TRIG_LIBRARY" Type="E_R_TRIG" x="1020" y="1000" Namespace="IEC61499.Standard" />
+        <FB ID="C97483A2AABC6190" Name="D_LATCH_MP" Type="E_D_FF" x="1120" y="400" Namespace="Main" />
+        <FB ID="3F3269991947DBF4" Name="D_LATCH_LIBRARY" Type="E_D_FF" x="1140" y="1060" Namespace="IEC61499.Standard" />
+      </FBNetwork>
+    </Resource>
+    <FBNetwork />
+  </Device>
+  <Mapping From="E_TRAIN_TEST.E_TRAIN_MP" To="EcoRT_0.RES0" />
+  <Mapping From="E_TRAIN_TEST.E_TRAIN_LIBRARY" To="EcoRT_0.RES0" />
+  <Mapping From="E_SR_RS_TEST.RS_MP" To="EcoRT_0.RES0" />
+  <Mapping From="E_SR_RS_TEST.SR_MP" To="EcoRT_0.RES0" />
+  <Mapping From="E_SR_RS_TEST.RS_LIBRARY" To="EcoRT_0.RES0" />
+  <Mapping From="E_SR_RS_TEST.SR_LIBRARY" To="EcoRT_0.RES0" />
+  <Mapping From="E_R_TRIG_TEST.E_R_TRIG_MP" To="EcoRT_0.RES0" />
+  <Mapping From="E_R_TRIG_TEST.E_R_TRIG_LIBRARY" To="EcoRT_0.RES0" />
+  <Mapping From="E_D_FF_TEST.D_LATCH_MP" To="EcoRT_0.RES0" />
+  <Mapping From="E_D_FF_TEST.D_LATCH_LIBRARY" To="EcoRT_0.RES0" />
+</System>

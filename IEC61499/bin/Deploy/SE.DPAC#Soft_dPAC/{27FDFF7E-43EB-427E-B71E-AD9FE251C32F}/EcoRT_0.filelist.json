@@ -1,0 +1,24 @@
+{
+  "snapshot": {
+    "guid": "27fdff7e-43eb-427e-b71e-ad9fe251c32f",
+    "hash": "6D8E4903758AAD3D6390580BE57ACF26C728FCCED2C59BD4542CC207303BDC19",
+    "app": {
+      "hash": "6D8E4903758AAD3D6390580BE57ACF26C728FCCED2C59BD4542CC207303BDC19",
+      "items": [
+        "Main#E_TRAIN.bin",
+        "Main#E_R_TRIG.bin",
+        "Device.bin"
+      ]
+    }
+  },
+  "remove": [
+    {
+      "path": "Main#AND_88A3DD8EC65DD11C.bin",
+      "location": "Working"
+    },
+    {
+      "path": "Main#NOT_42C76073DCEB1A7A.bin",
+      "location": "Working"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HwConfiguration\bin\Windows\Debug\HwConfiguration.dll
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HwConfiguration\bin\Windows\Debug\HwConfiguration.pdb
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HwConfiguration\bin\Windows\Debug\SE.DPAC.HwConfiguration.dll
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HwConfiguration\obj\Windows\Debug\HwConfiguration.hwconfigproj.AssemblyReference.cache
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HwConfiguration\obj\Windows\Debug\HwConfiguration.hwconfigproj.CoreCompileInputs.cache
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HwConfiguration\obj\Windows\Debug\HwConfiguration.hwconfigproj.CopyComplete
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HwConfiguration\obj\Windows\Debug\HwConfiguration.dll
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HwConfiguration\obj\Windows\Debug\HwConfiguration.pdb
+C:\Users\macie\Desktop\szwecja\SDfIA\DA1\design_assignment_1\HwConfiguration\bin\Windows\Debug\HwConfiguration.dll
+C:\Users\macie\Desktop\szwecja\SDfIA\DA1\design_assignment_1\HwConfiguration\bin\Windows\Debug\HwConfiguration.pdb
+C:\Users\macie\Desktop\szwecja\SDfIA\DA1\design_assignment_1\HwConfiguration\bin\Windows\Debug\SE.DPAC.HwConfiguration.dll
+C:\Users\macie\Desktop\szwecja\SDfIA\DA1\design_assignment_1\HwConfiguration\obj\Windows\Debug\HwConfiguration.hwconfigproj.AssemblyReference.cache
+C:\Users\macie\Desktop\szwecja\SDfIA\DA1\design_assignment_1\HwConfiguration\obj\Windows\Debug\HwConfiguration.hwconfigproj.CoreCompileInputs.cache
+C:\Users\macie\Desktop\szwecja\SDfIA\DA1\design_assignment_1\HwConfiguration\obj\Windows\Debug\HwConfiguration.hwconfigproj.CopyComplete
+C:\Users\macie\Desktop\szwecja\SDfIA\DA1\design_assignment_1\HwConfiguration\obj\Windows\Debug\HwConfiguration.dll
+C:\Users\macie\Desktop\szwecja\SDfIA\DA1\design_assignment_1\HwConfiguration\obj\Windows\Debug\HwConfiguration.pdb

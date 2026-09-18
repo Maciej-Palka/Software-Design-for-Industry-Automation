@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeploymentPluginsFile>
+  <FileGroup Name="ecort_opcua_ns2.bin" Alias="ecort_opcua_ns2.bin" Location="Working" FullName="C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\{27FDFF7E-43EB-427E-B71E-AD9FE251C32F}\System.EcoRT_0.ecort_opcua_ns2.bin" xmlns="http://tempuri.org/DeploySnapshot.xsd" />
+  <FileGroup Name="OPCUAClientConfig.xml" Alias="OPCUAClientConfig.xml" Location="Working" FullName="C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\{27FDFF7E-43EB-427E-B71E-AD9FE251C32F}\System.EcoRT_0.OPCUAClientConfig.xml" xmlns="http://tempuri.org/DeploySnapshot.xsd" />
+  <FileGroup Name="offline.opd" Alias="offline.opd" Location="Persistence" FullName="C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\{27FDFF7E-43EB-427E-B71E-AD9FE251C32F}\System.EcoRT_0.offline.opd" xmlns="http://tempuri.org/DeploySnapshot.xsd" />
+  <FileGroup Name="persdesc.xml" Alias="PersDesc.xml" Location="Working" FullName="C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\{27FDFF7E-43EB-427E-B71E-AD9FE251C32F}\System.EcoRT_0.persdesc.xml" xmlns="http://tempuri.org/DeploySnapshot.xsd" />
+  <FileGroup Name="alarmConfig.xml" Alias="AlarmConfig.xml" Location="Working" FullName="C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\{27FDFF7E-43EB-427E-B71E-AD9FE251C32F}\System.EcoRT_0.alarmconfig.xml" xmlns="http://tempuri.org/DeploySnapshot.xsd" />
+  <FileGroup Name="archiveConfig.xml" Alias="ArchiveConfig.xml" Location="Working" FullName="C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\{27FDFF7E-43EB-427E-B71E-AD9FE251C32F}\System.EcoRT_0.archiveconfig.xml" xmlns="http://tempuri.org/DeploySnapshot.xsd" />
+</DeploymentPluginsFile>

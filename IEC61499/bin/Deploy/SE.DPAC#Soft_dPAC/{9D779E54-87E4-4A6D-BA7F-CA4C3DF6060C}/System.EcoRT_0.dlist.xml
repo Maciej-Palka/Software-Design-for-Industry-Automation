@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployFiles xmlns="http://tempuri.org/DeploySnapshot.xsd">
+  <Deployable>
+    <DeployInformation Type="Working">
+      <FileGroup Name="FileList">
+        <FileItem Name="Composites/Main#E_TRAIN.bin" Library="IEC61499.dll" BuildSnapshot="{5F43FD04-4364-41BF-9BB8-24B319BDE7AA}">
+          <Modified>2026-09-12T18:44:34</Modified>
+          <Hash>657BA1D140D5A45B897DEDD634F7ADB1C1C8111B7D1E97B744FF926D1D95D779</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#E_RS.bin" Library="IEC61499.dll" BuildSnapshot="{5F43FD04-4364-41BF-9BB8-24B319BDE7AA}">
+          <Modified>2026-09-12T18:44:34</Modified>
+          <Hash>261FF6401D756C3DC03E6089530FAEECF3E9DC6C6F175272D02C6D2291591034</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#E_SR.bin" Library="IEC61499.dll" BuildSnapshot="{9D779E54-87E4-4A6D-BA7F-CA4C3DF6060C}">
+          <Modified>2026-09-12T18:46:54</Modified>
+          <Hash>1449F3BA5691F02DF6FC155AEC25D76482F23489108A0C8F53030D501CF82C98</Hash>
+        </FileItem>
+      </FileGroup>
+      <FileGroup Name="DeployList">
+        <FileItem Name="Basics/Main#E_SR.bin" Library="IEC61499.dll" />
+      </FileGroup>
+    </DeployInformation>
+  </Deployable>
+</DeployFiles>

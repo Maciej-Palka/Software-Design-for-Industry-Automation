@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\macie\\Desktop\\szwecja\\SDfIA\\DA1\\design_assignment_1\\HMI\\HMI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\macie\\Desktop\\szwecja\\SDfIA\\DA1\\design_assignment_1\\HMI\\HMI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\macie\\Desktop\\szwecja\\SDfIA\\DA1\\design_assignment_1\\HMI\\HMI.csproj",
+        "projectName": "HMI",
+        "projectPath": "C:\\Users\\macie\\Desktop\\szwecja\\SDfIA\\DA1\\design_assignment_1\\HMI\\HMI.csproj",
+        "packagesPath": "C:\\Users\\macie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\macie\\Desktop\\szwecja\\SDfIA\\DA1\\design_assignment_1\\HMI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\macie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Schneider Electric\\EcoStruxure Automation Expert - Buildtime 23.0\\Studio\\data\\nuget\\packages": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "c:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

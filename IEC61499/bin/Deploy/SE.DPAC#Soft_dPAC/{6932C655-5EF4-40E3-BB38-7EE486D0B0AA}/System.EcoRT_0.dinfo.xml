@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployInformation ProjectName="design_assignment_1" ProjectGuid="{4DDD947D-E2B6-4E05-9950-584E7374B508}" System="System" DeviceName="EcoRT_0" DeviceID="2B661233-DEBB-4FAD-934B-925E81E3FE02">
+  <UsedDll>IEC61499.dll</UsedDll>
+  <FileName>C:\Users\macie\Desktop\szwecja\SDfIA\DA1\design_assignment_1\IEC61499\System\System.sys</FileName>
+  <BuildTime>2026-09-12 20:59:55Z</BuildTime>
+  <StudioVersion>IEC 61499 IDE, Panther UAOv23.0 g5173 4181ef5 Thu Oct 12 16:53:40 2023</StudioVersion>
+  <StudioInfo>V1;866B9D5B83E8A3D0E1416684BEF5E8F9B5744989BAF4EEF9B5746286A4F4E9959D7B6BC59EFFE8E5AE786D8DB4E59DD4B1723A8CB2E2BAD2B248669BA4F8B4DBB172699C88A0E8E5AE786D8DB4E594C0B5733A93E3D597F1E52330ACFAD4E1F7EA3A33ADE7A4FE8CE52237C5E2A9E7F0EB2430DC95A4E38DA12C;</StudioInfo>
+  <ConfigFolder>C:\Users\macie\Desktop\szwecja\SDfIA\DA1\design_assignment_1\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\{6932C655-5EF4-40E3-BB38-7EE486D0B0AA}\Configuration</ConfigFolder>
+  <Actions />
+  <DeviceFileName>System.EcoRT_0.smartdev.xml</DeviceFileName>
+  <DependenciesFileName>System.EcoRT_0.fbdep.txt</DependenciesFileName>
+  <SnapshotGuid>{6932C655-5EF4-40E3-BB38-7EE486D0B0AA}</SnapshotGuid>
+  <ExpectedSnapshotGuid>{B75AC7A9-230E-4786-B2C8-7C33B29A5CF4}</ExpectedSnapshotGuid>
+</DeployInformation>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="4569c374-d209-4559-b4d7-12c5313756e8" Name="E_R_TRIG" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="9" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/9/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="EI" Comment="Initialization Request">
+        <With Var="QI" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="EO" Comment="Initialization Confirm" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="QI" Type="BOOL" InitialValue="FALSE" Comment="Input event qualifier" />
+    </InputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="E_D_FF" x="1060" y="680" Namespace="IEC61499.Standard" />
+    <FB ID="8" Name="FB2" Type="E_PERMIT" x="1520" y="680" Namespace="IEC61499.Standard" />
+    <Input Name="EI" x="440" y="692" Type="Event" />
+    <Input Name="QI" x="440" y="892" Type="Data" />
+    <Output Name="EO" x="2160" y="692" Type="Event" />
+    <EventConnections>
+      <Connection Source="FB2.EO" Destination="EO" />
+      <Connection Source="FB1.EO" Destination="FB2.EI" />
+      <Connection Source="EI" Destination="FB1.CLK" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="QI" Destination="FB1.D" />
+      <Connection Source="FB1.Q" Destination="FB2.PERMIT" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

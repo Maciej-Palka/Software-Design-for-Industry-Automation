@@ -1,0 +1,34 @@
+[OPTIONS]
+Binary TOC=Yes
+Compatibility=1.1 or later
+Compiled file=htmlhelp.chm
+Contents file=toc.hhc
+Default Window=Main
+Default topic=index.html
+Display compile progress=Yes
+Full-text search=Yes
+Language=0x0409 English (UNITED STATES)
+Title=Project: design_assignment_1
+Enhanced decompilation=No
+
+[WINDOWS]
+Main="Project: design_assignment_1","toc.hhc",,"index.html","index.html",,,,,0x2520,,0x603006,,,,,,,,0
+
+
+[FILES]
+index.html
+System.html
+System.APP1.html
+System.E_TRAIN_TEST.html
+System.EcoRT_0.html
+System.EcoRT_0.RES0.html
+Basics.html
+E_D_FF.html
+E_RS.html
+Composites.html
+E_R_TRIG.html
+E_TRAIN.html
+
+css\cssimg\*.jpg
+css\cssimg\*.png
+css\cssimg\*.gif

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployFiles xmlns="http://tempuri.org/DeploySnapshot.xsd">
+  <Deployable>
+    <DeployInformation Type="Working">
+      <FileGroup Name="FileList">
+        <FileItem Name="Composites/Main#E_TRAIN.bin" Library="IEC61499.dll" BuildSnapshot="{6D64A9B7-DCBF-4C17-9075-DAB9F5888E1A}">
+          <Modified>2026-09-09T20:48:24</Modified>
+          <Hash>3ECDF9FD2455594BD2647A29B8087E7A89AED2869464F96BE239A04FA391DC69</Hash>
+        </FileItem>
+      </FileGroup>
+      <FileGroup Name="DeployList">
+        <FileItem Name="Composites/Main#E_TRAIN.bin" Library="IEC61499.dll" />
+      </FileGroup>
+    </DeployInformation>
+  </Deployable>
+</DeployFiles>

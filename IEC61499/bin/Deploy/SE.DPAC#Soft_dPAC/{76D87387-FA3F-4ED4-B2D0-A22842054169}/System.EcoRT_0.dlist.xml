@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployFiles xmlns="http://tempuri.org/DeploySnapshot.xsd">
+  <Deployable>
+    <DeployInformation Type="Working">
+      <FileGroup Name="FileList">
+        <FileItem Name="Composites/Main#E_TRAIN.bin" Library="IEC61499.dll" BuildSnapshot="{5E69DE91-18E8-4A3D-A86C-83B3D6343A87}">
+          <Modified>2026-09-09T21:45:36</Modified>
+          <Hash>1E031C5F697E41EE63C69AB3DE222EDA2B6740C69CF5E998AEE1128EA54F3A88</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#AND_88A3DD8EC65DD11C.bin" Library="IEC61499.dll" BuildSnapshot="{76D87387-FA3F-4ED4-B2D0-A22842054169}">
+          <Modified>2026-09-09T22:00:52</Modified>
+          <Hash>121D6BF9585FF40C89B5E8C7F4BC88188EEE4B20174973313CBDFE8A0D440669</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#NOT_42C76073DCEB1A7A.bin" Library="IEC61499.dll" BuildSnapshot="{76D87387-FA3F-4ED4-B2D0-A22842054169}">
+          <Modified>2026-09-09T22:00:52</Modified>
+          <Hash>E4DD4C9567CE9F23878D10F9C214236FE430A9E05ECD66C1F156F9AAD7161730</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#E_R_TRIG.bin" Library="IEC61499.dll" BuildSnapshot="{76D87387-FA3F-4ED4-B2D0-A22842054169}">
+          <Modified>2026-09-09T22:00:52</Modified>
+          <Hash>F61121903716EC3C5DCB3BED127354130B0F6C0FD866E062E319992D4A72506C</Hash>
+        </FileItem>
+      </FileGroup>
+      <FileGroup Name="DeployList">
+        <FileItem Name="Basics/Main#AND_88A3DD8EC65DD11C.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#NOT_42C76073DCEB1A7A.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#E_R_TRIG.bin" Library="IEC61499.dll" />
+      </FileGroup>
+    </DeployInformation>
+  </Deployable>
+</DeployFiles>

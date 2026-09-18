@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System Name="System" ProjectName="design_assignment_1" ProjectGuid="{4DDD947D-E2B6-4E05-9950-584E7374B508}" BuildTime="2026-09-09 20:04:29Z" DeployTime="" StudioVersion="IEC 61499 IDE, Panther UAOv23.0 g5173 4181ef5 Thu Oct 12 16:53:40 2023" SnapshotGuid="{27FDFF7E-43EB-427E-B71E-AD9FE251C32F}" ExpectedSnapshotGuid="{76D87387-FA3F-4ED4-B2D0-A22842054169}">
+  <Device ID="2B661233-DEBB-4FAD-934B-925E81E3FE02" Name="EcoRT_0" Type="Soft_dPAC" Namespace="SE.DPAC">
+    <Resource ID="967BC0F72DCCD0CA" Name="RES0" Type="EMB_RES_ECO" Namespace="Runtime.Management">
+      <FBNetwork>
+        <FB ID="120B34FC4BBF0218" Name="FB1" Type="E_TRAIN" Namespace="Main" />
+        <FB ID="8F1025A57EBA7360" Name="FB2" Type="E_TRAIN" Namespace="IEC61499.Standard" />
+        <FB ID="486744CDA2D8499F" Name="FB3" Type="E_R_TRIG" Namespace="Main" />
+        <FB Name="START" Type="E_RESTART" Namespace="IEC61499.Standard" />
+        <EventConnections />
+        <DataConnections />
+        <AdapterConnections />
+      </FBNetwork>
+    </Resource>
+    <FBNetwork />
+  </Device>
+</System>

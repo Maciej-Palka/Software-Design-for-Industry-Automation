@@ -1,0 +1,13 @@
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\bin\Windows\Debug\HMI.deps.json
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\bin\Windows\Debug\HMI.dll
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\bin\Windows\Debug\HMI.pdb
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\bin\Windows\Debug\HMIBaseSymbols.dll
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\bin\Windows\Debug\SE.DPAC.HMI.dll
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\bin\Windows\Debug\SE.DPAC.HMI.imgstore
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\obj\Windows\Debug\HMI.csproj.AssemblyReference.cache
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\obj\Windows\Debug\HMI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\obj\Windows\Debug\HMI.csproj.CoreCompileInputs.cache
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\obj\Windows\Debug\HMI.langstore
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\obj\Windows\Debug\HMI.csproj.CopyComplete
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\obj\Windows\Debug\HMI.dll
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\HMI\obj\Windows\Debug\HMI.pdb

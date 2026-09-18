@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="980574db-f694-47b5-9f3c-e933e1ce5cc0" Name="E_SR" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/12/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="S" Comment="Initialization Request" />
+      <Event Name="R" Comment="Normal Execution Request" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="EO" Comment="Initialization Confirm">
+        <With Var="Q" />
+      </Event>
+    </EventOutputs>
+    <OutputVars>
+      <VarDeclaration Name="Q" Type="BOOL" InitialValue="FALSE" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="ALGO_SET,ALGO_RESET" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="1376.941" y="429.4117" />
+      <ECState Name="SET" Comment="Initialization" x="2035.529" y="457.1764">
+        <ECAction Algorithm="ALGO_SET" Output="EO" />
+      </ECState>
+      <ECState Name="RESET" Comment="Normal execution" x="2029.647" y="1052.941">
+        <ECAction Algorithm="ALGO_RESET" Output="EO" />
+      </ECState>
+      <ECTransition Source="START" Destination="SET" Condition="S" x="1727.168" y="358.2992">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="413.917,85.2682,450.1934,86.79803" />
+      </ECTransition>
+      <ECTransition Source="SET" Destination="RESET" Condition="R" x="2114.327" y="756.8191">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="533.5877,168.8732,533.1407,209.8297" />
+      </ECTransition>
+      <ECTransition Source="RESET" Destination="SET" Condition="S" x="1951.775" y="747.1733">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="483.0233,206.6154,483.4236,165.6571" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="ALGO_SET" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+Q := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="ALGO_RESET" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+Q := FALSE;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

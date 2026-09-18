@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="f065981a-d683-4c5c-8238-d9ae924616ab" Name="E_D_FF" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/9/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="CLK" Comment="Initialization Request">
+        <With Var="D" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="EO" Comment="Initialization Confirm">
+        <With Var="Q" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="D" Type="BOOL" InitialValue="FALSE" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Q" Type="BOOL" InitialValue="FALSE" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="A_DFF" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="1500.941" y="1017.412" />
+      <ECState Name="UPDATE_Q" x="2316" y="844.0001">
+        <ECAction Algorithm="A_DFF" Output="EO" />
+      </ECState>
+      <ECTransition Source="START" Destination="UPDATE_Q" Condition="CLK AND (Q&lt;&gt;D)" x="1845.486" y="849.46">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="437.4445,214.2458,483.6143,202.6813" />
+      </ECTransition>
+      <ECTransition Source="UPDATE_Q" Destination="START" Condition="1" x="1906.66" y="1016.849">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="496.1284,254.1914,454.4592,263.0569" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="A_DFF" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+Q:=D;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

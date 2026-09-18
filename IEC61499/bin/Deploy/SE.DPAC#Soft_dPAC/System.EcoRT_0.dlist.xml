@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployFiles xmlns="http://tempuri.org/DeploySnapshot.xsd">
+  <Deployable>
+    <DeployInformation Type="Working">
+      <FileGroup Name="FileList">
+        <FileItem Name="Composites/Main#E_TRAIN.bin" Library="IEC61499.dll" BuildSnapshot="{54BE7C33-BACE-4542-884B-F1DF1B16FB82}">
+          <Modified>2026-09-12T23:07:20</Modified>
+          <Hash>631974FDC6155771247FC819B6D27CF301221078E03CF9CAA32E34BC1AFC993D</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#E_RS.bin" Library="IEC61499.dll" BuildSnapshot="{54BE7C33-BACE-4542-884B-F1DF1B16FB82}">
+          <Modified>2026-09-12T23:07:20</Modified>
+          <Hash>4218E06582EEAD13037CEACB441761B3549AC7FE82A89CF5E1BD3A3D5DD840BC</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#E_SR.bin" Library="IEC61499.dll" BuildSnapshot="{54BE7C33-BACE-4542-884B-F1DF1B16FB82}">
+          <Modified>2026-09-12T23:27:14</Modified>
+          <Hash>0A9B232E18969F6A4336163E5AA8715A1FAA7F8C862B2A6447F4744AD90F8407</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#E_R_TRIG.bin" Library="IEC61499.dll" BuildSnapshot="{54BE7C33-BACE-4542-884B-F1DF1B16FB82}">
+          <Modified>2026-09-12T23:07:20</Modified>
+          <Hash>7AA5C127C51A7FEAC76EEBA556B10C0F77CBB02615C01F7FB3C87F5D3B6A2B40</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#E_D_FF.bin" Library="IEC61499.dll" BuildSnapshot="{54BE7C33-BACE-4542-884B-F1DF1B16FB82}">
+          <Modified>2026-09-12T23:07:20</Modified>
+          <Hash>090AAA8F6A433BF312C7BBAD09166ABBBFB5DED2442738D64ECDB8DEEE0B80C8</Hash>
+        </FileItem>
+      </FileGroup>
+      <FileGroup Name="DeployList">
+        <FileItem Name="Composites/Main#E_TRAIN.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#E_RS.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#E_SR.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#E_R_TRIG.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#E_D_FF.bin" Library="IEC61499.dll" />
+      </FileGroup>
+    </DeployInformation>
+  </Deployable>
+</DeployFiles>

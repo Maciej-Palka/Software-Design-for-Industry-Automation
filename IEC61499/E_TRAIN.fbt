@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="be67125d-fb6b-4b87-a646-0a3234d9109d" Name="E_TRAIN" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="13" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/9/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="START" Comment="Initialization Request">
+        <With Var="DelayTime" />
+        <With Var="N" />
+      </Event>
+      <Event Name="STOP" Comment="Normal Execution Request" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="EO" Comment="Execution Confirmation">
+        <With Var="CV" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="DelayTime" Type="TIME" InitialValue="T#0s" />
+      <VarDeclaration Name="N" Type="UINT" InitialValue="0" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="CV" Type="UINT" InitialValue="0" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="E_CYCLE" x="1880" y="340" Namespace="IEC61499.Standard" />
+    <FB ID="2" Name="FB2" Type="E_CTU" x="2640" y="820" Namespace="IEC61499.Standard" />
+    <FB ID="3" Name="FB3" Type="E_PERMIT" x="3420" y="820" Namespace="IEC61499.Standard" />
+    <FB ID="13" Name="FB5" Type="E_MERGE" x="660" y="800" Namespace="IEC61499.Standard" />
+    <Input Name="START" x="60" y="212" Type="Event" />
+    <Input Name="STOP" x="60" y="412" Type="Event" />
+    <Input Name="DelayTime" x="1300" y="612" Type="Data" />
+    <Input Name="N" x="2100" y="1092" Type="Data" />
+    <Output Name="EO" x="3400" y="352" Type="Event" />
+    <Output Name="CV" x="3000" y="1152" Type="Data" />
+    <EventConnections>
+      <Connection Source="STOP" Destination="FB1.STOP" />
+      <Connection Source="START" Destination="FB1.START" dx1="172.1458">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.EO" Destination="EO" />
+      <Connection Source="FB1.EO" Destination="FB2.CU" dx1="48.5" />
+      <Connection Source="FB2.CUO" Destination="FB3.EI" />
+      <Connection Source="FB3.EO" Destination="FB1.STOP" dx1="47.16675" dx2="820" dy="-700">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="START" Destination="FB5.EI1" dx1="112.1458">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="STOP" Destination="FB5.EI2" dx1="45.83331" />
+      <Connection Source="FB5.EO" Destination="FB2.R" dx1="41.54163" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="DelayTime" Destination="FB1.DT" />
+      <Connection Source="FB2.CV" Destination="CV" />
+      <Connection Source="N" Destination="FB2.PV" />
+      <Connection Source="FB2.Q" Destination="FB3.PERMIT" dx1="73.5625" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

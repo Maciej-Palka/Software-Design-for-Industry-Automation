@@ -1,0 +1,3 @@
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\IEC61499\bin\SnapshotCompiles\{79078A61-36DF-46FD-A917-1EC107A56E61}\Default\IEC61499.dll
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\IEC61499\obj\SnapshotCompiles\{79078A61-36DF-46FD-A917-1EC107A56E61}\Default\IEC61499.dfbproj.CoreCompileInputs.cache
+C:\Users\macie\Desktop\szfecja\SDfIA\DA1\design_assignment_1\IEC61499\obj\SnapshotCompiles\{79078A61-36DF-46FD-A917-1EC107A56E61}\Default\IEC61499.dll

@@ -1,0 +1,177 @@
+@charset "UTF-8";
+@media all
+{
+
+body {
+	color:black; 
+	font-size:75%;
+	font-family: Tahoma, Helvetica, Verdana, Arial, sans-serif;
+	padding: 0; 
+	margin: 0; 
+	background: white url(../images/bg_head_help.jpg) repeat-x scroll top left;
+}
+
+body div.article {background: transparent url(../images/head_help.jpg) no-repeat scroll top left; margin: 0 30px 40px 40px; height:35px; padding-bottom:20px; padding-top:0px;}
+body div.article div.titlepage {margin:0; padding-top: 55px;  padding-bottom: 5px; } 
+body div.article div.titlepage hr { visibility:hidden; } 
+div.section {background: transparent url(../images/head_help.jpg) no-repeat scroll top left; margin: 0 30px 40px 40px; height:35px; padding-bottom:20px; padding-top:0px;}
+div.section div.titlepage {margin:0; padding-top: 55px;  padding-bottom: 5px; } 
+div.figure { padding-top: 10px;}
+img {margin-top: 3px;}
+
+div.article,
+/*div.section {border: none; padding-bottom:10px; padding-left:60px;padding-right:60px; background: transparent url(../images/header.jpg) no-repeat scroll top left;}*/
+div.author {border-top:1px dotted #ccc; border-bottom:1px dotted #ccc; padding: 0 10px 5px 0px; margin:0px;}
+
+span.linkbox {font-size:1.0em; padding-top:10px;}
+
+p.linkboxtitle { padding-top:20px;}
+p.linkboxtitle, p.descriptionboxtitle{font-size:1em; font-weight: bold; margin-bottom:8px; padding-top:0px}
+
+div.warning table { background: #EBF0F4; border-style:hidden; }
+div.note table { background: #EBF0F4; border-style:hidden; }
+div.tip table { background: #EBF0F4; border-style:hidden; }
+div.caution table { background: #EBF0F4; border-style:hidden; }
+div.important table { background: #EBF0F4; border-style:hidden; }
+
+div.warning  td { border-width:0px; }
+div.note td { border-width:0px; }
+div.tip td { border-width:0px; }
+div.caution td { border-width:0px; }
+div.important td { border-width:0px; }
+
+div.warning  table th { border-width:0px; background: transparent; color:#0092DD; }
+div.note  table th { border-width:0px; background: transparent; color:#0092DD; }
+div.tip  table th { border-width:0px; background: transparent; color:#0092DD; }
+div.caution  table th { border-width:0px; background: transparent; color:#0092DD; }
+div.important table th { border-width:0px; background: transparent; color:#0092DD; }
+
+div.warning,
+div.note,
+div.tip,
+div.caution,
+div.important { zoom:100%; }
+
+div.article div { zoom:100%; }
+div.section div.table { zoom:100%; }
+div.section div.simplesect { } 
+
+div.article,
+div.section,
+div.author,
+h2.title,
+h3.title,
+h2.subtitle,
+h3.subtitle {}
+h2.subtitle {color:#888;}
+
+h2.subtitle,
+h3.subtitle {font-size:90%; margin-bottom:10px; }
+
+div.abstract{margin-top:15px;}
+
+div.section div.simplesect div.titlepage div.authorgroup 
+{
+  margin:0 0;
+  margin-bottom: 5px;
+  padding:3px;
+}
+
+h1,h2,h3,h4,h5 {font-weight:bold; display:block; background:transparent;}
+
+h1 {font-size:1.2em; margin:0.2em 0 0.2em 0; }
+h2 {font-size:1.6em; margin:0.2em 0 0.2em 0; color:#0092dd;}
+h3 {font-size:1.4em; margin:0.2em 0 0.2em 0; color:#0092dd;}
+h4 {font-size:1.0em; margin:0.2em 0 0.5em 0; }
+h5 {font-size:1.0em; margin:0.2em 0 0.3em 0; }
+h6 {font-size:1.0em; margin:0.2em 0 0.3em 0; }
+
+h1.bigref {font-size:3.6em; margin:0.3em 0 0.3em 0; }
+a.bigref {font-size:1.2em; margin:0.5em 0 0.3em 0; }
+p.bigref {font-size:1.2em; margin:0.5em 0 0.3em 0; margin:15px 10px 15px 0;}
+
+a.email, h3.author {font-weight:normal;font-size:85%; color:#666; }
+
+div.abstract { padding-top:5px; }
+div.toc p b,
+div.section { display:block;}
+div.toc {margin-top:10px;}
+p.underlinepara span.bold strong{font-size:1.0em; margin: 20px 20px 55px 0px; }
+p.underlinepara{margin-top: 20px;}
+p.boxtitle {margin-top: 20px; color:#000;}
+p.red {font-weight:bold;font-style:normal;color:#F00;}
+
+p,dl,dd,dt {margin:0.6em 0 0em 0; line-height:1.3em; font-size: 1em; }
+dl,dd,dt {line-height:1em;}
+dt{line-height:1.2em; padding-left: 10px;}
+dd{line-height:1.2em; padding-left: 20px;}
+
+/* ul,ol {margin:0 0 0.5em 0;line-height:1.2em;font-size: 0.9em; }
+ul,ol {position:relative; }
+
+#nav ul {font-size: 1em;}
+ul,ol,dl {margin-left:1em;}
+li {} */
+
+strong, b {font-weight:bold;}
+em, i {font-style:italic;}
+pre, .code {background: #efefef; font-family:"Courier New", Courier, monospace; color:#777; margin:15px 5px 15px 0px; padding:0px 5px 0px 5px; font-size:90%;}
+pre {margin:0px; padding:0px;}
+.keyword {background:#0092dd; padding:0px 5px 0px 5px; color:#FFF; font-weight:bold; margin:5px 5px 13px 0;}
+address {font-style:normal; line-height:1.5em; margin:0 0 0.5em 0;}
+
+hr {color:#fff; background:transparent; margin:0 0 0.5em 0; padding:0 0 0.5em 0; border:0; border-bottom:1px #eee solid;}
+
+acronym, abbr {border-bottom:1px dashed #c00; cursor:help;}
+
+/* ### Bildpositionierung ############################################################################ */
+img.float_left {float:left; margin-right:1em; margin-bottom:0.15em; border:0;}
+img.float_right {float:right; margin-left:1em; margin-bottom:0.15em; border:0;}
+img.center {text-align:center; background:#fff; padding:4px; border:1px #ddd solid;}
+/* ### Auszeichnung lokaler und Externer Links ######################################################## */
+
+a,
+a:link,
+a:visited,
+a em.file { font-weight: bold; color:#00469A; text-decoration: none; }
+/*
+a.link,
+a:link.link,
+a:visited.link, 
+*/
+
+a.xref,
+a:link.xref,
+a:visited.xref {color:#00469A; font-size:1em;}
+
+a.ulink {margin-bottom:20px;}
+
+div.toc dl dl a{ font-weight:normal; }
+
+h2 a,
+h2 a:link,
+h2 a:visited { font-weight: bold; color: #ffffff; text-decoration: none;}
+a:hover {font-weight: bold;text-decoration:none;}
+
+span.underline {text-decoration: underline;}
+
+table {border-collapse:collapse; margin-bottom:0.1em; font-size:1em;}
+table.table {border-collapse:collapse; margin-bottom:0.1em;}
+
+form {overflow:hidden;}
+
+input, textarea {width:auto; font:1em Verdana, Arial, Helvetica, Sans-Serif; border:1px #ccc solid; background:#fafafa;padding:3px; color:#777;}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus {background:#f0f0f0; color:#333; border-color:#666;}
+
+tr.titlerow { background:#DCE6F2; font-weight:bold; font-size:1.0em;}
+td,th {padding:4px 10px; text-align:left;border: #ffffff groove 2px;}
+table.table thead tr td,
+th {padding:5px 10px;background:#95B3D7;color:#ffffff;}
+
+table {margin:10px 0; width:100%;}
+.hinweis td {border: #000099 solid 2px;}
+.bildunterschrift1, .Bildunterschrift { font-weight:bold; padding-bottom:10px; display:block;}
+.benennungen1, .Benennungen {color:black; font-style:italic;}
+
+}

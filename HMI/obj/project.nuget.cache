@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "qn5ix/HwpHyQEDkSUf7iPQxW0/w61czBuYIGBwX2QPzBr8ubthFljrJHmCJK1eAsYpUwdoGYA8XvRZAbjWm+9g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\macie\\Desktop\\szwecja\\SDfIA\\DA1\\design_assignment_1\\HMI\\HMI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\macie\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\macie\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

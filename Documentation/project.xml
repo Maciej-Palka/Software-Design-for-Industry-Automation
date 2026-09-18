@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article version="5.0" xml:id="article_top" xmlns="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <articleinfo>
+    <title xml:id="article_top.title">Project: design_assignment_1</title>
+    <orgname>Schneider Electric</orgname>
+  </articleinfo>
+  <section renderas="sect1" xml:id="System">
+    <title xml:id="System.title">System</title>
+    <subtitle>Type: System</subtitle>
+    <info>
+      <abstract><para>Undocumented System</para></abstract>
+    </info><emphasis role='descriptionbox'><para role='descriptionboxtitle'>Applications</para></emphasis>
+
+    <para><xref linkend='System.APP1' endterm='System.APP1.title'/></para>
+    <para><xref linkend='System.E_TRAIN_TEST' endterm='System.E_TRAIN_TEST.title'/></para><emphasis role='descriptionbox'><para role='descriptionboxtitle'>Devices</para></emphasis>
+
+    <para><xref linkend='System.EcoRT_0' endterm='System.EcoRT_0.title'/></para>
+  <section renderas="sect1" xml:id="System.APP1">
+    <title xml:id="System.APP1.title">System.APP1</title>
+    <subtitle>Type: Application</subtitle>
+    
+    
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    
+    <para><xref linkend='System' endterm='System.title'/></para>
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+  </section>
+
+  <section renderas="sect1" xml:id="System.E_TRAIN_TEST">
+    <title xml:id="System.E_TRAIN_TEST.title">System.E_TRAIN_TEST</title>
+    <subtitle>Type: Application</subtitle>
+    
+        <table>
+            <title>FBs</title>
+            <?dbhtml class='interfacetable'?>
+            <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+                <colspec colname='name' colwidth='1*'/>
+                <colspec colname='type' colwidth='2*'/>
+                <colspec colname='init' colwidth='1*'/>
+                <colspec colname='desc' colwidth='2*'/>
+                <thead>
+                    <row>
+                        <?dbhtml class='titlerow'?>
+                        <entry>Name</entry>
+                        <entry>Type</entry>
+                        <entry>Name</entry>
+                        <entry>Type</entry>
+                    </row>
+                </thead>
+                <tbody>
+                   <row>
+                     <entry>FB1</entry>
+                     <entry>
+    <xref linkend='E_TRAIN' endterm='E_TRAIN.title'/></entry>
+                     <entry>FB2</entry>
+                     <entry>E_TRAIN</entry>
+                   </row>
+
+                </tbody>
+            </tgroup>
+        </table>
+
+    
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    
+    <para><xref linkend='System' endterm='System.title'/></para>
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+  </section>
+
+  <section renderas="sect1" xml:id="System.EcoRT_0">
+    <title xml:id="System.EcoRT_0.title">System.EcoRT_0</title>
+    <subtitle>Type: SE.DPAC.Soft_dPAC (Device)</subtitle>
+<emphasis role='descriptionbox'><para role='descriptionboxtitle'>Description</para>
+Undocumented
+</emphasis>
+
+
+<emphasis role='descriptionbox'><para role='descriptionboxtitle'>Resources</para></emphasis>
+
+    <para><xref linkend='System.EcoRT_0.RES0' endterm='System.EcoRT_0.RES0.title'/></para>
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    
+    <para><xref linkend='System' endterm='System.title'/></para>
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+    
+  <section renderas="sect1" xml:id="System.EcoRT_0.RES0">
+    <title xml:id="System.EcoRT_0.RES0.title">System.EcoRT_0.RES0</title>
+    <subtitle>Type: Runtime.Management.EMB_RES_ECO (Resource)</subtitle>
+<emphasis role='descriptionbox'><para role='descriptionboxtitle'>Description</para>
+Undocumented
+</emphasis>
+    
+        <table>
+            <title>FBs</title>
+            <?dbhtml class='interfacetable'?>
+            <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+                <colspec colname='name' colwidth='1*'/>
+                <colspec colname='type' colwidth='2*'/>
+                <colspec colname='init' colwidth='1*'/>
+                <colspec colname='desc' colwidth='2*'/>
+                <thead>
+                    <row>
+                        <?dbhtml class='titlerow'?>
+                        <entry>Name</entry>
+                        <entry>Type</entry>
+                        <entry>Name</entry>
+                        <entry>Type</entry>
+                    </row>
+                </thead>
+                <tbody>
+                   <row>
+                     <entry>FB1</entry>
+                     <entry>
+    <xref linkend='E_TRAIN' endterm='E_TRAIN.title'/></entry>
+                     <entry>FB2</entry>
+                     <entry>E_TRAIN</entry>
+                   </row>
+
+                </tbody>
+            </tgroup>
+        </table>
+
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    
+    <para><xref linkend='System.EcoRT_0' endterm='System.EcoRT_0.title'/></para>
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+  </section>
+
+  </section> 
+
+
+
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+  </section>
+
+<section xml:id="Basics">
+    <title xml:id="Basics.title">Basics</title>
+    <subtitle xml:id="Basics.subtitle">Basics</subtitle>
+  <section renderas="sect1" xml:id="E_D_FF">
+    <title xml:id="E_D_FF.title">E_D_FF</title>
+    <subtitle>Type: Basic </subtitle>
+    <info>
+      <abstract><para>Undocumented E_D_FF</para></abstract>
+    </info>
+    
+        <figure>
+          <title>Interface</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref='E_D_FF.fbt.gif'/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <table>
+            <title>Event Interface</title>
+            <?dbhtml class='interfacetable'?>
+            <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+                <colspec colname='name' colwidth='1*'/>
+                <colspec colname='with' colwidth='1*'/>
+                <colspec colname='desc' colwidth='4*'/>
+                <thead>
+                    <row>
+                        <entry>Name</entry>
+                        <entry>With</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Event Inputs</entry>                   </row>
+                   <row>
+                     <entry>CLK</entry>
+                     <entry>D</entry>
+                     <entry>Initialization Request</entry>
+                   </row>
+
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Event Outputs</entry>                   </row>
+                   <row>
+                     <entry>EO</entry>
+                     <entry>Q</entry>
+                     <entry>Initialization Confirm</entry>
+                   </row>
+
+                </tbody>
+            </tgroup>
+        </table>
+
+        <table>
+            <title>Data Interface</title>
+            <?dbhtml class='interfacetable'?>
+            <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+                <colspec colname='name' colwidth='1*'/>
+                <colspec colname='type' colwidth='1*'/>
+                <colspec colname='init' colwidth='1*'/>
+                <colspec colname='desc' colwidth='4*'/>
+                <thead>
+                    <row>
+                        <entry>Name</entry>
+                        <entry>Type</entry>
+                        <entry>Init Value</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Inputs</entry>                   </row>
+                   <row>
+                     <entry>D</entry>
+                     <entry>BOOL</entry>
+                     <entry></entry>
+                     <entry>Input event qualifier</entry>
+                   </row>
+
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Outputs</entry>                   </row>
+                   <row>
+                     <entry>Q</entry>
+                     <entry>BOOL</entry>
+                     <entry>FALSE</entry>
+                     <entry>Output event qualifier</entry>
+                   </row>
+
+                </tbody>
+            </tgroup>
+        </table>
+
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    <para><xref linkend='Basics' endterm='Basics.title'/></para>
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+  </section>
+
+  <section renderas="sect1" xml:id="E_RS">
+    <title xml:id="E_RS.title">E_RS</title>
+    <subtitle>Type: Basic </subtitle>
+    <info>
+      <abstract><para>Undocumented E_RS</para></abstract>
+    </info>
+    
+        <figure>
+          <title>Interface</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref='E_RS.fbt.gif'/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <table>
+            <title>Event Interface</title>
+            <?dbhtml class='interfacetable'?>
+            <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+                <colspec colname='name' colwidth='1*'/>
+                <colspec colname='with' colwidth='1*'/>
+                <colspec colname='desc' colwidth='4*'/>
+                <thead>
+                    <row>
+                        <entry>Name</entry>
+                        <entry>With</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Event Inputs</entry>                   </row>
+                   <row>
+                     <entry>R</entry>
+                     <entry></entry>
+                     <entry>Initialization Request</entry>
+                   </row>
+                   <row>
+                     <entry>S</entry>
+                     <entry></entry>
+                     <entry>Normal Execution Request</entry>
+                   </row>
+
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Event Outputs</entry>                   </row>
+                   <row>
+                     <entry>EO</entry>
+                     <entry>Q</entry>
+                     <entry>Initialization Confirm</entry>
+                   </row>
+
+                </tbody>
+            </tgroup>
+        </table>
+
+        <table>
+            <title>Data Interface</title>
+            <?dbhtml class='interfacetable'?>
+            <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+                <colspec colname='name' colwidth='1*'/>
+                <colspec colname='type' colwidth='1*'/>
+                <colspec colname='init' colwidth='1*'/>
+                <colspec colname='desc' colwidth='4*'/>
+                <thead>
+                    <row>
+                        <entry>Name</entry>
+                        <entry>Type</entry>
+                        <entry>Init Value</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Outputs</entry>                   </row>
+                   <row>
+                     <entry>Q</entry>
+                     <entry>BOOL</entry>
+                     <entry></entry>
+                     <entry>Output event qualifier</entry>
+                   </row>
+
+                </tbody>
+            </tgroup>
+        </table>
+
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    <para><xref linkend='Basics' endterm='Basics.title'/></para>
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+  </section>
+
+    
+    <para><xref linkend='E_D_FF' endterm='E_D_FF.title'/></para>
+    <para><xref linkend='E_RS' endterm='E_RS.title'/></para>
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+</section>
+
+<section xml:id="Composites">
+    <title xml:id="Composites.title">Composites</title>
+  <section renderas="sect1" xml:id="E_R_TRIG">
+    <title xml:id="E_R_TRIG.title">E_R_TRIG</title>
+    <subtitle>Type: Composite </subtitle>
+    <info>
+      <abstract><para>Undocumented E_R_TRIG</para></abstract>
+    </info>
+    
+        <figure>
+          <title>Interface</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref='E_R_TRIG.fbt.gif'/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <table>
+            <title>Event Interface</title>
+            <?dbhtml class='interfacetable'?>
+            <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+                <colspec colname='name' colwidth='1*'/>
+                <colspec colname='with' colwidth='1*'/>
+                <colspec colname='desc' colwidth='4*'/>
+                <thead>
+                    <row>
+                        <entry>Name</entry>
+                        <entry>With</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Event Inputs</entry>                   </row>
+                   <row>
+                     <entry>EI</entry>
+                     <entry>QI</entry>
+                     <entry>Initialization Request</entry>
+                   </row>
+
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Event Outputs</entry>                   </row>
+                   <row>
+                     <entry>EO</entry>
+                     <entry></entry>
+                     <entry>Initialization Confirm</entry>
+                   </row>
+
+                </tbody>
+            </tgroup>
+        </table>
+
+        <table>
+            <title>Data Interface</title>
+            <?dbhtml class='interfacetable'?>
+            <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+                <colspec colname='name' colwidth='1*'/>
+                <colspec colname='type' colwidth='1*'/>
+                <colspec colname='init' colwidth='1*'/>
+                <colspec colname='desc' colwidth='4*'/>
+                <thead>
+                    <row>
+                        <entry>Name</entry>
+                        <entry>Type</entry>
+                        <entry>Init Value</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Inputs</entry>                   </row>
+                   <row>
+                     <entry>QI</entry>
+                     <entry>BOOL</entry>
+                     <entry></entry>
+                     <entry>Input event qualifier</entry>
+                   </row>
+
+                </tbody>
+            </tgroup>
+        </table>
+
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    <para><xref linkend='Composites' endterm='Composites.title'/></para>
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+  </section>
+
+  <section renderas="sect1" xml:id="E_TRAIN">
+    <title xml:id="E_TRAIN.title">E_TRAIN</title>
+    <subtitle>Type: Composite </subtitle>
+    <info>
+      <abstract><para>Undocumented E_TRAIN</para></abstract>
+    </info>
+    
+        <figure>
+          <title>Interface</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref='E_TRAIN.fbt.gif'/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <table>
+            <title>Event Interface</title>
+            <?dbhtml class='interfacetable'?>
+            <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+                <colspec colname='name' colwidth='1*'/>
+                <colspec colname='with' colwidth='1*'/>
+                <colspec colname='desc' colwidth='4*'/>
+                <thead>
+                    <row>
+                        <entry>Name</entry>
+                        <entry>With</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Event Inputs</entry>                   </row>
+                   <row>
+                     <entry>START</entry>
+                     <entry>DelayTime; N</entry>
+                     <entry>Initialization Request</entry>
+                   </row>
+                   <row>
+                     <entry>STOP</entry>
+                     <entry></entry>
+                     <entry>Normal Execution Request</entry>
+                   </row>
+
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Event Outputs</entry>                   </row>
+                   <row>
+                     <entry>EO</entry>
+                     <entry>CV</entry>
+                     <entry>Execution Confirmation</entry>
+                   </row>
+
+                </tbody>
+            </tgroup>
+        </table>
+
+        <table>
+            <title>Data Interface</title>
+            <?dbhtml class='interfacetable'?>
+            <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+                <colspec colname='name' colwidth='1*'/>
+                <colspec colname='type' colwidth='1*'/>
+                <colspec colname='init' colwidth='1*'/>
+                <colspec colname='desc' colwidth='4*'/>
+                <thead>
+                    <row>
+                        <entry>Name</entry>
+                        <entry>Type</entry>
+                        <entry>Init Value</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Inputs</entry>                   </row>
+                   <row>
+                     <entry>DelayTime</entry>
+                     <entry>TIME</entry>
+                     <entry></entry>
+                     <entry></entry>
+                   </row>
+                   <row>
+                     <entry>N</entry>
+                     <entry>UINT</entry>
+                     <entry>0</entry>
+                     <entry></entry>
+                   </row>
+
+                   <row><?dbhtml class='titlerow'?>
+                     <entry namest="name" nameend="desc">Outputs</entry>                   </row>
+                   <row>
+                     <entry>CV</entry>
+                     <entry>UINT</entry>
+                     <entry>0</entry>
+                     <entry>Output event qualifier</entry>
+                   </row>
+
+                </tbody>
+            </tgroup>
+        </table>
+
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    <para><xref linkend='Composites' endterm='Composites.title'/></para>
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+  </section>
+
+    
+    <para><xref linkend='E_R_TRIG' endterm='E_R_TRIG.title'/></para>
+    <para><xref linkend='E_TRAIN' endterm='E_TRAIN.title'/></para>
+    <para/><emphasis role='linkbox'><para role='linkboxtitle'><myseealso/></para>
+    
+    <para><xref linkend='article_top' endterm='article_top.title'/></para>
+    </emphasis>
+</section>
+
+</article>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompileFileList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+  <FileItem Name="Main#E_D_FF.bin" Library="IEC61499.dll" BuildSnapshot="{3ACF8D25-B61A-47FD-B846-36157CD5AD51}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2026-09-12T23:07:20</Modified>
+    <Hash>524BD1DAAFAA3D7C</Hash>
+  </FileItem>
+  <FileItem Name="Main#E_RS.bin" Library="IEC61499.dll" BuildSnapshot="{3ACF8D25-B61A-47FD-B846-36157CD5AD51}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2026-09-12T23:07:20</Modified>
+    <Hash>2315440947016C821</Hash>
+  </FileItem>
+  <FileItem Name="Main#E_TRAIN.bin" Library="IEC61499.dll" BuildSnapshot="{3ACF8D25-B61A-47FD-B846-36157CD5AD51}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2026-09-12T23:07:20</Modified>
+    <Hash>107A92C04BE3CEF97</Hash>
+  </FileItem>
+  <FileItem Name="Main#E_R_TRIG.bin" Library="IEC61499.dll" BuildSnapshot="{3ACF8D25-B61A-47FD-B846-36157CD5AD51}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2026-09-12T23:07:20</Modified>
+    <Hash>112F9493CBEB437BC</Hash>
+  </FileItem>
+  <FileItem Name="Main#E_SR.bin" Library="IEC61499.dll" BuildSnapshot="{54BE7C33-BACE-4542-884B-F1DF1B16FB82}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2026-09-12T23:27:14</Modified>
+    <Hash>2370A2CA6E3B3E94</Hash>
+  </FileItem>
+  <LibraryItem Name="Runtime.Base" Version="23.0.0.15" />
+  <LibraryItem Name="SE.DPAC" Version="23.0.0.57" />
+  <LibraryItem Name="SE.Standard" Version="23.0.0.14" />
+</CompileFileList>
