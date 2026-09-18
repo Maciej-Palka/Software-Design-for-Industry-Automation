@@ -74,11 +74,11 @@ A dedicated test application was created for each implemented block. Their behav
 
 ---
 
-# Zadanie Projektowe 1 - Projektowanie Oprogramowania dla Automatyki Przemysłowej
+# Zadanie Projektowe 1 - Software Design dla Rozproszonych systemów automatyki przemysłowej
 
-Projekt polega na implementacji i przetestowaniu podstawowych oraz złożonych bloków funkcyjnych w środowisku EcoStruxure Automation Expert firmy Schneider Electric. Rozwiązania opierają się na standardzie IEC 61499 dla programowalnych sterowników logicznych.
+Projekt polega na implementacji i przetestowaniu podstawowych oraz złożonych bloków funkcyjnych w środowisku EcoStruxure Automation Expert firmy Schneider Electric. Rozwiązania opierają się na standardzie IEC 61499 dla sterowników PLC.
 
-**Autor:** Student wymiany na LTU.
+**Autor:** ~MP
 
 ## Zaimplementowane Bloki Funkcyjne
 
@@ -98,7 +98,7 @@ Projekt polega na implementacji i przetestowaniu podstawowych oraz złożonych b
 </p>
 
 *   **`D Flip-Flop`**  
-    Blok przerzutnika typu D. Algorytm sprawdza stan zmiennej `D` w momencie wyzwolenia zdarzenia zegara (CLK). Warunkiem przejścia i aktualizacji wyjścia `Q` jest wystąpienie różnicy między wartością wejściową a wyjściową: **`CLK AND (Q <> D)`**.
+    Blok przerzutnika typu D. Algorytm sprawdza stan zmiennej `D` w momencie wyzwolenia zdarzenia zegara (CLK). Warunkiem przejścia i aktualizacji wyjścia `Q` jest wystąpienie różnicy między wartością wejściową a wyjściową: **`CLK AND (Q <> D)`**. Zdarzenie wyjściowe jest aktywowane w momencie zmiany stanu zmiennej wyjściowej.
 
 <p align="center">
   <img src="additional_materials/E_D_FF_ECC.png" alt="Schemat ECC dla D Flip-Flop"><br>
@@ -113,7 +113,7 @@ Projekt polega na implementacji i przetestowaniu podstawowych oraz złożonych b
 ### Złożone Bloki Funkcyjne (Composite Function Blocks)
 
 *   **`Event Train` (`E_TRAIN`)**  
-    Generuje określoną sekwencję zdarzeń wyjściowych po wyzwoleniu zdarzenia START. Opóźnienie między zdarzeniami określa wejście czasowe, a liczbę wygenerowanych zdarzeń definiuje zmienna `N`.
+    Generuje określoną sekwencję zdarzeń wyjściowych po wyzwoleniu zdarzenia START. Opóźnienie między zdarzeniami określa wejście DelayTime, a liczbę wygenerowanych zdarzeń definiuje zmienna `N`.
 
 <p align="center">
   <img src="additional_materials/E_TRAIN_FBN.png" alt="Schemat FBN dla Event Train"><br>
@@ -140,10 +140,10 @@ Projekt polega na implementacji i przetestowaniu podstawowych oraz złożonych b
 
 ## Metodologia Testowania
 
-Dla każdego zaimplementowanego bloku stworzono dedykowaną aplikację testową. Ich zachowanie zostało bezpośrednio porównane z oficjalnymi blokami wbudowanymi w bibliotekę oprogramowania. Testy potwierdziły, że przygotowane bloki zachowują się identycznie jak ich referencyjne odpowiedniki.
+Dla każdego zaimplementowanego bloku stworzono dedykowaną aplikację testową. Ich zachowanie zostało bezpośrednio porównane z oficjalnymi blokami wbudowanymi w bibliotekę oprogramowania. Testy potwierdziły, że przygotowane bloki zachowują się identycznie jak ich odpowiedniki.
 
 ## Wnioski i Znane Problemy (Known Issues)
 
 *   **Zastrzeżone nazwy zmiennych:** Podczas projektowania bloku `E_TRAIN` konieczna była zmiana nazwy zmiennej czasowej z domyślnego `DT` na `DelayTime`, z uwagi na restrykcje środowiska.
 *   **Rozbieżności z dokumentacją:** Zauważono różnicę w działaniu bloku `E_TRAIN` względem schematów z zadania. W praktyce konieczne jest wyzwolenie zdarzenia STOP przed zdarzeniem START, aby sekwencja mogła się rozpocząć.
-*   **Modułowość architektury:** Środowisko oparte na normie IEC 61499 oferuje znaczną przewagę poprzez oddzielenie logiki algorytmów od docelowej platformy sprzętowej (Distributed Systems), pozwalając na pełne zaprojektowanie struktury przed sprzęgnięciem z fizycznymi kontrolerami.
+*   **Modułowość architektury:** Środowisko oparte na normie IEC 61499 oferuje znaczną przewagę poprzez oddzielenie logiki algorytmów od docelowej platformy sprzętowej (Distributed Systems), pozwalając na pełne zaprojektowanie struktury przed połączeniem z fizycznymi kontrolerami.
