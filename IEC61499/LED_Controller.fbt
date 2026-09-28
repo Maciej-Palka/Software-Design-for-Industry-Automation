@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="20a15631-8cc9-4b2d-a84a-dec876ac826b" Name="LED_Controller" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="8" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/22/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Floor0_RqPanel" />
+        <With Var="Floor0_RqBtn" />
+        <With Var="Floor0_Achieved" />
+        <With Var="Floor1_RqPanel" />
+        <With Var="Floor1_RqBtn" />
+        <With Var="Floor1_Achieved" />
+        <With Var="Floor2_RqPanel" />
+        <With Var="Floor2_RqBtn" />
+        <With Var="Floor2_Achieved" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Floor0_BtnLED" />
+        <With Var="Floor0_PanelLED" />
+        <With Var="Floor1_BtnLED" />
+        <With Var="Floor1_PanelLED" />
+        <With Var="Floor2_BtnLED" />
+        <With Var="Floor2_PanelLED" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Floor0_RqPanel" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="Floor0_RqBtn" Type="BOOL" />
+      <VarDeclaration Name="Floor0_Achieved" Type="BOOL" />
+      <VarDeclaration Name="Floor1_RqPanel" Type="BOOL" />
+      <VarDeclaration Name="Floor1_RqBtn" Type="BOOL" />
+      <VarDeclaration Name="Floor1_Achieved" Type="BOOL" />
+      <VarDeclaration Name="Floor2_RqPanel" Type="BOOL" />
+      <VarDeclaration Name="Floor2_RqBtn" Type="BOOL" />
+      <VarDeclaration Name="Floor2_Achieved" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Floor0_BtnLED" Type="BOOL" InitialValue="FALSE" Comment="Output event qualifier" />
+      <VarDeclaration Name="Floor0_PanelLED" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="Floor1_BtnLED" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="Floor1_PanelLED" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="Floor2_BtnLED" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="Floor2_PanelLED" Type="BOOL" InitialValue="FALSE" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="2" Name="FB1" Type="Single_LED_Controller" x="1620" y="580" Namespace="Main" />
+    <FB ID="3" Name="FB2" Type="Single_LED_Controller" x="1640" y="1080" Namespace="Main" />
+    <FB ID="4" Name="FB3" Type="Single_LED_Controller" x="1660" y="1560" Namespace="Main" />
+    <FB ID="7" Name="FB4" Type="E_MERGE_3" x="2740" y="200" Namespace="Main" />
+    <FB ID="8" Name="FB5" Type="E_SPLIT_3" x="580" y="380" Namespace="Main" />
+    <Input Name="REQ" x="200" y="392" Type="Event" />
+    <Input Name="Floor0_RqPanel" x="600" y="852" Type="Data" />
+    <Input Name="Floor1_RqPanel" x="600" y="1352" Type="Data" />
+    <Input Name="Floor2_RqPanel" x="620" y="1832" Type="Data" />
+    <Input Name="Floor0_Achieved" x="600" y="912" Type="Data" />
+    <Input Name="Floor1_Achieved" x="600" y="1412" Type="Data" />
+    <Input Name="Floor2_Achieved" x="620" y="1892" Type="Data" />
+    <Input Name="Floor2_RqBtn" x="620" y="1772" Type="Data" />
+    <Input Name="Floor1_RqBtn" x="600" y="1292" Type="Data" />
+    <Input Name="Floor0_RqBtn" x="600" y="792" Type="Data" />
+    <Output Name="CNF" x="3500" y="212" Type="Event" />
+    <Output Name="Floor0_BtnLED" x="2840" y="792" Type="Data" />
+    <Output Name="Floor1_BtnLED" x="2840" y="1292" Type="Data" />
+    <Output Name="Floor2_BtnLED" x="2840" y="1772" Type="Data" />
+    <Output Name="Floor2_PanelLED" x="2840" y="1832" Type="Data" />
+    <Output Name="Floor1_PanelLED" x="2840" y="1352" Type="Data" />
+    <Output Name="Floor0_PanelLED" x="2840" y="852" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB2.CNF" Destination="FB4.EI2" dx1="156.9585">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.CNF" Destination="FB4.EI1" dx1="136.9585">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.CNF" Destination="FB4.EI3" dx1="176.9585">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.EO" Destination="CNF" />
+      <Connection Source="REQ" Destination="FB5.EI" />
+      <Connection Source="FB5.EO1" Destination="FB1.REQ" dx1="602.1666">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.EO2" Destination="FB2.REQ" dx1="542.1666">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.EO3" Destination="FB3.REQ" dx1="482.1666">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB1.FloorBtnLED" Destination="Floor0_BtnLED" />
+      <Connection Source="FB2.FloorBtnLED" Destination="Floor1_BtnLED" />
+      <Connection Source="FB3.FloorBtnLED" Destination="Floor2_BtnLED" />
+      <Connection Source="Floor0_RqPanel" Destination="FB1.RequestedFloorPanel" />
+      <Connection Source="Floor0_Achieved" Destination="FB1.FloorAchieved" />
+      <Connection Source="Floor1_RqPanel" Destination="FB2.RequestedFloorPanel" />
+      <Connection Source="Floor1_Achieved" Destination="FB2.FloorAchieved" />
+      <Connection Source="Floor2_Achieved" Destination="FB3.FloorAchieved" />
+      <Connection Source="Floor2_RqPanel" Destination="FB3.RequestedFloorPanel" />
+      <Connection Source="Floor0_RqBtn" Destination="FB1.RequestedFloorBtn" />
+      <Connection Source="Floor1_RqBtn" Destination="FB2.RequestedFloorBtn" />
+      <Connection Source="Floor2_RqBtn" Destination="FB3.RequestedFloorBtn" />
+      <Connection Source="FB3.FloorPanelLED" Destination="Floor2_PanelLED" />
+      <Connection Source="FB2.FloorPanelLED" Destination="Floor1_PanelLED" />
+      <Connection Source="FB1.FloorPanelLED" Destination="Floor0_PanelLED" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

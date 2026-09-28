@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="0e1c8f92-51cc-4789-8734-207a0575876e" Name="Single_LED_Controller" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="8" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/22/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="RequestedFloorBtn" />
+        <With Var="FloorAchieved" />
+        <With Var="RequestedFloorPanel" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="FloorBtnLED" />
+        <With Var="FloorPanelLED" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="RequestedFloorBtn" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="RequestedFloorPanel" Type="BOOL" />
+      <VarDeclaration Name="FloorAchieved" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="FloorBtnLED" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="FloorPanelLED" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="BTN_LED_LOGIC" Type="E_SR" x="1780" y="320" Namespace="IEC61499.Standard" />
+    <FB ID="2" Name="BTN_LED_RQ" Type="E_PERMIT" x="1020" y="320" Namespace="IEC61499.Standard" />
+    <FB ID="3" Name="BTN_LED_CLEAR" Type="E_PERMIT" x="1000" y="820" Namespace="IEC61499.Standard" />
+    <FB ID="4" Name="PANEL_LED_LOGIC" Type="E_SR" x="1760" y="1300" Namespace="IEC61499.Standard" />
+    <FB ID="5" Name="PANEL_LED_RQ" Type="E_PERMIT" x="1000" y="1300" Namespace="IEC61499.Standard" />
+    <FB ID="6" Name="PANEL_LED_CLEAR" Type="E_PERMIT" x="980" y="1800" Namespace="IEC61499.Standard" />
+    <FB ID="8" Name="FB1" Type="E_MERGE" x="3360" y="860" Namespace="IEC61499.Standard" />
+    <Input Name="REQ" x="60" y="132" Type="Event" />
+    <Input Name="RequestedFloorBtn" x="60" y="532" Type="Data" />
+    <Input Name="FloorAchieved" x="80" y="1032" Type="Data" />
+    <Input Name="RequestedFloorPanel" x="80" y="1512" Type="Data" />
+    <Output Name="CNF" x="3720" y="872" Type="Event" />
+    <Output Name="FloorBtnLED" x="2120" y="592" Type="Data" />
+    <Output Name="FloorPanelLED" x="2120" y="1572" Type="Data" />
+    <EventConnections>
+      <Connection Source="BTN_LED_RQ.EO" Destination="BTN_LED_LOGIC.S" />
+      <Connection Source="BTN_LED_CLEAR.EO" Destination="BTN_LED_LOGIC.R" dx1="237.1666">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="BTN_LED_RQ.EI" dx1="519.5416">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="BTN_LED_CLEAR.EI" dx1="519.5416">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="PANEL_LED_RQ.EO" Destination="PANEL_LED_LOGIC.S" />
+      <Connection Source="PANEL_LED_CLEAR.EO" Destination="PANEL_LED_LOGIC.R" dx1="237.1666">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="PANEL_LED_RQ.EI" dx1="519.5416">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="PANEL_LED_CLEAR.EI" dx1="519.5416">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="PANEL_LED_LOGIC.EO" Destination="FB1.EI2" dx1="758.3541">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.EO" Destination="CNF" />
+      <Connection Source="BTN_LED_LOGIC.EO" Destination="FB1.EI1" dx1="738.3541">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="BTN_LED_LOGIC.Q" Destination="FloorBtnLED" />
+      <Connection Source="RequestedFloorBtn" Destination="BTN_LED_RQ.PERMIT" />
+      <Connection Source="FloorAchieved" Destination="BTN_LED_CLEAR.PERMIT" />
+      <Connection Source="RequestedFloorPanel" Destination="PANEL_LED_RQ.PERMIT" />
+      <Connection Source="PANEL_LED_LOGIC.Q" Destination="FloorPanelLED" />
+      <Connection Source="FloorAchieved" Destination="PANEL_LED_CLEAR.PERMIT" dx1="127.0208" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

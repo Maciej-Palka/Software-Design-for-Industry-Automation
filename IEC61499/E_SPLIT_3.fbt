@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="bb8d6dc0-9923-4712-a912-20ce43134059" Name="E_SPLIT_3" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="2" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/22/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="EI" Comment="Initialization Request" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="EO1" Comment="Initialization Confirm" />
+      <Event Name="EO2" Comment="Execution Confirmation" />
+      <Event Name="EO3" />
+    </EventOutputs>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="E_SPLIT" x="400" y="180" Namespace="IEC61499.Standard" />
+    <FB ID="2" Name="FB2" Type="E_SPLIT" x="1000" y="460" Namespace="IEC61499.Standard" />
+    <Input Name="EI" x="20" y="192" Type="Event" />
+    <Output Name="EO1" x="1580" y="192" Type="Event" />
+    <Output Name="EO2" x="1580" y="472" Type="Event" />
+    <Output Name="EO3" x="1580" y="532" Type="Event" />
+    <EventConnections>
+      <Connection Source="EI" Destination="FB1.EI" />
+      <Connection Source="FB1.EO2" Destination="FB2.EI" dx1="44.3125" />
+      <Connection Source="FB1.EO1" Destination="EO1" />
+      <Connection Source="FB2.EO1" Destination="EO2" />
+      <Connection Source="FB2.EO2" Destination="EO3" />
+    </EventConnections>
+  </FBNetwork>
+</FBType>

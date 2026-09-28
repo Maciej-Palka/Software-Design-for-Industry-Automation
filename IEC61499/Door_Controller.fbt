@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="cc1db5c9-e5a8-4591-9b21-f8ea95a8771d" Name="Door_Controller" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="11" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/24/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Doors" />
+        <With Var="DoorOpened0" />
+        <With Var="DoorClosed0" />
+        <With Var="DoorOpened1" />
+        <With Var="DoorClosed1" />
+        <With Var="DoorOpened2" />
+        <With Var="DoorClosed2" />
+      </Event>
+      <Event Name="DOOR_CONTROL">
+        <With Var="Doors" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Open0" />
+        <With Var="Open1" />
+        <With Var="Open2" />
+      </Event>
+      <Event Name="DOOR_CLOSED" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Doors" Type="UINT" Comment="Input event qualifier" />
+      <VarDeclaration Name="DoorClosed0" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed1" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed2" Type="BOOL" />
+      <VarDeclaration Name="DoorOpened0" Type="BOOL" />
+      <VarDeclaration Name="DoorOpened1" Type="BOOL" />
+      <VarDeclaration Name="DoorOpened2" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Open0" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="Open1" Type="BOOL" />
+      <VarDeclaration Name="Open2" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="E_DEMUX" x="1060" y="420" Namespace="IEC61499.Standard" />
+    <FB ID="3" Name="FB3" Type="E_DELAY" x="2260" y="880" Namespace="IEC61499.Standard">
+      <Parameter Name="DT" Value="T#3s" />
+    </FB>
+    <FB ID="4" Name="FB4" Type="DoorController" x="3480" y="660" Namespace="Main" />
+    <FB ID="5" Name="FB5" Type="E_DELAY" x="2220" y="1800" Namespace="IEC61499.Standard">
+      <Parameter Name="DT" Value="T#3s" />
+    </FB>
+    <FB ID="6" Name="FB6" Type="DoorController" x="3440" y="1580" Namespace="Main" />
+    <FB ID="7" Name="FB7" Type="E_DELAY" x="2220" y="2640" Namespace="IEC61499.Standard">
+      <Parameter Name="DT" Value="T#3s" />
+    </FB>
+    <FB ID="8" Name="FB8" Type="DoorController" x="3440" y="2420" Namespace="Main" />
+    <FB ID="9" Name="FB9" Type="E_MERGE_3" x="5200" y="660" Namespace="Main" />
+    <FB ID="11" Name="FB10" Type="E_MERGE_3" x="5600" y="1360" Namespace="Main" />
+    <Input Name="REQ" x="100" y="112" Type="Event" />
+    <Input Name="Doors" x="80" y="812" Type="Data" />
+    <Input Name="DoorOpened0" x="2780" y="1112" Type="Data" />
+    <Input Name="DoorClosed0" x="2780" y="1052" Type="Data" />
+    <Input Name="DoorOpened1" x="2800" y="1972" Type="Data" />
+    <Input Name="DoorOpened2" x="2760" y="2812" Type="Data" />
+    <Input Name="DoorClosed1" x="2800" y="1912" Type="Data" />
+    <Input Name="DoorClosed2" x="2760" y="2752" Type="Data" />
+    <Input Name="DOOR_CONTROL" x="100" y="432" Type="Event" />
+    <Output Name="DOOR_CLOSED" x="6100" y="1412" Type="Event" />
+    <Output Name="CNF" x="6040" y="672" Type="Event" />
+    <Output Name="Open0" x="4320" y="1052" Type="Data" />
+    <Output Name="Open1" x="4240" y="1912" Type="Data" />
+    <Output Name="Open2" x="4300" y="2752" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB1.EO0" Destination="FB4.SET" dx1="313.9166">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.EO" Destination="FB4.TIMER_DOOR" dx1="48.5" />
+      <Connection Source="FB4.START_TIMER" Destination="FB3.START" dx1="49.60449" dx2="50" dy="-170" />
+      <Connection Source="FB5.EO" Destination="FB6.TIMER_DOOR" dx1="48.5" />
+      <Connection Source="FB6.START_TIMER" Destination="FB5.START" dx1="49.60449" dx2="50" dy="-170" />
+      <Connection Source="FB7.EO" Destination="FB8.TIMER_DOOR" dx1="48.5" />
+      <Connection Source="FB8.START_TIMER" Destination="FB7.START" dx1="49.60449" dx2="50" dy="-170" />
+      <Connection Source="FB1.EO1" Destination="FB6.SET" dx1="253.9166">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.EO2" Destination="FB8.SET" dx1="173.9166">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB9.EO" Destination="CNF" />
+      <Connection Source="FB4.CNF" Destination="FB9.EI1" />
+      <Connection Source="FB6.CNF" Destination="FB9.EI2" dx1="719.6045">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB8.CNF" Destination="FB9.EI3" dx1="859.6045">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="DOOR_CONTROL" Destination="FB1.EI" />
+      <Connection Source="REQ" Destination="FB4.REQ" dx1="1479.542">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="FB6.REQ" dx1="1479.542">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="FB8.REQ" dx1="1479.542">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.DOORS_CLOSED" Destination="FB10.EI1" dx1="620.271">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB6.DOORS_CLOSED" Destination="FB10.EI2" dx1="1000.271">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB8.DOORS_CLOSED" Destination="FB10.EI3" dx1="1140.271">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB10.EO" Destination="DOOR_CLOSED" dx1="40" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="Doors" Destination="FB1.K" />
+      <Connection Source="DoorOpened0" Destination="FB4.DoorOpened" />
+      <Connection Source="DoorClosed0" Destination="FB4.DoorClosed" />
+      <Connection Source="FB4.Open" Destination="Open0" />
+      <Connection Source="FB6.Open" Destination="Open1">
+        <Points>
+          <Points>
+            <X>1054.93225</X>
+            <Y>500</Y>
+          </Points>
+          <Points>
+            <X>1060</X>
+            <Y>500</Y>
+          </Points>
+          <Points>
+            <X>1060</X>
+            <Y>485</Y>
+          </Points>
+        </Points>
+      </Connection>
+      <Connection Source="FB8.Open" Destination="Open2" dx1="50.271" />
+      <Connection Source="DoorClosed2" Destination="FB8.DoorClosed">
+        <Points>
+          <Points>
+            <X>829.7552</X>
+            <Y>695</Y>
+          </Points>
+          <Points>
+            <X>827.5</X>
+            <Y>695</Y>
+          </Points>
+          <Points>
+            <X>827.5</X>
+            <Y>710</Y>
+          </Points>
+          <Points>
+            <X>855</X>
+            <Y>710</Y>
+          </Points>
+        </Points>
+      </Connection>
+      <Connection Source="DoorOpened2" Destination="FB8.DoorOpened" dx1="40" dx2="130" dy="50" />
+      <Connection Source="DoorOpened1" Destination="FB6.DoorOpened" dx1="12.20825" dx2="110" dy="50" />
+      <Connection Source="DoorClosed1" Destination="FB6.DoorClosed" dx1="40" dx2="630" dy="110" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

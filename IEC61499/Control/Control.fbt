@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
 <FBType GUID="2F61C58F491DB02A" Name="Control" Comment="Composite Function Block Type" Namespace="Main">
-  <Attribute Name="Configuration.FB.IDCounter" Value="6" />
+  <Attribute Name="Configuration.FB.IDCounter" Value="19" />
   <Identification Standard="61499-2" />
   <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/3/2016" Remarks="template" />
   <InterfaceList>
@@ -101,67 +101,196 @@
     </OutputVars>
   </InterfaceList>
   <FBNetwork>
-    <FB ID="6" Name="FB1" Type="DummyControl" x="1180" y="480" Namespace="Main" />
-    <Input Name="INIT" x="520" y="451.8542" Type="Event" />
-    <Input Name="REQ" x="520" y="511.8541" Type="Event" />
-    <Input Name="AtFloor0" x="320" y="711.8541" Type="Data" />
-    <Input Name="AtFloor1" x="320" y="771.8541" Type="Data" />
-    <Input Name="AtFloor2" x="320" y="831.8541" Type="Data" />
-    <Input Name="DoorClosed0" x="320" y="891.8541" Type="Data" />
-    <Input Name="DoorClosed1" x="320" y="951.8541" Type="Data" />
-    <Input Name="DoorClosed2" x="320" y="1011.854" Type="Data" />
-    <Input Name="ButtonAt0" x="320" y="1071.854" Type="Data" />
-    <Input Name="ButtonAt1" x="320" y="1131.854" Type="Data" />
-    <Input Name="ButtonAt2" x="320" y="1191.854" Type="Data" />
-    <Input Name="ButtonFor0" x="320" y="1251.854" Type="Data" />
-    <Input Name="ButtonFor1" x="320" y="1311.854" Type="Data" />
-    <Input Name="ButtonFor2" x="320" y="1371.854" Type="Data" />
-    <Input Name="DoorOpened0" x="320" y="1431.854" Type="Data" />
-    <Input Name="DoorOpened1" x="320" y="1491.854" Type="Data" />
-    <Input Name="DoorOpened2" x="320" y="1551.854" Type="Data" />
-    <Output Name="INITO" x="2100" y="451.8542" Type="Event" />
-    <Output Name="CNF" x="2100" y="511.8541" Type="Event" />
-    <Output Name="MoveUp" x="2100" y="711.8541" Type="Data" />
-    <Output Name="MoveDown" x="2100" y="771.8541" Type="Data" />
-    <Output Name="Open0" x="2100" y="831.8541" Type="Data" />
-    <Output Name="Open1" x="2100" y="891.8541" Type="Data" />
-    <Output Name="Open2" x="2100" y="951.8541" Type="Data" />
-    <Output Name="LightON_Button0" x="2100" y="1191.854" Type="Data" />
-    <Output Name="LightON_Button1" x="2100" y="1251.854" Type="Data" />
-    <Output Name="LightON_Button2" x="2100" y="1311.854" Type="Data" />
-    <Output Name="LightON_Panel0" x="2100" y="1011.854" Type="Data" />
-    <Output Name="LightON_Panel1" x="2100" y="1071.854" Type="Data" />
-    <Output Name="LightON_Panel2" x="2100" y="1131.854" Type="Data" />
+    <FB ID="8" Name="FB1" Type="LED_Controller" x="2100" y="2160" Namespace="Main" />
+    <FB ID="12" Name="FB4" Type="Movement_Controller" x="3140" y="220" Namespace="Main" />
+    <FB ID="16" Name="FB5" Type="Door_Controller" x="4280" y="1160" Namespace="Main" />
+    <FB ID="17" Name="FB6" Type="E_MERGE_3" x="5900" y="820" Namespace="Main" />
+    <FB ID="18" Name="FB3" Type="Request_Manager" x="2020" y="1260" Namespace="Main" />
+    <FB ID="19" Name="FB7" Type="CurrentFloor" x="960" y="1440" Namespace="Main" />
+    <Input Name="INIT" x="220" y="232" Type="Event" />
+    <Input Name="REQ" x="220" y="292" Type="Event" />
+    <Input Name="AtFloor0" x="140" y="1972" Type="Data" />
+    <Input Name="AtFloor1" x="140" y="2032" Type="Data" />
+    <Input Name="AtFloor2" x="140" y="2092" Type="Data" />
+    <Input Name="DoorClosed0" x="2200" y="552" Type="Data" />
+    <Input Name="DoorClosed1" x="2200" y="612" Type="Data" />
+    <Input Name="DoorClosed2" x="2200" y="672" Type="Data" />
+    <Input Name="ButtonAt0" x="680" y="2432" Type="Data" />
+    <Input Name="ButtonAt1" x="680" y="2612" Type="Data" />
+    <Input Name="ButtonAt2" x="680" y="2792" Type="Data" />
+    <Input Name="ButtonFor0" x="680" y="2372" Type="Data" />
+    <Input Name="ButtonFor1" x="680" y="2552" Type="Data" />
+    <Input Name="ButtonFor2" x="680" y="2732" Type="Data" />
+    <Input Name="DoorOpened0" x="3440" y="1672" Type="Data" />
+    <Input Name="DoorOpened1" x="3440" y="1732" Type="Data" />
+    <Input Name="DoorOpened2" x="3440" y="1792" Type="Data" />
+    <Output Name="INITO" x="5320" y="232" Type="Event" />
+    <Output Name="CNF" x="6280" y="832" Type="Event" />
+    <Output Name="MoveUp" x="4300" y="552" Type="Data" />
+    <Output Name="MoveDown" x="4300" y="612" Type="Data" />
+    <Output Name="Open0" x="5120" y="1432" Type="Data" />
+    <Output Name="Open1" x="5120" y="1492" Type="Data" />
+    <Output Name="Open2" x="5120" y="1552" Type="Data" />
+    <Output Name="LightON_Button0" x="3220" y="2372" Type="Data" />
+    <Output Name="LightON_Button1" x="3220" y="2492" Type="Data" />
+    <Output Name="LightON_Button2" x="3220" y="2612" Type="Data" />
+    <Output Name="LightON_Panel0" x="3220" y="2432" Type="Data" />
+    <Output Name="LightON_Panel1" x="3220" y="2552" Type="Data" />
+    <Output Name="LightON_Panel2" x="3220" y="2672" Type="Data" />
     <EventConnections>
-      <Connection Source="INIT" Destination="FB1.INIT" dx1="40.83331" />
-      <Connection Source="REQ" Destination="FB1.REQ" dx1="48.95831" />
-      <Connection Source="FB1.INITO" Destination="INITO" dx1="40" />
-      <Connection Source="FB1.CNF" Destination="CNF" dx1="73.33337" />
+      <Connection Source="REQ" Destination="FB1.REQ" dx1="399.5416">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.INITO" Destination="INITO">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="FB4.INIT" />
+      <Connection Source="REQ" Destination="FB5.REQ" dx1="39.54163">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.DOOR_CONTROL" Destination="FB5.DOOR_CONTROL" dx1="176.0208">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.CNF" Destination="FB6.EI3" dx1="2782.396">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB6.EO" Destination="CNF" />
+      <Connection Source="FB5.CNF" Destination="FB6.EI2" dx1="42.85449" />
+      <Connection Source="FB4.MOVEMENT" Destination="FB6.EI1" dx1="1336.021">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="FB4.REQ" />
+      <Connection Source="FB3.CONTROL" Destination="FB4.CONTROL" dx1="54.39575" />
+      <Connection Source="REQ" Destination="FB7.REQ" dx1="399.5416">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="FB3.REQ" dx1="1069.542" />
+      <Connection Source="FB5.DOOR_CLOSED" Destination="FB3.DOOR_CLOSED" dx1="102.854" dx2="1900" dy="1780">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB7.CNF" Destination="FB3.REQ" dx1="50" />
     </EventConnections>
     <DataConnections>
-      <Connection Source="AtFloor0" Destination="FB1.AtFloor0" dx1="40" />
-      <Connection Source="AtFloor1" Destination="FB1.AtFloor1" dx1="40" />
-      <Connection Source="AtFloor2" Destination="FB1.AtFloor2" dx1="58.16675" />
-      <Connection Source="DoorClosed0" Destination="FB1.DoorClosed0" dx1="40" />
-      <Connection Source="DoorClosed1" Destination="FB1.DoorClosed1" dx1="40" />
-      <Connection Source="DoorClosed2" Destination="FB1.DoorClosed2" dx1="40" />
-      <Connection Source="ButtonAt0" Destination="FB1.Button0" dx1="40" />
-      <Connection Source="ButtonAt1" Destination="FB1.Button1" dx1="40" />
-      <Connection Source="ButtonAt2" Destination="FB1.Button2" dx1="40" />
-      <Connection Source="ButtonFor0" Destination="FB1.Req0" dx1="48.58337" />
-      <Connection Source="ButtonFor1" Destination="FB1.Req1" dx1="48.58337" />
-      <Connection Source="ButtonFor2" Destination="FB1.Req2" dx1="48.58337" />
-      <Connection Source="FB1.liftUp" Destination="MoveUp" dx1="93.33337" />
-      <Connection Source="FB1.liftDown" Destination="MoveDown" dx1="113.3334" />
-      <Connection Source="FB1.door0" Destination="Open0" dx1="133.3334" />
-      <Connection Source="FB1.door1" Destination="Open1" dx1="153.3334" />
-      <Connection Source="FB1.door2" Destination="Open2" dx1="173.3334" />
-      <Connection Source="FB1.LightON_Button0" Destination="LightON_Panel0" dx1="173.3334" />
-      <Connection Source="FB1.LightON_Button1" Destination="LightON_Panel1" dx1="173.3334" />
-      <Connection Source="FB1.LightON_Button2" Destination="LightON_Panel2" dx1="173.3334" />
-      <Connection Source="FB1.LightON_Panel0" Destination="LightON_Button0" dx1="173.3334" />
-      <Connection Source="FB1.LightON_Panel1" Destination="LightON_Button1" dx1="853.3334" dx2="30" dy="-68" />
-      <Connection Source="FB1.LightON_Panel2" Destination="LightON_Button2" dx1="853.3334" dx2="30" dy="12" />
+      <Connection Source="AtFloor0" Destination="FB1.Floor0_Achieved" dx1="868.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="AtFloor1" Destination="FB1.Floor1_Achieved" dx1="808.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.Floor0_BtnLED" Destination="LightON_Button0" />
+      <Connection Source="FB1.Floor0_PanelLED" Destination="LightON_Panel0" />
+      <Connection Source="FB1.Floor1_BtnLED" Destination="LightON_Button1" />
+      <Connection Source="FB1.Floor1_PanelLED" Destination="LightON_Panel1" />
+      <Connection Source="FB1.Floor2_BtnLED" Destination="LightON_Button2" />
+      <Connection Source="FB1.Floor2_PanelLED" Destination="LightON_Panel2" />
+      <Connection Source="AtFloor2" Destination="FB1.Floor2_Achieved" dx1="748.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="ButtonFor2" Destination="FB1.Floor2_RqPanel" />
+      <Connection Source="ButtonAt2" Destination="FB1.Floor2_RqBtn" />
+      <Connection Source="ButtonAt1" Destination="FB1.Floor1_RqBtn" />
+      <Connection Source="ButtonFor1" Destination="FB1.Floor1_RqPanel" />
+      <Connection Source="ButtonFor0" Destination="FB1.Floor0_RqPanel" />
+      <Connection Source="ButtonAt0" Destination="FB1.Floor0_RqBtn" />
+      <Connection Source="FB4.MoveUp" Destination="MoveUp" />
+      <Connection Source="FB4.MoveDown" Destination="MoveDown" />
+      <Connection Source="DoorClosed0" Destination="FB4.DoorClosed0" />
+      <Connection Source="DoorClosed1" Destination="FB4.DoorClosed1" />
+      <Connection Source="DoorClosed2" Destination="FB4.DoorClosed2" />
+      <Connection Source="AtFloor0" Destination="FB4.AtFloor0">
+        <Points>
+          <Points>
+            <X>152.8125</X>
+            <Y>500</Y>
+          </Points>
+          <Points>
+            <X>150</X>
+            <Y>500</Y>
+          </Points>
+          <Points>
+            <X>150</X>
+            <Y>190</Y>
+          </Points>
+          <Points>
+            <X>780</X>
+            <Y>190</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="AtFloor1" Destination="FB4.AtFloor1" dx1="68.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="AtFloor2" Destination="FB4.AtFloor2" dx1="128.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.Open0" Destination="Open0" />
+      <Connection Source="FB5.Open1" Destination="Open1" />
+      <Connection Source="FB5.Open2" Destination="Open2" />
+      <Connection Source="FB4.OpenDoor" Destination="FB5.Doors" dx1="96.021">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="DoorClosed0" Destination="FB5.DoorClosed0" dx1="240.979">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="DoorClosed1" Destination="FB5.DoorClosed1" dx1="180.979">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="DoorClosed2" Destination="FB5.DoorClosed2" dx1="120.979">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="DoorOpened0" Destination="FB5.DoorOpened0" />
+      <Connection Source="DoorOpened1" Destination="FB5.DoorOpened1" />
+      <Connection Source="DoorOpened2" Destination="FB5.DoorOpened2" />
+      <Connection Source="FB3.NextFloor" Destination="FB4.RequestedFloor" dx1="124.3958">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="AtFloor0" Destination="FB7.AtFloor0">
+        <Points>
+          <Points>
+            <X>152.8125</X>
+            <Y>500</Y>
+          </Points>
+          <Points>
+            <X>150</X>
+            <Y>500</Y>
+          </Points>
+          <Points>
+            <X>150</X>
+            <Y>420</Y>
+          </Points>
+          <Points>
+            <X>235</X>
+            <Y>420</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="AtFloor1" Destination="FB7.AtFloor1" dx1="68.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="AtFloor2" Destination="FB7.AtFloor2" dx1="128.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB7.CurrentFloor" Destination="FB3.CurrentFloor" dx1="48.77075" />
+      <Connection Source="ButtonFor0" Destination="FB3.ButtonFor0" dx1="419.1666">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="ButtonAt0" Destination="FB3.ButtonAt0" dx1="482.8541">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="ButtonFor1" Destination="FB3.ButtonFor1" dx1="499.1666">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="ButtonAt1" Destination="FB3.ButtonAt1" dx1="562.8541">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="ButtonFor2" Destination="FB3.ButtonFor2" dx1="579.1666">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="ButtonAt2" Destination="FB3.ButtonAt2" dx1="642.8541">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
     </DataConnections>
   </FBNetwork>
 </FBType>

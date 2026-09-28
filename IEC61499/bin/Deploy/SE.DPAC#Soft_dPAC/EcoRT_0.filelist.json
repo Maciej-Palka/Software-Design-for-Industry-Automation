@@ -1,11 +1,22 @@
 {
   "snapshot": {
-    "guid": "189d2aaa-a4b7-42b3-b099-9f2605c4cf88",
-    "hash": "DB860DFF33178558819C200823C32F4DA1CD54928C66842660B9F4C0102D498F",
+    "guid": "ee85faff-0a55-48a8-a380-aca7e9ace21b",
+    "hash": "EC6EFF9893259F633FCD0C264F602882BF647B8210C2CDE3495089C3A43DE247",
     "app": {
-      "hash": "DB860DFF33178558819C200823C32F4DA1CD54928C66842660B9F4C0102D498F",
+      "hash": "EC6EFF9893259F633FCD0C264F602882BF647B8210C2CDE3495089C3A43DE247",
       "items": [
-        "Main#DummyControl.bin",
+        "Main#Single_LED_Controller.bin",
+        "Main#E_MERGE_3.bin",
+        "Main#E_SPLIT_3.bin",
+        "Main#LED_Controller.bin",
+        "Main#MovementController.bin",
+        "Main#CurrentFloor.bin",
+        "Main#Movement_Controller.bin",
+        "Main#DoorController.bin",
+        "Main#Door_Controller.bin",
+        "Main#RequestManager.bin",
+        "Main#OR_88A3DD8EC65DD11C.bin",
+        "Main#Request_Manager.bin",
         "Main#Control.bin",
         "Main#ChangeDetect.bin",
         "Main#Lift_HMI.bin",

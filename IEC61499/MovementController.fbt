@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="260c3b3c-260f-4294-8f70-e81ad96aae3e" Name="MovementController" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/23/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request" />
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="DoorClosed0" />
+        <With Var="DoorClosed1" />
+        <With Var="DoorClosed2" />
+        <With Var="RequestedFloor" />
+        <With Var="CurrentFloor" />
+      </Event>
+      <Event Name="CONTROL">
+        <With Var="DoorClosed0" />
+        <With Var="DoorClosed1" />
+        <With Var="DoorClosed2" />
+        <With Var="RequestedFloor" />
+        <With Var="CurrentFloor" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="MOVEMENT" Comment="Execution Confirmation">
+        <With Var="MoveUp" />
+        <With Var="MoveDown" />
+        <With Var="FloorNr" />
+      </Event>
+      <Event Name="OPEN_DOORS">
+        <With Var="FloorNr" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="DoorClosed0" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="DoorClosed1" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed2" Type="BOOL" />
+      <VarDeclaration Name="RequestedFloor" Type="UINT" />
+      <VarDeclaration Name="CurrentFloor" Type="UINT" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="MoveUp" Type="BOOL" InitialValue="FALSE" Comment="Output event qualifier" />
+      <VarDeclaration Name="MoveDown" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="FloorNr" Type="UINT" InitialValue="2" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="UP,DOWN,STOP,CurrentFloor" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="1952.941" y="325.4117" />
+      <ECState Name="STOP" x="2036" y="1144">
+        <ECAction Algorithm="STOP" Output="MOVEMENT" />
+      </ECState>
+      <ECState Name="MOVING_UP" x="548.0001" y="1220">
+        <ECAction Algorithm="UP" Output="MOVEMENT" />
+      </ECState>
+      <ECState Name="MOVING_DOWN" x="3340" y="1340">
+        <ECAction Algorithm="DOWN" Output="MOVEMENT" />
+      </ECState>
+      <ECState Name="INIT" x="2012" y="732" />
+      <ECState Name="OPEN_DOOR" x="2024" y="2104">
+        <ECAction Algorithm="CurrentFloor" Output="OPEN_DOORS" />
+      </ECState>
+      <ECTransition Source="STOP" Destination="MOVING_DOWN" Condition="REQ AND (DoorClosed0 AND DoorClosed1 AND DoorClosed2) AND (RequestedFloor &lt; CurrentFloor)" x="2761.288" y="928.3777">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="580.9501,155.6155,811,265" />
+      </ECTransition>
+      <ECTransition Source="MOVING_DOWN" Destination="OPEN_DOOR" Condition="REQ [CurrentFloor = RequestedFloor] OR NOT (DoorClosed0 AND DoorClosed1 AND DoorClosed2)" x="2900.063" y="1740.639">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="800.489,375.786,671.9988,496.4187" />
+      </ECTransition>
+      <ECTransition Source="STOP" Destination="MOVING_UP" Condition="REQ AND (DoorClosed0 AND DoorClosed1 AND DoorClosed2) AND (RequestedFloor &gt; CurrentFloor)&#xD;&#xA;" x="1146.426" y="1032.649">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="409.581,246.5687,148,253" />
+      </ECTransition>
+      <ECTransition Source="MOVING_UP" Destination="OPEN_DOOR" Condition="REQ [CurrentFloor = RequestedFloor] OR NOT (DoorClosed0 AND DoorClosed1 AND DoorClosed2)" x="1058.687" y="1842.263">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="141.2036,454.4201,367.7242,496.2048" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="2054.707" y="523.1223">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="515.4857,117.7214,518.9217,142.9092" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="STOP" Condition="CONTROL" x="2107.331" y="933.6384">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="530.211,220.228,531.7044,245.8643" />
+      </ECTransition>
+      <ECTransition Source="STOP" Destination="OPEN_DOOR" Condition="CONTROL AND (DoorClosed0 AND DoorClosed1 AND DoorClosed2) AND (RequestedFloor = CurrentFloor)" x="2124.017" y="1719.659">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="537.8417,402.2027,536.2479,473.5697" />
+      </ECTransition>
+      <ECTransition Source="OPEN_DOOR" Destination="STOP" Condition="1" x="1901.087" y="1686.324">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="475.434,449.6307,457.272,403.9187" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="UP" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+MoveUp := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="DOWN" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+MoveDown := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="STOP">
+      <ST><![CDATA[;
+MoveDown := FALSE;
+MoveUp := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="CurrentFloor">
+      <ST><![CDATA[;
+MoveDown := FALSE;
+MoveUp := FALSE;
+FloorNr := CurrentFloor;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

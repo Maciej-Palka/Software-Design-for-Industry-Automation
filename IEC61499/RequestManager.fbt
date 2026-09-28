@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="be673fae-45af-49f0-ad6b-88ab74c56ffc" Name="RequestManager" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/24/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="ReqFloor0" />
+        <With Var="ReqFloor1" />
+        <With Var="ReqFloor2" />
+        <With Var="CurrentFloor" />
+      </Event>
+      <Event Name="DOORS_CLOSED">
+        <With Var="CurrentFloor" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CONTROL" Comment="Initialization Confirm">
+        <With Var="NextFloor" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="ReqFloor0" Type="BOOL" />
+      <VarDeclaration Name="ReqFloor1" Type="BOOL" />
+      <VarDeclaration Name="ReqFloor2" Type="BOOL" />
+      <VarDeclaration Name="CurrentFloor" Type="UINT" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="NextFloor" Type="UINT" InitialValue="2" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="ALGO,REMOVE_QUEUE,REQUEST0,REQUEST1,REQUEST2" />
+    <InternalVars>
+      <VarDeclaration Name="Queue" Type="UINT" ArraySize="3" InitialValue="[3(0)]" />
+      <VarDeclaration Name="MaxPriority" Type="UINT" />
+      <VarDeclaration Name="FloorPriority" Type="UINT" />
+      <VarDeclaration Name="QueueActive" Type="BOOL" InitialValue="FALSE" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="2312.962" y="861.4129" />
+      <ECState Name="REMOVE_FROM_QUEUE" x="2420.428" y="1741.142">
+        <ECAction Algorithm="REMOVE_QUEUE" />
+      </ECState>
+      <ECState Name="REQUEST0" x="233.4015" y="1911.477">
+        <ECAction Algorithm="REQUEST0" />
+      </ECState>
+      <ECState Name="REQUEST1" x="3942.243" y="1731.429">
+        <ECAction Algorithm="REQUEST1" />
+      </ECState>
+      <ECState Name="REQUEST2" x="5381.586" y="1521.397">
+        <ECAction Algorithm="REQUEST2" />
+      </ECState>
+      <ECState Name="REQUESTS_HANDLING" x="2657.323" y="2433.937">
+        <ECAction Algorithm="ALGO" Output="CONTROL" />
+      </ECState>
+      <ECTransition Source="START" Destination="REMOVE_FROM_QUEUE" Condition="DOORS_CLOSED" x="2012.643" y="1404.103">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="450.0941,354.0386,507.2527,365.1507" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="REQUEST0" Condition="REQ AND ReqFloor0" x="469.6195" y="978.3275">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="8.506994,96.93484,101.875,330.8301" />
+      </ECTransition>
+      <ECTransition Source="REQUEST0" Destination="REQUESTS_HANDLING" Condition="1" x="1140.319" y="2748.205">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="56.83471,739.8932,470,721.4286" />
+      </ECTransition>
+      <ECTransition Source="REQUEST1" Destination="REQUESTS_HANDLING" Condition="1" x="3542.031" y="2106.61">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="923.6369,492.4252,871.1948,564.8674" />
+      </ECTransition>
+      <ECTransition Source="REQUEST2" Destination="REQUESTS_HANDLING" Condition="1" x="4383.948" y="2787.638">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1357.143,748.5714,889.4426,771.5457" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="REQUEST1" Condition="REQ AND ReqFloor1" x="3376.958" y="1064.58">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="762.8572,230,957.1429,267.1429" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="REQUEST2" Condition="REQ AND ReqFloor2" x="4299.711" y="735.158">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="857.1429,182.8571,1357.143,114.2857" />
+      </ECTransition>
+      <ECTransition Source="REMOVE_FROM_QUEUE" Destination="START" Condition="QueueActive = FALSE" x="2621.403" y="1319.605">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="674.2857,362.8571,670,300" />
+      </ECTransition>
+      <ECTransition Source="REMOVE_FROM_QUEUE" Destination="REQUESTS_HANDLING" Condition="QueueActive = TRUE" x="2634.144" y="2065.495">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="656.1027,490.0124,672.2332,539.061" />
+      </ECTransition>
+      <ECTransition Source="REQUESTS_HANDLING" Destination="START" Condition="1" x="1348.325" y="1621.652">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="282.8571,490,226.6207,317.6987" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="ALGO" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+
+NextFloor := CurrentFloor;
+QueueActive := TRUE;
+IF Queue[0] = 1 THEN
+    IF CurrentFloor = 2 AND (Queue[1] > 0) THEN
+        NextFloor := 1; (* Przystanek na 1 *)
+    ELSE
+        NextFloor := 0; 
+    END_IF;
+
+ELSIF Queue[1] = 1 THEN
+    NextFloor := 1;
+
+ELSIF Queue[2] = 1 THEN
+    IF CurrentFloor = 0 AND (Queue[1] > 0) THEN
+        NextFloor := 1; (* Przystanek na 1 *)
+    ELSE
+        NextFloor := 2; 
+    END_IF;
+END_IF;
+
+
+(* --- 4. AKTUALIZACJA FLAGI AKTYWNOŚCI KOLEJKI --- *)
+(* Ponownie przeliczamy priorytet, bo mógł zostać wyzerowany w Sekcji 2 *)
+MaxPriority := MAX(Queue[0], MAX(Queue[1], Queue[2]));
+
+IF FloorPriority = 0 THEN
+    QueueActive := FALSE;
+ELSE
+    QueueActive := TRUE;
+END_IF;
+]]></ST>
+    </Algorithm>
+    <Algorithm Name="REMOVE_QUEUE">
+      <ST><![CDATA[;
+MaxPriority := MAX(Queue[0], MAX(Queue[1], Queue[2]));
+IF MaxPriority > 0 THEN
+	
+	FloorPriority := Queue[CurrentFloor];
+	Queue[CurrentFloor] := 0;
+	
+	
+	IF Queue[0] > FloorPriority THEN Queue[0] := Queue[0] - 1; END_IF;
+	IF Queue[1] > FloorPriority THEN Queue[1] := Queue[1] - 1; END_IF;
+	IF Queue[2] > FloorPriority THEN Queue[2] := Queue[2] - 1; END_IF;
+END_IF;
+
+(*Updated value*)
+MaxPriority := MAX(Queue[0], MAX(Queue[1], Queue[2]));
+
+IF MaxPriority > 0 THEN
+	QueueActive := TRUE;
+ELSE
+	QueueActive := FALSE;
+END_IF;
+]]></ST>
+    </Algorithm>
+    <Algorithm Name="REQUEST0">
+      <ST><![CDATA[;
+MaxPriority := MAX(Queue[0], MAX(Queue[1], Queue[2]));
+
+IF ReqFloor0 AND (Queue[0] = 0) THEN
+    MaxPriority := MaxPriority + 1;
+    Queue[0] := MaxPriority;
+END_IF;
+]]></ST>
+    </Algorithm>
+    <Algorithm Name="REQUEST1">
+      <ST><![CDATA[;
+MaxPriority := MAX(Queue[0], MAX(Queue[1], Queue[2]));
+
+IF ReqFloor1 AND (Queue[1] = 0) THEN
+    MaxPriority := MaxPriority + 1;
+    Queue[1] := MaxPriority;
+END_IF;]]></ST>
+    </Algorithm>
+    <Algorithm Name="REQUEST2">
+      <ST><![CDATA[;
+MaxPriority := MAX(Queue[0], MAX(Queue[1], Queue[2]));
+
+IF ReqFloor2 AND (Queue[2] = 0) THEN
+    MaxPriority := MaxPriority + 1;
+    Queue[2] := MaxPriority;
+END_IF;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

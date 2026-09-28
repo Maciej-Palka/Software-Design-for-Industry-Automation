@@ -1,0 +1,3 @@
+C:\Users\macie\Desktop\szwecja\SDfIA\DA2\Elevator_DumbButtons_EAE\IEC61499\bin\SnapshotCompiles\{F0B4F2CE-724D-47FB-9A1F-9FE41EF78E1D}\Default\IEC61499.dll
+C:\Users\macie\Desktop\szwecja\SDfIA\DA2\Elevator_DumbButtons_EAE\IEC61499\obj\SnapshotCompiles\{F0B4F2CE-724D-47FB-9A1F-9FE41EF78E1D}\Default\IEC61499.dfbproj.CoreCompileInputs.cache
+C:\Users\macie\Desktop\szwecja\SDfIA\DA2\Elevator_DumbButtons_EAE\IEC61499\obj\SnapshotCompiles\{F0B4F2CE-724D-47FB-9A1F-9FE41EF78E1D}\Default\IEC61499.dll

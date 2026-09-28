@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="a9b3f4a4-296b-4db0-b463-a7eb1fed3711" Name="DoorController" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/24/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="DoorClosed" />
+        <With Var="DoorOpened" />
+      </Event>
+      <Event Name="SET">
+        <With Var="DoorClosed" />
+      </Event>
+      <Event Name="TIMER_DOOR">
+        <With Var="DoorOpened" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Open" />
+      </Event>
+      <Event Name="START_TIMER" />
+      <Event Name="STOP_TIMER">
+        <With Var="Open" />
+      </Event>
+      <Event Name="DOORS_CLOSED" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="DoorClosed" Type="BOOL" />
+      <VarDeclaration Name="DoorOpened" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Open" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="Opening,Closing,Open" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="940.9412" y="505.4117" />
+      <ECState Name="CLOSED" x="1044" y="1032">
+        <ECAction Output="CNF" />
+        <ECAction Output="DOORS_CLOSED" />
+      </ECState>
+      <ECState Name="OPENING" x="684" y="1556">
+        <ECAction Algorithm="Opening" Output="CNF" />
+      </ECState>
+      <ECState Name="OPEN" x="707.9999" y="2120">
+        <ECAction Algorithm="Open" Output="START_TIMER" />
+      </ECState>
+      <ECState Name="CLOSING" x="1632" y="1620">
+        <ECAction Algorithm="Closing" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="CLOSED" Condition="1" x="1073.034" y="754.3008">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="269.2091,169.7821,276.0953,204.9675" />
+      </ECTransition>
+      <ECTransition Source="CLOSED" Destination="OPENING" Condition="SET AND DoorClosed" x="768.0172" y="1252">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="203,289,173,330" />
+      </ECTransition>
+      <ECTransition Source="OPENING" Destination="OPEN" Condition="REQ AND DoorOpened" x="638.6412" y="1842.5">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="159,438,154,484" />
+      </ECTransition>
+      <ECTransition Source="OPEN" Destination="CLOSING" Condition="TIMER_DOOR" x="1297.639" y="1896.871">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="274,496,388,456" />
+      </ECTransition>
+      <ECTransition Source="CLOSING" Destination="CLOSED" Condition="REQ AND DoorClosed" x="1488.492" y="1306.5">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="407,354,352,296" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="Opening" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+Open := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Closing">
+      <ST><![CDATA[;
+Open := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Open">
+      <ST><![CDATA[;
+]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="317975e9-a398-4e1f-977c-f691e6ac8dce" Name="Merge_Split" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/22/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="EI1" />
+        <With Var="EI2" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="QO" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="QO" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="EI1" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="EI2" Type="INT" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="QO" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <Input Name="REQ" x="12" y="72" Type="Event" />
+    <Input Name="EI1" x="12" y="132" Type="Data" />
+    <Input Name="EI2" x="12" y="12" Type="Data" />
+    <Output Name="INITO" x="2118.229" y="12" Type="Event" />
+    <Output Name="CNF" x="2144.313" y="72" Type="Event" />
+    <Output Name="QO" x="2023.875" y="132" Type="Data" />
+  </FBNetwork>
+</FBType>

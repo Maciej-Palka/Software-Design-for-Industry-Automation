@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="35660b09-33d7-4ee9-a57c-a3e336530c99" Name="Movement_Controller" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="4" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/23/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" />
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="DoorClosed0" />
+        <With Var="DoorClosed1" />
+        <With Var="DoorClosed2" />
+        <With Var="AtFloor0" />
+        <With Var="AtFloor1" />
+        <With Var="AtFloor2" />
+      </Event>
+      <Event Name="CONTROL">
+        <With Var="DoorClosed0" />
+        <With Var="DoorClosed1" />
+        <With Var="DoorClosed2" />
+        <With Var="AtFloor0" />
+        <With Var="AtFloor1" />
+        <With Var="AtFloor2" />
+        <With Var="RequestedFloor" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" />
+      <Event Name="MOVEMENT" Comment="Execution Confirmation">
+        <With Var="MoveUp" />
+        <With Var="MoveDown" />
+        <With Var="OpenDoor" />
+      </Event>
+      <Event Name="DOOR_CONTROL">
+        <With Var="OpenDoor" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="DoorClosed0" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="DoorClosed1" Type="BOOL" />
+      <VarDeclaration Name="DoorClosed2" Type="BOOL" />
+      <VarDeclaration Name="AtFloor0" Type="BOOL" />
+      <VarDeclaration Name="AtFloor1" Type="BOOL" />
+      <VarDeclaration Name="AtFloor2" Type="BOOL" />
+      <VarDeclaration Name="RequestedFloor" Type="UINT" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="MoveUp" Type="BOOL" InitialValue="FALSE" Comment="Output event qualifier" />
+      <VarDeclaration Name="MoveDown" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="OpenDoor" Type="UINT" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="2" Name="FB2" Type="MovementController" x="2720" y="740" Namespace="Main" />
+    <FB ID="3" Name="FB1" Type="CurrentFloor" x="1140" y="980" Namespace="Main" />
+    <FB ID="4" Name="FB3" Type="E_MERGE" x="760" y="660" Namespace="IEC61499.Standard" />
+    <Input Name="REQ" x="300" y="252" Type="Event" />
+    <Input Name="DoorClosed0" x="1960" y="1072" Type="Data" />
+    <Input Name="DoorClosed1" x="1960" y="1132" Type="Data" />
+    <Input Name="DoorClosed2" x="1960" y="1192" Type="Data" />
+    <Input Name="RequestedFloor" x="1960" y="1252" Type="Data" />
+    <Input Name="INIT" x="300" y="192" Type="Event" />
+    <Input Name="AtFloor0" x="600" y="1252" Type="Data" />
+    <Input Name="AtFloor1" x="600" y="1312" Type="Data" />
+    <Input Name="AtFloor2" x="600" y="1372" Type="Data" />
+    <Input Name="CONTROL" x="160" y="352" Type="Event" />
+    <Output Name="INITO" x="3660" y="192" Type="Event" />
+    <Output Name="MOVEMENT" x="3600" y="752" Type="Event" />
+    <Output Name="MoveUp" x="3640" y="1012" Type="Data" />
+    <Output Name="MoveDown" x="3640" y="1072" Type="Data" />
+    <Output Name="OpenDoor" x="3640" y="1132" Type="Data" />
+    <Output Name="DOOR_CONTROL" x="3600" y="812" Type="Event" />
+    <EventConnections>
+      <Connection Source="FB2.MOVEMENT" Destination="MOVEMENT" />
+      <Connection Source="FB2.OPEN_DOORS" Destination="DOOR_CONTROL" />
+      <Connection Source="INIT" Destination="FB2.INIT" dx1="1791.417">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="INITO" />
+      <Connection Source="FB1.CNF" Destination="FB2.REQ" dx1="198.7709">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.EO" Destination="FB1.REQ" dx1="41.54163" />
+      <Connection Source="CONTROL" Destination="FB3.EI2" dx1="40" />
+      <Connection Source="REQ" Destination="FB3.EI1" dx1="49.54169" />
+      <Connection Source="CONTROL" Destination="FB2.CONTROL" dx1="1123.396">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="DoorClosed0" Destination="FB2.DoorClosed0" />
+      <Connection Source="DoorClosed1" Destination="FB2.DoorClosed1" />
+      <Connection Source="DoorClosed2" Destination="FB2.DoorClosed2" />
+      <Connection Source="RequestedFloor" Destination="FB2.RequestedFloor" />
+      <Connection Source="FB2.FloorNr" Destination="OpenDoor" dx1="130" />
+      <Connection Source="FB2.MoveUp" Destination="MoveUp" dx1="90" />
+      <Connection Source="FB2.MoveDown" Destination="MoveDown" dx1="110" />
+      <Connection Source="AtFloor0" Destination="FB1.AtFloor0" />
+      <Connection Source="AtFloor1" Destination="FB1.AtFloor1" />
+      <Connection Source="AtFloor2" Destination="FB1.AtFloor2" />
+      <Connection Source="FB1.CurrentFloor" Destination="FB2.CurrentFloor" dx1="48.77087" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="cf90938d-7b1e-445c-853c-77aa0600a330" Name="Request_Manager" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="7" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/24/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="ButtonFor0" />
+        <With Var="ButtonAt0" />
+        <With Var="ButtonFor1" />
+        <With Var="ButtonAt1" />
+        <With Var="ButtonFor2" />
+        <With Var="ButtonAt2" />
+        <With Var="CurrentFloor" />
+      </Event>
+      <Event Name="DOOR_CLOSED" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CONTROL" Comment="Execution Confirmation">
+        <With Var="NextFloor" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="ButtonFor0" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="ButtonAt0" Type="BOOL" />
+      <VarDeclaration Name="ButtonFor1" Type="BOOL" />
+      <VarDeclaration Name="ButtonAt1" Type="BOOL" />
+      <VarDeclaration Name="ButtonFor2" Type="BOOL" />
+      <VarDeclaration Name="ButtonAt2" Type="BOOL" />
+      <VarDeclaration Name="CurrentFloor" Type="UINT" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="NextFloor" Type="UINT" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="2" Name="FB1" Type="OR_88A3DD8EC65DD11C" x="940" y="420" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;OUT:BOOL" />
+    </FB>
+    <FB ID="3" Name="FB2" Type="OR_88A3DD8EC65DD11C" x="960" y="980" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;OUT:BOOL" />
+    </FB>
+    <FB ID="4" Name="FB3" Type="OR_88A3DD8EC65DD11C" x="960" y="1460" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;OUT:BOOL" />
+    </FB>
+    <FB ID="5" Name="FB4" Type="RequestManager" x="3200" y="900" Namespace="Main" />
+    <FB ID="7" Name="FB5" Type="E_MERGE_3" x="1820" y="740" Namespace="Main" />
+    <Input Name="REQ" x="500" y="432" Type="Event" />
+    <Input Name="ButtonFor0" x="240" y="632" Type="Data" />
+    <Input Name="ButtonAt0" x="240" y="692" Type="Data" />
+    <Input Name="ButtonFor1" x="240" y="1192" Type="Data" />
+    <Input Name="ButtonAt1" x="240" y="1252" Type="Data" />
+    <Input Name="ButtonFor2" x="240" y="1672" Type="Data" />
+    <Input Name="ButtonAt2" x="240" y="1732" Type="Data" />
+    <Input Name="CurrentFloor" x="2500" y="1352" Type="Data" />
+    <Input Name="DOOR_CLOSED" x="2520" y="972" Type="Event" />
+    <Output Name="CONTROL" x="3960" y="912" Type="Event" />
+    <Output Name="NextFloor" x="4000" y="1112" Type="Data" />
+    <EventConnections>
+      <Connection Source="REQ" Destination="FB1.REQ" />
+      <Connection Source="REQ" Destination="FB2.REQ" dx1="49.54163" />
+      <Connection Source="REQ" Destination="FB3.REQ" dx1="49.54163" />
+      <Connection Source="FB1.CNF" Destination="FB5.EI1" dx1="297.4791">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.CNF" Destination="FB5.EI2" dx1="277.4791">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.CNF" Destination="FB5.EI3" dx1="377.4791">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.EO" Destination="FB4.REQ" dx1="40" />
+      <Connection Source="FB4.CONTROL" Destination="CONTROL" />
+      <Connection Source="DOOR_CLOSED" Destination="FB4.DOORS_CLOSED" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="ButtonFor0" Destination="FB1.IN1" />
+      <Connection Source="ButtonAt0" Destination="FB1.IN2" />
+      <Connection Source="ButtonFor1" Destination="FB2.IN1" />
+      <Connection Source="ButtonAt1" Destination="FB2.IN2" />
+      <Connection Source="ButtonFor2" Destination="FB3.IN1" />
+      <Connection Source="ButtonAt2" Destination="FB3.IN2" />
+      <Connection Source="FB1.OUT" Destination="FB4.ReqFloor0" dx1="67.47913" />
+      <Connection Source="FB2.OUT" Destination="FB4.ReqFloor1" dx1="47.47913" />
+      <Connection Source="FB3.OUT" Destination="FB4.ReqFloor2" dx1="837.4791">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="CurrentFloor" Destination="FB4.CurrentFloor" />
+      <Connection Source="FB4.NextFloor" Destination="NextFloor" dx1="70" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

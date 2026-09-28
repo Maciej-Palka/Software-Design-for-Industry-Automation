@@ -85,7 +85,10 @@
       <DependentUpon>ReqPanelLift.fbt</DependentUpon>
       <IEC61499Type>CAT</IEC61499Type>
     </None>
-    <None Include="SnapshotCompiles\{189D2AAA-A4B7-42B3-B099-9F2605C4CF88}\Default\IEC61499.snapshot" />
+    <None Include="ReqPanelLift\ReqPanelLift_HMI.meta.xml">
+      <DependentUpon>ReqPanelLift_HMI.fbt</DependentUpon>
+    </None>
+    <None Include="SnapshotCompiles\{EE85FAFF-0A55-48A8-A380-ACA7E9ACE21B}\Default\IEC61499.snapshot" />
     <None Include="System\snapshot.xml">
       <DependentUpon>System.sys</DependentUpon>
     </None>
@@ -123,6 +126,12 @@
       <DependentUpon>Control\Control.fbt</DependentUpon>
       <Usage>Private</Usage>
     </Compile>
+    <Compile Include="CurrentFloor.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="DoorController.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
     <Compile Include="DoorMove.fbt">
       <IEC61499Type>Basic</IEC61499Type>
     </Compile>
@@ -136,8 +145,17 @@
       <IEC61499Type>CAT</IEC61499Type>
       <DependentUpon>Door\Door.fbt</DependentUpon>
     </Compile>
+    <Compile Include="Door_Controller.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
     <Compile Include="DummyControl.fbt">
       <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="E_MERGE_3.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="E_SPLIT_3.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
     </Compile>
     <Compile Include="FloorCarElevator.fbt">
       <IEC61499Type>Basic</IEC61499Type>
@@ -156,6 +174,9 @@
     <Compile Include="integEC.fbt">
       <IEC61499Type>Basic</IEC61499Type>
     </Compile>
+    <Compile Include="LED_Controller.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
     <Compile Include="LiftMove.fbt">
       <IEC61499Type>Basic</IEC61499Type>
     </Compile>
@@ -170,6 +191,9 @@
     <Compile Include="MergeEvents.fbt">
       <IEC61499Type>Basic</IEC61499Type>
     </Compile>
+    <Compile Include="Merge_Split.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
     <Compile Include="Model\Model.fbt">
       <IEC61499Type>CAT</IEC61499Type>
     </Compile>
@@ -177,6 +201,12 @@
       <IEC61499Type>CAT</IEC61499Type>
       <DependentUpon>Model\Model.fbt</DependentUpon>
       <Usage>Private</Usage>
+    </Compile>
+    <Compile Include="MovementController.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Movement_Controller.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
     </Compile>
     <Compile Include="Real2Bool.fbt">
       <IEC61499Type>Basic</IEC61499Type>
@@ -190,6 +220,15 @@
     <Compile Include="ReqPanelLift\ReqPanelLift_HMI.fbt">
       <IEC61499Type>CAT</IEC61499Type>
       <DependentUpon>ReqPanelLift\ReqPanelLift.fbt</DependentUpon>
+    </Compile>
+    <Compile Include="RequestManager.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Request_Manager.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="Single_LED_Controller.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
     </Compile>
     <Compile Include="SR.fbt">
       <IEC61499Type>Basic</IEC61499Type>
@@ -207,8 +246,8 @@
     <Folder Include="License" />
     <Folder Include="Log" />
     <Folder Include="SnapshotCompiles" />
-    <Folder Include="SnapshotCompiles\{189D2AAA-A4B7-42B3-B099-9F2605C4CF88}" />
-    <Folder Include="SnapshotCompiles\{189D2AAA-A4B7-42B3-B099-9F2605C4CF88}\Default" />
+    <Folder Include="SnapshotCompiles\{EE85FAFF-0A55-48A8-A380-ACA7E9ACE21B}" />
+    <Folder Include="SnapshotCompiles\{EE85FAFF-0A55-48A8-A380-ACA7E9ACE21B}\Default" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CallButton\CallButton_CAT.offline.xml">
@@ -218,6 +257,16 @@
     </Content>
     <Content Include="CallButton\CallButton_CAT.opcua.xml">
       <DependentUpon>CallButton.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="Control\Control_CAT.offline.xml">
+      <DependentUpon>Control.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="Control\Control_CAT.opcua.xml">
+      <DependentUpon>Control.fbt</DependentUpon>
       <Plugin>OPCUAConfigurator</Plugin>
       <IEC61499Type>CAT_OPCUA</IEC61499Type>
     </Content>

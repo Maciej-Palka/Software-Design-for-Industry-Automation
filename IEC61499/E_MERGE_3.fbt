@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="4d219064-796f-42ff-82b6-02ae270c231c" Name="E_MERGE_3" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="2" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/22/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="EI1" Comment="Initialization Request" />
+      <Event Name="EI2" Comment="Normal Execution Request" />
+      <Event Name="EI3" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="EO" Comment="Initialization Confirm" />
+    </EventOutputs>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="E_MERGE" x="960" y="200" Namespace="IEC61499.Standard" />
+    <FB ID="2" Name="FB2" Type="E_MERGE" x="1600" y="600" Namespace="IEC61499.Standard" />
+    <Input Name="EI1" x="500" y="212" Type="Event" />
+    <Input Name="EI2" x="500" y="272" Type="Event" />
+    <Input Name="EI3" x="940" y="672" Type="Event" />
+    <Output Name="EO" x="2000" y="612" Type="Event" />
+    <EventConnections>
+      <Connection Source="EI3" Destination="FB2.EI2" />
+      <Connection Source="EI1" Destination="FB1.EI1" />
+      <Connection Source="EI2" Destination="FB1.EI2" />
+      <Connection Source="FB1.EO" Destination="FB2.EI1" dx1="41.54163" />
+      <Connection Source="FB2.EO" Destination="EO" />
+    </EventConnections>
+  </FBNetwork>
+</FBType>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="8776df0d-3880-432d-81f7-3398e775ea61" Name="CurrentFloor" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="9/23/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="AtFloor0" />
+        <With Var="AtFloor1" />
+        <With Var="AtFloor2" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="CurrentFloor" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="AtFloor0" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="AtFloor1" Type="BOOL" />
+      <VarDeclaration Name="AtFloor2" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="CurrentFloor" Type="UINT" InitialValue="2" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="Floor0_A,Floor1_A,Floor2_A" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="1360.941" y="673.4117" />
+      <ECState Name="Floor0" x="332" y="688">
+        <ECAction Algorithm="Floor0_A" Output="CNF" />
+      </ECState>
+      <ECState Name="Floor1" x="1356" y="1136">
+        <ECAction Algorithm="Floor1_A" Output="CNF" />
+      </ECState>
+      <ECState Name="Floor2" x="2084" y="668">
+        <ECAction Algorithm="Floor2_A" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="Floor2" Condition="AtFloor2" x="1728.304" y="584.7211">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="412.2465,142.814,451.9055,142.5171" />
+      </ECTransition>
+      <ECTransition Source="Floor2" Destination="START" Condition="1" x="1728.865" y="756.599">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="452.0926,192.5171,412.4336,192.8112" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="Floor1" Condition="AtFloor1" x="1237.726" y="914.6765">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="306,216,300,243" />
+      </ECTransition>
+      <ECTransition Source="Floor1" Destination="START" Condition="1" x="1482.327" y="901.9728">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="376.9431,240.1915,377.262,210.3394" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="Floor0" Condition="AtFloor0" x="845.6387" y="470.5227">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="260.53,103.117,162.2567,105.8109" />
+      </ECTransition>
+      <ECTransition Source="Floor0" Destination="START" Condition="1" x="709.7614" y="876.3265">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="124.2107,223.4365,212.316,238.6332" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="Floor0_A" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+CurrentFloor := 0;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Floor1_A" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+CurrentFloor := 1;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Floor2_A">
+      <ST><![CDATA[CurrentFloor := 2;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

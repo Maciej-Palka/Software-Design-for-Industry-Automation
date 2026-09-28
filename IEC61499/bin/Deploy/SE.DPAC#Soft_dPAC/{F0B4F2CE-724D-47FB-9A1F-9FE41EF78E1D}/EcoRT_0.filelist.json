@@ -1,0 +1,40 @@
+{
+  "snapshot": {
+    "guid": "f0b4f2ce-724d-47fb-9a1f-9fe41ef78e1d",
+    "hash": "0D716EF5A30F99A0024F09BFD009E0957F6DDBE790B69FFCA20E6D4B0E45CAFE",
+    "app": {
+      "hash": "0D716EF5A30F99A0024F09BFD009E0957F6DDBE790B69FFCA20E6D4B0E45CAFE",
+      "items": [
+        "Main#Single_LED_Controller.bin",
+        "Main#E_MERGE_3.bin",
+        "Main#E_SPLIT_3.bin",
+        "Main#LED_Controller.bin",
+        "Main#DummyControl.bin",
+        "Main#Control.bin",
+        "Main#ChangeDetect.bin",
+        "Main#Lift_HMI.bin",
+        "Main#LiftMove.bin",
+        "Main#integEC.bin",
+        "Main#Lift.bin",
+        "Main#FloorIndicator_HMI.bin",
+        "Main#FloorIndicator.bin",
+        "Main#ReqPanelLift_HMI.bin",
+        "Main#ReqPanelLift.bin",
+        "Main#DoorSensor.bin",
+        "Main#DoorMove.bin",
+        "Main#Door_HMI.bin",
+        "Main#Real2Bool.bin",
+        "Main#Bool2Real.bin",
+        "Main#Door.bin",
+        "Main#CallButton_HMI.bin",
+        "Main#CallButton.bin",
+        "Main#MergeEvents.bin",
+        "Main#FloorCarElevator.bin",
+        "Main#Real2Int.bin",
+        "Main#FloorSensors.bin",
+        "Main#Model.bin",
+        "Device.bin"
+      ]
+    }
+  }
+}

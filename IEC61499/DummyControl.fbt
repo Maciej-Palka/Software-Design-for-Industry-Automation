@@ -92,6 +92,7 @@
     </OutputVars>
   </InterfaceList>
   <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ" />
     <ECC>
       <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
       <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
@@ -106,10 +107,46 @@
       <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
     </ECC>
     <Algorithm Name="INIT" Comment="Initialization algorithm">
-      <ST Text="liftDown := TRUE;" />
+      <ST><![CDATA[liftDown := TRUE;]]></ST>
     </Algorithm>
     <Algorithm Name="REQ" Comment="Normally executed algorithm">
-      <ST Text="IF AtFloor0 THEN&#xD;&#xA;	liftUp := TRUE;&#xD;&#xA;	liftDown := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;IF AtFloor2 THEN&#xD;&#xA;	liftDown := TRUE;&#xD;&#xA;	liftUp := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;/*IF Button0 OR Req0 THEN&#xD;&#xA;	door0 := TRUE;&#xD;&#xA;ELSE&#xD;&#xA;	door0 := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;IF Button1 OR Req1 THEN&#xD;&#xA;	door1 := TRUE;&#xD;&#xA;ELSE&#xD;&#xA;	door1 := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;IF Button2 OR Req2 THEN&#xD;&#xA;	door2 := TRUE;&#xD;&#xA;ELSE&#xD;&#xA;	door2 := FALSE;&#xD;&#xA;END_IF;*/&#xD;&#xA;door0 := Button0 OR Req0;&#xD;&#xA;door1 := Button1 OR Req1;&#xD;&#xA;door2 := Button2 OR Req2;&#xD;&#xA;&#xD;&#xA;LightON_Button0 := Button0;&#xD;&#xA;LightON_Button1 := Button1;&#xD;&#xA;LightON_Button2 := Button2;&#xD;&#xA;&#xD;&#xA;LightON_Panel0 := Req0;&#xD;&#xA;LightON_Panel1 := Req1;&#xD;&#xA;LightON_Panel2 := Req2;&#xD;&#xA;&#xD;&#xA;" />
+      <ST><![CDATA[IF AtFloor0 THEN
+	liftUp := TRUE;
+	liftDown := FALSE;
+END_IF;
+IF AtFloor2 THEN
+	liftDown := TRUE;
+	liftUp := FALSE;
+END_IF;
+
+/*IF Button0 OR Req0 THEN
+	door0 := TRUE;
+ELSE
+	door0 := FALSE;
+END_IF;
+IF Button1 OR Req1 THEN
+	door1 := TRUE;
+ELSE
+	door1 := FALSE;
+END_IF;
+IF Button2 OR Req2 THEN
+	door2 := TRUE;
+ELSE
+	door2 := FALSE;
+END_IF;*/
+door0 := Button0 OR Req0;
+door1 := Button1 OR Req1;
+door2 := Button2 OR Req2;
+
+LightON_Button0 := Button0;
+LightON_Button1 := Button1;
+LightON_Button2 := Button2;
+
+LightON_Panel0 := Req0;
+LightON_Panel1 := Req1;
+LightON_Panel2 := Req2;
+
+]]></ST>
     </Algorithm>
   </BasicFB>
 </FBType>

@@ -21,7 +21,7 @@
   </CanvasResolution>
   <Graphics Name="Graphics" IsExternal="false" />
   <WebGraphics Name="WebGraphics" IsExternal="false" />
-  <Security Level="Internal" IsActive="true">
+  <Security Level="Internal">
     <Info>﻿&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;UserManager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" HighestID="2"&gt;&lt;UserInfos Name="D7033E" Password="$1$FE52F09502262CCCC896CDA34DBA95BD44BFCA6DA636D649434B4DC8D668F406$3C70DC4D32CDDB38CA35D37710A7A5175287A3AC899CDF60811F61EA76FA4A29" SecurityToken="127" ID="1" MeetsCalLaw="true" /&gt;&lt;/UserManager&gt;</Info>
   </Security>
   <PluginGUIDs />
