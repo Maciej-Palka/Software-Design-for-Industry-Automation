@@ -48,37 +48,57 @@
 
 * **RCI-03** | WHEN the controller is initialised, the Elevator Controller shall command the elevator to move to Floor 2.
 
----
-
 # Logical design of an elevator system
 
 ### State machine of a Movement Controller:
 
 The transitions within the Movement Controller state diagram are governed by specific events and guard conditions. To maintain diagram readability, these complex transition conditions have been abstracted as follows:
 
-* **condition1**: REQ AND \[allDoorsClosed AND (queuedFloor > currentFloor)\]
+* **condition1**: REQ AND 
 
-* **condition2**: REQ AND \[allDoorsClosed AND (queuedFloor < currentFloor)\]
+  $$
+  allDoorsClosed AND (queuedFloor > currentFloor)
+  $$
 
-* **condition3**: CONTROL \[allDoorsClosed AND (RequestedFloor == CurrentFloor)\]
+* **condition2**: REQ AND 
 
-![Movement Controller state machine](additional_materials/movement_controller_state_machine.png)
+  $$
+  allDoorsClosed AND (queuedFloor < currentFloor)
+  $$
+
+* **condition3**: CONTROL 
+
+  $$
+  allDoorsClosed AND (RequestedFloor == CurrentFloor)
+  $$
+
+<p align="center">
+  <img src="additional_materials/movement_controller_state_machine.png" alt="Movement Controller state machine">
+</p>
 
 ### State machine of a Door Controller:
 
-![Doors Controller state machine](additional_materials/doors_controller_state_machine.png)
+<p align="center">
+  <img src="additional_materials/doors_controller_state_machine.png" alt="Doors Controller state machine">
+</p>
 
 ### Final version of combined state diagrams:
 
-![Movement Controller state machine combined](additional_materials/combined_state_machine.png)
+<p align="center">
+  <img src="additional_materials/combined_state_machine.png" alt="Movement Controller state machine combined">
+</p>
 
 ### Request Manager state diagram:
 
-![Request Manager state diagram](additional_materials/request_manager_state_machine.png)
+<p align="center">
+  <img src="additional_materials/request_manager_state_machine.png" alt="Request Manager state diagram">
+</p>
 
 ### Seqence diagram:
 
-![System Sequence Diagram](additional_materials/sequence_diagram.png)
+<p align="center">
+  <img src="additional_materials/sequence_diagram.png" alt="System Sequence Diagram">
+</p>
 
 ### Explanation of used functions:
 
@@ -108,11 +128,11 @@ The transitions within the Movement Controller state diagram are governed by spe
 
 ### Timing diagram representing elevator movement:
 
-![Elevator movement Timing Diagram](additional_materials/timing_diagram.png)
+<p align="center">
+  <img src="additional_materials/timing_diagram.png" alt="Elevator movement Timing Diagram">
+</p>
 
 The timing diagram illustrates four distinct operational phases for the cabin movement controller: initialization, idle, (moving) up, and (moving) down. While the diagram explicitly demonstrates the sequence of events for Floor 0 and Floor 2, the represented logical behaviour remains identical across all three floors.
-
----
 
 # Requirement Coverage Table
 
