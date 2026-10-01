@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommunicationDescription>
+  <Channel ChannelId="484F20AB56FCA609" LinkId="0E7947C0253933E0">
+    <Endpoint Resource="PusherControlDEV.RES0" URI="nxtv3://0.0.0.0:51308/?proto=udp">
+      <Peer Resource="MasterController.RES0" URI="nxtv3://127.0.0.1:51311/?proto=udp&amp;alive=3000" PeerFB="CHAN_MasterController_RES0" />
+    </Endpoint>
+    <Endpoint Resource="MasterController.RES0" URI="nxtv3://0.0.0.0:51311/?proto=udp">
+      <Peer Resource="PusherControlDEV.RES0" URI="nxtv3://127.0.0.1:51308/?proto=udp&amp;alive=3000" PeerFB="CHAN_PusherControlDEV_RES0" />
+    </Endpoint>
+    <FBConnection Source="PusherControlDEV.RES0.PusherControl" Destination="MasterController.RES0.FB7" SourceProxy="SND_PROXY_153F398111834F50" DestinationProxy="PROXY_153F398111834F50" ProxyId="F423A81A746C14CA">
+      <Event Source="CNF" Destination="REQ" EventId="1E3DFED15943519A" EventHash="BE3F1915EDB4A934" />
+      <Data Source="PusherRetractedCNF" Destination="PusherRetracted" />
+      <Data Source="PusherExtendedCNF" Destination="PusherExtended" />
+    </FBConnection>
+    <FBConnection Source="MasterController.RES0.FB7" Destination="PusherControlDEV.RES0.PusherControl" SourceProxy="SND_PROXY_46EE27EE75EC307" DestinationProxy="PROXY_46EE27EE75EC307" ProxyId="79C1DF6AD23B1FF9">
+      <Event Source="PUSHER_EXTEND" Destination="EXTEND" EventId="276B33C599172E7A" EventHash="C6D20539160659DE" />
+    </FBConnection>
+  </Channel>
+  <Channel ChannelId="BBF42B61D0606F28" LinkId="1EB6950ED54C567B">
+    <Endpoint Resource="PusherControlDEV.RES0" URI="nxtv3://0.0.0.0:51304/?proto=udp">
+      <Peer Resource="DEV.RES0" URI="nxtv3://127.0.0.1:51301/?proto=udp&amp;alive=3000" PeerFB="CHAN_DEV_RES0" />
+    </Endpoint>
+    <Endpoint Resource="DEV.RES0" URI="nxtv3://0.0.0.0:51301/?proto=udp">
+      <Peer Resource="PusherControlDEV.RES0" URI="nxtv3://127.0.0.1:51304/?proto=udp&amp;alive=3000" PeerFB="CHAN_PusherControlDEV_RES0" />
+    </Endpoint>
+    <FBConnection Source="PusherControlDEV.RES0.PusherControl" Destination="DEV.RES0.Model" SourceProxy="SND_PROXY_1480A46B16BD48652" DestinationProxy="PROXY_1480A46B16BD48652" ProxyId="D552EDB7EE73BF52">
+      <Event Source="INITO" Destination="INIT" EventId="DFF7DC43027FF05A" EventHash="14FFF8D43B42E21D" />
+    </FBConnection>
+    <FBConnection Source="DEV.RES0.Model" Destination="PusherControlDEV.RES0.PusherControl" SourceProxy="SND_PROXY_115F7C1914C9D6D55" DestinationProxy="PROXY_115F7C1914C9D6D55" ProxyId="93176978C8A87107">
+      <Event Source="INITO" Destination="INIT" EventId="AB390ED7B3AAD160" EventHash="14FFF8D43B42E21D" />
+    </FBConnection>
+  </Channel>
+</CommunicationDescription>

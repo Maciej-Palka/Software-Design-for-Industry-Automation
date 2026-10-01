@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommunicationDescription>
+  <Channel ChannelId="34AB832D2480D42A" LinkId="C18E93173D0D124F">
+    <Endpoint Resource="LiftControlDEV.RES0" URI="nxtv3://0.0.0.0:51307/?proto=udp">
+      <Peer Resource="MasterController.RES0" URI="nxtv3://${MasterController}:51310/?proto=udp&amp;alive=3000" PeerFB="CHAN_MasterController_RES0" />
+    </Endpoint>
+    <Endpoint Resource="MasterController.RES0" URI="nxtv3://0.0.0.0:51310/?proto=udp">
+      <Peer Resource="LiftControlDEV.RES0" URI="nxtv3://${LiftControlDEV}:51307/?proto=udp&amp;alive=3000" PeerFB="CHAN_LiftControlDEV_RES0" />
+    </Endpoint>
+    <FBConnection Source="LiftControlDEV.RES0.LiftControl" Destination="MasterController.RES0.FB7" SourceProxy="SND_PROXY_275F73A46B154055" DestinationProxy="PROXY_275F73A46B154055" ProxyId="5D2CF5B5105F2B0D">
+      <Event Source="CNF" Destination="REQ" EventId="61383014D1493F12" EventHash="C71981FF5AB06807" />
+      <Data Source="LiftRetractedCNF" Destination="LiftRetracted" />
+      <Data Source="LiftExtendedCNF" Destination="LiftExtended" />
+    </FBConnection>
+    <FBConnection Source="MasterController.RES0.FB7" Destination="LiftControlDEV.RES0.LiftControl" SourceProxy="SND_PROXY_112E778503948D875" DestinationProxy="PROXY_112E778503948D875" ProxyId="9870C29749246A7C">
+      <Event Source="LIFT_RETRACT" Destination="RETRACT" EventId="1656D550FDF5415B" EventHash="C83CB8ED2109AF71" />
+      <Event Source="LIFT_EXTEND" Destination="EXTEND" EventId="BF34FD906203B9F4" EventHash="624B6C4DF8E0E043" />
+    </FBConnection>
+  </Channel>
+  <Channel ChannelId="CFE9ACE4B638981F" LinkId="AA609A407B4A0588">
+    <Endpoint Resource="LiftControlDEV.RES0" URI="nxtv3://0.0.0.0:51302/?proto=udp">
+      <Peer Resource="DEV.RES0" URI="nxtv3://${DEV}:51300/?proto=udp&amp;alive=3000" PeerFB="CHAN_DEV_RES0" />
+    </Endpoint>
+    <Endpoint Resource="DEV.RES0" URI="nxtv3://0.0.0.0:51300/?proto=udp">
+      <Peer Resource="LiftControlDEV.RES0" URI="nxtv3://${LiftControlDEV}:51302/?proto=udp&amp;alive=3000" PeerFB="CHAN_LiftControlDEV_RES0" />
+    </Endpoint>
+    <FBConnection Source="LiftControlDEV.RES0.LiftControl" Destination="DEV.RES0.Model" SourceProxy="SND_PROXY_680C2A3C34354D8C" DestinationProxy="PROXY_680C2A3C34354D8C" ProxyId="2CA4FAE9035E9889">
+      <Event Source="INITO" Destination="INIT" EventId="69718C2035C2E0CC" EventHash="14FFF8D43B42E21D" />
+    </FBConnection>
+    <FBConnection Source="DEV.RES0.Model" Destination="LiftControlDEV.RES0.LiftControl" SourceProxy="SND_PROXY_69E8B4190621E80F" DestinationProxy="PROXY_69E8B4190621E80F" ProxyId="564EA666C04A387B">
+      <Event Source="INITO" Destination="INIT" EventId="AB390ED7B3AAD160" EventHash="14FFF8D43B42E21D" />
+    </FBConnection>
+  </Channel>
+</CommunicationDescription>

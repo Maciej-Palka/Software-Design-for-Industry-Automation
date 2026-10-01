@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType Name="CROSSCOMM_SENDER_53DFDDBCED1C939C" Comment="Service Interface Function Block Type" Namespace="Main">
+  <Attribute Name="Runtime.FBType.ImplementingType" Value="Runtime.System#DYNGEN_CROSSCOMM_SENDER" />
+  <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#&lt;InterfaceList&gt;&#xD;&#xA;  &lt;EventInputs&gt;&#xD;&#xA;    &lt;Event Name=&quot;CNF&quot;&gt;&#xD;&#xA;      &lt;With Var=&quot;PusherRetractedCNF&quot; /&gt;&#xD;&#xA;      &lt;With Var=&quot;PusherExtendedCNF&quot; /&gt;&#xD;&#xA;    &lt;/Event&gt;&#xD;&#xA;  &lt;/EventInputs&gt;&#xD;&#xA;  &lt;InputVars&gt;&#xD;&#xA;    &lt;VarDeclaration Name=&quot;PusherRetractedCNF&quot; Type=&quot;BOOL&quot; /&gt;&#xD;&#xA;    &lt;VarDeclaration Name=&quot;PusherExtendedCNF&quot; Type=&quot;BOOL&quot; /&gt;&#xD;&#xA;  &lt;/InputVars&gt;&#xD;&#xA;&lt;/InterfaceList&gt;" />
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH " Version="0.0" Author="bababen" Date="9/22/2017" Remarks="template" />
+  <CompilerInfo>
+    <Compiler Language="Cpp" Vendor="nxtControl" Product="builtin " Version="1.0" />
+  </CompilerInfo>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="CNF">
+        <With Var="PusherRetractedCNF" />
+        <With Var="PusherExtendedCNF" />
+      </Event>
+    </EventInputs>
+    <InputVars>
+      <VarDeclaration Name="PusherRetractedCNF" Type="BOOL" />
+      <VarDeclaration Name="PusherExtendedCNF" Type="BOOL" />
+    </InputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" />
+    </ECC>
+  </BasicFB>
+</FBType>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="E376A6BCE115B92D" Name="ControlPanel" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="1" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Sandeep Patil" Date="2/16/2019" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm" />
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="PushExt" />
+        <With Var="LeftRet" />
+        <With Var="LiftExt" />
+      </Event>
+    </EventOutputs>
+    <OutputVars>
+      <VarDeclaration Name="LiftExt" Type="BOOL" />
+      <VarDeclaration Name="LeftRet" Type="BOOL" />
+      <VarDeclaration Name="PushExt" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="CP_HMI" Type="ControlPanel_HMI" x="600" y="760" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <Input Name="INIT" x="100" y="772" Type="Event" />
+    <Output Name="INITO" x="1440" y="772" Type="Event" />
+    <Output Name="CNF" x="1460" y="832" Type="Event" />
+    <Output Name="LiftExt" x="1420" y="1152" Type="Data" />
+    <Output Name="LeftRet" x="1400" y="1212" Type="Data" />
+    <Output Name="PushExt" x="1380" y="1272" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="CP_HMI.INIT" />
+      <Connection Source="CP_HMI.INITO" Destination="INITO" />
+      <Connection Source="CP_HMI.CNF" Destination="CNF" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="CP_HMI.LiftUp" Destination="LiftExt" />
+      <Connection Source="CP_HMI.LiftDown" Destination="LeftRet" />
+      <Connection Source="CP_HMI.Push" Destination="PushExt" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

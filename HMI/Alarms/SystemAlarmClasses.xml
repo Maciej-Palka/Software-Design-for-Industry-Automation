@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AlarmClasses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.nxtcontrol.com/AlarmClasses.xsd">
+  <Class Name="Alarm" Prio="80">
+    <State State="NoAlarm" Color="Transparent">
+      <Text Lang="" Text="No Alarm" />
+      <Text Lang="de" Text="Kein Alarm" />
+    </State>
+    <State State="Came" Color="AlarmCame">
+      <Text Lang="" Text="Came" />
+      <Text Lang="de" Text="Kam" />
+    </State>
+    <State State="CameNA" Color="AlarmCameNotAcked">
+      <Text Lang="" Text="Came not acknowledged" />
+      <Text Lang="de" Text="Kam nicht quittiert" />
+    </State>
+    <State State="GoneNA" Color="AlarmGoneNotAcked">
+      <Text Lang="" Text="Gone not acknowledged" />
+      <Text Lang="de" Text="Ging nicht quittiert" />
+    </State>
+    <State State="CameGoneNA" Color="AlarmGoneNotAcked">
+      <Text Lang="" Text="Came/gone not acknowledged" />
+      <Text Lang="de" Text="Kam/ging nicht quittiert" />
+    </State>
+    <Shortcut Lang="" Text="A" />
+    <Shortcut Lang="de" Text="A" />
+  </Class>
+  <Class Name="Warning" Prio="60">
+    <State State="NoAlarm" Color="Transparent">
+      <Text Lang="" Text="No Warning" />
+      <Text Lang="de" Text="Keine Warnung" />
+    </State>
+    <State State="Came" Color="WarningCame">
+      <Text Lang="" Text="Came" />
+      <Text Lang="de" Text="Kam" />
+    </State>
+    <State State="CameNA" Color="WarningCameNotAcked">
+      <Text Lang="" Text="Came not acknowledged" />
+      <Text Lang="de" Text="Kam nicht quittiert" />
+    </State>
+    <State State="GoneNA" Color="WarningGoneNotAcked">
+      <Text Lang="" Text="Gone not acknowledged" />
+      <Text Lang="de" Text="Ging nicht quittiert" />
+    </State>
+    <State State="CameGoneNA" Color="WarningGoneNotAcked">
+      <Text Lang="" Text="Came/gone not acknowledged" />
+      <Text Lang="de" Text="Kam/ging nicht quittiert" />
+    </State>
+    <Shortcut Lang="" Text="W" />
+    <Shortcut Lang="de" Text="W" />
+  </Class>
+</AlarmClasses>

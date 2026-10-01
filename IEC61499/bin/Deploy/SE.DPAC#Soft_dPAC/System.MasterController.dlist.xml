@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployFiles xmlns="http://tempuri.org/DeploySnapshot.xsd">
+  <Deployable>
+    <DeployInformation Type="Working">
+      <FileGroup Name="FileList">
+        <FileItem Name="Basics/Main#OPCUA_CONNECT_13434D741E95123C0.bin" Library="IEC61499.dll" BuildSnapshot="{AA9C344B-A5C0-4137-8075-B9E71FF7C409}">
+          <Modified>2026-09-30T18:13:16</Modified>
+          <Hash>596FC10862DFB48976709AFB4971DBC0CE32E76CD412350D9B1381A5EAE1E698</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#OPCUA_READ_1322467A4CC663E9C.bin" Library="IEC61499.dll" BuildSnapshot="{AA9C344B-A5C0-4137-8075-B9E71FF7C409}">
+          <Modified>2026-09-30T18:13:16</Modified>
+          <Hash>13270FE34229A0FD5B9ACE598C9B0E91EDD05F1A55ABA1B5B78849FE2904B024</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#CentralController.bin" Library="IEC61499.dll" BuildSnapshot="{AA9C344B-A5C0-4137-8075-B9E71FF7C409}">
+          <Modified>2026-10-01T16:46:14</Modified>
+          <Hash>24E36257BC742E64B89669738064157929F169A10547FE0344091F0CAF41C9E0</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#CROSSCOMM_PEER_195C19FF067434822.bin" Library="IEC61499.dll" BuildSnapshot="{AA9C344B-A5C0-4137-8075-B9E71FF7C409}">
+          <Modified>2026-09-30T18:13:16</Modified>
+          <Hash>7E05B997D3F65AD99B5B90FAB3965DC3958A6ECFB823ADB4F665CCC70C06D94A</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#CROSSCOMM_PEER_195F5B05D36C14041.bin" Library="IEC61499.dll" BuildSnapshot="{AA9C344B-A5C0-4137-8075-B9E71FF7C409}">
+          <Modified>2026-10-01T16:46:14</Modified>
+          <Hash>E876D8BE0FE6C5EE0ED859E4DAD9A8428FF2E64DEF0904369E17C9CDB1CDF350</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#CROSSCOMM_PEER_67813986011379A3.bin" Library="IEC61499.dll" BuildSnapshot="{AA9C344B-A5C0-4137-8075-B9E71FF7C409}">
+          <Modified>2026-10-01T16:46:14</Modified>
+          <Hash>780A763F9812EF57D929FB47A5338E432D386A0B6DB8FC5D8022152D32433C03</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#CROSSCOMM_SENDER_171EE79FA21950F0E.bin" Library="IEC61499.dll" BuildSnapshot="{AA9C344B-A5C0-4137-8075-B9E71FF7C409}">
+          <Modified>2026-09-30T18:13:16</Modified>
+          <Hash>7E088CE71BB24855D29A7D65D0827B8C1DAF190294E06AF52CABC826E69194F7</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#CROSSCOMM_SENDER_45FE03D7848F2EB2.bin" Library="IEC61499.dll" BuildSnapshot="{AA9C344B-A5C0-4137-8075-B9E71FF7C409}">
+          <Modified>2026-09-30T18:13:16</Modified>
+          <Hash>1C4B6D7769779FA7A686B3BA55F88ADF055DBE8BDFF94384DCC0DF1CD066623C</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#CROSSCOMM_SENDER_829AE521E1956645.bin" Library="IEC61499.dll" BuildSnapshot="{AA9C344B-A5C0-4137-8075-B9E71FF7C409}">
+          <Modified>2026-09-30T18:13:16</Modified>
+          <Hash>C8B4F8FB88E6D5EB04AA2C78122A1F28E95057782C92B07F38DBDB48DDCCFB70</Hash>
+        </FileItem>
+      </FileGroup>
+      <FileGroup Name="DeployList">
+        <FileItem Name="Basics/Main#OPCUA_CONNECT_13434D741E95123C0.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#OPCUA_READ_1322467A4CC663E9C.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#CentralController.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#CROSSCOMM_PEER_195C19FF067434822.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#CROSSCOMM_PEER_195F5B05D36C14041.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#CROSSCOMM_PEER_67813986011379A3.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#CROSSCOMM_SENDER_171EE79FA21950F0E.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#CROSSCOMM_SENDER_45FE03D7848F2EB2.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#CROSSCOMM_SENDER_829AE521E1956645.bin" Library="IEC61499.dll" />
+      </FileGroup>
+    </DeployInformation>
+  </Deployable>
+</DeployFiles>

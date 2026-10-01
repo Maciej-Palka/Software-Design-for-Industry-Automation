@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType Name="OPCUA_READ_1322467A4CC663E9C" Comment="Generic Interface Function Block Type" Namespace="Main">
+  <Attribute Name="Runtime.FBType.ImplementingType" Value="Standard.OPCUAClient#DYNGEN_OPCUA_READ" />
+  <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Standard.OPCUAClient#CNTX:=2;VALUE${CNTX}:BOOL,BOOL" />
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Attribute Name="Configuration.FBType.IsKind.OPCUA_CLIENT" Value="" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Administrator" Date="31/08/2020" Remarks="Template" />
+  <CompilerInfo>
+    <Compiler Language="Cpp" Vendor="nxtControl" Product="builtin " Version="1.0" />
+  </CompilerInfo>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Triggers initialization or deinitialization of FB">
+        <With Var="QI" />
+        <With Var="CONNECTION_ID" />
+      </Event>
+      <Event Name="REQ" Comment="Triggers acyclic reading">
+        <With Var="ATTRIB_ID" />
+        <With Var="NODE_ID1" />
+        <With Var="NODE_ID2" />
+      </Event>
+      <Event Name="START" Comment="riggers cyclic reading (polling)">
+        <With Var="SCAN_RATE" />
+        <With Var="ATTRIB_ID" />
+        <With Var="NODE_ID1" />
+        <With Var="NODE_ID2" />
+      </Event>
+      <Event Name="STOP" Comment="Stops cyclic reading" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Confirmation of initialization or deinitialization of FB">
+        <With Var="QO" />
+        <With Var="STATUS" />
+        <With Var="ERROR" />
+      </Event>
+      <Event Name="CNF" Comment="Confirmation of completion of acyclic read operation">
+        <With Var="QO" />
+        <With Var="STATUS" />
+        <With Var="ERROR" />
+        <With Var="VALUE1" />
+        <With Var="VALUE2" />
+      </Event>
+      <Event Name="START_CNF" Comment="Triggered whenever a cyclic read operation is initiated">
+        <With Var="QO" />
+        <With Var="STATUS" />
+        <With Var="ERROR" />
+      </Event>
+      <Event Name="STOP_CNF" Comment="Triggered whenever a cyclic read operation is stopped">
+        <With Var="QO" />
+        <With Var="STATUS" />
+        <With Var="ERROR" />
+      </Event>
+      <Event Name="IND" Comment="Indication event for cyclic read operation">
+        <With Var="VALUE1" />
+        <With Var="VALUE2" />
+        <With Var="ERROR" />
+        <With Var="STATUS" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="QI" Type="BOOL" Comment="Qualifier Input" />
+      <VarDeclaration Name="CONNECTION_ID" Type="STRING" Comment="Connection  ID associated with server to be accessed" />
+      <VarDeclaration Name="SCAN_RATE" Type="DINT" Comment="Scanning/polling rate in milliseconds of cyclic read operation" />
+      <VarDeclaration Name="ATTRIB_ID" Type="UDINT" Comment="Node attribute* ID to be read (13 i.e. node value attribute if not specified)">
+        <Attribute Name="Configuration.Parameter.DefaultConstant" Value="13" />
+      </VarDeclaration>
+      <VarDeclaration Name="NODE_ID1" Type="STRING" Comment="Node address of node to be accessed (see Node Addressing section for details)" />
+      <VarDeclaration Name="NODE_ID2" Type="STRING" Comment="Node address of node to be accessed (see Node Addressing section for details)" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="QO" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="STATUS" Type="STRING" Comment="Displays status of FB " />
+      <VarDeclaration Name="ERROR" Type="DINT" Comment="Displays error code for last performed read operation. See section FB Error Codes for description of error codes" />
+      <VarDeclaration Name="VALUE1" Type="BOOL" Comment="Value of the node attribute read during the last successful read operation" />
+      <VarDeclaration Name="VALUE2" Type="BOOL" Comment="Value of the node attribute read during the last successful read operation" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" />
+    </ECC>
+  </BasicFB>
+</FBType>

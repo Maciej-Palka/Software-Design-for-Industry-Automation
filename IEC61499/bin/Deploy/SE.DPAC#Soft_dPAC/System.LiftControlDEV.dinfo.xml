@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployInformation ProjectName="LiftingLuggage" ProjectGuid="{A5C5F206-235D-47D9-8A3B-71E672475EE7}" System="System" DeviceName="LiftControlDEV" DeviceID="e8ce0b76-9db5-4645-9af0-93f5f1f2be8e">
+  <UsedDll>IEC61499.dll|Runtime.Base.90E02843-42CC-4C2C-B657-AB6EE7D00471.dll</UsedDll>
+  <FileName>C:\Users\macie\Desktop\szwecja\SDfIA\DA3\SureWorkingxD\LiftingLuggage\IEC61499\System\System.sys</FileName>
+  <BuildTime>2026-10-01 15:29:07Z</BuildTime>
+  <StudioVersion>IEC 61499 IDE, Panther UAOv23.0 g5173 4181ef5 Thu Oct 12 16:53:40 2023</StudioVersion>
+  <StudioInfo>V1;49CF42824C4C7C092EE5B95D715137207AD09650755031207AD0BD5F6B50364C52DFB41C515B373C61DCB2547B41420D7ED6E57D715378057DD494447F526D0B76888843775F690F67F4AD587C08772D26F0ED772A053A412180ED7535013B282A9EE0702B77215B22F6EE062A013B5956F6EF4C23;</StudioInfo>
+  <ConfigFolder>C:\Users\macie\Desktop\szwecja\SDfIA\DA3\SureWorkingxD\LiftingLuggage\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\Configuration</ConfigFolder>
+  <Actions />
+  <DeviceFileName>System.LiftControlDEV.smartdev.xml</DeviceFileName>
+  <DependenciesFileName>System.LiftControlDEV.fbdep.txt</DependenciesFileName>
+  <SnapshotGuid>{AA9C344B-A5C0-4137-8075-B9E71FF7C409}</SnapshotGuid>
+</DeployInformation>

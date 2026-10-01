@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="57D6025203385BA4" Name="LuggageMove" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/23/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="Cycle" />
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="PushPos" />
+        <With Var="LiftPos" />
+        <With Var="SpeedX" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="PushPos" />
+        <With Var="LiftPos" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="LuggPosX" />
+        <With Var="LuggPosY" />
+        <With Var="Loading" />
+        <With Var="Loaded" />
+        <With Var="LSens" />
+        <With Var="HSens" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="LuggPosX" />
+        <With Var="LuggPosY" />
+        <With Var="Loading" />
+        <With Var="Loaded" />
+        <With Var="LSens" />
+        <With Var="HSens" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="PushPos" Type="REAL" />
+      <VarDeclaration Name="LiftPos" Type="REAL" />
+      <VarDeclaration Name="SpeedX" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="LuggPosX" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="LuggPosY" Type="REAL" />
+      <VarDeclaration Name="Loading" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="Loaded" Type="BOOL" />
+      <VarDeclaration Name="LSens" Type="BOOL" />
+      <VarDeclaration Name="HSens" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,UpdPosX,Loading,Loaded,UpdPosY,UpdSensors,UpdPosX2,PusherUpd,BACK" />
+    <InternalVars>
+      <VarDeclaration Name="X" Type="REAL" InitialValue="0.0" />
+      <VarDeclaration Name="Y" Type="REAL" InitialValue="0.0" />
+      <VarDeclaration Name="pPushPos" Type="REAL" />
+      <VarDeclaration Name="pLiftPos" Type="REAL" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="252.9412" y="69.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="251.53" y="317.1765">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="SlidingLeft" Comment="Normal execution" x="245.647" y="820.9412" />
+      <ECState Name="UpdX1" x="784" y="812">
+        <ECAction Algorithm="UpdPosX" Output="CNF" />
+      </ECState>
+      <ECState Name="WaitLoad" x="344" y="1252" />
+      <ECState Name="Loading" x="1080" y="1948">
+        <ECAction Algorithm="Loading" />
+        <ECAction Algorithm="UpdSensors" Output="CNF" />
+      </ECState>
+      <ECState Name="Conv2" x="180.0001" y="1876">
+        <ECAction Algorithm="UpdPosX" Output="CNF" />
+      </ECState>
+      <ECState Name="Lifting" x="1832" y="1320">
+        <ECAction Algorithm="UpdSensors" Output="CNF" />
+      </ECState>
+      <ECState Name="UpdPosY" x="2800" y="1236">
+        <ECAction Algorithm="UpdPosY" Output="CNF" />
+      </ECState>
+      <ECState Name="PushOut" x="1800" y="275.9998">
+        <ECAction Algorithm="UpdPosX2" />
+        <ECAction Algorithm="UpdSensors" Output="CNF" />
+      </ECState>
+      <ECState Name="UpdX2" x="2764" y="336.0001">
+        <ECAction Algorithm="UpdPosX2" Output="CNF" />
+      </ECState>
+      <ECState Name="LOADED" x="1776" y="1620">
+        <ECAction Algorithm="Loaded" Output="CNF" />
+      </ECState>
+      <ECState Name="PusherApproach" x="1820" y="764">
+        <ECAction Algorithm="PusherUpd" Output="CNF" />
+      </ECState>
+      <ECState Name="BACK" x="1148" y="164">
+        <ECAction Algorithm="BACK" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="258.0018" y="170.5364">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="64.40746,34.76466,64.98158,46.71061" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="SlidingLeft" Condition="1" x="250.0302" y="557.567">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="62.07019,121.5913,63.12003,155.2769" />
+      </ECTransition>
+      <ECTransition Source="SlidingLeft" Destination="UpdX1" Condition="Cycle &amp; (LuggPosX&gt;=-333)" x="521.7398" y="1005.738">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="117.9509,263.0173,143.6313,262.6989" />
+      </ECTransition>
+      <ECTransition Source="UpdX1" Destination="SlidingLeft" Condition="1" x="507.6092" y="671.8416">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="140.1573,160.4542,113.1704,160.0588" />
+      </ECTransition>
+      <ECTransition Source="SlidingLeft" Destination="WaitLoad" Condition="(LuggPosX &lt; -333)" x="250.7919" y="1076.045">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="55.92898,258.7402,65.81093,285.8783" />
+      </ECTransition>
+      <ECTransition Source="WaitLoad" Destination="Loading" Condition="LiftPos &lt; 1.0" x="486.1397" y="1513.027">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="61.56625,351.018,152,391" />
+      </ECTransition>
+      <ECTransition Source="Loading" Destination="Conv2" Condition="Cycle &amp; (LuggPosX&gt;=-424)" x="511.114" y="2064.977">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="151.8441,527.5615,91.5152,522.1535" />
+      </ECTransition>
+      <ECTransition Source="Conv2" Destination="Loading" Condition="1" x="546.4779" y="1781.737">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="101.3851,438.0081,160.1524,439.8472" />
+      </ECTransition>
+      <ECTransition Source="Loading" Destination="LOADED" Condition="LuggPosX &lt; -424" x="1459.735" y="1838.171">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="343.0259,472.9405,385.9636,453.0237" />
+      </ECTransition>
+      <ECTransition Source="UpdPosY" Destination="Lifting" Condition="1" x="2300.147" y="1019.021">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="594.0467,236.1811,555.0796,238.8631" />
+      </ECTransition>
+      <ECTransition Source="Lifting" Destination="UpdPosY" Condition="REQ &amp; NOT(LiftPos=pLiftPos)&amp;(LuggPosX&lt;-424)" x="2309.902" y="1506.644">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="549.6453,394.0711,603.3452,388.6614" />
+      </ECTransition>
+      <ECTransition Source="PusherApproach" Destination="PushOut" Condition="REQ&amp;(PushPos&gt;=42)&amp;(PushPos&gt;pPushPos)&amp;(LuggPosX+PushPos&gt;=-383)" x="1809.69" y="534.2407">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="453.063,150.734,451.7839,118.7598" />
+      </ECTransition>
+      <ECTransition Source="PushOut" Destination="UpdX2" Condition="REQ &amp;(PushPos&gt;pPushPos)&amp;(LuggPosX+PushPos&gt;=-383)" x="2319.306" y="99.071">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="554.0131,9.793571,609.2906,13.95082" />
+      </ECTransition>
+      <ECTransition Source="UpdX2" Destination="PushOut" Condition="1" x="2266.124" y="482.2077">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="594.0815,133.0231,538.4912,128.7517" />
+      </ECTransition>
+      <ECTransition Source="LOADED" Destination="Lifting" Condition="1" x="1810.311" y="1483.87">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="451.2489,380.2739,454.1733,363.973" />
+      </ECTransition>
+      <ECTransition Source="PusherApproach" Destination="PusherApproach" Condition="REQ&amp;(PushPos&gt;pPushPos)&amp;(PushPos&lt;42)" x="1435.235" y="625.772">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="371.3812,149.2725,306.3175,149.2725" />
+      </ECTransition>
+      <ECTransition Source="Lifting" Destination="PusherApproach" Condition="REQ&amp;(PushPos&gt;0)" x="1817.897" y="1050.968">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="454.4427,282.3272,453.5936,244.6515" />
+      </ECTransition>
+      <ECTransition Source="PushOut" Destination="BACK" Condition="REQ&amp;(LuggPosX&lt;-494)" x="1407.697" y="433.1127">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="366.1148,124.873,330.7566,118.5051" />
+      </ECTransition>
+      <ECTransition Source="BACK" Destination="SlidingLeft" Condition="1" x="545.3998" y="545.0853">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="157.3835,117.6317,94.0218,163.6801" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="X := 0.0;&#xD;&#xA;Y := 0.0;&#xD;&#xA;Loading := FALSE;&#xD;&#xA;Loaded := FALSE;" />
+    </Algorithm>
+    <Algorithm Name="UpdPosX" Comment="Normally executed algorithm">
+      <ST Text="X := X - SpeedX*0.02;&#xD;&#xA;LuggPosX := X;" />
+    </Algorithm>
+    <Algorithm Name="Loading">
+      <ST Text="Loading := TRUE;&#xD;&#xA;Loaded := FALSE;" />
+    </Algorithm>
+    <Algorithm Name="Loaded">
+      <ST Text="Loading := FALSE;&#xD;&#xA;Loaded := TRUE;" />
+    </Algorithm>
+    <Algorithm Name="UpdPosY">
+      <ST Text="LuggPosY := -LiftPos;&#xD;&#xA;pLiftPos:=LiftPos;" />
+    </Algorithm>
+    <Algorithm Name="UpdSensors">
+      <ST Text="LSens:= (LuggPosY=0) AND (LuggPosX&lt;=-425);&#xD;&#xA;HSens:= (LuggPosY=-150) AND (LuggPosX&lt;=-424) AND (LuggPosX&gt;=-425);" />
+    </Algorithm>
+    <Algorithm Name="UpdPosX2">
+      <ST Text="//X := X - SpeedX*0.02;&#xD;&#xA;LuggPosX := -383-PushPos;&#xD;&#xA;pPushPos := PushPos;" />
+    </Algorithm>
+    <Algorithm Name="PusherUpd">
+      <ST Text="pPushPos := PushPos;" />
+    </Algorithm>
+    <Algorithm Name="BACK">
+      <ST Text="X := 0.0;&#xD;&#xA;Y := 0.0;&#xD;&#xA;LuggPosX:=0;&#xD;&#xA;LuggPosY:=0;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

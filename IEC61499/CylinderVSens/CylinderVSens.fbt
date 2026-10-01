@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="4C5F2924196C8206" Name="CylinderVSens" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="7" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="5/28/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT">
+        <With Var="PV1" />
+        <With Var="PV2" />
+        <With Var="LABEL" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="PV1" />
+        <With Var="PV2" />
+        <With Var="LABEL" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO">
+        <With Var="StartSW" />
+        <With Var="EndSW" />
+        <With Var="Position" />
+      </Event>
+      <Event Name="CHG" Comment="Execution Confirmation">
+        <With Var="StartSW" />
+        <With Var="EndSW" />
+        <With Var="Position" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="PV1" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="PV2" Type="REAL" />
+      <VarDeclaration Name="LABEL" Type="STRING" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="StartSW" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="EndSW" Type="BOOL" />
+      <VarDeclaration Name="Position" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="2" Name="EndSensor" Type="Sensor" x="1920" y="600" Namespace="Main">
+      <Parameter Name="range" Value="[149.5,150.0]" />
+    </FB>
+    <FB ID="3" Name="StartSensor" Type="Sensor" x="1920" y="1140" Namespace="Main">
+      <Parameter Name="range" Value="[0.0,0.5]" />
+    </FB>
+    <FB ID="1" Name="FB1" Type="CylinderV" x="780" y="540" Namespace="Main" />
+    <FB ID="6" Name="FB2" Type="E_MERGE" x="3160" y="340" Namespace="IEC61499.Standard" />
+    <FB ID="7" Name="FB3" Type="E_MERGE" x="2720" y="420" Namespace="IEC61499.Standard" />
+    <Input Name="REQ" x="40" y="592" Type="Event" />
+    <Input Name="PV1" x="40" y="811.8542" Type="Data" />
+    <Input Name="PV2" x="40" y="871.8542" Type="Data" />
+    <Input Name="LABEL" x="40" y="931.8542" Type="Data" />
+    <Input Name="INIT" x="40" y="452" Type="Event" />
+    <Output Name="CHG" x="3500" y="352" Type="Event" />
+    <Output Name="StartSW" x="2460" y="1412" Type="Data" />
+    <Output Name="EndSW" x="2500" y="872" Type="Data" />
+    <Output Name="Position" x="1780" y="1631.854" Type="Data" />
+    <Output Name="INITO" x="2620" y="1152" Type="Event" />
+    <EventConnections>
+      <Connection Source="REQ" Destination="FB1.REQ" dx1="49.54169" />
+      <Connection Source="FB1.IND" Destination="EndSensor.REQ" dx1="223.2917">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.IND" Destination="StartSensor.REQ" dx1="223.2917">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.EO" Destination="CHG" />
+      <Connection Source="INIT" Destination="FB1.INIT" dx1="351.4167">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="StartSensor.INITO" Destination="INITO" />
+      <Connection Source="FB1.INITO" Destination="EndSensor.INIT" dx1="463.2917">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="EndSensor.INITO" Destination="StartSensor.INIT" dx1="118.6667" dx2="50" dy="410">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="EndSensor.CHG" Destination="FB3.EI1" dx1="70" />
+      <Connection Source="StartSensor.CHG" Destination="FB3.EI2" dx1="198.6667">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.EO" Destination="FB2.EI2" dx1="41.54175" />
+      <Connection Source="FB1.IND" Destination="FB2.EI1">
+        <Points>
+          <Points>
+            <X>314.177063</X>
+            <Y>160</Y>
+          </Points>
+          <Points>
+            <X>370</X>
+            <Y>160</Y>
+          </Points>
+          <Points>
+            <X>370</X>
+            <Y>87.5</Y>
+          </Points>
+          <Points>
+            <X>757.5</X>
+            <Y>87.5</Y>
+          </Points>
+          <Points>
+            <X>757.5</X>
+            <Y>95</Y>
+          </Points>
+          <Points>
+            <X>785</X>
+            <Y>95</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="PV1" Destination="FB1.PV1" dx1="46.70837" />
+      <Connection Source="LABEL" Destination="FB1.LABEL" dx1="44.79169" />
+      <Connection Source="PV2" Destination="FB1.PV2" dx1="46.70837" />
+      <Connection Source="FB1.POSITION" Destination="EndSensor.position" dx1="163.2917">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="StartSensor.res" Destination="StartSW" />
+      <Connection Source="FB1.POSITION" Destination="StartSensor.position" dx1="163.2916">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.POSITION" Destination="Position" dx1="163.2916">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="EndSensor.res" Destination="EndSW" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

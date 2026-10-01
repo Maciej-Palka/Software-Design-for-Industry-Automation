@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ">PositionX;PositionY;Rotation;LuggageLoaded;LuggageLifted</Event>
+  </EventInputs>
+  <EventOutputs />
+  <Inputs>
+    <Input Name="PositionX" Type="REAL" />
+    <Input Name="PositionY" Type="REAL" />
+    <Input Name="Rotation" Type="REAL" />
+    <Input Name="LuggageLoaded" Type="BOOL" />
+    <Input Name="LuggageLifted" Type="BOOL" />
+  </Inputs>
+  <Outputs />
+</Mapping>

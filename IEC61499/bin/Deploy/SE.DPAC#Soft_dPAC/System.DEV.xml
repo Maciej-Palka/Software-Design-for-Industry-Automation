@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NxtOpcUaObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ComplexOPCUAObject DisplayName="Model" NodeId="093a9572-2491-6de0-b7ea-b53305c68e53" BrowseName="Model" IsDummyNode="false" Type="BaseObjectType">
+    <ComplexOPCUAObject DisplayName="LiftCylinder" NodeId="424bc310-edf5-1a46-a32c-3586de0219e3" BrowseName="LiftCylinder" IsDummyNode="false" Type="BaseObjectType">
+      <OPCUAObject>
+        <NxtOpcUaObject DisplayName="IThis" BrowseName="IThis" id="c02c298c-2d10-58d0-c81f-92c58e06d97e" FbType="Cat" Type="BaseObjectType">
+          <OPCUAVariable UID="d2fb067b-edc4-250b-c070-a20470268c43" DataType="BOOL" Extension="V1;Path=DEV.RES0.Model.LiftCylinder.IThis.FWD_OUT;Trigger=CNF" IsInput="false" Type="BaseDataVariableType" HasCondition="false">
+            <OPCUAAttribute Name="AccessLevel" Value="3" />
+            <OPCUAAttribute Name="BrowseName" Value="FWD_OUT" />
+            <OPCUAAttribute Name="DisplayName" Value="FWD_OUT" />
+            <OPCUAAttribute Name="Description" />
+          </OPCUAVariable>
+          <OPCUAVariable UID="59482eaf-e136-6ae4-b962-f1a357d83e81" DataType="BOOL" Extension="V1;Path=DEV.RES0.Model.LiftCylinder.IThis.BKWD_OUT;Trigger=CNF" IsInput="false" Type="BaseDataVariableType" HasCondition="false">
+            <OPCUAAttribute Name="AccessLevel" Value="3" />
+            <OPCUAAttribute Name="BrowseName" Value="BKWD_OUT" />
+            <OPCUAAttribute Name="DisplayName" Value="BKWD_OUT" />
+            <OPCUAAttribute Name="Description" />
+          </OPCUAVariable>
+        </NxtOpcUaObject>
+      </OPCUAObject>
+      <ComplexOPCUAObject DisplayName="FB1" NodeId="88e67a1f-a01b-f659-5a97-7de8866a804e" BrowseName="FB1" IsDummyNode="false" Type="BaseObjectType">
+        <ComplexOPCUAObject DisplayName="EndSensor" NodeId="aff9498c-99b2-5c27-6904-90818be2f891" BrowseName="EndSensor" IsDummyNode="false" Type="BaseObjectType">
+          <OPCUAObject>
+            <NxtOpcUaObject DisplayName="Interface1" BrowseName="Interface1" id="87fd2d99-fcf4-398a-7bfc-636e9e1a3e80" FbType="Cat" Type="BaseObjectType">
+              <OPCUAVariable UID="8fb336dd-e0b4-e71c-8b67-fe29ff62aef7" DataType="BOOL" Extension="V1;Path=DEV.RES0.Model.LiftCylinder.FB1.EndSensor.Interface1.sensRead" IsInput="true" Type="BaseDataVariableType" HasCondition="false">
+                <OPCUAAttribute Name="AccessLevel" Value="1" />
+                <OPCUAAttribute Name="BrowseName" Value="sensRead" />
+                <OPCUAAttribute Name="DisplayName" Value="sensRead" />
+                <OPCUAAttribute Name="Description" />
+              </OPCUAVariable>
+            </NxtOpcUaObject>
+          </OPCUAObject>
+        </ComplexOPCUAObject>
+        <ComplexOPCUAObject DisplayName="StartSensor" NodeId="56a6312d-6658-d71a-2632-8755db31de6d" BrowseName="StartSensor" IsDummyNode="false" Type="BaseObjectType">
+          <OPCUAObject>
+            <NxtOpcUaObject DisplayName="Interface1" BrowseName="Interface1" id="37614729-759a-8956-d9d6-d62120d1c806" FbType="Cat" Type="BaseObjectType">
+              <OPCUAVariable UID="cda22c75-2daf-ae4d-134b-4da05cb89c5e" DataType="BOOL" Extension="V1;Path=DEV.RES0.Model.LiftCylinder.FB1.StartSensor.Interface1.sensRead" IsInput="true" Type="BaseDataVariableType" HasCondition="false">
+                <OPCUAAttribute Name="AccessLevel" Value="1" />
+                <OPCUAAttribute Name="BrowseName" Value="sensRead" />
+                <OPCUAAttribute Name="DisplayName" Value="sensRead" />
+                <OPCUAAttribute Name="Description" />
+              </OPCUAVariable>
+            </NxtOpcUaObject>
+          </OPCUAObject>
+        </ComplexOPCUAObject>
+      </ComplexOPCUAObject>
+    </ComplexOPCUAObject>
+    <ComplexOPCUAObject DisplayName="PushCylinder" NodeId="9a0b3be3-c86b-c286-4232-68715b995435" BrowseName="PushCylinder" IsDummyNode="false" Type="BaseObjectType">
+      <OPCUAObject>
+        <NxtOpcUaObject DisplayName="IThis" BrowseName="IThis" id="ff3cd35a-a4dd-c5ef-849f-4931967d644b" FbType="Cat" Type="BaseObjectType">
+          <OPCUAVariable UID="65121c3e-be20-edf8-a418-b7a12637472e" DataType="BOOL" Extension="V1;Path=DEV.RES0.Model.PushCylinder.IThis.FWD_OUT;Trigger=CNF" IsInput="false" Type="BaseDataVariableType" HasCondition="false">
+            <OPCUAAttribute Name="AccessLevel" Value="3" />
+            <OPCUAAttribute Name="BrowseName" Value="FWD_OUT" />
+            <OPCUAAttribute Name="DisplayName" Value="FWD_OUT" />
+            <OPCUAAttribute Name="Description" />
+          </OPCUAVariable>
+        </NxtOpcUaObject>
+      </OPCUAObject>
+      <ComplexOPCUAObject DisplayName="FB1" NodeId="435c52fd-3248-860d-9946-e580606d8aa8" BrowseName="FB1" IsDummyNode="false" Type="BaseObjectType">
+        <ComplexOPCUAObject DisplayName="LeftSensor" NodeId="c07ebfe9-001a-6cd8-dec8-67d229262001" BrowseName="LeftSensor" IsDummyNode="false" Type="BaseObjectType">
+          <OPCUAObject>
+            <NxtOpcUaObject DisplayName="Interface1" BrowseName="Interface1" id="3e3fa654-9178-f920-1fcd-f136bc181473" FbType="Cat" Type="BaseObjectType">
+              <OPCUAVariable UID="cfe46a00-2187-0fda-c45d-e4187e1e45f1" DataType="BOOL" Extension="V1;Path=DEV.RES0.Model.PushCylinder.FB1.LeftSensor.Interface1.sensRead" IsInput="true" Type="BaseDataVariableType" HasCondition="false">
+                <OPCUAAttribute Name="AccessLevel" Value="1" />
+                <OPCUAAttribute Name="BrowseName" Value="sensRead" />
+                <OPCUAAttribute Name="DisplayName" Value="sensRead" />
+                <OPCUAAttribute Name="Description" />
+              </OPCUAVariable>
+            </NxtOpcUaObject>
+          </OPCUAObject>
+        </ComplexOPCUAObject>
+        <ComplexOPCUAObject DisplayName="RightSensor" NodeId="3fcd14b6-67e8-a361-21ea-1ac4053d15d9" BrowseName="RightSensor" IsDummyNode="false" Type="BaseObjectType">
+          <OPCUAObject>
+            <NxtOpcUaObject DisplayName="Interface1" BrowseName="Interface1" id="9d17cb85-f702-c49f-a59e-13e9ec29a91e" FbType="Cat" Type="BaseObjectType">
+              <OPCUAVariable UID="1e7c1632-ca56-4801-c975-c44b06144670" DataType="BOOL" Extension="V1;Path=DEV.RES0.Model.PushCylinder.FB1.RightSensor.Interface1.sensRead" IsInput="true" Type="BaseDataVariableType" HasCondition="false">
+                <OPCUAAttribute Name="AccessLevel" Value="1" />
+                <OPCUAAttribute Name="BrowseName" Value="sensRead" />
+                <OPCUAAttribute Name="DisplayName" Value="sensRead" />
+                <OPCUAAttribute Name="Description" />
+              </OPCUAVariable>
+            </NxtOpcUaObject>
+          </OPCUAObject>
+        </ComplexOPCUAObject>
+      </ComplexOPCUAObject>
+    </ComplexOPCUAObject>
+    <ComplexOPCUAObject DisplayName="Luggage" NodeId="94a03f55-05b0-9bf7-c5ec-c31d9363d5df" BrowseName="Luggage" IsDummyNode="false" Type="BaseObjectType">
+      <OPCUAObject>
+        <NxtOpcUaObject DisplayName="IThis" BrowseName="IThis" id="0d5aebad-d12e-fbbc-09c1-8fb5dc11f265" FbType="Cat" Type="BaseObjectType">
+          <OPCUAVariable UID="ab1d5643-5849-eaa2-0219-b9a46d01963c" DataType="BOOL" Extension="V1;Path=DEV.RES0.Model.Luggage.IThis.LuggageLoaded" IsInput="true" Type="BaseDataVariableType" HasCondition="false">
+            <OPCUAAttribute Name="AccessLevel" Value="1" />
+            <OPCUAAttribute Name="BrowseName" Value="LuggageLoaded" />
+            <OPCUAAttribute Name="DisplayName" Value="LuggageLoaded" />
+            <OPCUAAttribute Name="Description" />
+          </OPCUAVariable>
+          <OPCUAVariable UID="91069d4d-d9e3-5425-dbfb-2e30fb5b7247" DataType="BOOL" Extension="V1;Path=DEV.RES0.Model.Luggage.IThis.LuggageLifted" IsInput="true" Type="BaseDataVariableType" HasCondition="false">
+            <OPCUAAttribute Name="AccessLevel" Value="1" />
+            <OPCUAAttribute Name="BrowseName" Value="LuggageLifted" />
+            <OPCUAAttribute Name="DisplayName" Value="LuggageLifted" />
+            <OPCUAAttribute Name="Description" />
+          </OPCUAVariable>
+        </NxtOpcUaObject>
+      </OPCUAObject>
+    </ComplexOPCUAObject>
+  </ComplexOPCUAObject>
+</NxtOpcUaObjects>

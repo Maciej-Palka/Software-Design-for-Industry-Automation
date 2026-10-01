@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployInformation ProjectName="LiftingLuggage" ProjectGuid="{A5C5F206-235D-47D9-8A3B-71E672475EE7}" System="System" DeviceName="MasterController" DeviceID="bd7647f9-8938-448a-bae9-08c6c235c060">
+  <UsedDll>IEC61499.dll|Runtime.Base.90E02843-42CC-4C2C-B657-AB6EE7D00471.dll</UsedDll>
+  <FileName>C:\Users\macie\Desktop\szwecja\SDfIA\DA3\SureWorkingxD\LiftingLuggage\IEC61499\System\System.sys</FileName>
+  <BuildTime>2026-10-01 15:29:08Z</BuildTime>
+  <StudioVersion>IEC 61499 IDE, Panther UAOv23.0 g5173 4181ef5 Thu Oct 12 16:53:40 2023</StudioVersion>
+  <StudioInfo>V1;C8D09853CD53A6D8AFFA638CF04EEDF1FBCF4C81F44FEBF1FBCF678EEA4FEC9DD3C06ECDD044EDEDE0C36885FA5E98DCFFC93FACF04CA2D4FCCB4E95FE4DB7DAF7975292F640B3DEE6EB7789FD17ADFCA7EF37A6AB1AE090A09F37A4B41EE1F9AB813AA1AA68FB8AA3E934D7AB1EE188D7E9359DA2;</StudioInfo>
+  <ConfigFolder>C:\Users\macie\Desktop\szwecja\SDfIA\DA3\SureWorkingxD\LiftingLuggage\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\Configuration</ConfigFolder>
+  <Actions />
+  <DeviceFileName>System.MasterController.smartdev.xml</DeviceFileName>
+  <DependenciesFileName>System.MasterController.fbdep.txt</DependenciesFileName>
+  <SnapshotGuid>{AA9C344B-A5C0-4137-8075-B9E71FF7C409}</SnapshotGuid>
+</DeployInformation>

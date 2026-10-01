@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExchangeVersions>
+  <DtmDevice>1.0</DtmDevice>
+  <TimeSettings>1.0</TimeSettings>
+  <SoftdpacEquipment>1.0</SoftdpacEquipment>
+  <DockerContainer>1.1</DockerContainer>
+  <SoftdpacEthernet>1.0</SoftdpacEthernet>
+  <SoftHmiManager>1.0</SoftHmiManager>
+  <SoftdpacManager>1.2</SoftdpacManager>
+  <SysLogClient>1.0</SysLogClient>
+  <SysLogServer>1.0</SysLogServer>
+  <Runtime>1.1</Runtime>
+  <Hsby>1.0</Hsby>
+  <Rstp>1.0</Rstp>
+  <Wire>1.0</Wire>
+  <BroadcastDomain>1.2</BroadcastDomain>
+  <MqttBroker>1.0</MqttBroker>
+  <CyberSecurityComponent>1.0</CyberSecurityComponent>
+  <EthernetScannedDevice>1.0</EthernetScannedDevice>
+  <Ethernet>1.0</Ethernet>
+  <PhysicalView>1.0</PhysicalView>
+  <Equipment>1.1</Equipment>
+  <EdgeIo>1.0</EdgeIo>
+</ExchangeVersions>

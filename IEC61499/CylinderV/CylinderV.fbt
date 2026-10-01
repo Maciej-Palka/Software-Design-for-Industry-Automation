@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="BBC2D73BCFB9FB97" Name="CylinderV" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="5" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="5/25/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT">
+        <With Var="PV1" />
+        <With Var="PV2" />
+        <With Var="LABEL" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="PV1" />
+        <With Var="PV2" />
+        <With Var="LABEL" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="POSITION" />
+      </Event>
+      <Event Name="IND" Comment="Execution Confirmation">
+        <With Var="POSITION" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="PV1" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="PV2" Type="REAL" />
+      <VarDeclaration Name="LABEL" Type="STRING" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="POSITION" Type="REAL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="Tick" Type="E_CYCLE" x="800" y="1480" Namespace="IEC61499.Standard">
+      <Parameter Name="DT" Value="t#20ms" />
+    </FB>
+    <FB ID="2" Name="Model" Type="integEC" x="1440" y="840" Namespace="Main">
+      <Parameter Name="cycleTime" Value="0.02" />
+      <Parameter Name="integType" Value="0" />
+      <Parameter Name="preTrip" Value="0.0" />
+      <Parameter Name="sp" Value="100.0" />
+      <Parameter Name="inv2" Value="TRUE" />
+      <Parameter Name="inv1" Value="FALSE" />
+      <Parameter Name="tBase1" Value="4.0" />
+      <Parameter Name="tBase2" Value="4.0" />
+      <Parameter Name="maxValue" Value="150" />
+      <Parameter Name="minValue" Value="0.0" />
+      <Parameter Name="useLimits" Value="TRUE" />
+    </FB>
+    <FB ID="4" Name="plcStart" Type="E_RESTART" x="920" y="100" Namespace="IEC61499.Standard" />
+    <FB ID="5" Name="Interface1" Type="CylinderV_HMI" x="2960" y="700" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="3" Name="Filter" Type="ChangeDetect" x="2140" y="1240" Namespace="Main" />
+    <Input Name="REQ" x="720" y="1032" Type="Event" />
+    <Input Name="PV1" x="720" y="1231.854" Type="Data" />
+    <Input Name="PV2" x="720" y="1291.854" Type="Data" />
+    <Input Name="LABEL" x="2100" y="1091.854" Type="Data" />
+    <Input Name="INIT" x="100" y="852" Type="Event" />
+    <Output Name="INITO" x="3520" y="711.8542" Type="Event" />
+    <Output Name="IND" x="2940" y="1251.854" Type="Event" />
+    <Output Name="POSITION" x="2920" y="1451.854" Type="Data" />
+    <EventConnections>
+      <Connection Source="Tick.EO" Destination="Model.C_CYCLE" dx1="38.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="Model.CNF" Destination="Filter.REQ" dx1="102.0938">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="Model.OP_UPD">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="Filter.CHG" Destination="IND" dx1="60" />
+      <Connection Source="Model.INITO" Destination="Interface1.INIT" dx1="50" />
+      <Connection Source="Interface1.INITO" Destination="INITO" dx1="48.85425" />
+      <Connection Source="Interface1.INITO" Destination="Tick.START">
+        <Points>
+          <Points>
+            <X>850.286438</X>
+            <Y>185</Y>
+          </Points>
+          <Points>
+            <X>857.5</X>
+            <Y>185</Y>
+          </Points>
+          <Points>
+            <X>857.5</X>
+            <Y>157</Y>
+          </Points>
+          <Points>
+            <X>342.5</X>
+            <Y>157</Y>
+          </Points>
+          <Points>
+            <X>342.5</X>
+            <Y>155</Y>
+          </Points>
+          <Points>
+            <X>150</X>
+            <Y>155</Y>
+          </Points>
+          <Points>
+            <X>150</X>
+            <Y>380</Y>
+          </Points>
+          <Points>
+            <X>195</X>
+            <Y>380</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="Filter.CHG" Destination="Interface1.IND" dx1="207.2292">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="Model.INIT" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="Model.out" Destination="Filter.INP" dx1="54.1875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="PV1" Destination="Model.pv1" dx1="48.0625" />
+      <Connection Source="PV2" Destination="Model.pv2" dx1="48.0625" />
+      <Connection Source="Filter.OUT" Destination="POSITION" dx1="40" />
+      <Connection Source="Filter.OUT" Destination="Interface1.POS" dx1="347.2292">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="LABEL" Destination="Interface1.LABEL" dx1="44.20825" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

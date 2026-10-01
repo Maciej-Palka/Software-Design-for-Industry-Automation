@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+  <NamespaceUris>
+    <Uri>http://se.com/EcostruxureSystemExpert</Uri>
+  </NamespaceUris>
+  <Models>
+    <Model ModelUri="http://opcfoundation.org/UA/" />
+  </Models>
+  <Aliases>
+    <Alias Alias="Boolean">i=1</Alias>
+    <Alias Alias="SByte">i=2</Alias>
+    <Alias Alias="Byte">i=3</Alias>
+    <Alias Alias="Int16">i=4</Alias>
+    <Alias Alias="UInt16">i=5</Alias>
+    <Alias Alias="Int32">i=6</Alias>
+    <Alias Alias="UInt32">i=7</Alias>
+    <Alias Alias="Int64">i=8</Alias>
+    <Alias Alias="UInt64">i=9</Alias>
+    <Alias Alias="Float">i=10</Alias>
+    <Alias Alias="Double">i=11</Alias>
+    <Alias Alias="String">i=12</Alias>
+    <Alias Alias="DateTime">i=13</Alias>
+    <Alias Alias="ByteString">i=15</Alias>
+    <Alias Alias="NodeId">i=17</Alias>
+    <Alias Alias="StatusCode">i=19</Alias>
+    <Alias Alias="LocalizedText">i=21</Alias>
+    <Alias Alias="Duration">i=290</Alias>
+    <Alias Alias="Date">i=293</Alias>
+    <Alias Alias="UtcTime">i=294</Alias>
+    <Alias Alias="Argument">i=296</Alias>
+    <Alias Alias="Organizes">i=35</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+    <Alias Alias="BaseDataVariableType">i=63</Alias>
+    <Alias Alias="HasEventSource">i=36</Alias>
+    <Alias Alias="HasCondition">i=9006</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="AlwaysGeneratesEvent">i=3065</Alias>
+    <Alias Alias="HasNotifier">i=48</Alias>
+    <Alias Alias="HasTrueSubState">i=9004</Alias>
+  </Aliases>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model" BrowseName="1:Model">
+    <DisplayName>Model</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.LiftCylinder</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.PushCylinder</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.Luggage</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder" BrowseName="1:LiftCylinder">
+    <DisplayName>LiftCylinder</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.LiftCylinder.IThis</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder.IThis" BrowseName="1:IThis">
+    <DisplayName>IThis</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.LiftCylinder</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=DEV.RES0.Model.LiftCylinder.IThis.FWD_OUT</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=DEV.RES0.Model.LiftCylinder.IThis.BKWD_OUT</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder.IThis.FWD_OUT" BrowseName="1:FWD_OUT" DataType="Boolean" AccessLevel="3">
+    <DisplayName>FWD_OUT</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=DEV.RES0.Model.LiftCylinder.IThis</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <RTAddress xmlns="">V1;Path=DEV.RES0.Model.LiftCylinder.IThis.FWD_OUT;Trigger=CNF</RTAddress>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder.IThis.BKWD_OUT" BrowseName="1:BKWD_OUT" DataType="Boolean" AccessLevel="3">
+    <DisplayName>BKWD_OUT</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=DEV.RES0.Model.LiftCylinder.IThis</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <RTAddress xmlns="">V1;Path=DEV.RES0.Model.LiftCylinder.IThis.BKWD_OUT;Trigger=CNF</RTAddress>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder.FB1" BrowseName="1:FB1">
+    <DisplayName>FB1</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.LiftCylinder</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.EndSensor</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.StartSensor</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.EndSensor" BrowseName="1:EndSensor">
+    <DisplayName>EndSensor</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.EndSensor.Interface1</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.EndSensor.Interface1" BrowseName="1:Interface1">
+    <DisplayName>Interface1</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.EndSensor</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.EndSensor.Interface1.sensRead</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.EndSensor.Interface1.sensRead" BrowseName="1:sensRead" DataType="Boolean">
+    <DisplayName>sensRead</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.EndSensor.Interface1</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <RTAddress xmlns="">V1;Path=DEV.RES0.Model.LiftCylinder.FB1.EndSensor.Interface1.sensRead</RTAddress>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.StartSensor" BrowseName="1:StartSensor">
+    <DisplayName>StartSensor</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.StartSensor.Interface1</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.StartSensor.Interface1" BrowseName="1:Interface1">
+    <DisplayName>Interface1</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.StartSensor</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.StartSensor.Interface1.sensRead</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.StartSensor.Interface1.sensRead" BrowseName="1:sensRead" DataType="Boolean">
+    <DisplayName>sensRead</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=DEV.RES0.Model.LiftCylinder.FB1.StartSensor.Interface1</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <RTAddress xmlns="">V1;Path=DEV.RES0.Model.LiftCylinder.FB1.StartSensor.Interface1.sensRead</RTAddress>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.PushCylinder" BrowseName="1:PushCylinder">
+    <DisplayName>PushCylinder</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.PushCylinder.IThis</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.PushCylinder.FB1</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.PushCylinder.IThis" BrowseName="1:IThis">
+    <DisplayName>IThis</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.PushCylinder</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=DEV.RES0.Model.PushCylinder.IThis.FWD_OUT</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=DEV.RES0.Model.PushCylinder.IThis.FWD_OUT" BrowseName="1:FWD_OUT" DataType="Boolean" AccessLevel="3">
+    <DisplayName>FWD_OUT</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=DEV.RES0.Model.PushCylinder.IThis</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <RTAddress xmlns="">V1;Path=DEV.RES0.Model.PushCylinder.IThis.FWD_OUT;Trigger=CNF</RTAddress>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.PushCylinder.FB1" BrowseName="1:FB1">
+    <DisplayName>FB1</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.PushCylinder</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.PushCylinder.FB1.LeftSensor</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.PushCylinder.FB1.RightSensor</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.PushCylinder.FB1.LeftSensor" BrowseName="1:LeftSensor">
+    <DisplayName>LeftSensor</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.PushCylinder.FB1</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.PushCylinder.FB1.LeftSensor.Interface1</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.PushCylinder.FB1.LeftSensor.Interface1" BrowseName="1:Interface1">
+    <DisplayName>Interface1</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.PushCylinder.FB1.LeftSensor</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=DEV.RES0.Model.PushCylinder.FB1.LeftSensor.Interface1.sensRead</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=DEV.RES0.Model.PushCylinder.FB1.LeftSensor.Interface1.sensRead" BrowseName="1:sensRead" DataType="Boolean">
+    <DisplayName>sensRead</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=DEV.RES0.Model.PushCylinder.FB1.LeftSensor.Interface1</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <RTAddress xmlns="">V1;Path=DEV.RES0.Model.PushCylinder.FB1.LeftSensor.Interface1.sensRead</RTAddress>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.PushCylinder.FB1.RightSensor" BrowseName="1:RightSensor">
+    <DisplayName>RightSensor</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.PushCylinder.FB1</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.PushCylinder.FB1.RightSensor.Interface1</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.PushCylinder.FB1.RightSensor.Interface1" BrowseName="1:Interface1">
+    <DisplayName>Interface1</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.PushCylinder.FB1.RightSensor</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=DEV.RES0.Model.PushCylinder.FB1.RightSensor.Interface1.sensRead</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=DEV.RES0.Model.PushCylinder.FB1.RightSensor.Interface1.sensRead" BrowseName="1:sensRead" DataType="Boolean">
+    <DisplayName>sensRead</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=DEV.RES0.Model.PushCylinder.FB1.RightSensor.Interface1</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <RTAddress xmlns="">V1;Path=DEV.RES0.Model.PushCylinder.FB1.RightSensor.Interface1.sensRead</RTAddress>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.Luggage" BrowseName="1:Luggage">
+    <DisplayName>Luggage</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=DEV.RES0.Model.Luggage.IThis</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=DEV.RES0.Model.Luggage.IThis" BrowseName="1:IThis">
+    <DisplayName>IThis</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=DEV.RES0.Model.Luggage</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=DEV.RES0.Model.Luggage.IThis.LuggageLoaded</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=DEV.RES0.Model.Luggage.IThis.LuggageLifted</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=DEV.RES0.Model.Luggage.IThis.LuggageLoaded" BrowseName="1:LuggageLoaded" DataType="Boolean">
+    <DisplayName>LuggageLoaded</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=DEV.RES0.Model.Luggage.IThis</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <RTAddress xmlns="">V1;Path=DEV.RES0.Model.Luggage.IThis.LuggageLoaded</RTAddress>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=DEV.RES0.Model.Luggage.IThis.LuggageLifted" BrowseName="1:LuggageLifted" DataType="Boolean">
+    <DisplayName>LuggageLifted</DisplayName>
+    <Description />
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=DEV.RES0.Model.Luggage.IThis</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <RTAddress xmlns="">V1;Path=DEV.RES0.Model.Luggage.IThis.LuggageLifted</RTAddress>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+</UANodeSet>

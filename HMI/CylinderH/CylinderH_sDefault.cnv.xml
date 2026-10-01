@@ -1,0 +1,11 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="IND" Map="REQ_1">POS;LABEL</Event>
+  </EventInputs>
+  <EventOutputs />
+  <Inputs>
+    <Input Name="POS" Type="REAL" Map="SD_1" />
+    <Input Name="LABEL" Type="STRING" Map="SD_2" />
+  </Inputs>
+  <Outputs />
+</Mapping>

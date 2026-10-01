@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="C27715290275A54C" Name="Model" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="7" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="5/29/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="LiftExt" />
+        <With Var="LiftRet" />
+        <With Var="PushExt" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="LiftExt" />
+        <With Var="LiftRet" />
+        <With Var="PushExt" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="LiftRetracted" />
+        <With Var="LiftExtended" />
+        <With Var="PushRetracted" />
+        <With Var="PushExtended" />
+        <With Var="LuggageArrived" />
+        <With Var="LuggageLifted" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="LiftRetracted" />
+        <With Var="LiftExtended" />
+        <With Var="PushRetracted" />
+        <With Var="PushExtended" />
+        <With Var="LuggageArrived" />
+        <With Var="LuggageLifted" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="LiftExt" Type="BOOL" Comment=" " />
+      <VarDeclaration Name="LiftRet" Type="BOOL" />
+      <VarDeclaration Name="PushExt" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="LiftRetracted" Type="BOOL" />
+      <VarDeclaration Name="LiftExtended" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="PushRetracted" Type="BOOL" />
+      <VarDeclaration Name="PushExtended" Type="BOOL" />
+      <VarDeclaration Name="LuggageArrived" Type="BOOL" />
+      <VarDeclaration Name="LuggageLifted" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="LiftCylinder" Type="CylinderVSensValve" x="1340" y="820" Namespace="Main" />
+    <FB ID="2" Name="PushCylinder" Type="CylinderHSensValve" x="3420" y="820" Namespace="Main" />
+    <FB ID="3" Name="IThis" Type="Model_HMI" x="720" y="1540" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="4" Name="Luggage" Type="Luggage" x="4140" y="1580" Namespace="Main" />
+    <FB ID="6" Name="FB1" Type="E_MERGE" x="4140" y="360" Namespace="IEC61499.Standard" />
+    <FB ID="7" Name="FB2" Type="E_MERGE" x="4780" y="700" Namespace="IEC61499.Standard" />
+    <Input Name="INIT" x="680" y="832" Type="Event" />
+    <Input Name="REQ" x="680" y="892" Type="Event" />
+    <Input Name="LiftExt" x="680" y="1092" Type="Data" />
+    <Input Name="LiftRet" x="680" y="1152" Type="Data" />
+    <Input Name="PushExt" x="2780" y="1092" Type="Data" />
+    <Output Name="INITO" x="5100" y="1592" Type="Event" />
+    <Output Name="CNF" x="5120" y="1652" Type="Event" />
+    <Output Name="LiftExtended" x="2060" y="1092" Type="Data" />
+    <Output Name="LiftRetracted" x="2060" y="1152" Type="Data" />
+    <Output Name="PushExtended" x="4040" y="1092" Type="Data" />
+    <Output Name="PushRetracted" x="4040" y="1152" Type="Data" />
+    <Output Name="LuggageArrived" x="5100" y="1912" Type="Data" />
+    <Output Name="LuggageLifted" x="5080" y="1772" Type="Data" />
+    <EventConnections>
+      <Connection Source="REQ" Destination="LiftCylinder.REQ" />
+      <Connection Source="INIT" Destination="LiftCylinder.INIT" />
+      <Connection Source="LiftCylinder.INITO" Destination="PushCylinder.INIT" />
+      <Connection Source="IThis.CHG" Destination="LiftCylinder.REQ" dx1="50" />
+      <Connection Source="IThis.CHG" Destination="PushCylinder.REQ" dx1="2259.229">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="PushCylinder.CNF" Destination="FB1.EI1" dx1="72.1875" />
+      <Connection Source="LiftCylinder.CNF" Destination="FB1.EI2" dx1="1173.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="PushCylinder.INITO" Destination="Luggage.INIT" dx1="120" />
+      <Connection Source="Luggage.INITO" Destination="INITO" />
+      <Connection Source="REQ" Destination="PushCylinder.REQ">
+        <Points>
+          <Points>
+            <X>235.114578</X>
+            <Y>230</Y>
+          </Points>
+          <Points>
+            <X>217.5</X>
+            <Y>230</Y>
+          </Points>
+          <Points>
+            <X>217.5</X>
+            <Y>186.036453</Y>
+          </Points>
+          <Points>
+            <X>710</X>
+            <Y>186.036453</Y>
+          </Points>
+          <Points>
+            <X>710</X>
+            <Y>230</Y>
+          </Points>
+          <Points>
+            <X>850</X>
+            <Y>230</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.EO" Destination="CNF" dx1="41.5415" />
+      <Connection Source="FB1.EO" Destination="Luggage.REQ" dx1="41.5415" dx2="70" dy="290" />
+      <Connection Source="FB1.EO" Destination="FB2.EI1" dx1="41.5415" />
+      <Connection Source="Luggage.CNF" Destination="FB2.EI2" dx1="73.479" dx2="30" dy="-170" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="LiftCylinder.Extended" Destination="LiftExtended" />
+      <Connection Source="LiftCylinder.Retracted" Destination="LiftRetracted" />
+      <Connection Source="PushCylinder.Extended" Destination="PushExtended" />
+      <Connection Source="PushCylinder.Retracted" Destination="PushRetracted" />
+      <Connection Source="LiftCylinder.Position" Destination="Luggage.LiftPosY" dx1="47.5" />
+      <Connection Source="PushCylinder.Position" Destination="Luggage.PushPosX" dx1="40" />
+      <Connection Source="Luggage.LuggLifted" Destination="LuggageLifted" dx1="93.479" />
+      <Connection Source="Luggage.LuggLoaded" Destination="LuggageArrived" />
+      <Connection Source="LiftExt" Destination="LiftCylinder.Extend" />
+      <Connection Source="LiftRet" Destination="LiftCylinder.Retract" />
+      <Connection Source="PushExt" Destination="PushCylinder.Extend" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

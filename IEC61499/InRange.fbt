@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="997C1FE59E5FA6CD" Name="InRange" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Horst Mayer" Date="9/14/2008" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="pos" />
+        <With Var="SensorPos" />
+        <With Var="Range" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="pos" />
+        <With Var="SensorPos" />
+        <With Var="Range" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="result" />
+      </Event>
+      <Event Name="CHG" Comment="Execution Confirmation">
+        <With Var="result" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="pos" Type="REAL" />
+      <VarDeclaration Name="SensorPos" Type="REAL" />
+      <VarDeclaration Name="Range" Type="REAL" ArraySize="2" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="result" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <InternalVars>
+      <VarDeclaration Name="presult" Type="BOOL" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="564.9412" y="477.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
+        <ECAction Algorithm="REQ" Output="INITO" />
+      </ECState>
+      <ECState Name="REQ" Comment="Normal execution" x="517.647" y="908.4968">
+        <ECAction Algorithm="REQ" />
+      </ECState>
+      <ECState Name="COMP" x="592" y="1360">
+        <ECAction Algorithm="SET" Output="CHG" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="531.3455" y="248.8676">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="110.5789,67.66694,129.8885,49.92896" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="949.2133" y="397.9301">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="257.67,96.06638,238.3988,113.9252" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="714.4595" y="744.4968">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="188.7649,176.0164,185.3627,203.9222" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="COMP" Condition="result &lt;&gt; presult" x="636.3391" y="1118.055">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="160.9587,263.7467,165.4506,292.582" />
+      </ECTransition>
+      <ECTransition Source="COMP" Destination="START" Condition="1" x="150.2339" y="926.6323">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="10.42598,264.7445,8.437717,199.8927" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="result=presult" x="450.5822" y="729.8137">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="106.6663,199.1384,109.6534,171.9117" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="SET" Comment="Initialization algorithm">
+      <ST Text=" presult := result;&#xD;&#xA;;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="&#xD;&#xA;IF (pos &gt;= Range[0] + SensorPos) AND (pos &lt;= Range[1] + SensorPos) THEN&#xD;&#xA; result := TRUE;&#xD;&#xA;ELSE &#xD;&#xA; result := FALSE;&#xD;&#xA;END_IF; &#xD;&#xA;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

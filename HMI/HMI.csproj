@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{B74AAE6A-9EC8-417D-B47E-685879C4FF99}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Windows</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HMI</RootNamespace>
+    <AssemblyName>HMI</AssemblyName>
+    <HMILibraries>HMIBaseSymbols:</HMILibraries>
+    <Theme>Default:Default|DefaultLight</Theme>
+    <NxtVersion>23.0.0.0</NxtVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <ProjectType>HMI</ProjectType>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <CanvasLookAndFeel>Theme</CanvasLookAndFeel>
+    <CanvasSize>1280,900,1280,980,Default,True,140,30</CanvasSize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\$(Platform)\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\$(Platform)\Release</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'Windows' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows' ">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Canvas.cnv.cs">
+      <Canvas>true</Canvas>
+    </Compile>
+    <Compile Include="Canvas.cnv.Designer.cs">
+      <DependentUpon>Canvas.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Colors\ProjectColors.cs" />
+    <Compile Include="Colors\ProjectDrawingObjects.cs" />
+    <Compile Include="ControlPanel\ControlPanel.def.cs" />
+    <Compile Include="ControlPanel\ControlPanel.event.cs" />
+    <Compile Include="ControlPanel\ControlPanel_sDefault.cnv.cs" />
+    <Compile Include="ControlPanel\ControlPanel_sDefault.cnv.Designer.cs">
+      <DependentUpon>ControlPanel_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CylinderHSensValve\CylinderHSensValve.def.cs" />
+    <Compile Include="CylinderHSensValve\CylinderHSensValve.event.cs" />
+    <Compile Include="CylinderHSensValve\CylinderHSensValve_sDefault.cnv.cs" />
+    <Compile Include="CylinderHSensValve\CylinderHSensValve_sDefault.cnv.Designer.cs">
+      <DependentUpon>CylinderHSensValve_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CylinderHSens\CylinderHSens.def.cs" />
+    <Compile Include="CylinderHSens\CylinderHSens.event.cs" />
+    <Compile Include="CylinderHSens\CylinderHSens_sDefault.cnv.cs" />
+    <Compile Include="CylinderHSens\CylinderHSens_sDefault.cnv.Designer.cs">
+      <DependentUpon>CylinderHSens_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CylinderH\CylinderH.def.cs" />
+    <Compile Include="CylinderH\CylinderH.event.cs" />
+    <Compile Include="CylinderH\CylinderH_sDefault.cnv.cs" />
+    <Compile Include="CylinderH\CylinderH_sDefault.cnv.Designer.cs">
+      <DependentUpon>CylinderH_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CylinderVSensValve\CylinderVSensValve.def.cs" />
+    <Compile Include="CylinderVSensValve\CylinderVSensValve.event.cs" />
+    <Compile Include="CylinderVSensValve\CylinderVSensValve_sDefault.cnv.cs" />
+    <Compile Include="CylinderVSensValve\CylinderVSensValve_sDefault.cnv.Designer.cs">
+      <DependentUpon>CylinderVSensValve_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CylinderVSens\CylinderVSens.def.cs" />
+    <Compile Include="CylinderVSens\CylinderVSens.event.cs" />
+    <Compile Include="CylinderVSens\CylinderVSens_sDefault.cnv.cs" />
+    <Compile Include="CylinderVSens\CylinderVSens_sDefault.cnv.Designer.cs">
+      <DependentUpon>CylinderVSens_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CylinderV\CylinderV.def.cs" />
+    <Compile Include="CylinderV\CylinderV.event.cs" />
+    <Compile Include="CylinderV\CylinderV_sDefault.cnv.cs" />
+    <Compile Include="CylinderV\CylinderV_sDefault.cnv.Designer.cs">
+      <DependentUpon>CylinderV_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Luggage\Luggage.def.cs" />
+    <Compile Include="Luggage\Luggage.event.cs" />
+    <Compile Include="Luggage\Luggage_sDefault.cnv.cs" />
+    <Compile Include="Luggage\Luggage_sDefault.cnv.Designer.cs">
+      <DependentUpon>Luggage_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.def.cs" />
+    <Compile Include="Model\Model.event.cs" />
+    <Compile Include="Model\Model_sDefault.cnv.cs" />
+    <Compile Include="Model\Model_sDefault.cnv.Designer.cs">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sensor\Sensor.def.cs" />
+    <Compile Include="Sensor\Sensor.event.cs" />
+    <Compile Include="Sensor\Sensor_sDefault.cnv.cs" />
+    <Compile Include="Sensor\Sensor_sDefault.cnv.Designer.cs">
+      <DependentUpon>Sensor_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartCanvas_2.cnv.cs" />
+    <Compile Include="StartCanvas_2.cnv.Designer.cs">
+      <DependentUpon>StartCanvas_2.cnv.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Alarms\AlarmClasses.xml" />
+    <None Include="Colors\Default.color.theme" />
+    <None Include="Colors\Default.do.theme" />
+    <None Include="Colors\DefaultLight.color.theme" />
+    <None Include="Colors\DefaultLight.do.theme" />
+    <None Include="Colors\ProjectColors.xml" />
+    <None Include="Colors\ProjectDrawingObjects.xml" />
+    <None Include="ControlPanel\ControlPanel.Design.resx" />
+    <None Include="CylinderHSensValve\CylinderHSensValve.Design.resx" />
+    <None Include="CylinderHSens\CylinderHSens.Design.resx" />
+    <None Include="CylinderH\CylinderH.Design.resx" />
+    <None Include="CylinderVSensValve\CylinderVSensValve.Design.resx" />
+    <None Include="CylinderVSens\CylinderVSens.Design.resx" />
+    <None Include="CylinderV\CylinderV.Design.resx" />
+    <None Include="ImageStorage\ImageStorage.xml" />
+    <None Include="Luggage\Luggage.Design.resx" />
+    <None Include="Model\Model.Design.resx" />
+    <None Include="Sensor\Sensor.Design.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Alarms\AlarmClasses.xml" />
+    <EmbeddedResource Include="Alarms\SystemAlarmClasses.xml" />
+    <EmbeddedResource Include="Canvas.cnv.resx">
+      <DependentUpon>Canvas.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configurations\HistoryTrend.xml" />
+    <EmbeddedResource Include="Configurations\Journalling.xml" />
+    <EmbeddedResource Include="Configurations\TagValueEditor.xml" />
+    <EmbeddedResource Include="ControlPanel\ControlPanel_sDefault.cnv.resx">
+      <DependentUpon>ControlPanel_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlPanel\ControlPanel_sDefault.cnv.xml">
+      <DependentUpon>ControlPanel_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderHSensValve\CylinderHSensValve_sDefault.cnv.resx">
+      <DependentUpon>CylinderHSensValve_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderHSensValve\CylinderHSensValve_sDefault.cnv.xml">
+      <DependentUpon>CylinderHSensValve_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderHSens\CylinderHSens_sDefault.cnv.resx">
+      <DependentUpon>CylinderHSens_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderHSens\CylinderHSens_sDefault.cnv.xml">
+      <DependentUpon>CylinderHSens_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderH\CylinderH_sDefault.cnv.resx">
+      <DependentUpon>CylinderH_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderH\CylinderH_sDefault.cnv.xml">
+      <DependentUpon>CylinderH_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderVSensValve\CylinderVSensValve_sDefault.cnv.resx">
+      <DependentUpon>CylinderVSensValve_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderVSensValve\CylinderVSensValve_sDefault.cnv.xml">
+      <DependentUpon>CylinderVSensValve_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderVSens\CylinderVSens_sDefault.cnv.resx">
+      <DependentUpon>CylinderVSens_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderVSens\CylinderVSens_sDefault.cnv.xml">
+      <DependentUpon>CylinderVSens_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderV\CylinderV_sDefault.cnv.resx">
+      <DependentUpon>CylinderV_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CylinderV\CylinderV_sDefault.cnv.xml">
+      <DependentUpon>CylinderV_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Luggage\Luggage_sDefault.cnv.resx">
+      <DependentUpon>Luggage_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Luggage\Luggage_sDefault.cnv.xml">
+      <DependentUpon>Luggage_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Model_sDefault.cnv.resx">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Model_sDefault.cnv.xml">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sensor\Sensor_sDefault.cnv.resx">
+      <DependentUpon>Sensor_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sensor\Sensor_sDefault.cnv.xml">
+      <DependentUpon>Sensor_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartCanvas_2.cnv.resx">
+      <DependentUpon>StartCanvas_2.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CommunicationProfile">
+      <HintPath>CommunicationProfile</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HMIBaseSymbols">
+      <HintPath>HMIBaseSymbols</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="NxtControl.ComponentModel">
+      <HintPath>NxtControl.ComponentModel</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NxtControl.GuiFramework">
+      <HintPath>NxtControl.GuiFramework</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SE.DPAC.HMI">
+      <Version>23.0.0.57</Version>
+      <HintPath>SE.DPAC.HMI</HintPath>
+    </Reference>
+    <Reference Include="Standard.OPCUAClient.HMI">
+      <Version>23.0.0.6</Version>
+      <HintPath>Standard.OPCUAClient.HMI</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(SharpDevelopBinPath)\SharpDevelop.Build.CSharp.targets" />
+</Project>

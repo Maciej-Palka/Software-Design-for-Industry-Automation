@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="D20DDC07596409DC" Name="Luggage" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="13" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="5/29/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="LiftPosY" />
+        <With Var="PushPosX" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="LiftPosY" />
+        <With Var="PushPosX" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="LuggLifted" />
+        <With Var="LuggLoaded" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="LuggLifted" />
+        <With Var="LuggLoaded" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="LiftPosY" Type="REAL" />
+      <VarDeclaration Name="PushPosX" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="LuggLifted" Type="BOOL" />
+      <VarDeclaration Name="LuggLoaded" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="6" Name="IThis" Type="Luggage_HMI" x="2700" y="300" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="8" Name="FB1" Type="E_CYCLE" x="1220" y="520" Namespace="IEC61499.Standard">
+      <Parameter Name="DT" Value="t#20ms" />
+    </FB>
+    <FB ID="7" Name="FB3" Type="LuggageMove" x="1740" y="1000" Namespace="Main">
+      <Parameter Name="SpeedX" Value="50.0" />
+    </FB>
+    <Input Name="INIT" x="1080" y="1072" Type="Event" />
+    <Input Name="REQ" x="1080" y="1132" Type="Event" />
+    <Input Name="LiftPosY" x="1080" y="1392" Type="Data" />
+    <Input Name="PushPosX" x="1080" y="1332" Type="Data" />
+    <Output Name="INITO" x="3260" y="312" Type="Event" />
+    <Output Name="CNF" x="3300" y="1072" Type="Event" />
+    <Output Name="LuggLifted" x="2880" y="1632" Type="Data" />
+    <Output Name="LuggLoaded" x="2880" y="1552" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="FB3.INIT" />
+      <Connection Source="REQ" Destination="FB3.REQ" />
+      <Connection Source="FB1.EO" Destination="FB3.Cycle" dx1="48.5" />
+      <Connection Source="FB3.INITO" Destination="FB1.START" dx1="72.33228" dx2="140" dy="-698">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.CNF" Destination="CNF" />
+      <Connection Source="FB3.INITO" Destination="IThis.INIT" dx1="75.14478">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.CNF" Destination="IThis.REQ" dx1="135.1448">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.INITO" Destination="INITO" dx1="253.2083" dx2="610" dy="-110" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="LiftPosY" Destination="FB3.LiftPos" />
+      <Connection Source="PushPosX" Destination="FB3.PushPos" />
+      <Connection Source="FB3.HSens" Destination="LuggLifted" />
+      <Connection Source="FB3.LSens" Destination="LuggLoaded" dx1="130" />
+      <Connection Source="FB3.LuggPosX" Destination="IThis.PositionX" dx1="235.145">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.LuggPosY" Destination="IThis.PositionY" dx1="295.145">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.LSens" Destination="IThis.LuggageLoaded" dx1="130" />
+      <Connection Source="FB3.HSens" Destination="IThis.LuggageLifted" dx1="150" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

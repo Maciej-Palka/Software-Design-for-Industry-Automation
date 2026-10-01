@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommunicationDescription>
+  <Channel ChannelId="6D6256CBFF2B8B68" LinkId="27CE19516418A803">
+    <Endpoint Resource="MasterController.RES0" URI="nxtv3://0.0.0.0:51309/?proto=udp">
+      <Peer Resource="DEV.RES0" URI="nxtv3://127.0.0.1:51306/?proto=udp&amp;alive=3000" PeerFB="CHAN_DEV_RES0" />
+    </Endpoint>
+    <Endpoint Resource="DEV.RES0" URI="nxtv3://0.0.0.0:51306/?proto=udp">
+      <Peer Resource="MasterController.RES0" URI="nxtv3://127.0.0.1:51309/?proto=udp&amp;alive=3000" PeerFB="CHAN_MasterController_RES0" />
+    </Endpoint>
+    <FBConnection Source="DEV.RES0.Model" Destination="MasterController.RES0.FB7" SourceProxy="SND_PROXY_4903EB2F3DEDCF2A" DestinationProxy="PROXY_4903EB2F3DEDCF2A" ProxyId="D61EBB8C2CBA1559">
+      <Event Source="INITO" Destination="INIT" EventId="AB390ED7B3AAD160" EventHash="14FFF8D43B42E21D" />
+    </FBConnection>
+    <FBConnection Source="MasterController.RES0.FB7" Destination="DEV.RES0.Model" SourceProxy="SND_PROXY_127B0A21003F606BC" DestinationProxy="PROXY_127B0A21003F606BC" ProxyId="65810B339277652F">
+      <Event Source="INITO" Destination="INIT" EventId="A48E202F147CF336" EventHash="14FFF8D43B42E21D" />
+    </FBConnection>
+  </Channel>
+  <Channel ChannelId="484F20AB56FCA609" LinkId="0E7947C0253933E0">
+    <Endpoint Resource="MasterController.RES0" URI="nxtv3://0.0.0.0:51311/?proto=udp">
+      <Peer Resource="PusherControlDEV.RES0" URI="nxtv3://127.0.0.1:51308/?proto=udp&amp;alive=3000" PeerFB="CHAN_PusherControlDEV_RES0" />
+    </Endpoint>
+    <Endpoint Resource="PusherControlDEV.RES0" URI="nxtv3://0.0.0.0:51308/?proto=udp">
+      <Peer Resource="MasterController.RES0" URI="nxtv3://127.0.0.1:51311/?proto=udp&amp;alive=3000" PeerFB="CHAN_MasterController_RES0" />
+    </Endpoint>
+    <FBConnection Source="PusherControlDEV.RES0.PusherControl" Destination="MasterController.RES0.FB7" SourceProxy="SND_PROXY_153F398111834F50" DestinationProxy="PROXY_153F398111834F50" ProxyId="F423A81A746C14CA">
+      <Event Source="CNF" Destination="REQ" EventId="1E3DFED15943519A" EventHash="BE3F1915EDB4A934" />
+      <Data Source="PusherRetractedCNF" Destination="PusherRetracted" />
+      <Data Source="PusherExtendedCNF" Destination="PusherExtended" />
+    </FBConnection>
+    <FBConnection Source="MasterController.RES0.FB7" Destination="PusherControlDEV.RES0.PusherControl" SourceProxy="SND_PROXY_46EE27EE75EC307" DestinationProxy="PROXY_46EE27EE75EC307" ProxyId="79C1DF6AD23B1FF9">
+      <Event Source="PUSHER_EXTEND" Destination="EXTEND" EventId="276B33C599172E7A" EventHash="C6D20539160659DE" />
+    </FBConnection>
+  </Channel>
+  <Channel ChannelId="34AB832D2480D42A" LinkId="C18E93173D0D124F">
+    <Endpoint Resource="MasterController.RES0" URI="nxtv3://0.0.0.0:51310/?proto=udp">
+      <Peer Resource="LiftControlDEV.RES0" URI="nxtv3://127.0.0.1:51307/?proto=udp&amp;alive=3000" PeerFB="CHAN_LiftControlDEV_RES0" />
+    </Endpoint>
+    <Endpoint Resource="LiftControlDEV.RES0" URI="nxtv3://0.0.0.0:51307/?proto=udp">
+      <Peer Resource="MasterController.RES0" URI="nxtv3://127.0.0.1:51310/?proto=udp&amp;alive=3000" PeerFB="CHAN_MasterController_RES0" />
+    </Endpoint>
+    <FBConnection Source="LiftControlDEV.RES0.LiftControl" Destination="MasterController.RES0.FB7" SourceProxy="SND_PROXY_275F73A46B154055" DestinationProxy="PROXY_275F73A46B154055" ProxyId="5D2CF5B5105F2B0D">
+      <Event Source="CNF" Destination="REQ" EventId="61383014D1493F12" EventHash="C71981FF5AB06807" />
+      <Data Source="LiftRetractedCNF" Destination="LiftRetracted" />
+      <Data Source="LiftExtendedCNF" Destination="LiftExtended" />
+    </FBConnection>
+    <FBConnection Source="MasterController.RES0.FB7" Destination="LiftControlDEV.RES0.LiftControl" SourceProxy="SND_PROXY_112E778503948D875" DestinationProxy="PROXY_112E778503948D875" ProxyId="9870C29749246A7C">
+      <Event Source="LIFT_RETRACT" Destination="RETRACT" EventId="1656D550FDF5415B" EventHash="C83CB8ED2109AF71" />
+      <Event Source="LIFT_EXTEND" Destination="EXTEND" EventId="BF34FD906203B9F4" EventHash="624B6C4DF8E0E043" />
+    </FBConnection>
+  </Channel>
+</CommunicationDescription>

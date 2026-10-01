@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType Name="OPCUA_CONNECT_13434D741E95123C0" Comment="Generic Interface Function Block Type" Namespace="Main">
+  <Attribute Name="Runtime.FBType.ImplementingType" Value="Standard.OPCUAClient#DYNGEN_OPCUA_CONNECT" />
+  <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Standard.OPCUAClient#CNTX:=1" />
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Attribute Name="Configuration.FBType.IsKind.OPCUA_CLIENT" Value="" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Administrator" Date="20/09/2020" Remarks="Template" />
+  <CompilerInfo>
+    <Compiler Language="Cpp" Vendor="nxtControl" Product="builtin " Version="1.0" />
+  </CompilerInfo>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization or deinitialization of connection">
+        <With Var="QI" />
+        <With Var="ID" />
+        <With Var="URI" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization or deinitialization confirmation event">
+        <With Var="QO" />
+        <With Var="STATUS" />
+        <With Var="ERROR" />
+        <With Var="CONNECTION" />
+      </Event>
+      <Event Name="IND" Comment="Indication of change in STATUS or ERROR or CONNECTION data outputs">
+        <With Var="STATUS" />
+        <With Var="ERROR" />
+        <With Var="CONNECTION" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="QI" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="ID" Type="STRING" Comment="Connection ID; this ID should be unique within a device" />
+      <VarDeclaration Name="URI" Type="STRING" Comment="URI of OPC UA server to which the client connects" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="QO" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="STATUS" Type="STRING" Comment="Displays current connection status to the OPC UA server" />
+      <VarDeclaration Name="ERROR" Type="DINT" Comment="Displays error code of service action associated with last event" />
+      <VarDeclaration Name="CONNECTION" Type="STRING" Comment="Connection  ID; same as the ID input if the connection is successful otherwise empty." />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" />
+    </ECC>
+  </BasicFB>
+</FBType>

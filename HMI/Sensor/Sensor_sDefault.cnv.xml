@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mapping>
+  <EventInputs>
+    <Event Name="IND">sensRead</Event>
+  </EventInputs>
+  <EventOutputs />
+  <Inputs>
+    <Input Name="sensRead" Type="BOOL" />
+  </Inputs>
+  <Outputs />
+</Mapping>

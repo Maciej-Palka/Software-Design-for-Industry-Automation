@@ -1,0 +1,330 @@
+[general]
+#num_timers.Description
+num_timers = 200
+
+
+[ipc]
+#ipc_size.Description
+ipc_size = 25000000
+
+#heap_size.Description
+heap_size = 0
+
+#queue_size.Description
+queue_size = 100
+
+#num_queues.Description
+num_queues = 10
+
+#num_messages.Description
+num_messages = 100
+
+#num_services.Description
+num_services = 100
+
+#outprocess_encoder.Description
+outprocess_encoder = false
+
+#outprocess_seconv.Description
+outprocess_seconv = false
+
+
+[network]
+#buffer_size.Description
+buffer_size = 65536
+
+#num_buffers.Description
+num_buffers = 50
+
+#num_buffers_per_connection.Description
+num_buffers_per_connection = 20
+
+#max_connections_per_ip.Description
+max_connections_per_ip = 10
+
+
+[encoder]
+#max_call_depth.Description
+max_call_depth = 10
+
+#max_string_length.Description
+max_string_length = 1000
+
+#max_bytestring_length.Description
+max_bytestring_length = 8000
+
+#max_array_length.Description
+max_array_length = 1000
+
+
+[subscription]
+#num_sessions_with_subscriptions.Description
+num_sessions_with_subscriptions = 10
+
+#num_publishrequests_per_session.Description
+num_publishrequests_per_session = 4
+
+#num_notificationmessages_per_session.Description
+num_notificationmessages_per_session = 8
+
+#num_subscriptions_per_session.Description
+num_subscriptions_per_session = 4
+
+#num_subscriptions.Description
+num_subscriptions = 20
+
+#num_monitoreditems_per_subscription.Description
+num_monitoreditems_per_subscription = 21000
+
+#num_monitoreditems.Description
+num_monitoreditems = 21000
+
+#max_monitoreditem_queue_size.Description
+max_monitoreditem_queue_size = 3
+
+#max_monitoreditem_event_queue_size.Description
+max_monitoreditem_event_queue_size = 50
+
+#max_notifications_per_publish.Description
+max_notifications_per_publish = 1000
+
+#min_publishing_interval.Description
+min_publishing_interval = 10
+
+#max_publishing_interval.Description
+max_publishing_interval = 10000
+
+#min_sampling_interval.Description
+min_sampling_interval = 10
+
+#max_sampling_interval.Description
+max_sampling_interval = 10000
+
+#min_lifetime.Description
+min_lifetime = 1000
+
+#max_lifetime.Description
+max_lifetime = 100000
+
+#num_eventnotifiers.Description
+num_eventnotifiers = 20
+
+#num_eventfields.Description
+num_eventfields = 250
+
+
+[session]
+#num_sessions.Description
+num_sessions = 10
+
+#max_session_per_channel.Description
+max_sessions_per_channel = 1
+
+#num_calls.Description
+num_calls = 50
+
+#lifetime_check_interval.Description
+lifetime_check_interval = 1000
+
+#lifetime_min.Description
+lifetime_min = 10000
+
+#lifetime_max.Description
+lifetime_max = 3600000
+
+#keep_spare_session.Description
+keep_spare_session = true
+
+#authentication_num_users.Description
+authentication_num_users = 10
+
+#max_references_per_node.Description
+max_references_per_node = 1000
+
+#max_nodes_per_read.Description
+max_nodes_per_read = 0
+
+#max_nodes_per_write.Description
+max_nodes_per_write = 0
+
+#max_nodes_per_methodcall.Description
+max_nodes_per_methodcall = 0
+
+#max_nodes_per_browse.Description
+max_nodes_per_browse = 0
+
+#max_nodes_per_registernodes.Description
+max_nodes_per_registernodes = 0
+
+#max_nodes_per_translate.Description
+max_nodes_per_translate = 0
+
+#max_nodes_per_nodemanagement.Description
+max_nodes_per_nodemanagement = 0
+
+#max_nodes_per_historyread.Description
+max_nodes_per_historyread = 0
+
+#max_nodes_per_historyupdate.Description
+max_nodes_per_historyupdate = 0
+
+#max_monitoreditems_per_call.Description
+max_monitoreditems_per_call = 0
+
+
+[uatcpmsg]
+#num_conns.Description
+num_conns = 15
+
+#num_listeners.Description
+num_listeners = 1
+
+#num_ctxts.Description
+num_ctxts = 50
+
+#num_chunks.Description
+num_chunks = 10
+
+
+[seconv]
+#num_channels.Description
+num_channels = 15
+
+#keep_spare_channel.Description
+keep_spare_channel = true
+
+#min_security_token_lifetime.Description
+min_security_token_lifetime = 300000
+
+#max_security_token_lifetime.Description
+max_security_token_lifetime = 3600000
+
+
+[cagroup]
+#cagroups.size.Description
+cagroups/size = 1
+
+#cagroups.0.cagroupid.Description
+cagroups/0/cagroupid = DefaultApplicationGroup
+
+#cagroups.0.store_index.Description
+cagroups/0/store_index = 0
+
+#cagroups.0.certificates.Description
+cagroups/0/certificates = 0
+
+
+[endpoint]
+security_policies/size = 1
+
+security_policies/0/policy_id = http://opcfoundation.org/UA/SecurityPolicy#None
+
+security_policies/0/store = 0
+
+security_policies/0/mode_sign = false
+
+security_policies/0/mode_sign_and_encrypt = false
+
+security_policies/0/mode_none = true
+
+security_policies/0/max_chain_length = 0
+
+security_policies/0/ign_time = false
+
+security_policies/0/ign_issuer_time = false
+
+security_policies/0/ign_miss_crl = false
+
+security_policies/0/ign_miss_issuer_crl = false
+
+security_policies/0/ign_untrusted = false
+
+security_policies/0/check_complete_chain = true
+
+security_policies/0/disable_crl_check = false
+
+security_policies/0/disable_cert_validate = true
+
+security_policies/0/max_verify_results = 0
+
+security_policies/0/ign_key_usage = false
+
+security_policies/0/ign_ext_key_usage = false
+
+user_tokens/size = 1
+
+user_tokens/0/name  = Anonymous_None_Token
+
+user_tokens/0/type = Anonymous
+
+user_tokens/0/policy_id = http://opcfoundation.org/UA/SecurityPolicy#None
+
+endpoints/size = 1
+
+endpoints/0/security_policies = 0
+
+endpoints/0/user_tokens = 0
+
+endpoints/0/bind_port = 4843
+
+endpoints/0/endpoint_url = opc.tcp://[hostname]:4843
+
+endpoints/0/bind_address = 0.0.0.0
+
+
+[server]
+#max_dimensions.Description
+max_dimensions = 3
+
+#serverprofiles.size.Description
+serverprofiles/size = 6
+
+#serverprofiles.0.uri.Description
+serverprofiles/0/uri = "http://opcfoundation.org/UA-Profile/Server/NanoEmbeddedDevice2017"
+
+#serverprofiles.1.uri.Description
+serverprofiles/1/uri = "http://opcfoundation.org/UA-Profile/Server/DataAccess"
+
+#serverprofiles.2.uri.Description
+serverprofiles/2/uri = "http://opcfoundation.org/UA-Profile/Server/Methods"
+
+#serverprofiles.3.uri.Description
+serverprofiles/3/uri = "http://opcfoundation.org/UA-Profile/Server/StateMachine"
+
+#serverprofiles.4.uri.Description
+serverprofiles/4/uri = "http://opcfoundation.org/UA-Profile/Server/StandardEventSubscription"
+
+#serverprofiles.5.uri.Description
+serverprofiles/5/uri = "http://opcfoundation.org/UA-Profile/Server/AddressSpaceNotifier"
+
+
+[client]
+#num_clients.Description
+num_clients = 10
+
+#num_subscriptions.Description
+num_subscriptions = 10
+
+#store.Description
+store = 0
+
+#certificate.Description
+certificate = 0
+
+
+[redundancy]
+#num_clients.Description
+server_uris/size = 2
+
+#server_uris.0.uri.Description
+server_uris/0/uri = opc.tcp://[hostname]:4840
+
+#server_uris.1.uri.Description
+server_uris/1/uri = opc.tcp://[hostname]:4841
+
+
+[ns0_config]
+#add_references.Description
+add_references = 1000
+
+

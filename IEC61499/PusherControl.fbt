@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="a4d67291-072b-4087-8381-fa86388d42ac" Name="PusherControl" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Version="0.0" Author="midxav" Date="1/14/2024" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="PusherRetracted" />
+        <With Var="PusherExtended" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="PusherRetracted" />
+        <With Var="PusherExtended" />
+      </Event>
+      <Event Name="EXTEND" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="ExtendPusher" />
+        <With Var="PusherRetractedCNF" />
+        <With Var="PusherExtendedCNF" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="ExtendPusher" />
+        <With Var="PusherRetractedCNF" />
+        <With Var="PusherExtendedCNF" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="PusherRetracted" Type="BOOL" />
+      <VarDeclaration Name="PusherExtended" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="ExtendPusher" Type="BOOL" />
+      <VarDeclaration Name="PusherRetractedCNF" Type="BOOL" />
+      <VarDeclaration Name="PusherExtendedCNF" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,PUSH,PUSHED,RETRACT,INITIAL" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="3680.942" y="129.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="3671.53" y="673.1764">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="INITIAL" x="3680" y="1284">
+        <ECAction Algorithm="INITIAL" Output="CNF" />
+      </ECState>
+      <ECState Name="PUSH" x="2612" y="2160">
+        <ECAction Algorithm="PUSH" Output="CNF" />
+      </ECState>
+      <ECState Name="PUSHED" x="1320" y="1380">
+        <ECAction Algorithm="PUSHED" Output="CNF" />
+      </ECState>
+      <ECState Name="RETRACTING" x="2356" y="836">
+        <ECAction Algorithm="RETRACT" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="3687.944" y="388.9441">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="922.9851,77.89481,922.3171,114.5189" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="INITIAL" Condition="REQ AND PusherRetracted" x="3683.728" y="998.9146">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="921.0218,230.246,921.7883,272.599" />
+      </ECTransition>
+      <ECTransition Source="PUSH" Destination="PUSHED" Condition="REQ [PusherExtended]" x="1775.527" y="2008.221">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="486.9366,547.9803,377.3454,491.0203" />
+      </ECTransition>
+      <ECTransition Source="INITIAL" Destination="PUSH" Condition="EXTEND" x="3200.656" y="1779.989">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="841.553,417.6781,763.1563,481.9811" />
+      </ECTransition>
+      <ECTransition Source="PUSHED" Destination="RETRACTING" Condition="REQ [PusherExtendedCNF]" x="1855.254" y="1025.855">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="436.8232,266.5298,503.3352,232.7066" />
+      </ECTransition>
+      <ECTransition Source="RETRACTING" Destination="INITIAL" Condition="1" x="3101.564" y="1002.945">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="734.4801,232.0201,819.6474,261.4273" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST><![CDATA[ExtendPusher:= FALSE;
+PusherExtendedCNF := FALSE;
+PusherRetractedCNF := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="PUSH">
+      <ST><![CDATA[ExtendPusher:=TRUE;
+PusherRetractedCNF := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="PUSHED">
+      <ST><![CDATA[ExtendPusher:=FALSE;
+PusherExtendedCNF := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="RETRACT">
+      <ST><![CDATA[;
+PusherExtendedCNF := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="INITIAL">
+      <ST><![CDATA[;
+PusherRetractedCNF := TRUE;
+PusherExtendedCNF := FALSE;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

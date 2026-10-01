@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Bindings>
+  <LogicalDeviceBinding LogicalDeviceId="8e25662b-7163-43d9-a62e-5110e1ee3534" PhysicalDeviceId="">
+    <LogicalDeviceService ServiceId="F7C90C9D-BD8B-4D0B-B8DE-C659AF6EABCC" LogicalPort="51499" />
+    <LogicalDeviceService ServiceId="32B24F96-50F3-429E-9586-58A14DEB5DD5" LogicalPort="51496" />
+  </LogicalDeviceBinding>
+  <LogicalDeviceBinding LogicalDeviceId="e8ce0b76-9db5-4645-9af0-93f5f1f2be8e" PhysicalDeviceId="">
+    <LogicalDeviceService ServiceId="F7C90C9D-BD8B-4D0B-B8DE-C659AF6EABCC" LogicalPort="51500" />
+    <LogicalDeviceService ServiceId="32B24F96-50F3-429E-9586-58A14DEB5DD5" LogicalPort="51497" />
+  </LogicalDeviceBinding>
+  <LogicalDeviceBinding LogicalDeviceId="f52da1eb-1c96-483e-9b03-6c71f593bf08" PhysicalDeviceId="">
+    <LogicalDeviceService ServiceId="F7C90C9D-BD8B-4D0B-B8DE-C659AF6EABCC" LogicalPort="51501" />
+    <LogicalDeviceService ServiceId="32B24F96-50F3-429E-9586-58A14DEB5DD5" LogicalPort="51498" />
+  </LogicalDeviceBinding>
+  <LogicalDeviceBinding LogicalDeviceId="bd7647f9-8938-448a-bae9-08c6c235c060" PhysicalDeviceId="">
+    <LogicalDeviceService ServiceId="F7C90C9D-BD8B-4D0B-B8DE-C659AF6EABCC" LogicalPort="51502" />
+    <LogicalDeviceService ServiceId="32B24F96-50F3-429E-9586-58A14DEB5DD5" LogicalPort="51503" />
+  </LogicalDeviceBinding>
+</Bindings>

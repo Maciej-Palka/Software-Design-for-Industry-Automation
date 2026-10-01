@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{F3ADABE1-6538-46BD-8637-F2B6D357B681}</ProjectGuid>
+    <ProjectTypeGuids>{B8625A29-8134-4135-BEBD-5371646CD051}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Windows</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TopologyManager</RootNamespace>
+    <AssemblyName>TopologyManager</AssemblyName>
+    <ProjectType>TopologyManager</ProjectType>
+    <TemplateName>TopologyManager</TemplateName>
+    <TemplateCategory>TopologyManagerLibrary</TemplateCategory>
+    <ProjectFileExtension>.topologyproj</ProjectFileExtension>
+    <LibraryName>Main</LibraryName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'Windows' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="AssemblyInfo.cs" />
+    <None Include="BroadcastDomain.xml" />
+    <None Include="CyberSecurityComponent.xml" />
+    <None Include="DockerContainer.xml" />
+    <None Include="DtmDevice.xml" />
+    <None Include="EdgeIo.xml" />
+    <None Include="Equipment.xml" />
+    <None Include="Ethernet.xml" />
+    <None Include="EthernetScannedDevice.xml" />
+    <None Include="ExchangeManifest.xml" />
+    <None Include="Hsby.xml" />
+    <None Include="MqttBroker.xml" />
+    <None Include="PhysicalView.xml" />
+    <None Include="Rstp.xml" />
+    <None Include="Runtime.xml" />
+    <None Include="SoftdpacEquipment.xml" />
+    <None Include="SoftdpacEthernet.xml" />
+    <None Include="SoftdpacManager.xml" />
+    <None Include="SoftHmiManager.xml" />
+    <None Include="SysLogClient.xml" />
+    <None Include="SysLogServer.xml" />
+    <None Include="TimeSettings.xml" />
+    <None Include="TopologyManager.topologyproj" />
+    <None Include="Wire.xml" />
+  </ItemGroup>
+  <Import Project="$(SharpDevelopBinPath)\Plugins\TopologyManagerPlugin\TopologyManager.targets" />
+</Project>

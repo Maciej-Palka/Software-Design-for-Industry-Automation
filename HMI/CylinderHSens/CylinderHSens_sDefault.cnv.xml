@@ -1,0 +1,11 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ" Map="REQ_1">StartSW;EndSW</Event>
+  </EventInputs>
+  <EventOutputs />
+  <Inputs>
+    <Input Name="StartSW" Type="BOOL" Map="SD_1" />
+    <Input Name="EndSW" Type="BOOL" Map="SD_2" />
+  </Inputs>
+  <Outputs />
+</Mapping>

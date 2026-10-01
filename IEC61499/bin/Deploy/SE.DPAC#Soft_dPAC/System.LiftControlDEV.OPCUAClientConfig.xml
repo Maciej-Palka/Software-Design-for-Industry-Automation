@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SchemaVersion="0" xmlns="http://tempuri.org/XMLSchema.xsd">
+  <Device Name="LiftControlDEV" Id="e8ce0b76-9db5-4645-9af0-93f5f1f2be8e">
+    <Resource Name="RES0" Id="BFE98C09D52D13D7">
+      <OPCUA_CONNECT Path="FB4" Id="1E83EEAC09016F64">
+        <Namespaces>
+          <Namespace Index="0" Value="http://opcfoundation.org/UA/" />
+        </Namespaces>
+        <Subscriptions>
+          <Subscription Name="default">
+            <PublishingInterval Value="500" />
+            <MaxLifetimeCount Value="180" />
+            <MaxKeepAliveCount Value="60" />
+            <MaxNotificationsPerPublish Value="100" />
+            <RelativePriority Value="10" />
+          </Subscription>
+        </Subscriptions>
+        <SecurityConfiguration>
+          <SecurityPolicy Value="0" />
+          <SecurityMode Value="1" />
+          <AuthenticationMode Value="0" />
+        </SecurityConfiguration>
+      </OPCUA_CONNECT>
+      <OPCUA_READ Path="FB5" Id="9AC1B206C6EF0A7E">
+        <BrowsePathRoot Value="" />
+      </OPCUA_READ>
+      <OPCUA_WRITE Path="FB6" Id="A2FBA6594CA12054">
+        <BrowsePathRoot Value="" />
+      </OPCUA_WRITE>
+    </Resource>
+  </Device>
+</Project>

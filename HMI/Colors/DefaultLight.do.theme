@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DrawingObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/Colors.xsd">
+  <Brush Name="TrackerHandleBrush">
+    <Value>Solid;[230, 230, 230];[Type=VerticalTop: ColorBlend={248, 248, 248|0};{232, 232, 232|1}]</Value>
+  </Brush>
+  <Brush Name="ButtonFalseBrush">
+    <Value>Solid;[110, 110, 110];[Type=None]</Value>
+  </Brush>
+  <Brush Name="ButtonTrueBrush">
+    <Value>Solid;[0, 168, 231];[Type=None]</Value>
+  </Brush>
+  <Brush Name="ButtonBrush">
+    <Value>Solid;[90, 90, 90];[Type=None]</Value>
+  </Brush>
+  <Brush Name="ButtonSwitchBackgroundBrush">
+    <Value>Solid;[185, 185, 185];[Type=None]</Value>
+  </Brush>
+  <Brush Name="TrackerBrush">
+    <Value>Null</Value>
+  </Brush>
+  <Brush Name="TrackerLineBackgroundBrush">
+    <Value>Solid;[215, 215, 215];[Type=None]</Value>
+  </Brush>
+  <Brush Name="TrackerHandleDisabledBrush">
+    <Value>Solid;[180, 180, 180];[Type=VerticalTop: ColorBlend={180, 180, 180|0};{180, 180, 180|1}]</Value>
+  </Brush>
+  <Brush Name="TextBoxReadOnlyBrush">
+    <Value>Solid;[220, 220, 220];[Type=None]</Value>
+  </Brush>
+  <Brush Name="ButtonSwitchBrush">
+    <Value>Solid;[110, 110, 110];[Type=None]</Value>
+  </Brush>
+  <Brush Name="CanvasTopologyButtonBrush">
+    <Value>Solid;[230, 230, 230];[Type=VerticalTop: ColorBlend={245, 245, 245|0};{235, 235, 235|1}]</Value>
+  </Brush>
+  <Brush Name="CanvasTopologyButtonCurrentBrush">
+    <Value>Solid;[0, 168, 231];[Type=None]</Value>
+  </Brush>
+  <Brush Name="CanvasTopologyRoseBrush">
+    <Value>Solid;[230, 230, 230];[Type=VerticalTop: ColorBlend={245, 245, 245|0};{235, 235, 235|1}]</Value>
+  </Brush>
+  <Brush Name="CanvasTopologyHeaderBrush">
+    <Value>Solid;[230, 230, 230];[Type=VerticalTop: ColorBlend={245, 245, 245|0};{235, 235, 235|1}]</Value>
+  </Brush>
+  <Brush Name="CanvasTopologySeparatorBrush">
+    <Value>Solid;[30, 30, 30];[Type=HorizontalRight: ColorBlend={255, 255, 255|0};{255, 255, 255|0.5};{200, 200, 200|0.51};{200, 200, 200|1}]</Value>
+  </Brush>
+  <Brush Name="ComboBoxArrowBackBrush">
+    <Value>Solid;[230, 230, 230];[Type=VerticalTop: ColorBlend={245, 245, 245|0};{235, 235, 235|1}]</Value>
+  </Brush>
+  <Brush Name="ComboBoxArrowBackDisabledBrush">
+    <Value>Solid;[230, 230, 230];[Type=VerticalTop: ColorBlend={245, 245, 245|0};{235, 235, 235|1}]</Value>
+  </Brush>
+  <Brush Name="ComboBoxBrush">
+    <Value>Solid;[ComboBoxBackColor];[Type=None]</Value>
+  </Brush>
+  <Brush Name="ComboBoxDisabledBrush">
+    <Value>Solid;[220, 220, 220];[Type=None]</Value>
+  </Brush>
+  <Brush Name="FaceplateBrush">
+    <Value>Solid;[FaceplateBackColor];[Type=None]</Value>
+  </Brush>
+  <Brush Name="FpStyleRectangularHandleBrush">
+    <Value>Solid;[230, 230, 230];[Type=VerticalTop: ColorBlend={245, 245, 245|0};{140, 140, 140|1}]</Value>
+  </Brush>
+  <Brush Name="FpStyleRoundHandleBrush">
+    <Value>Solid;[230, 230, 230];[Type=VerticalTop: ColorBlend={245, 245, 245|0};{140, 140, 140|1}]</Value>
+  </Brush>
+  <Brush Name="LabelBrush">
+    <Value>Null</Value>
+  </Brush>
+  <Brush Name="ButtonPushedBrush">
+    <Value>Solid;[0, 168, 230];[Type=None]</Value>
+  </Brush>
+  <Brush Name="LedColor">
+    <Value>Solid;[90, 90, 90];[Type=None]</Value>
+  </Brush>
+  <Pen Name="ButtonPen">
+    <Value>Color=Transparent:Width=0</Value>
+  </Pen>
+  <Pen Name="CanvasTopologyButtonPen">
+    <Value>Color=220, 220, 220:Width=1</Value>
+  </Pen>
+  <Pen Name="TrackerHandlePen">
+    <Value>Color=190, 190, 190:Width=1</Value>
+  </Pen>
+  <Pen Name="TrackerLinePen">
+    <Value>Color=190, 190, 190:Width=1</Value>
+  </Pen>
+  <Pen Name="TrackerPen">
+    <Value>Color=Transparent:Width=1</Value>
+  </Pen>
+  <Pen Name="RoundKnobPen">
+    <Value>Color=White:Width=1</Value>
+  </Pen>
+  <Pen Name="TextBoxPen">
+    <Value>Color=TextBoxPenColor:Width=0</Value>
+  </Pen>
+  <Pen Name="ComboBoxPen">
+    <Value>Color=ComboBoxPenColor:Width=0</Value>
+  </Pen>
+  <Font Name="ButtonFont">
+    <Value>Arial, 9pt, style=Bold</Value>
+  </Font>
+  <Font Name="RoundKnobFont">
+    <Value>Arial, 9pt</Value>
+  </Font>
+  <Font Name="TextBoxFont">
+    <Value>Arial, 9pt</Value>
+  </Font>
+  <Font Name="ComboBoxFont">
+    <Value>Arial, 9pt</Value>
+  </Font>
+  <Font Name="TrackerValueFont">
+    <Value>Arial, 9pt</Value>
+  </Font>
+  <Font Name="TrackerFont">
+    <Value>Arial, 9pt</Value>
+  </Font>
+</DrawingObjects>

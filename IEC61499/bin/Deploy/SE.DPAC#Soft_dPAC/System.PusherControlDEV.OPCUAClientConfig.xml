@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SchemaVersion="0" xmlns="http://tempuri.org/XMLSchema.xsd">
+  <Device Name="PusherControlDEV" Id="f52da1eb-1c96-483e-9b03-6c71f593bf08">
+    <Resource Name="RES0" Id="F4D5DF7CD07DEA">
+      <OPCUA_CONNECT Path="FB1" Id="44A2EF401A4EBAF4">
+        <Namespaces>
+          <Namespace Index="0" Value="http://opcfoundation.org/UA/" />
+        </Namespaces>
+        <Subscriptions>
+          <Subscription Name="default">
+            <PublishingInterval Value="500" />
+            <MaxLifetimeCount Value="180" />
+            <MaxKeepAliveCount Value="60" />
+            <MaxNotificationsPerPublish Value="100" />
+            <RelativePriority Value="10" />
+          </Subscription>
+        </Subscriptions>
+        <SecurityConfiguration>
+          <SecurityPolicy Value="0" />
+          <SecurityMode Value="1" />
+          <AuthenticationMode Value="0" />
+        </SecurityConfiguration>
+      </OPCUA_CONNECT>
+      <OPCUA_READ Path="FB2" Id="72ADB4A0810A38C5">
+        <BrowsePathRoot Value="" />
+      </OPCUA_READ>
+      <OPCUA_WRITE Path="FB3" Id="47806BF1DA64AE3E">
+        <BrowsePathRoot Value="" />
+      </OPCUA_WRITE>
+    </Resource>
+  </Device>
+</Project>

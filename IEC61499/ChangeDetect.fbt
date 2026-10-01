@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="8823A7B4CAF9A63F" Name="ChangeDetect" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="5/28/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="INP" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CHG" Comment="Execution Confirmation">
+        <With Var="OUT" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="INP" Type="REAL" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="OUT" Type="REAL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <InternalVars>
+      <VarDeclaration Name="PREV" Type="REAL" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="328.9412" y="261.4117" />
+      <ECState Name="NOCHANGE" Comment="Initialization" x="1891.529" y="533.1765">
+        <ECAction Algorithm="REQ" />
+      </ECState>
+      <ECState Name="CHANGED" Comment="Normal execution" x="661.647" y="1460.941">
+        <ECAction Algorithm="REQ" Output="CHG" />
+      </ECState>
+      <ECState Name="WAIT" x="1096" y="936.0001" />
+      <ECState Name="FIRST" x="984" y="288">
+        <ECAction Algorithm="INIT" Output="CHG" />
+      </ECState>
+      <ECTransition Source="WAIT" Destination="NOCHANGE" Condition="REQ AND (PREV = INP)" x="1307.098" y="652.4221">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="298.0368,169.2766,339.1271,146.0324" />
+      </ECTransition>
+      <ECTransition Source="NOCHANGE" Destination="WAIT" Condition="1" x="1532.534" y="820.1805">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="408.8881,197.3989,359.127,223.7034" />
+      </ECTransition>
+      <ECTransition Source="WAIT" Destination="CHANGED" Condition="REQ AND (PREV &lt;&gt; INP) " x="1037.189" y="1281.873">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="273.6534,319.6879,257.9745,335.1493" />
+      </ECTransition>
+      <ECTransition Source="CHANGED" Destination="WAIT" Condition="1" x="707.4769" y="1146.952">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="154.4136,302.0121,180.578,264.2905" />
+      </ECTransition>
+      <ECTransition Source="FIRST" Destination="WAIT" Condition="1" x="1080.235" y="580.9254">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="268.2285,119.8555,276.4217,165.4281" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="FIRST" Condition="REQ" x="664.7586" y="188.0414">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="149.4863,43.06208,183.3712,44.4375" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="PREV:=INP;&#xD;&#xA;OUT:=INP;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="PREV := INP;&#xD;&#xA;OUT := INP;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

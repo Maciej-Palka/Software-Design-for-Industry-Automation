@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ">FWD_IN</Event>
+  </EventInputs>
+  <EventOutputs>
+    <Event Name="CNF">FWD_OUT</Event>
+  </EventOutputs>
+  <Inputs>
+    <Input Name="FWD_IN" Type="BOOL" />
+  </Inputs>
+  <Outputs>
+    <Output Name="FWD_OUT" Type="BOOL" />
+  </Outputs>
+</Mapping>

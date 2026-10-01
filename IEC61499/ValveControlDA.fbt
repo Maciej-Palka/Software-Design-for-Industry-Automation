@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="44B352BCCA19D515" Name="ValveControlDA" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="5/28/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="FWD" />
+        <With Var="BKWD" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="FWD" />
+        <With Var="BKWD" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="PV1" />
+        <With Var="PV2" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="PV1" />
+        <With Var="PV2" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="FWD" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="BKWD" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="PV1" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="PV2" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1476" y="204.8375" />
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="PV1 := 0.0;&#xD;&#xA;PV2 := 0.0;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="IF FWD AND NOT(BKWD) THEN&#xD;&#xA;	PV1 := 200;&#xD;&#xA;	PV2 := 0.0;&#xD;&#xA;ELSIF NOT(FWD) AND BKWD THEN&#xD;&#xA;	PV1 := 0.0;&#xD;&#xA;	PV2 := 200.0;&#xD;&#xA;ELSE&#xD;&#xA;	PV1 := 0.0;&#xD;&#xA;	PV2 := 0.0;&#xD;&#xA;END_IF;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

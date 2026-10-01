@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="333e110c-f5e0-4e4e-b5dc-0d22f23bae41" Name="Luggage_HMI" Comment="Service Interface Function Block Type" Namespace="Main">
+  <Attribute Name="Runtime.Persistence.Storage" Value="0" />
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH " Version="0.0" Author="Andrei" Date="5/29/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event ID="11F982647F3D1F4F" Name="INIT">
+        <With Var="QI" />
+      </Event>
+      <Event ID="37D38825AEB372E3" Name="REQ">
+        <With Var="PositionX" />
+        <With Var="PositionY" />
+        <With Var="Rotation" />
+        <With Var="LuggageLoaded" />
+        <With Var="LuggageLifted" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event ID="1FCE375D6FA2CEC" Name="INITO">
+        <With Var="QO" />
+        <With Var="STATUS" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration ID="EFE34E033C3792B8" Name="QI" Type="BOOL" />
+      <VarDeclaration ID="98C96680F1AE2B4A" Name="PositionX" Type="REAL" />
+      <VarDeclaration ID="12100DFD0F205F7B" Name="PositionY" Type="REAL" />
+      <VarDeclaration ID="8A5A67D72DE9C178" Name="Rotation" Type="REAL" />
+      <VarDeclaration ID="CFFCDC4633D9F451" Name="LuggageLoaded" Type="BOOL" />
+      <VarDeclaration ID="3E169F19083B9427" Name="LuggageLifted" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration ID="B600A74ADF592AC9" Name="QO" Type="BOOL" Comment="Event Output Qualifier" />
+      <VarDeclaration ID="5EE39FE553DAA8CA" Name="STATUS" Type="STRING" Comment="Service Status" />
+    </OutputVars>
+  </InterfaceList>
+  <Service RightInterface="" LeftInterface="">
+    <ServiceSequence Name="" />
+  </Service>
+</FBType>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="169dd661-afa2-4a2c-af1c-7f6c334849d5" Name="CylinderHSensValve_HMI" Comment="Service Interface Function Block Type" Namespace="Main">
+  <Attribute Name="Runtime.Persistence.Storage" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH " Version="0.0" Author="Andrei" Date="5/28/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event ID="ECA9E439BA9496E4" Name="INIT">
+        <With Var="QI" />
+      </Event>
+      <Event ID="C5BAC1F58C3093F2" Name="REQ">
+        <With Var="FWD_IN" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event ID="E005D0B650E59F65" Name="INITO">
+        <With Var="QO" />
+        <With Var="STATUS" />
+      </Event>
+      <Event ID="FD924F911C9A8C27" Name="CNF">
+        <With Var="FWD_OUT" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration ID="612662352E083667" Name="QI" Type="BOOL" />
+      <VarDeclaration ID="A7A86DE985953F60" Name="FWD_IN" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration ID="849C36D7170DA76E" Name="QO" Type="BOOL" Comment="Event Output Qualifier" />
+      <VarDeclaration ID="CF32FDFFF27C0D82" Name="STATUS" Type="STRING" Comment="Service Status" />
+      <VarDeclaration ID="3ED3623B68C56113" Name="FWD_OUT" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <Service RightInterface="" LeftInterface="">
+    <ServiceSequence Name="" />
+  </Service>
+</FBType>
