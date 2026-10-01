@@ -14,8 +14,9 @@
 # 2. Logical design of an elevator system
 
 **Sequence diagram:**
-
-![Sequence diagram](additional_materials/sequence_diagram.png)
+<p align="center">
+ <img src="additional_materials/sequence_diagram.png">
+</p>
 
 **Explanation of used functions:**
 * **LuggageArrived**: A signal generated when the luggage arrives on the lift cylinder.
