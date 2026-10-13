@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="FE0B08605E414496" Name="Sensor" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="6" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="5/26/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT">
+        <With Var="Position" />
+        <With Var="Low" />
+        <With Var="High" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Position" />
+        <With Var="Low" />
+        <With Var="High" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO">
+        <With Var="Result" />
+      </Event>
+      <Event Name="CHG" Comment="Initialization Confirm">
+        <With Var="Result" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Position" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="Low" Type="REAL" />
+      <VarDeclaration Name="High" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Result" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="2" Name="FB2" Type="InRange" x="860" y="600" Namespace="Main" />
+    <FB ID="3" Name="IThis" Type="Sensor_HMI" x="2580" y="540" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="6" Name="FB3" Type="ChangeDetect_BOOL" x="1440" y="640" Namespace="Main" />
+    <Input Name="REQ" x="100" y="671.8542" Type="Event" />
+    <Input Name="Position" x="100" y="871.8542" Type="Data" />
+    <Input Name="Low" x="100" y="931.7084" Type="Data" />
+    <Input Name="INIT" x="100" y="611.8542" Type="Event" />
+    <Input Name="High" x="100" y="992" Type="Data" />
+    <Output Name="CHG" x="2180" y="712" Type="Event" />
+    <Output Name="Result" x="2220" y="1032" Type="Data" />
+    <Output Name="INITO" x="3180" y="552" Type="Event" />
+    <EventConnections>
+      <Connection Source="REQ" Destination="FB2.REQ" dx1="49.54169" />
+      <Connection Source="INIT" Destination="FB2.INIT" dx1="41.41669" />
+      <Connection Source="FB2.CHG" Destination="FB3.REQ" dx1="70" />
+      <Connection Source="FB2.INITO" Destination="IThis.INIT" dx1="50" />
+      <Connection Source="FB3.CHG" Destination="IThis.IND" dx1="55.125" />
+      <Connection Source="IThis.INITO" Destination="INITO" />
+      <Connection Source="FB3.CHG" Destination="CHG" dx1="60" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="Position" Destination="FB2.pos" dx1="40" />
+      <Connection Source="Low" Destination="FB2.Low" dx1="49.08337" />
+      <Connection Source="FB3.OUT" Destination="IThis.SensorRear" dx1="40" />
+      <Connection Source="FB2.result" Destination="FB3.INP" dx1="106.8854">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.OUT" Destination="Result" dx1="40" />
+      <Connection Source="High" Destination="FB2.High" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

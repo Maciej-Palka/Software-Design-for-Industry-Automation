@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="812BC9C16FD29087" Name="LevelSensors" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="12" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/20/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="Level" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Level" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="MinLevel" />
+        <With Var="LowerLevel" />
+        <With Var="UpperLevel" />
+        <With Var="MaxLevel" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="MinLevel" />
+        <With Var="LowerLevel" />
+        <With Var="UpperLevel" />
+        <With Var="MaxLevel" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Level" Type="REAL" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="MinLevel" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="LowerLevel" Type="BOOL" />
+      <VarDeclaration Name="UpperLevel" Type="BOOL" />
+      <VarDeclaration Name="MaxLevel" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="5" Name="FB1" Type="E_MERGE" x="2400" y="380" Namespace="IEC61499.Standard" />
+    <FB ID="6" Name="FB2" Type="E_MERGE" x="2960" y="380" Namespace="IEC61499.Standard" />
+    <FB ID="7" Name="FB3" Type="E_MERGE" x="2400" y="1500" Namespace="IEC61499.Standard" />
+    <FB ID="1" Name="minSensor" Type="Sensor" x="1000" y="320" Namespace="Main">
+      <Parameter Name="Low" Value="120.0" />
+      <Parameter Name="High" Value="450.0" />
+    </FB>
+    <FB ID="2" Name="lowSensor" Type="Sensor" x="1000" y="860" Namespace="Main">
+      <Parameter Name="Low" Value="170.0" />
+      <Parameter Name="High" Value="450.0" />
+    </FB>
+    <FB ID="3" Name="upSensor" Type="Sensor" x="1000" y="1440" Namespace="Main">
+      <Parameter Name="Low" Value="328.0" />
+      <Parameter Name="High" Value="450.0" />
+    </FB>
+    <FB ID="4" Name="maxSensor" Type="Sensor" x="1000" y="2000" Namespace="Main">
+      <Parameter Name="Low" Value="380.0" />
+      <Parameter Name="High" Value="450.0" />
+    </FB>
+    <Input Name="INIT" x="60" y="331.8542" Type="Event" />
+    <Input Name="REQ" x="60" y="391.8542" Type="Event" />
+    <Input Name="Level" x="60.00002" y="591.8542" Type="Data" />
+    <Output Name="INITO" x="1600" y="2011.854" Type="Event" />
+    <Output Name="CNF" x="3340" y="391.8542" Type="Event" />
+    <Output Name="MinLevel" x="1580" y="591.8541" Type="Data" />
+    <Output Name="LowerLevel" x="1580" y="1131.854" Type="Data" />
+    <Output Name="UpperLevel" x="1600" y="1711.854" Type="Data" />
+    <Output Name="MaxLevel" x="1600" y="2271.854" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="minSensor.INIT" dx1="41.41669" />
+      <Connection Source="REQ" Destination="minSensor.REQ" dx1="329.7708">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="lowSensor.REQ" dx1="258.9584">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="upSensor.REQ" dx1="258.9584">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="maxSensor.REQ" dx1="258.9584">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="minSensor.INITO" Destination="lowSensor.INIT" dx1="80" dx2="30" dy="410" />
+      <Connection Source="lowSensor.INITO" Destination="upSensor.INIT" dx1="80" dx2="30" dy="410" />
+      <Connection Source="upSensor.INITO" Destination="maxSensor.INIT" dx1="80" dx2="30" dy="410" />
+      <Connection Source="maxSensor.INITO" Destination="INITO" dx1="40" />
+      <Connection Source="FB1.EO" Destination="FB2.EI1" />
+      <Connection Source="FB3.EO" Destination="FB2.EI2" dx1="131.5415">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.EO" Destination="CNF" dx1="41.54175" />
+      <Connection Source="minSensor.CHG" Destination="FB1.EI1" />
+      <Connection Source="upSensor.CHG" Destination="FB3.EI1" />
+      <Connection Source="maxSensor.CHG" Destination="FB3.EI2" dx1="846.5208">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="lowSensor.CHG" Destination="FB1.EI2" dx1="846.5208">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="Level" Destination="minSensor.Position" dx1="45.10419" />
+      <Connection Source="Level" Destination="lowSensor.Position" dx1="45.10419" />
+      <Connection Source="Level" Destination="upSensor.Position" dx1="45.10419" />
+      <Connection Source="Level" Destination="maxSensor.Position" dx1="45.10419" />
+      <Connection Source="minSensor.Result" Destination="MinLevel" dx1="96.52075" />
+      <Connection Source="lowSensor.Result" Destination="LowerLevel" dx1="96.52075" />
+      <Connection Source="upSensor.Result" Destination="UpperLevel" dx1="96.52075" />
+      <Connection Source="maxSensor.Result" Destination="MaxLevel" dx1="96.52075" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

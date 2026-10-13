@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="F65E606EAF994A26" Name="Resistance" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="9" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/21/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="WaterLevel" />
+        <With Var="HeatON" />
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="HeatPower" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="WaterLevel" />
+        <With Var="HeatON" />
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="HeatPower" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="Temperature" />
+        <With Var="HP" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Temperature" />
+        <With Var="HP" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="WaterLevel" Type="REAL" />
+      <VarDeclaration Name="HeatON" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="InletFast" Type="REAL" />
+      <VarDeclaration Name="InletSlow" Type="REAL" />
+      <VarDeclaration Name="HeatPower" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Temperature" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="HP" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="integEC" x="2320" y="660" Namespace="Main">
+      <Parameter Name="pv2" Value="0.0" />
+      <Parameter Name="inv1" Value="FALSE" />
+      <Parameter Name="inv2" Value="FALSE" />
+      <Parameter Name="tBase1" Value="4.0" />
+      <Parameter Name="tBase2" Value="4.0" />
+      <Parameter Name="sp" Value="100.0" />
+      <Parameter Name="preTrip" Value="0.0" />
+      <Parameter Name="integType" Value="0" />
+      <Parameter Name="cycleTime" Value="0.02" />
+      <Parameter Name="minValue" Value="20.0" />
+      <Parameter Name="useLimits" Value="TRUE" />
+    </FB>
+    <FB ID="3" Name="FB3" Type="ChangeDetect_REAL" x="3140" y="840" Namespace="Main" />
+    <FB ID="4" Name="FB4" Type="E_CYCLE" x="860" y="160" Namespace="IEC61499.Standard">
+      <Parameter Name="DT" Value="t#20ms" />
+    </FB>
+    <FB ID="5" Name="IThis" Type="Resistance_HMI" x="3820" y="180" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="9" Name="FB5" Type="LimiterTemp" x="3820" y="800" Namespace="Main" />
+    <FB ID="2" Name="FB2" Type="HeatCalc" x="800" y="660" Namespace="Main" />
+    <Input Name="INIT" x="120" y="671.8541" Type="Event" />
+    <Input Name="REQ" x="120" y="731.8541" Type="Event" />
+    <Input Name="HeatON" x="120" y="991.8542" Type="Data" />
+    <Input Name="WaterLevel" x="120" y="1051.854" Type="Data" />
+    <Input Name="InletFast" x="120" y="1111.854" Type="Data" />
+    <Input Name="InletSlow" x="120" y="1171.854" Type="Data" />
+    <Input Name="HeatPower" x="80" y="1332" Type="Data" />
+    <Output Name="HP" x="1520" y="1752" Type="Data" />
+    <Output Name="INITO" x="4460" y="211.8542" Type="Event" />
+    <Output Name="CNF" x="4380" y="811.8541" Type="Event" />
+    <Output Name="Temperature" x="4360" y="1011.854" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB1.CNF" Destination="FB3.REQ" dx1="174.1875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.EO" Destination="FB1.C_CYCLE" dx1="798.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.CNF" Destination="FB1.OP_UPD" dx1="435.8854">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.INITO" Destination="FB1.INIT">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="FB2.REQ" dx1="48.95837" />
+      <Connection Source="INIT" Destination="FB2.INIT" dx1="40.83334" />
+      <Connection Source="FB2.RESET" Destination="FB1.RESET" />
+      <Connection Source="FB3.CHG" Destination="FB2.REQ" dx1="57.22925" dx2="60" dy="1062">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.CNF" Destination="FB5.REQ" dx1="894.1875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.CNF" Destination="CNF" dx1="45.20801" />
+      <Connection Source="FB1.INITO" Destination="IThis.INIT" dx1="94.1875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="IThis.REQ">
+        <Points>
+          <Points>
+            <X>95.11458</X>
+            <Y>189.963531</Y>
+          </Points>
+          <Points>
+            <X>107.5</X>
+            <Y>189.963531</Y>
+          </Points>
+          <Points>
+            <X>107.5</X>
+            <Y>147.5</Y>
+          </Points>
+          <Points>
+            <X>312.5</X>
+            <Y>147.5</Y>
+          </Points>
+          <Points>
+            <X>312.5</X>
+            <Y>70</Y>
+          </Points>
+          <Points>
+            <X>950</X>
+            <Y>70</Y>
+          </Points>
+        </Points>
+      </Connection>
+      <Connection Source="FB2.CNF" Destination="IThis.REQ" dx1="141.7709">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.INITO" Destination="INITO" dx1="47.7085" />
+      <Connection Source="IThis.INITO" Destination="FB4.START" dx1="47.7085" dx2="50" dy="-128" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="HeatON" Destination="FB2.HeatON" dx1="40" />
+      <Connection Source="WaterLevel" Destination="FB2.WaterLevel" dx1="40" />
+      <Connection Source="FB2.Heat" Destination="FB1.pv1">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.out" Destination="FB3.INP" />
+      <Connection Source="FB3.OUT" Destination="FB2.Temperature" dx1="107.2292" dx2="160" dy="902">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.MaxTemp" Destination="FB1.maxValue" dx1="161.7709">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.out" Destination="FB5.Inp">
+        <Points>
+          <Points>
+            <X>701.4531</X>
+            <Y>270</Y>
+          </Points>
+          <Points>
+            <X>718.9531</X>
+            <Y>270</Y>
+          </Points>
+          <Points>
+            <X>718.9531</X>
+            <Y>292.5</Y>
+          </Points>
+          <Points>
+            <X>920</X>
+            <Y>292.5</Y>
+          </Points>
+          <Points>
+            <X>920</X>
+            <Y>260</Y>
+          </Points>
+          <Points>
+            <X>950</X>
+            <Y>260</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.Out" Destination="Temperature" dx1="45.20801" />
+      <Connection Source="FB2.Overheating" Destination="IThis.Overheating" dx1="261.7709">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.ResistBroken" Destination="IThis.ResistBroken">
+        <Points>
+          <Points>
+            <X>359.557281</X>
+            <Y>300</Y>
+          </Points>
+          <Points>
+            <X>435</X>
+            <Y>300</Y>
+          </Points>
+          <Points>
+            <X>435</X>
+            <Y>125</Y>
+          </Points>
+          <Points>
+            <X>702.5</X>
+            <Y>125</Y>
+          </Points>
+          <Points>
+            <X>702.5</X>
+            <Y>165</Y>
+          </Points>
+          <Points>
+            <X>950</X>
+            <Y>165</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="WaterLevel" Destination="FB5.TankLevel">
+        <Points>
+          <Points>
+            <X>159.671875</X>
+            <Y>269.9635</Y>
+          </Points>
+          <Points>
+            <X>169.671875</X>
+            <Y>269.9635</Y>
+          </Points>
+          <Points>
+            <X>169.671875</X>
+            <Y>147.5</Y>
+          </Points>
+          <Points>
+            <X>877.5</X>
+            <Y>147.5</Y>
+          </Points>
+          <Points>
+            <X>877.5</X>
+            <Y>275</Y>
+          </Points>
+          <Points>
+            <X>950</X>
+            <Y>275</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="InletFast" Destination="FB2.InletFast" dx1="43.47913" />
+      <Connection Source="InletSlow" Destination="FB2.InletSlow" dx1="40" dx2="150" dy="0.145874" />
+      <Connection Source="FB2.ResistON" Destination="IThis.HeatON" dx1="111.7709" />
+      <Connection Source="HeatPower" Destination="FB2.HeatPower" dx1="40" />
+      <Connection Source="FB2.HP" Destination="HP" dx1="40" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

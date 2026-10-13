@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExchangeVersions>
+  <Runtime>1.1</Runtime>
+  <Wire>1.0</Wire>
+  <BroadcastDomain>1.0</BroadcastDomain>
+  <Ethernet>1.0</Ethernet>
+  <PhysicalView>1.0</PhysicalView>
+  <Equipment>1.0</Equipment>
+</ExchangeVersions>

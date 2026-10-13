@@ -1,0 +1,9 @@
+C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\HwConfiguration\bin\Windows\Debug\HwConfiguration.dll
+C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\HwConfiguration\bin\Windows\Debug\HwConfiguration.pdb
+C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\HwConfiguration\bin\Windows\Debug\SE.DPAC.HwConfiguration.dll
+C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\HwConfiguration\bin\Windows\Debug\Standard.HMIExtensions.HwConfiguration.dll
+C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\HwConfiguration\obj\Windows\Debug\HwConfiguration.hwconfigproj.AssemblyReference.cache
+C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\HwConfiguration\obj\Windows\Debug\HwConfiguration.hwconfigproj.CoreCompileInputs.cache
+C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\HwConfiguration\obj\Windows\Debug\HwConfiguration.hwconfigproj.CopyComplete
+C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\HwConfiguration\obj\Windows\Debug\HwConfiguration.dll
+C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\HwConfiguration\obj\Windows\Debug\HwConfiguration.pdb

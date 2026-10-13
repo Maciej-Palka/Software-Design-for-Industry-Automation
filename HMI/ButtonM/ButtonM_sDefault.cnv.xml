@@ -1,0 +1,14 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="INIT1" Map="REQ_1">Label</Event>
+  </EventInputs>
+  <EventOutputs>
+    <Event Name="REQ" Map="IND_1">Button</Event>
+  </EventOutputs>
+  <Inputs>
+    <Input Name="Label" Type="STRING" Map="SD_1" />
+  </Inputs>
+  <Outputs>
+    <Output Name="Button" Type="BOOL" Map="RD_1" />
+  </Outputs>
+</Mapping>

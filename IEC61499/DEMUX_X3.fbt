@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="c32068c3-d82e-43eb-ae96-d6b891525d10" Name="DEMUX_X3" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmBH" Version="0.0" Author="macie" Date="10/11/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="inputsPair" />
+        <With Var="I1" />
+        <With Var="I2" />
+        <With Var="I3" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="O" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="inputsPair" Type="UINT" />
+      <VarDeclaration Name="I1" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="I2" Type="REAL" />
+      <VarDeclaration Name="I3" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="O" Type="REAL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ,Assign_1,Assign_2,Assign_3" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="1636.941" y="365.4117" />
+      <ECState Name="ASSIGN_1" x="604" y="928">
+        <ECAction Algorithm="Assign_1" Output="CNF" />
+      </ECState>
+      <ECState Name="ASSIGN_2" x="1736" y="1084">
+        <ECAction Algorithm="Assign_2" Output="CNF" />
+      </ECState>
+      <ECState Name="ASSIGN_3" x="2688" y="928">
+        <ECAction Algorithm="Assign_3" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="ASSIGN_1" Condition="REQ [inputsPair = 1]" x="883.4823" y="497.8568">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="242.6888,94.53423,169.5202,133.7666" />
+      </ECTransition>
+      <ECTransition Source="ASSIGN_1" Destination="START" Condition="1" x="1188.468" y="643.9576">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="266.1516,179.8589,336.2698,141.6618" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="ASSIGN_2" Condition="REQ [inputsPair = 2]" x="1618.786" y="732.8927">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="396.8788,158.2965,404.0918,209.5143" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="ASSIGN_3" Condition="REQ [inputsPair = 3]" x="2172.016" y="759.3405">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="513.8655,179.3414,582.7783,217.1344" />
+      </ECTransition>
+      <ECTransition Source="ASSIGN_2" Destination="START" Condition="1" x="1855.35" y="762.2252">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="477.9211,219.3062,470.7202,168.0597" />
+      </ECTransition>
+      <ECTransition Source="ASSIGN_3" Destination="START" Condition="1" x="2384.583" y="491.3854">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="645.504,131.1183,574.1641,92.93294" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST><![CDATA[;]]></ST>
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST><![CDATA[;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Assign_1">
+      <ST><![CDATA[;
+O := I1;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Assign_2">
+      <ST><![CDATA[;
+O := I2;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Assign_3">
+      <ST><![CDATA[;
+O := I3;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

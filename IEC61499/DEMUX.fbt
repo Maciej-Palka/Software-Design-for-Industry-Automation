@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="972fb526-d8e5-402f-9364-bb2f2496dd95" Name="DEMUX" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="5" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmBH" Version="0.0" Author="macie" Date="10/11/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="inputsPair" />
+        <With Var="I1" />
+        <With Var="I2" />
+        <With Var="I3" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="O" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="inputsPair" Type="UINT" />
+      <VarDeclaration Name="I1" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="I2" Type="REAL" />
+      <VarDeclaration Name="I3" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="O" Type="REAL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <Input Name="REQ" x="320" y="832" Type="Event" />
+    <Input Name="I1" x="2280" y="892" Type="Data" />
+    <Input Name="I2" x="640" y="332" Type="Data" />
+    <Input Name="I3" x="12" y="312" Type="Data" />
+    <Input Name="inputsPair" x="340" y="1212" Type="Data" />
+    <Output Name="CNF" x="2144.313" y="72" Type="Event" />
+    <Output Name="O" x="2023.875" y="132" Type="Data" />
+  </FBNetwork>
+</FBType>

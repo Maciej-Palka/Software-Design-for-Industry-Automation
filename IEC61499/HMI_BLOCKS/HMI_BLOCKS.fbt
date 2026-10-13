@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="773B897DDEAAAC97" Name="HMI_BLOCKS" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="8" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="jhunjhp1" Date="3/6/2020" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="Start" Comment="Initialization Confirm">
+        <With Var="StartButton" />
+      </Event>
+      <Event Name="Receipe1" Comment="Execution Confirmation">
+        <With Var="Receipe1Button" />
+      </Event>
+      <Event Name="Receipe2">
+        <With Var="Receipe2Button" />
+      </Event>
+      <Event Name="Sliders">
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+      </Event>
+      <Event Name="Stop">
+        <With Var="StopButton" />
+      </Event>
+    </EventOutputs>
+    <OutputVars>
+      <VarDeclaration Name="StartButton" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="Receipe1Button" Type="BOOL" />
+      <VarDeclaration Name="Receipe2Button" Type="BOOL" />
+      <VarDeclaration Name="TemperatureSlider" Type="REAL" />
+      <VarDeclaration Name="WaterLevelSlider" Type="REAL" />
+      <VarDeclaration Name="StopButton" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="Start_Button" Type="ButtonM" x="920" y="280" Namespace="Main">
+      <Parameter Name="Label" Value="'Start'" />
+    </FB>
+    <FB ID="2" Name="Temp_Value" Type="Heat_Control_Slider" x="2280" y="260" Namespace="Main">
+      <Parameter Name="Label" Value="'Temperature Slider'" />
+    </FB>
+    <FB ID="3" Name="Level_Value" Type="Level_Control_Slider" x="2300" y="780" Namespace="Main">
+      <Parameter Name="Label" Value="'Level Slider'" />
+    </FB>
+    <FB ID="5" Name="Recipe1" Type="ButtonM" x="920" y="740" Namespace="Main">
+      <Parameter Name="Label" Value="'Recipe1'" />
+    </FB>
+    <FB ID="6" Name="Recipe2" Type="ButtonM" x="920" y="1180" Namespace="Main">
+      <Parameter Name="Label" Value="'Recipe2'" />
+    </FB>
+    <FB ID="7" Name="Stop_Button" Type="ButtonM" x="920" y="1660" Namespace="Main">
+      <Parameter Name="Label" Value="'Stop'" />
+    </FB>
+    <FB ID="8" Name="FB1" Type="E_MERGE" x="3520" y="320" Namespace="IEC61499.Standard" />
+    <Input Name="INIT" x="12" y="12" Type="Event" />
+    <Output Name="Start" x="1460" y="292" Type="Event" />
+    <Output Name="Receipe1" x="1500" y="751.8542" Type="Event" />
+    <Output Name="StartButton" x="1440" y="491.8541" Type="Data" />
+    <Output Name="Receipe1Button" x="1420" y="951.8542" Type="Data" />
+    <Output Name="Receipe2Button" x="1400" y="1391.854" Type="Data" />
+    <Output Name="TemperatureSlider" x="2880" y="531.8542" Type="Data" />
+    <Output Name="WaterLevelSlider" x="3020" y="1051.854" Type="Data" />
+    <Output Name="StopButton" x="1420" y="1871.854" Type="Data" />
+    <Output Name="Receipe2" x="1480" y="1191.854" Type="Event" />
+    <Output Name="Sliders" x="3900" y="331.8542" Type="Event" />
+    <Output Name="Stop" x="1420" y="1671.854" Type="Event" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="Start_Button.INIT" dx1="399.4167">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="Recipe1.INIT" dx1="399.4167">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="Recipe2.INIT" dx1="399.4167">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="Stop_Button.INIT" dx1="399.4167">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="Start_Button.CNF" Destination="Start" />
+      <Connection Source="Recipe1.CNF" Destination="Receipe1" dx1="40" />
+      <Connection Source="Recipe2.CNF" Destination="Receipe2" dx1="40" />
+      <Connection Source="Stop_Button.CNF" Destination="Stop" dx1="40" />
+      <Connection Source="Temp_Value.CNF" Destination="FB1.EI1" />
+      <Connection Source="Level_Value.CNF" Destination="FB1.EI2" dx1="680.1875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.EO" Destination="Sliders" dx1="41.54175" />
+      <Connection Source="INIT" Destination="Temp_Value.INIT" dx1="1799.417">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="Level_Value.INIT" dx1="1799.417">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="Start_Button.QO" Destination="StartButton" dx1="77.66675" />
+      <Connection Source="Temp_Value.Temp_Value" Destination="TemperatureSlider" dx1="71.6875" />
+      <Connection Source="Level_Value.Level_Value" Destination="WaterLevelSlider" dx1="70.1875" />
+      <Connection Source="Recipe1.QO" Destination="Receipe1Button" dx1="77.66663" />
+      <Connection Source="Recipe2.QO" Destination="Receipe2Button" dx1="77.66663" />
+      <Connection Source="Stop_Button.QO" Destination="StopButton" dx1="77.66663" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

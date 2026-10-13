@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<View xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ViewName="View1" ViewType="Default">
+  <ViewItems xsi:type="ViewItemFolder" Id="Process View" IsRoot="true" />
+</View>

@@ -1,0 +1,14 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ" Map="REQ_1">Label</Event>
+  </EventInputs>
+  <EventOutputs>
+    <Event Name="CNF" Map="IND_1">Pump_Value</Event>
+  </EventOutputs>
+  <Inputs>
+    <Input Name="Label" Type="STRING" Map="SD_1" />
+  </Inputs>
+  <Outputs>
+    <Output Name="Pump_Value" Type="REAL" Map="RD_1" />
+  </Outputs>
+</Mapping>

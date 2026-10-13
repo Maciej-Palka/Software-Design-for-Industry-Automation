@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FBType GUID="c6fafbf8-47f2-4965-a303-1c4ca65f4367" Name="Recipe_2" Comment="Extracted Composite Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Author="macie" Date="10/13/2026" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="FB6_RECIPE_START" Comment="Initialization Request">
+        <With Var="FB6_waterLevelCurrent" />
+        <With Var="FB6_waterTempCurrent" />
+        <With Var="FB6_deltaT" />
+        <With Var="FB6_deltaL" />
+        <With Var="FB6_X3" />
+        <With Var="FB6_X4" />
+        <With Var="FB6_Y3" />
+        <With Var="FB6_Y4" />
+      </Event>
+      <Event Name="FB6_REQ" Comment="Normal Execution Request">
+        <With Var="FB6_waterLevelCurrent" />
+        <With Var="FB6_waterTempCurrent" />
+      </Event>
+      <Event Name="FB6_STOP">
+        <With Var="FB6_StopButton" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="FB6_RECIPE_COMPLETE" Comment="Initialization Confirm">
+        <With Var="FB6_setWaterLevel" />
+        <With Var="FB6_setWaterTemp" />
+      </Event>
+      <Event Name="FB6_CNF" Comment="Execution Confirmation">
+        <With Var="FB6_setWaterLevel" />
+        <With Var="FB6_setWaterTemp" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="FB6_waterLevelCurrent" Type="REAL" />
+      <VarDeclaration Name="FB6_waterTempCurrent" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="FB6_deltaT" Type="REAL" />
+      <VarDeclaration Name="FB6_deltaL" Type="REAL" />
+      <VarDeclaration Name="FB6_X3" Type="REAL" />
+      <VarDeclaration Name="FB6_X4" Type="REAL" />
+      <VarDeclaration Name="FB6_Y3" Type="REAL" />
+      <VarDeclaration Name="FB6_Y4" Type="REAL" />
+      <VarDeclaration Name="FB6_StopButton" Type="BOOL" />
+      <VarDeclaration Name="FB9_DT" Type="TIME" Comment="Delay Time" />
+      <VarDeclaration Name="FB10_DT" Type="TIME" Comment="Delay Time" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="FB6_setWaterLevel" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="FB6_setWaterTemp" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="FB6" Type="Recipe2" x="2340" y="4080" Namespace="Main" />
+    <FB Name="FB9" Type="E_DELAY" x="640" y="3420" Namespace="IEC61499.Standard" />
+    <FB Name="FB10" Type="E_DELAY" x="640" y="3860" Namespace="IEC61499.Standard" />
+    <EventConnections>
+      <Connection Source="FB10.EO" Destination="FB6.T2" dx1="48.5" />
+      <Connection Source="FB9.EO" Destination="FB6.T1" dx1="158.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB6.START_T1" Destination="FB9.START" dx1="347.229" dx2="520" dy="1020">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB6.START_T2" Destination="FB10.START" dx1="117.229" dx2="460" dy="860">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB6_RECIPE_START" Destination="FB6.RECIPE_START" />
+      <Connection Source="FB6_REQ" Destination="FB6.REQ" />
+      <Connection Source="FB6_STOP" Destination="FB6.STOP" />
+      <Connection Source="FB6.RECIPE_COMPLETE" Destination="FB6_RECIPE_COMPLETE" />
+      <Connection Source="FB6.CNF" Destination="FB6_CNF" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB6_waterLevelCurrent" Destination="FB6.waterLevelCurrent" />
+      <Connection Source="FB6_waterTempCurrent" Destination="FB6.waterTempCurrent" />
+      <Connection Source="FB6_deltaT" Destination="FB6.deltaT" />
+      <Connection Source="FB6_deltaL" Destination="FB6.deltaL" />
+      <Connection Source="FB6_X3" Destination="FB6.X3" />
+      <Connection Source="FB6_X4" Destination="FB6.X4" />
+      <Connection Source="FB6_Y3" Destination="FB6.Y3" />
+      <Connection Source="FB6_Y4" Destination="FB6.Y4" />
+      <Connection Source="FB6_StopButton" Destination="FB6.StopButton" />
+      <Connection Source="FB6.setWaterLevel" Destination="FB6_setWaterLevel" />
+      <Connection Source="FB6.setWaterTemp" Destination="FB6_setWaterTemp" />
+      <Connection Source="FB9_DT" Destination="FB9.DT" />
+      <Connection Source="FB10_DT" Destination="FB10.DT" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

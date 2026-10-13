@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BroadcastDomainList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <BroadcastDomain Uuid="f2cd21dc-a24d-4797-b7e0-aa9086fda6f7" Identifier="Default Network">
+    <IpV4Address>192.168.0.0</IpV4Address>
+    <IpV4Mask>255.255.255.0</IpV4Mask>
+    <IpV4Gateway>192.168.0.254</IpV4Gateway>
+  </BroadcastDomain>
+</BroadcastDomainList>

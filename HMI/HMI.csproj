@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <PropertyGroup>
+    <ProjectGuid>{7C919AD2-11F7-4BA0-BE4E-C06E88551E0C}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HMI</RootNamespace>
+    <AssemblyName>HMI</AssemblyName>
+    <NxtVersion>23.0.0.0</NxtVersion>
+    <HMILibraries>HMIBaseSymbols:</HMILibraries>
+    <Theme>Default:Default</Theme>
+    <ProjectType>HMI</ProjectType>
+    <Platform Condition=" '$(Platform)' == '' ">Windows</Platform>
+    <CanvasSize>1280,900,1280,980,Default,True,140,30</CanvasSize>
+    <CanvasLookAndFeel>Theme</CanvasLookAndFeel>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\$(Platform)\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\$(Platform)\Release</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'Windows' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="ButtonM\ButtonM.def.cs" />
+    <Compile Include="ButtonM\ButtonM.event.cs" />
+    <Compile Include="ButtonM\ButtonM_sDefault.cnv.cs" />
+    <Compile Include="ButtonM\ButtonM_sDefault.cnv.Designer.cs">
+      <DependentUpon>ButtonM_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Canvas1.cnv.cs">
+      <Canvas>true</Canvas>
+    </Compile>
+    <Compile Include="Canvas1.cnv.Designer.cs">
+      <DependentUpon>Canvas1.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Canvas2.cnv.cs">
+      <Canvas>true</Canvas>
+    </Compile>
+    <Compile Include="Canvas2.cnv.Designer.cs">
+      <DependentUpon>Canvas2.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Canvas.cnv.cs">
+      <Canvas>true</Canvas>
+    </Compile>
+    <Compile Include="Canvas.cnv.Designer.cs">
+      <DependentUpon>Canvas.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Canvas3.cnv.cs">
+      <Canvas>true</Canvas>
+    </Compile>
+    <Compile Include="Canvas3.cnv.Designer.cs">
+      <DependentUpon>Canvas3.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Canvas4.cnv.cs">
+      <Canvas>true</Canvas>
+    </Compile>
+    <Compile Include="Canvas4.cnv.Designer.cs">
+      <DependentUpon>Canvas4.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Colors\ProjectColors.cs" />
+    <Compile Include="Colors\ProjectDrawingObjects.cs" />
+    <Compile Include="Heat_Control_Slider\Heat_Control_Slider.def.cs" />
+    <Compile Include="Heat_Control_Slider\Heat_Control_Slider.event.cs" />
+    <Compile Include="Heat_Control_Slider\Heat_Control_Slider_sDefault.cnv.cs" />
+    <Compile Include="Heat_Control_Slider\Heat_Control_Slider_sDefault.cnv.Designer.cs">
+      <DependentUpon>Heat_Control_Slider_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMI_BLOCKS\HMI_BLOCKS.def.cs" />
+    <Compile Include="HMI_BLOCKS\HMI_BLOCKS.event.cs" />
+    <Compile Include="HMI_BLOCKS\HMI_BLOCKS_sDefault.cnv.cs" />
+    <Compile Include="HMI_BLOCKS\HMI_BLOCKS_sDefault.cnv.Designer.cs">
+      <DependentUpon>HMI_BLOCKS_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LevelSensors\LevelSensors.def.cs" />
+    <Compile Include="LevelSensors\LevelSensors.event.cs" />
+    <Compile Include="LevelSensors\LevelSensors_sDefault.cnv.cs" />
+    <Compile Include="LevelSensors\LevelSensors_sDefault.cnv.Designer.cs">
+      <DependentUpon>LevelSensors_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Level_Control_Slider\Level_Control_Slider.def.cs" />
+    <Compile Include="Level_Control_Slider\Level_Control_Slider.event.cs" />
+    <Compile Include="Level_Control_Slider\Level_Control_Slider_sDefault.cnv.cs" />
+    <Compile Include="Level_Control_Slider\Level_Control_Slider_sDefault.cnv.Designer.cs">
+      <DependentUpon>Level_Control_Slider_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.def.cs" />
+    <Compile Include="Model\Model.event.cs" />
+    <Compile Include="Model\Model_sDefault.cnv.cs" />
+    <Compile Include="Model\Model_sDefault.cnv.Designer.cs">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pump_slider\pump_slider.def.cs" />
+    <Compile Include="pump_slider\pump_slider.event.cs" />
+    <Compile Include="pump_slider\pump_slider_sDefault.cnv.cs" />
+    <Compile Include="pump_slider\pump_slider_sDefault.cnv.Designer.cs">
+      <DependentUpon>pump_slider_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resistance\Resistance.def.cs" />
+    <Compile Include="Resistance\Resistance.event.cs" />
+    <Compile Include="Resistance\Resistance_sDefault.cnv.cs" />
+    <Compile Include="Resistance\Resistance_sDefault.cnv.Designer.cs">
+      <DependentUpon>Resistance_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sensor\Sensor.def.cs" />
+    <Compile Include="Sensor\Sensor.event.cs" />
+    <Compile Include="Sensor\Sensor_sDefault.cnv.cs" />
+    <Compile Include="Sensor\Sensor_sDefault.cnv.Designer.cs">
+      <DependentUpon>Sensor_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartCanvas_2.cnv.cs" />
+    <Compile Include="StartCanvas_2.cnv.Designer.cs">
+      <DependentUpon>StartCanvas_2.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartCanvas_3.cnv.cs" />
+    <Compile Include="StartCanvas_3.cnv.Designer.cs">
+      <DependentUpon>StartCanvas_3.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TankResis\TankResis.def.cs" />
+    <Compile Include="TankResis\TankResis.event.cs" />
+    <Compile Include="TankResis\TankResis_sDefault.cnv.cs" />
+    <Compile Include="TankResis\TankResis_sDefault.cnv.Designer.cs">
+      <DependentUpon>TankResis_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tank\Tank.def.cs" />
+    <Compile Include="Tank\Tank.event.cs" />
+    <Compile Include="Tank\Tank_sDefault.cnv.cs" />
+    <Compile Include="Tank\Tank_sDefault.cnv.Designer.cs">
+      <DependentUpon>Tank_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThermometerS\ThermometerS.def.cs" />
+    <Compile Include="ThermometerS\ThermometerS.event.cs" />
+    <Compile Include="ThermometerS\ThermometerS_sDefault.cnv.cs" />
+    <Compile Include="ThermometerS\ThermometerS_sDefault.cnv.Designer.cs">
+      <DependentUpon>ThermometerS_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wtch_trend\wtch_trend.def.cs" />
+    <Compile Include="wtch_trend\wtch_trend.event.cs" />
+    <Compile Include="wtch_trend\wtch_trend_sDefault.cnv.cs" />
+    <Compile Include="wtch_trend\wtch_trend_sDefault.cnv.Designer.cs">
+      <DependentUpon>wtch_trend_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <None Include="Alarms\AlarmClasses.xml" />
+    <None Include="ButtonM\ButtonM.Design.resx" />
+    <None Include="Colors\Default.color.theme" />
+    <None Include="Colors\Default.do.theme" />
+    <None Include="Colors\ProjectColors.xml" />
+    <None Include="Colors\ProjectDrawingObjects.xml" />
+    <None Include="Heat_Control_Slider\Heat_Control_Slider.Design.resx" />
+    <None Include="HMI_BLOCKS\HMI_BLOCKS.Design.resx" />
+    <None Include="ImageStorage\ImageStorage.xml" />
+    <None Include="LevelSensors\LevelSensors.Design.resx" />
+    <None Include="Level_Control_Slider\Level_Control_Slider.Design.resx" />
+    <None Include="Model\Model.Design.resx" />
+    <None Include="pump_slider\pump_slider.Design.resx" />
+    <None Include="Resistance\Resistance.Design.resx" />
+    <None Include="Sensor\Sensor.Design.resx" />
+    <None Include="TankResis\TankResis.Design.resx" />
+    <None Include="Tank\Tank.Design.resx" />
+    <None Include="ThermometerS\ThermometerS.Design.resx" />
+    <None Include="wtch_trend\wtch_trend.Design.resx" />
+    <EmbeddedResource Include="Alarms\AlarmClasses.xml" />
+    <EmbeddedResource Include="Alarms\SystemAlarmClasses.xml" />
+    <EmbeddedResource Include="ButtonM\ButtonM_sDefault.cnv.resx">
+      <DependentUpon>ButtonM_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ButtonM\ButtonM_sDefault.cnv.xml">
+      <DependentUpon>ButtonM_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Canvas1.cnv.resx">
+      <DependentUpon>Canvas1.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Canvas2.cnv.resx">
+      <DependentUpon>Canvas2.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Canvas.cnv.resx">
+      <DependentUpon>Canvas.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Canvas3.cnv.resx">
+      <DependentUpon>Canvas3.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Canvas4.cnv.resx">
+      <DependentUpon>Canvas4.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configurations\HistoryTrend.xml" />
+    <EmbeddedResource Include="Configurations\Journalling.xml" />
+    <EmbeddedResource Include="Configurations\TagValueEditor.xml" />
+    <EmbeddedResource Include="Heat_Control_Slider\Heat_Control_Slider_sDefault.cnv.resx">
+      <DependentUpon>Heat_Control_Slider_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Heat_Control_Slider\Heat_Control_Slider_sDefault.cnv.xml">
+      <DependentUpon>Heat_Control_Slider_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMI_BLOCKS\HMI_BLOCKS_sDefault.cnv.resx">
+      <DependentUpon>HMI_BLOCKS_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HMI_BLOCKS\HMI_BLOCKS_sDefault.cnv.xml">
+      <DependentUpon>HMI_BLOCKS_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LevelSensors\LevelSensors_sDefault.cnv.resx">
+      <DependentUpon>LevelSensors_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LevelSensors\LevelSensors_sDefault.cnv.xml">
+      <DependentUpon>LevelSensors_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Level_Control_Slider\Level_Control_Slider_sDefault.cnv.resx">
+      <DependentUpon>Level_Control_Slider_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Level_Control_Slider\Level_Control_Slider_sDefault.cnv.xml">
+      <DependentUpon>Level_Control_Slider_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Model_sDefault.cnv.resx">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Model_sDefault.cnv.xml">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pump_slider\pump_slider_sDefault.cnv.resx">
+      <DependentUpon>pump_slider_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pump_slider\pump_slider_sDefault.cnv.xml">
+      <DependentUpon>pump_slider_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resistance\Resistance_sDefault.cnv.resx">
+      <DependentUpon>Resistance_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resistance\Resistance_sDefault.cnv.xml">
+      <DependentUpon>Resistance_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sensor\Sensor_sDefault.cnv.resx">
+      <DependentUpon>Sensor_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sensor\Sensor_sDefault.cnv.xml">
+      <DependentUpon>Sensor_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartCanvas_2.cnv.resx">
+      <DependentUpon>StartCanvas_2.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartCanvas_3.cnv.resx">
+      <DependentUpon>StartCanvas_3.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TankResis\TankResis_sDefault.cnv.resx">
+      <DependentUpon>TankResis_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TankResis\TankResis_sDefault.cnv.xml">
+      <DependentUpon>TankResis_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tank\Tank_sDefault.cnv.resx">
+      <DependentUpon>Tank_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tank\Tank_sDefault.cnv.xml">
+      <DependentUpon>Tank_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThermometerS\ThermometerS_sDefault.cnv.resx">
+      <DependentUpon>ThermometerS_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThermometerS\ThermometerS_sDefault.cnv.xml">
+      <DependentUpon>ThermometerS_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wtch_trend\wtch_trend_sDefault.cnv.resx">
+      <DependentUpon>wtch_trend_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wtch_trend\wtch_trend_sDefault.cnv.xml">
+      <DependentUpon>wtch_trend_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CommunicationProfile">
+      <HintPath>CommunicationProfile</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HMIBaseSymbols">
+      <HintPath>HMIBaseSymbols</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="NxtControl.ComponentModel">
+      <HintPath>NxtControl.ComponentModel</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NxtControl.GuiFramework">
+      <HintPath>NxtControl.GuiFramework</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SE.DPAC.HMI">
+      <Version>23.0.0.57</Version>
+      <HintPath>SE.DPAC.HMI</HintPath>
+    </Reference>
+    <Reference Include="Standard.HMIExtensions.HMI">
+      <Version>23.0.0.5</Version>
+      <HintPath>Standard.HMIExtensions.HMI</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(SharpDevelopBinPath)\SharpDevelop.Build.CSharp.targets" />
+</Project>

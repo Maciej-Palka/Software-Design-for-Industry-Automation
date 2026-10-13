@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="46512D5E37A22D1B" Name="TankResis" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="2" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/21/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Outlet" />
+        <With Var="HeatON" />
+        <With Var="HeatPower" />
+        <With Var="pv1" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Outlet" />
+        <With Var="HeatON" />
+        <With Var="HeatPower" />
+        <With Var="pv1" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="WaterLevel" />
+        <With Var="WaterTemp" />
+        <With Var="HP" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="WaterLevel" />
+        <With Var="WaterTemp" />
+        <With Var="HP" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="InletFast" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="InletSlow" Type="REAL" />
+      <VarDeclaration Name="Outlet" Type="REAL" />
+      <VarDeclaration Name="HeatON" Type="REAL" />
+      <VarDeclaration Name="HeatPower" Type="REAL" />
+      <VarDeclaration Name="pv1" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="WaterLevel" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="WaterTemp" Type="REAL" />
+      <VarDeclaration Name="HP" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="Tank" x="1080" y="220" Namespace="Main" />
+    <FB ID="2" Name="FB2" Type="Resistance" x="2580" y="220" Namespace="Main" />
+    <Input Name="INIT" x="320" y="231.8542" Type="Event" />
+    <Input Name="REQ" x="320" y="291.8542" Type="Event" />
+    <Input Name="InletFast" x="320" y="491.8542" Type="Data" />
+    <Input Name="InletSlow" x="320" y="551.8541" Type="Data" />
+    <Input Name="Outlet" x="320" y="611.8541" Type="Data" />
+    <Input Name="HeatON" x="1980" y="551.8542" Type="Data" />
+    <Input Name="HeatPower" x="1800" y="732" Type="Data" />
+    <Input Name="pv1" x="320" y="672" Type="Data" />
+    <Output Name="HP" x="3340" y="552" Type="Data" />
+    <Output Name="INITO" x="3340" y="231.8542" Type="Event" />
+    <Output Name="CNF" x="3340" y="291.8542" Type="Event" />
+    <Output Name="WaterLevel" x="1760" y="371.8542" Type="Data" />
+    <Output Name="WaterTemp" x="3340" y="491.8542" Type="Data" />
+    <EventConnections>
+      <Connection Source="REQ" Destination="FB1.REQ" dx1="48.95837" />
+      <Connection Source="INIT" Destination="FB1.INIT" dx1="40.83337" />
+      <Connection Source="FB1.INITO" Destination="FB2.INIT" />
+      <Connection Source="FB1.CNF" Destination="FB2.REQ" />
+      <Connection Source="FB2.INITO" Destination="INITO" dx1="49.70825" />
+      <Connection Source="FB2.CNF" Destination="CNF" dx1="70" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="InletFast" Destination="FB1.InletFast" dx1="43.47925" />
+      <Connection Source="InletSlow" Destination="FB1.InletSlow" dx1="40" />
+      <Connection Source="Outlet" Destination="FB1.Outlet" dx1="40" />
+      <Connection Source="HeatON" Destination="FB2.HeatON" dx1="13.22925" />
+      <Connection Source="FB1.WaterLevel" Destination="FB2.WaterLevel">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.Temperature" Destination="WaterTemp" dx1="90" />
+      <Connection Source="FB1.WaterLevel" Destination="WaterLevel" dx1="90" />
+      <Connection Source="InletFast" Destination="FB2.InletFast">
+        <Points>
+          <Points>
+            <X>196.630188</X>
+            <Y>129.963547</Y>
+          </Points>
+          <Points>
+            <X>214.854187</X>
+            <Y>129.963547</Y>
+          </Points>
+          <Points>
+            <X>214.854187</X>
+            <Y>189</Y>
+          </Points>
+          <Points>
+            <X>404.8542</X>
+            <Y>189</Y>
+          </Points>
+          <Points>
+            <X>404.8542</X>
+            <Y>160</Y>
+          </Points>
+          <Points>
+            <X>640</X>
+            <Y>160</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="InletSlow" Destination="FB2.InletSlow">
+        <Points>
+          <Points>
+            <X>199.067688</X>
+            <Y>144.963531</Y>
+          </Points>
+          <Points>
+            <X>199.854187</X>
+            <Y>144.963531</Y>
+          </Points>
+          <Points>
+            <X>199.854187</X>
+            <Y>203.999985</Y>
+          </Points>
+          <Points>
+            <X>419.8542</X>
+            <Y>203.999985</Y>
+          </Points>
+          <Points>
+            <X>419.8542</X>
+            <Y>175</Y>
+          </Points>
+          <Points>
+            <X>640</X>
+            <Y>175</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="HeatPower" Destination="FB2.HeatPower" />
+      <Connection Source="pv1" Destination="FB1.pv1" />
+      <Connection Source="FB2.HP" Destination="HP" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

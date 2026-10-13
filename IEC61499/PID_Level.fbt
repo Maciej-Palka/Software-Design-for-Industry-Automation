@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="96B9E9C43D7A0657" Name="PID_Level" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="valvya" Date="5/3/2015" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="KP" />
+        <With Var="TR" />
+        <With Var="TD" />
+        <With Var="SP" />
+        <With Var="DLT" />
+        <With Var="PV" />
+        <With Var="X0" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="OUT" />
+        <With Var="NEG" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="KP" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="TR" Type="REAL" Comment="Time in sec" />
+      <VarDeclaration Name="TD" Type="REAL" Comment="Time in sec" />
+      <VarDeclaration Name="SP" Type="REAL" Comment="Setpoint" />
+      <VarDeclaration Name="DLT" Type="REAL" Comment="Time in sec" />
+      <VarDeclaration Name="PV" Type="REAL" />
+      <VarDeclaration Name="X0" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="OUT" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="NEG" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="REQ" />
+    <InternalVars>
+      <VarDeclaration Name="ERROR" Type="REAL" />
+      <VarDeclaration Name="X1" Type="REAL" />
+      <VarDeclaration Name="X2" Type="REAL" />
+      <VarDeclaration Name="X3" Type="REAL" />
+      <VarDeclaration Name="FIRSTTIME" Type="BOOL" InitialValue="TRUE" />
+      <VarDeclaration Name="ITERM" Type="REAL" />
+      <VarDeclaration Name="DTERM" Type="REAL" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="560.9412" y="177.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="413.647" y="664.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="566.8651" y="442.8674">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="150.5786,96.55923,140.9317,128.4896" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="240.407" y="362.1347">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="42.17477,102.174,51.82172,70.2436" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="REQ" Comment="PID with Bumpless Transfer and Anti-Reset Windup, REAL PV+XOUT">
+      <ST Text="ERROR:=PV-SP;&#xD;&#xA;&#xD;&#xA;IF FIRSTTIME THEN&#xD;&#xA;	ITERM:=(ERROR-X0)/KP;&#xD;&#xA;	DTERM:=0;&#xD;&#xA;ELSE&#xD;&#xA;	ITERM:=ITERM+ERROR*DLT/TR;&#xD;&#xA;	DTERM:=(3*(PV-X3)+X1-X2)*TD/DLT/10;&#xD;&#xA;END_IF;&#xD;&#xA;OUT:=-KP*ERROR-ITERM-DTERM;&#xD;&#xA;X3:=X2;X2:=X1;X1:=PV;&#xD;&#xA;ITERM:=ITERM-ERROR*DLT/TR;&#xD;&#xA;NEG:=0;&#xD;&#xA;IF OUT&lt;0 THEN&#xD;&#xA;  NEG := 1;&#xD;&#xA;  // OUT:=0;&#xD;&#xA;ELSIF OUT&gt;450 THEN&#xD;&#xA;  OUT:=100;&#xD;&#xA;END_IF;&#xD;&#xA;FIRSTTIME:=FALSE;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

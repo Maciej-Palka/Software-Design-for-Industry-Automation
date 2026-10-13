@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="B90BB12F16B12912" Name="Model" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="11" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/20/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Outlet" />
+        <With Var="Heat" />
+        <With Var="HeatPower" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Outlet" />
+        <With Var="Heat" />
+        <With Var="HeatPower" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="MinSensor" />
+        <With Var="LowerSensor" />
+        <With Var="UpperSesnsor" />
+        <With Var="MaxSensor" />
+        <With Var="MinTemp" />
+        <With Var="MaxTemp" />
+        <With Var="WaterLevel" />
+        <With Var="WaterTemp" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="MinSensor" />
+        <With Var="LowerSensor" />
+        <With Var="UpperSesnsor" />
+        <With Var="MaxSensor" />
+        <With Var="MinTemp" />
+        <With Var="MaxTemp" />
+        <With Var="WaterLevel" />
+        <With Var="WaterTemp" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="InletFast" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="InletSlow" Type="REAL" />
+      <VarDeclaration Name="Outlet" Type="REAL" />
+      <VarDeclaration Name="Heat" Type="REAL" />
+      <VarDeclaration Name="HeatPower" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="MinSensor" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="LowerSensor" Type="BOOL" />
+      <VarDeclaration Name="UpperSesnsor" Type="BOOL" />
+      <VarDeclaration Name="MaxSensor" Type="BOOL" />
+      <VarDeclaration Name="MinTemp" Type="BOOL" />
+      <VarDeclaration Name="MaxTemp" Type="BOOL" />
+      <VarDeclaration Name="WaterLevel" Type="REAL" />
+      <VarDeclaration Name="WaterTemp" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="8" Name="FB1" Type="TankResis" x="1480" y="400" Namespace="Main" />
+    <FB ID="9" Name="FB4" Type="E_MERGE" x="3940" y="460" Namespace="IEC61499.Standard" />
+    <FB ID="6" Name="FB3" Type="ThermometerS" x="2420" y="1340" Namespace="Main" />
+    <FB ID="5" Name="FB2" Type="LevelSensors" x="2440" y="400" Namespace="Main" />
+    <FB ID="10" Name="FB5" Type="E_MERGE" x="4720" y="400" Namespace="IEC61499.Standard" />
+    <Input Name="INIT" x="840" y="411.8542" Type="Event" />
+    <Input Name="REQ" x="839.9999" y="471.8541" Type="Event" />
+    <Input Name="InletFast" x="840" y="671.8541" Type="Data" />
+    <Input Name="InletSlow" x="840" y="731.8541" Type="Data" />
+    <Input Name="Outlet" x="840" y="791.8541" Type="Data" />
+    <Input Name="Heat" x="840" y="851.8542" Type="Data" />
+    <Input Name="HeatPower" x="660" y="912" Type="Data" />
+    <Output Name="WaterLevel" x="2240" y="212" Type="Data" />
+    <Output Name="WaterTemp" x="2260" y="1952" Type="Data" />
+    <Output Name="INITO" x="3160" y="1351.854" Type="Event" />
+    <Output Name="CNF" x="5120" y="412" Type="Event" />
+    <Output Name="MinSensor" x="3060" y="671.8541" Type="Data" />
+    <Output Name="LowerSensor" x="3060" y="731.8541" Type="Data" />
+    <Output Name="UpperSesnsor" x="3060" y="791.8541" Type="Data" />
+    <Output Name="MaxSensor" x="3060" y="851.8541" Type="Data" />
+    <Output Name="MinTemp" x="3160" y="1611.854" Type="Data" />
+    <Output Name="MaxTemp" x="3160" y="1671.854" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB3.INITO" Destination="INITO" dx1="40" />
+      <Connection Source="INIT" Destination="FB1.INIT" dx1="41.41663" />
+      <Connection Source="REQ" Destination="FB1.REQ" dx1="49.54175" />
+      <Connection Source="FB1.INITO" Destination="FB2.INIT" />
+      <Connection Source="FB1.CNF" Destination="FB2.REQ" />
+      <Connection Source="FB2.INITO" Destination="FB3.INIT" dx1="859.2915" dx2="60" dy="642">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.CNF" Destination="FB3.REQ" dx1="206.0835">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.CNF" Destination="FB4.EI1" />
+      <Connection Source="FB5.EO" Destination="CNF" />
+      <Connection Source="FB3.CNF" Destination="FB4.EI2" dx1="846.0833">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.EO" Destination="FB5.EI2" />
+      <Connection Source="FB1.CNF" Destination="FB5.EI1">
+        <Points>
+          <Points>
+            <X>513.4791</X>
+            <Y>125</Y>
+          </Points>
+          <Points>
+            <X>522.5</X>
+            <Y>125</Y>
+          </Points>
+          <Points>
+            <X>522.5</X>
+            <Y>82.5</Y>
+          </Points>
+          <Points>
+            <X>1160</X>
+            <Y>82.5</Y>
+          </Points>
+          <Points>
+            <X>1160</X>
+            <Y>110</Y>
+          </Points>
+          <Points>
+            <X>1175</X>
+            <Y>110</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB2.MinLevel" Destination="MinSensor" dx1="49.2915" />
+      <Connection Source="FB2.LowerLevel" Destination="LowerSensor" dx1="49.2915" />
+      <Connection Source="FB2.UpperLevel" Destination="UpperSesnsor" dx1="49.2915" />
+      <Connection Source="FB2.MaxLevel" Destination="MaxSensor" dx1="49.2915" />
+      <Connection Source="FB3.MinTemp" Destination="MinTemp" dx1="40" />
+      <Connection Source="FB3.MaxTemp" Destination="MaxTemp" dx1="40" />
+      <Connection Source="FB1.WaterLevel" Destination="FB2.Level" />
+      <Connection Source="InletFast" Destination="FB1.InletFast" dx1="43.47925" />
+      <Connection Source="InletSlow" Destination="FB1.InletSlow" dx1="40" dx2="110" dy="0.07293701" />
+      <Connection Source="Outlet" Destination="FB1.Outlet" dx1="40" />
+      <Connection Source="Heat" Destination="FB1.HeatON" dx1="40" />
+      <Connection Source="FB1.WaterTemp" Destination="FB3.Temperature" dx1="86.0835">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.WaterTemp" Destination="WaterTemp" dx1="86.0835">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.WaterLevel" Destination="WaterLevel" dx1="96.0835" />
+      <Connection Source="HeatPower" Destination="FB1.HeatPower" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

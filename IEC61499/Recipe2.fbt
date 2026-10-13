@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="e4dcae55-9a4d-47f2-8074-05fdf6b23e41" Name="Recipe2" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmBH" Version="0.0" Author="macie" Date="10/11/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="RECIPE_START" Comment="Initialization Request">
+        <With Var="waterLevelCurrent" />
+        <With Var="waterTempCurrent" />
+        <With Var="deltaT" />
+        <With Var="deltaL" />
+        <With Var="X3" />
+        <With Var="X4" />
+        <With Var="Y3" />
+        <With Var="Y4" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="waterLevelCurrent" />
+        <With Var="waterTempCurrent" />
+      </Event>
+      <Event Name="T1" />
+      <Event Name="T2" />
+      <Event Name="STOP">
+        <With Var="StopButton" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="RECIPE_COMPLETE" Comment="Initialization Confirm">
+        <With Var="setWaterLevel" />
+        <With Var="setWaterTemp" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="setWaterLevel" />
+        <With Var="setWaterTemp" />
+      </Event>
+      <Event Name="START_T1" />
+      <Event Name="START_T2" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="waterLevelCurrent" Type="REAL" />
+      <VarDeclaration Name="waterTempCurrent" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="deltaT" Type="REAL" />
+      <VarDeclaration Name="deltaL" Type="REAL" />
+      <VarDeclaration Name="X3" Type="REAL" />
+      <VarDeclaration Name="X4" Type="REAL" />
+      <VarDeclaration Name="Y3" Type="REAL" />
+      <VarDeclaration Name="Y4" Type="REAL" />
+      <VarDeclaration Name="StopButton" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="setWaterLevel" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="setWaterTemp" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ,DRAIN,PHASE_1,PHASE_2" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="452.9412" y="213.4117" />
+      <ECState Name="DRAIN_TANK" x="1616" y="376">
+        <ECAction Algorithm="DRAIN" Output="CNF" />
+      </ECState>
+      <ECState Name="PHASE_1" x="1900" y="920">
+        <ECAction Algorithm="PHASE_1" Output="CNF" />
+      </ECState>
+      <ECState Name="PHASE_2" x="1892" y="1720">
+        <ECAction Algorithm="PHASE_2" Output="CNF" />
+      </ECState>
+      <ECState Name="START_T2" x="1848" y="2144">
+        <ECAction Output="CNF" />
+        <ECAction Output="START_T2" />
+      </ECState>
+      <ECState Name="RECIPE_COMPLETE" x="328" y="2088">
+        <ECAction Output="RECIPE_COMPLETE" />
+      </ECState>
+      <ECState Name="START_T1" x="1936" y="1280">
+        <ECAction Output="START_T1" />
+        <ECAction Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="DRAIN_TANK" Condition="RECIPE_START" x="1003.255" y="203.6505">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="215.8002,41.62751,282.0597,50.6032" />
+      </ECTransition>
+      <ECTransition Source="DRAIN_TANK" Destination="PHASE_1" Condition="REQ [waterLevelCurrent &lt; (0 + deltaL)]" x="1832.315" y="613.2908">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="452.0986,132.1121,471.2249,168.7484" />
+      </ECTransition>
+      <ECTransition Source="PHASE_1" Destination="START_T1" Condition="REQ [((X3+deltaL) &gt; waterLevelCurrent &gt; (X3-deltaL)) AND ((Y3+deltaT) &gt; waterTempCurrent &gt; (Y3-deltaT)) ]" x="2018.525" y="1094.969">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="508.3083,262.6745,510.1223,283.9716" />
+      </ECTransition>
+      <ECTransition Source="PHASE_2" Destination="START_T2" Condition="REQ [((X4+deltaL) &gt; waterLevelCurrent &gt; (X4-deltaL)) AND ((Y4+deltaT) &gt; waterTempCurrent &gt; (Y4-deltaT)) ]" x="1958.458" y="1943.079">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="495.5587,473.3086,492.4611,500.0775" />
+      </ECTransition>
+      <ECTransition Source="RECIPE_COMPLETE" Destination="START" Condition="1" x="369.249" y="1306.705">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="85.76029,413.4638,95.49898,265.8886" />
+      </ECTransition>
+      <ECTransition Source="START_T1" Destination="PHASE_2" Condition="T1" x="2009.777" y="1506.069">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="508.6362,363.0406,506.0417,391.0052" />
+      </ECTransition>
+      <ECTransition Source="START_T2" Destination="RECIPE_COMPLETE" Condition="T2" x="1179.141" y="2208.108">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="343.3954,557.3923,253.3552,555.0239" />
+      </ECTransition>
+      <ECTransition Source="DRAIN_TANK" Destination="START" Condition="STOP [StopButton]" x="993.774" y="373.4559">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="282.7288,102.0471,214.1582,92.4613" />
+      </ECTransition>
+      <ECTransition Source="PHASE_1" Destination="START" Condition="STOP [StopButton]" x="1165.8" y="642.2521">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="345.5062,191.7691,242.7291,141.5838" />
+      </ECTransition>
+      <ECTransition Source="START_T1" Destination="START" Condition="STOP [StopButton]" x="1220.975" y="1001.493">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="368.729,310.148,257.2338,229.9628" />
+      </ECTransition>
+      <ECTransition Source="PHASE_2" Destination="START" Condition="STOP [StopButton]" x="1085.675" y="1257.448">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="325.7706,396.383,214.1562,279.531" />
+      </ECTransition>
+      <ECTransition Source="START_T2" Destination="START" Condition="STOP [StopButton]" x="812.8645" y="1429.372">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="235.9729,454.3246,126.0026,302.1393" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST><![CDATA[;]]></ST>
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST><![CDATA[;]]></ST>
+    </Algorithm>
+    <Algorithm Name="DRAIN">
+      <ST><![CDATA[;
+setWaterLevel := 0;
+setWaterTemp := 0;]]></ST>
+    </Algorithm>
+    <Algorithm Name="PHASE_1">
+      <ST><![CDATA[;
+setWaterLevel := X3;
+setWaterTemp := Y3;]]></ST>
+    </Algorithm>
+    <Algorithm Name="PHASE_2">
+      <ST><![CDATA[;
+setWaterLevel := X4;
+setWaterTemp := Y4;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

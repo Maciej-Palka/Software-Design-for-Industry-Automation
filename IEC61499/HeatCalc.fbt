@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="36DE0A79D3A73E7B" Name="HeatCalc" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/21/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="HeatON" />
+        <With Var="WaterLevel" />
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Temperature" />
+        <With Var="HeatPower" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="HeatON" />
+        <With Var="WaterLevel" />
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Temperature" />
+        <With Var="HeatPower" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="ResistON" />
+        <With Var="Heat" />
+        <With Var="Overheating" />
+        <With Var="ResistBroken" />
+        <With Var="MaxTemp" />
+        <With Var="HP" />
+      </Event>
+      <Event Name="RESET" />
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="ResistON" />
+        <With Var="Heat" />
+        <With Var="Overheating" />
+        <With Var="ResistBroken" />
+        <With Var="MaxTemp" />
+        <With Var="HP" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="HeatON" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="WaterLevel" Type="REAL" />
+      <VarDeclaration Name="InletFast" Type="REAL" />
+      <VarDeclaration Name="InletSlow" Type="REAL" />
+      <VarDeclaration Name="Temperature" Type="REAL" />
+      <VarDeclaration Name="HeatPower" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="ResistON" Type="BOOL" />
+      <VarDeclaration Name="Heat" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="Overheating" Type="BOOL" />
+      <VarDeclaration Name="ResistBroken" Type="BOOL" />
+      <VarDeclaration Name="MaxTemp" Type="REAL" />
+      <VarDeclaration Name="HP" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,HeatUp,CoolDown,Reset,End,Overheating,ResistanceCooling,CoolDownFast" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="240.9412" y="244.412" />
+      <ECState Name="INIT" Comment="Initialization" x="904.529" y="393.1759">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="HeatingUp" Comment="Normal execution" x="2812.536" y="1617.164">
+        <ECAction Algorithm="HeatUp" Output="CNF" />
+      </ECState>
+      <ECState Name="CoolingDown" x="1028" y="1818.001">
+        <ECAction Algorithm="CoolDown" Output="CNF" />
+      </ECState>
+      <ECState Name="RoomTemp" x="1844" y="379">
+        <ECAction Output="RESET" />
+      </ECState>
+      <ECState Name="END" x="4998" y="2279">
+        <ECAction Algorithm="End" Output="CNF" />
+      </ECState>
+      <ECState Name="StableState" x="3006" y="364.9999">
+        <ECAction Algorithm="Reset" Output="CNF" />
+      </ECState>
+      <ECState Name="Overheat" x="4580" y="1442.001">
+        <ECAction Algorithm="Overheating" Output="CNF" />
+      </ECState>
+      <ECState Name="ResistCooling" x="2889" y="2551.888">
+        <ECAction Algorithm="ResistanceCooling" Output="CNF" />
+      </ECState>
+      <ECState Name="CoolingDownFast" x="1846.667" y="929.6667">
+        <ECAction Algorithm="CoolDownFast" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="597.4087" y="231.2647">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="131.0087,49.66183,167.2921,57.47417" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="RoomTemp" Condition="1" x="1329.686" y="293.954">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="304.6687,69.7557,360.1552,68.58284" />
+      </ECTransition>
+      <ECTransition Source="CoolingDown" Destination="HeatingUp" Condition="REQ &amp; ((HeatON &gt; 0) &amp; (( InletFast &lt; 0.6) OR ( Temperature &lt;39.99)))&#xD;&#xA;OR ((HeatON &gt; 0) AND (HeatPower &gt;= 0.1))" x="2094.079" y="1941.253">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="480.3728,507.1754,584.7332,492.4324" />
+      </ECTransition>
+      <ECTransition Source="HeatingUp" Destination="Overheat" Condition="(WaterLevel&lt;50.0) AND (HeatON &gt; 0) AND (Temperature&gt;99.0)" x="3597.436" y="1416.052">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="832.2862,355.3481,951.1255,339.4756" />
+      </ECTransition>
+      <ECTransition Source="RoomTemp" Destination="StableState" Condition="1" x="2455.807" y="210.2762">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="581.2122,43.17754,650.8911,43.70367" />
+      </ECTransition>
+      <ECTransition Source="StableState" Destination="HeatingUp" Condition="REQ AND (HeatON &gt; 0) AND (WaterLevel&gt;=50.0)" x="3093.875" y="898.934">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="795.1627,168.4841,777.7449,265.6249" />
+      </ECTransition>
+      <ECTransition Source="CoolingDown" Destination="RoomTemp" Condition="REQ &amp; (((Temperature &lt; 20.1) &amp; (HeatON &lt;= 0))&#xD;&#xA;OR WaterLevel &lt; 1.0)&#xD;&#xA;" x="815.1888" y="1101.562">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="127.3871,330.2477,190.5858,221.0434" />
+      </ECTransition>
+      <ECTransition Source="ResistCooling" Destination="CoolingDown" Condition="REQ AND (Temperature&lt;100.0)" x="1918.851" y="2418.778">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="545.089,648.1891,419.9287,594.8288" />
+      </ECTransition>
+      <ECTransition Source="Overheat" Destination="END" Condition="(Temperature&gt;199.9)" x="4842.635" y="1828.421">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1197.751,423.4355,1229.873,485.4286" />
+      </ECTransition>
+      <ECTransition Source="Overheat" Destination="ResistCooling" Condition="REQ AND ((HeatON &lt;= 0) OR (WaterLevel&gt;50.0))" x="3957.412" y="2103.816">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1049.959,502.8124,954.5861,566.9073" />
+      </ECTransition>
+      <ECTransition Source="ResistCooling" Destination="Overheat" Condition="REQ AND (HeatON &gt; 0)" x="3633.422" y="1937.141">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="850.4061,516.8973,955.0287,441.7059" />
+      </ECTransition>
+      <ECTransition Source="StableState" Destination="Overheat" Condition="REQ AND (HeatON &gt; 0) AND (WaterLevel&lt;50.0)" x="3878.587" y="834.3557">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="914.6701,161.9407,1033.02,243.713" />
+      </ECTransition>
+      <ECTransition Source="CoolingDownFast" Destination="RoomTemp" Condition="REQ &amp; (((Temperature &lt; 20.1) &amp; (HeatON &lt;= 0)) OR&#xD;&#xA;(WaterLevel &lt; 1.0))" x="1863.833" y="665.968">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="465.6691,186.0171,468.3644,148.906" />
+      </ECTransition>
+      <ECTransition Source="HeatingUp" Destination="CoolingDownFast" Condition="REQ &amp; (HeatON &lt;= 0) &amp; ((InletFast&gt;0) OR (InletSlow&gt;0))" x="2160.617" y="1296.182">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="564.3773,350.2069,496.7224,301.6784" />
+      </ECTransition>
+      <ECTransition Source="CoolingDownFast" Destination="CoolingDown" Condition="REQ &amp; (HeatON &lt;= 0) &amp; (InletSlow &lt;= 0) &amp; (InletFast &lt;= 0)" x="1253.018" y="1180.993">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="338.6671,247.4754,277.5573,312.6502" />
+      </ECTransition>
+      <ECTransition Source="CoolingDownFast" Destination="HeatingUp" Condition="REQ &amp; (HeatON &gt; 0)" x="2494.454" y="1165.53">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="591.369,257.8039,664.0204,307.2054" />
+      </ECTransition>
+      <ECTransition Source="CoolingDown" Destination="CoolingDownFast" Condition="REQ &amp; (HeatON &lt;= 0) &amp; ((InletFast &gt; 0) OR (InletSlow &gt; 0))" x="1464.316" y="1394.992">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="337.3747,383.1822,397.639,317.8402" />
+      </ECTransition>
+      <ECTransition Source="HeatingUp" Destination="HeatingUp" Condition="REQ &amp; (HeatON &gt; 0) &amp; NOT((WaterLevel&lt;50.0) &amp; (Temperature&gt;99.0))" x="2824.395" y="1941.712">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="780,506.25,633.75,510" />
+      </ECTransition>
+      <ECTransition Source="Overheat" Destination="Overheat" Condition="REQ &amp; (WaterLevel&lt;50.0 OR (HeatON &gt; 0))" x="4797.42" y="1065.58">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1292.5,261.25,1136.25,217.5" />
+      </ECTransition>
+      <ECTransition Source="HeatingUp" Destination="CoolingDown" Condition="REQ &amp; ((HeatON &lt;= 0) &amp; (InletFast &lt;=0) &amp; (InletSlow &lt;= 0))&#xD;&#xA;OR ((HeatON &gt; 0) &amp; (InletFast&gt;0.6) &amp; WaterLevel&lt;449.9 &amp; Temperature&gt;39.99)&#xD;&#xA;OR (( HeatON &gt;0) &amp; ( HeatPower &lt;0.1))&#xD;&#xA;" x="1838.409" y="1545.833">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="521.7757,360.993,388.7757,390.993" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="Heat := 0.0;&#xD;&#xA;ResistON := FALSE;&#xD;&#xA;ResistBroken := FALSE;&#xD;&#xA;MaxTemp := 100.0;&#xD;&#xA;HP := HeatPower;" />
+    </Algorithm>
+    <Algorithm Name="HeatUp" Comment="Normally executed algorithm">
+      <ST Text="Heat := HeatON*HeatPower*(450.0/(WaterLevel+50));&#xD;&#xA;ResistON := TRUE;&#xD;&#xA;HP := HeatPower;" />
+    </Algorithm>
+    <Algorithm Name="CoolDown">
+      <ST Text="Heat := -15;&#xD;&#xA;MaxTemp := 100.0;&#xD;&#xA;ResistON := FALSE;&#xD;&#xA;ResistON := INT_TO_BOOL(REAL_TO_INT(HeatON));&#xD;&#xA;HP := HeatPower;" />
+    </Algorithm>
+    <Algorithm Name="Reset">
+      <ST Text="Heat := 0.0;&#xD;&#xA;ResistON := FALSE;&#xD;&#xA;HP := HeatPower;" />
+    </Algorithm>
+    <Algorithm Name="End">
+      <ST Text="Overheating := FALSE;&#xD;&#xA;ResistON := FALSE;&#xD;&#xA;ResistBroken := TRUE;&#xD;&#xA;Heat := -15.0;&#xD;&#xA;HP := HeatPower;" />
+    </Algorithm>
+    <Algorithm Name="Overheating">
+      <ST Text="Heat := 100.0;&#xD;&#xA;MaxTemp := 200.0;&#xD;&#xA;ResistON := TRUE;&#xD;&#xA;Overheating := TRUE;&#xD;&#xA;HP := HeatPower;" />
+    </Algorithm>
+    <Algorithm Name="ResistanceCooling">
+      <ST Text="Heat := -30.0;&#xD;&#xA;ResistON := TRUE;&#xD;&#xA;Overheating := FALSE;&#xD;&#xA;HP := HeatPower;" />
+    </Algorithm>
+    <Algorithm Name="CoolDownFast">
+      <ST Text="Heat := -30.0;&#xD;&#xA;MaxTemp := 100.0;&#xD;&#xA;ResistON := FALSE;&#xD;&#xA;HP := HeatPower;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

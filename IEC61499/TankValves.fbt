@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="DF6BF6133014E4DB" Name="TankValves" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/20/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Outlet" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Outlet" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="pv1" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="pv1" />
+      </Event>
+      <Event Name="HMI_E">
+        <With Var="InletFastHMI" />
+        <With Var="InletSlowHMI" />
+        <With Var="OutletHMI" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="InletFast" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="InletSlow" Type="REAL" />
+      <VarDeclaration Name="Outlet" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="pv1" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="InletFastHMI" Type="BOOL" />
+      <VarDeclaration Name="InletSlowHMI" Type="BOOL" />
+      <VarDeclaration Name="OutletHMI" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1475" y="204.8375">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="174.7086,53.9848,194.409,38.66225" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3353">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="123.1467,156.6527,104.2188,174.9165" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8768" y="512.799">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="86.8596,131.926,105.7875,113.6622" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="pv1 := 0.0;;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="pv1 := 200.0*(InletFast) + 100.0*(InletSlow) -150.0 * (Outlet);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;InletFastHMI := INT_TO_BOOL(REAL_TO_INT(InletFast));&#xD;&#xA;InletSlowHMI := INT_TO_BOOL(REAL_TO_INT(InletSlow));&#xD;&#xA;OutletHMI := INT_TO_BOOL(REAL_TO_INT(Outlet));&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

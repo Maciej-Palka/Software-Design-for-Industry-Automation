@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HMIProjectDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="HotWaterTank_FirstName_LastName_v23" Guid="{847CF617-CF8D-4D27-B497-A6B4FD51D0AF}" xmlns="http://www.nxtcontrol.com/IEC61499.xsd">
+  <DeviceDeployments Device="System.DEV">
+    <Attrs Name="HMI.Alias" Value="" Context="RES0.HMI_Blocks.Temp_Value.IThis1" />
+    <Attrs Name="HMI.Alias" Value="" Context="RES0.HMI_Blocks.Level_Value.IThis1" />
+    <Attrs Name="HMI.Alias" Value="" Context="RES0.Trends.IThis1" />
+    <Attrs Name="HMI.Alias" Value="" Context="RES0.ALARM_1" />
+    <Attrs Name="HMI.AlarmClass" Value="Alarm" Context="RES0.ALARM_1.IND_1" />
+    <Attrs Name="HMI.AlarmText" Value="Present" Context="RES0.ALARM_1.IND_1" />
+    <Attrs Name="HMI.Alias" Value="" Context="RES0.ALARM_2" />
+    <Attrs Name="HMI.AlarmClass" Value="Alarm" Context="RES0.ALARM_2.IND_1" />
+    <Attrs Name="HMI.AlarmText" Value="Present" Context="RES0.ALARM_2.IND_1" />
+    <Attrs Name="Runtime.Archive.AlarmId" Value="10471956826138002123" Context="RES0.ALARM_1" />
+    <Attrs Name="Runtime.Archive.AlarmId" Value="15750595362986331041" Context="RES0.ALARM_2" />
+  </DeviceDeployments>
+</HMIProjectDatabase>

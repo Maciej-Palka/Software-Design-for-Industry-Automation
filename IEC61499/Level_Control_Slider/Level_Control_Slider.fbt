@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="1ECC7354C8DB0706" Name="Level_Control_Slider" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="2" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="prana" Date="12/30/2019" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="Label" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="Level_Value" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Level_Value" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Label" Type="STRING" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Level_Value" Type="REAL" InitialValue="120" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="IThis1" Type="Level_Control_Slider_HMI" x="1080" y="240" Namespace="Main">
+      <Parameter Name="Level_Value&gt;" Value="120" />
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="2" Name="FB1" Type="E_SPLIT" x="600" y="240" Namespace="IEC61499.Standard" />
+    <Input Name="INIT" x="140" y="252" Type="Event" />
+    <Input Name="Label" x="100" y="612" Type="Data" />
+    <Output Name="INITO" x="2100" y="252" Type="Event" />
+    <Output Name="CNF" x="2120" y="312" Type="Event" />
+    <Output Name="Level_Value" x="2040" y="612" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="FB1.EI" />
+      <Connection Source="FB1.EO1" Destination="IThis1.INIT" />
+      <Connection Source="FB1.EO2" Destination="IThis1.REQ" />
+      <Connection Source="IThis1.INITO" Destination="INITO" />
+      <Connection Source="IThis1.CNF" Destination="CNF" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="Label" Destination="IThis1.Label" dx1="40" />
+      <Connection Source="IThis1.Level_Value" Destination="Level_Value" dx1="94.75" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

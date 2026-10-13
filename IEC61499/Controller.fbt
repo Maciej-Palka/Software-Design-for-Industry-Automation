@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="67B4126B09F0C3F7" Name="Controller" Comment="Extracted Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="18" />
+  <VersionInfo Author="prana" Date="3/26/2020" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT">
+        <With Var="StartButton" />
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+        <With Var="StopButton" />
+        <With Var="CurrentLevel" />
+        <With Var="CurrentTemperature" />
+        <With Var="InitialLevel" />
+        <With Var="InitialTemperature" />
+        <With Var="Offset" />
+        <With Var="X1" />
+        <With Var="X2" />
+        <With Var="X3" />
+        <With Var="X4" />
+        <With Var="Y1" />
+        <With Var="Y2" />
+        <With Var="Y3" />
+        <With Var="Y4" />
+        <With Var="deltaT" />
+        <With Var="deltaL" />
+        <With Var="T1" />
+        <With Var="T2" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="CurrentTemperature" />
+        <With Var="CurrentLevel" />
+      </Event>
+      <Event Name="Start">
+        <With Var="StartButton" />
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+        <With Var="StopButton" />
+      </Event>
+      <Event Name="Receipe1E" Comment="Initialization Request">
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+      </Event>
+      <Event Name="Receipe2E" Comment="Normal Execution Request">
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+      </Event>
+      <Event Name="SlidersE">
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+      </Event>
+      <Event Name="StopE">
+        <With Var="StartButton" />
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+        <With Var="StopButton" />
+      </Event>
+      <Event Name="Alarm_2">
+        <With Var="OverheatInd" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Inlet" />
+        <With Var="Heat" />
+        <With Var="HeatPower" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="StartButton" Type="BOOL" />
+      <VarDeclaration Name="Receipe1Button" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="Receipe2Button" Type="BOOL" />
+      <VarDeclaration Name="TemperatureSlider" Type="REAL" />
+      <VarDeclaration Name="WaterLevelSlider" Type="REAL" />
+      <VarDeclaration Name="StopButton" Type="BOOL" />
+      <VarDeclaration Name="CurrentLevel" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="CurrentTemperature" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="InitialLevel" Type="REAL" />
+      <VarDeclaration Name="InitialTemperature" Type="REAL" />
+      <VarDeclaration Name="Offset" Type="REAL" />
+      <VarDeclaration Name="X1" Type="REAL" />
+      <VarDeclaration Name="X2" Type="REAL" />
+      <VarDeclaration Name="X3" Type="REAL" />
+      <VarDeclaration Name="X4" Type="REAL" />
+      <VarDeclaration Name="Y1" Type="REAL" />
+      <VarDeclaration Name="Y2" Type="REAL" />
+      <VarDeclaration Name="Y3" Type="REAL" />
+      <VarDeclaration Name="Y4" Type="REAL" />
+      <VarDeclaration Name="deltaT" Type="REAL" />
+      <VarDeclaration Name="deltaL" Type="REAL" />
+      <VarDeclaration Name="T1" Type="TIME" />
+      <VarDeclaration Name="T2" Type="TIME" />
+      <VarDeclaration Name="OverheatInd" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Inlet" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="Heat" Type="REAL" />
+      <VarDeclaration Name="HeatPower" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB7" Type="RP" x="5060" y="2120" Namespace="Main" />
+    <FB ID="2" Name="FB8" Type="Heat_Control" x="8620" y="2320" Namespace="Main" />
+    <FB ID="3" Name="FB3" Type="Level_Control" x="8680" y="3160" Namespace="Main" />
+    <FB ID="4" Name="FB1" Type="E_MERGE" x="10080" y="2160" Namespace="IEC61499.Standard" />
+    <FB ID="5" Name="FB2" Type="Recipe1" x="2360" y="1700" Namespace="Main" />
+    <FB ID="12" UID="10" Name="Select_tempereature" Type="SELECT_749D8B4DE686F02" x="6740" y="2380" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=3;IN${CNT}:REAL" />
+    </FB>
+    <FB ID="13" Name="Select_level" Type="SELECT_749D8B4DE686F02" x="6800" y="3020" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=3;IN${CNT}:REAL" />
+    </FB>
+    <FB ID="15" Name="FB6" Type="Recipe2" x="2300" y="4040" Namespace="Main" />
+    <FB ID="16" Name="FB9" Type="E_DELAY" x="600" y="3380" Namespace="IEC61499.Standard" />
+    <FB ID="17" Name="FB10" Type="E_DELAY" x="600" y="3820" Namespace="IEC61499.Standard" />
+    <Input Name="Start" x="4480" y="2192" Type="Event" />
+    <Input Name="Receipe1E" x="4360" y="2252" Type="Event" />
+    <Input Name="Receipe2E" x="4360" y="2312" Type="Event" />
+    <Input Name="SlidersE" x="4420" y="2372" Type="Event" />
+    <Input Name="StopE" x="4460" y="2432" Type="Event" />
+    <Input Name="REQ" x="3720" y="1512" Type="Event" />
+    <Input Name="StartButton" x="4120" y="2872" Type="Data" />
+    <Input Name="Receipe1Button" x="4120" y="2932" Type="Data" />
+    <Input Name="Receipe2Button" x="4120" y="2992" Type="Data" />
+    <Input Name="TemperatureSlider" x="4120" y="3052" Type="Data" />
+    <Input Name="WaterLevelSlider" x="4120" y="3112" Type="Data" />
+    <Input Name="StopButton" x="4120" y="3172" Type="Data" />
+    <Input Name="CurrentTemperature" x="4120" y="3412" Type="Data" />
+    <Input Name="CurrentLevel" x="4120" y="3352" Type="Data" />
+    <Input Name="INIT" x="4480" y="2132" Type="Event" />
+    <Input Name="InitialLevel" x="4120" y="3292" Type="Data" />
+    <Input Name="InitialTemperature" x="4120" y="3232" Type="Data" />
+    <Input Name="Offset" x="8120" y="3612" Type="Data" />
+    <Input Name="X1" x="1440" y="2272" Type="Data" />
+    <Input Name="X2" x="1440" y="2332" Type="Data" />
+    <Input Name="X3" x="1500" y="4732" Type="Data" />
+    <Input Name="X4" x="1500" y="4792" Type="Data" />
+    <Input Name="Y1" x="1440" y="2392" Type="Data" />
+    <Input Name="Y2" x="1440" y="2452" Type="Data" />
+    <Input Name="Y3" x="1500" y="4852" Type="Data" />
+    <Input Name="Y4" x="1500" y="4912" Type="Data" />
+    <Input Name="deltaT" x="220" y="2112" Type="Data" />
+    <Input Name="deltaL" x="220" y="2172" Type="Data" />
+    <Input Name="T1" x="140" y="3652" Type="Data" />
+    <Input Name="T2" x="140" y="4092" Type="Data" />
+    <Input Name="OverheatInd" x="4280" y="3592" Type="Data" />
+    <Input Name="Alarm_2" x="4420" y="2672" Type="Event" />
+    <Output Name="HeatPower" x="9420" y="2592" Type="Data" />
+    <Output Name="CNF" x="10460" y="2172" Type="Event" />
+    <Output Name="Heat" x="9420" y="2532" Type="Data" />
+    <Output Name="Inlet" x="9400" y="3492" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB7.INITO" Destination="FB3.INIT" dx1="1916.833" />
+      <Connection Source="Start" Destination="FB7.Start" dx1="40" />
+      <Connection Source="Receipe1E" Destination="FB7.Receipe1E" dx1="40" />
+      <Connection Source="Receipe2E" Destination="FB7.Receipe2E" dx1="40" />
+      <Connection Source="SlidersE" Destination="FB7.SlidersE" />
+      <Connection Source="StopE" Destination="FB7.StopE" />
+      <Connection Source="REQ" Destination="FB3.REQ1" dx1="4029.542" />
+      <Connection Source="REQ" Destination="FB7.REQ" dx1="19.54175">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB8.CNF" Destination="FB1.EI1" dx1="756.3545">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.CNF" Destination="FB1.EI1" dx1="787.3965">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.EO" Destination="CNF" />
+      <Connection Source="INIT" Destination="FB7.INIT" />
+      <Connection Source="REQ" Destination="FB2.REQ" dx1="49.54175" dx2="70" dy="50" />
+      <Connection Source="FB7.CNF" Destination="Select_tempereature.REQ" dx1="140" />
+      <Connection Source="Select_tempereature.CNF" Destination="FB8.REQ" dx1="53.95898" />
+      <Connection Source="FB7.CNF" Destination="Select_level.REQ" dx1="166.833">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.CNF" Destination="Select_level.REQ" dx1="2857.229" />
+      <Connection Source="FB2.CNF" Destination="Select_tempereature.REQ" dx1="2857.229" />
+      <Connection Source="Select_level.CNF" Destination="FB3.REQ" dx1="1163.959">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB7.START_RECIPE_1" Destination="FB2.RECIPE_START" dx1="96.83301" dx2="250" dy="-650" />
+      <Connection Source="REQ" Destination="FB8.REQ" dx1="3969.542" />
+      <Connection Source="FB2.RECIPE_COMPLETE" Destination="FB7.RECEIPE_1_COMPLETED" dx1="100" />
+      <Connection Source="FB7.START_RECIPE_2" Destination="FB6.RECIPE_START" dx1="100" dx2="50" dy="1370" />
+      <Connection Source="REQ" Destination="FB6.REQ" dx1="49.54175" dx2="70" dy="50" />
+      <Connection Source="FB10.EO" Destination="FB6.T2" dx1="48.5" />
+      <Connection Source="FB9.EO" Destination="FB6.T1" dx1="158.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB6.START_T1" Destination="FB9.START" dx1="347.229" dx2="520" dy="1020">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB6.START_T2" Destination="FB10.START" dx1="117.229" dx2="460" dy="860">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB6.CNF" Destination="Select_level.REQ" dx1="2917.229" />
+      <Connection Source="FB6.CNF" Destination="Select_tempereature.REQ" dx1="2917.229" />
+      <Connection Source="FB6.RECIPE_COMPLETE" Destination="FB7.RECEIPE_2_COMPLETED" dx1="4077.229" dx2="1140" dy="650">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="StopE" Destination="FB2.STOP" dx1="45.771" dx2="210" dy="170" />
+      <Connection Source="Alarm_2" Destination="FB7.ALARM" />
+      <Connection Source="StopE" Destination="FB6.STOP" dx1="45.771" dx2="130" dy="170" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="StartButton" Destination="FB7.StartButton" />
+      <Connection Source="Receipe1Button" Destination="FB7.Receipe1Button" />
+      <Connection Source="Receipe2Button" Destination="FB7.Receipe2Button" />
+      <Connection Source="TemperatureSlider" Destination="FB7.TemperatureSlider" />
+      <Connection Source="WaterLevelSlider" Destination="FB7.WaterLevelSlider" />
+      <Connection Source="StopButton" Destination="FB7.StopButton" />
+      <Connection Source="CurrentTemperature" Destination="FB8.CurrentValue">
+        <Points>
+          <Points>
+            <X>1202.29175</X>
+            <Y>860</Y>
+          </Points>
+          <Points>
+            <X>1212.5</X>
+            <Y>860</Y>
+          </Points>
+          <Points>
+            <X>1212.5</X>
+            <Y>927.5</Y>
+          </Points>
+          <Points>
+            <X>1532.5</X>
+            <Y>927.5</Y>
+          </Points>
+          <Points>
+            <X>1532.5</X>
+            <Y>722.5</Y>
+          </Points>
+          <Points>
+            <X>1987.5</X>
+            <Y>722.5</Y>
+          </Points>
+          <Points>
+            <X>1987.5</X>
+            <Y>640</Y>
+          </Points>
+          <Points>
+            <X>2150</X>
+            <Y>640</Y>
+          </Points>
+        </Points>
+      </Connection>
+      <Connection Source="FB8.Heat" Destination="Heat" />
+      <Connection Source="CurrentLevel" Destination="FB3.CurrentLevel">
+        <Points>
+          <Points>
+            <X>1166.79175</X>
+            <Y>845</Y>
+          </Points>
+          <Points>
+            <X>1205</X>
+            <Y>845</Y>
+          </Points>
+          <Points>
+            <X>1205</X>
+            <Y>927.5</Y>
+          </Points>
+          <Points>
+            <X>1532.5</X>
+            <Y>927.5</Y>
+          </Points>
+          <Points>
+            <X>1532.5</X>
+            <Y>880</Y>
+          </Points>
+          <Points>
+            <X>2165</X>
+            <Y>880</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.Output" Destination="Inlet" />
+      <Connection Source="CurrentTemperature" Destination="FB7.WaterTempCurrent" />
+      <Connection Source="CurrentLevel" Destination="FB7.WaterLevelCurrent" />
+      <Connection Source="InitialLevel" Destination="FB7.InitialLevel" />
+      <Connection Source="InitialTemperature" Destination="FB7.InitialTemp" />
+      <Connection Source="FB8.HeatPower" Destination="HeatPower" />
+      <Connection Source="Offset" Destination="FB3.Offset" />
+      <Connection Source="CurrentLevel" Destination="FB2.waterLevelCurrent" dx1="82.83301" dx2="190" dy="-530" />
+      <Connection Source="CurrentTemperature" Destination="FB2.waterTempCurrent" dx1="40.83301" dx2="170" dy="-590" />
+      <Connection Source="FB7.OutputPair" Destination="Select_tempereature.SELECT" dx1="406.833">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="Select_tempereature.OUT" Destination="FB8.SetValue" />
+      <Connection Source="FB2.setWaterLevel" Destination="Select_level.IN1">
+        <Points>
+          <Points>
+            <X>818.192749</X>
+            <Y>515</Y>
+          </Points>
+          <Points>
+            <X>833.192749</X>
+            <Y>515</Y>
+          </Points>
+          <Points>
+            <X>833.192749</X>
+            <Y>512.5</Y>
+          </Points>
+          <Points>
+            <X>1532.5</X>
+            <Y>512.5</Y>
+          </Points>
+          <Points>
+            <X>1532.5</X>
+            <Y>830</Y>
+          </Points>
+          <Points>
+            <X>1695</X>
+            <Y>830</Y>
+          </Points>
+        </Points>
+      </Connection>
+      <Connection Source="FB2.setWaterTemp" Destination="Select_tempereature.IN1">
+        <Points>
+          <Points>
+            <X>818.192749</X>
+            <Y>530</Y>
+          </Points>
+          <Points>
+            <X>828.192749</X>
+            <Y>530</Y>
+          </Points>
+          <Points>
+            <X>828.192749</X>
+            <Y>512.5</Y>
+          </Points>
+          <Points>
+            <X>1532.5</X>
+            <Y>512.5</Y>
+          </Points>
+          <Points>
+            <X>1532.5</X>
+            <Y>670</Y>
+          </Points>
+          <Points>
+            <X>1680</X>
+            <Y>670</Y>
+          </Points>
+        </Points>
+      </Connection>
+      <Connection Source="FB7.WaterTemp" Destination="Select_tempereature.IN3" dx1="466.833">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB7.OutputPair" Destination="Select_level.SELECT" dx1="266.833">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="Select_level.OUT" Destination="FB3.SetLevel" dx1="40" />
+      <Connection Source="FB7.WaterLevel" Destination="Select_level.IN3" dx1="40" />
+      <Connection Source="Y1" Destination="FB2.Y1" />
+      <Connection Source="Y2" Destination="FB2.Y2" />
+      <Connection Source="X2" Destination="FB2.X2" />
+      <Connection Source="X1" Destination="FB2.X1" />
+      <Connection Source="deltaT" Destination="FB2.deltaT" dx1="48.521" />
+      <Connection Source="deltaL" Destination="FB2.deltaL" dx1="340.854">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="T1" Destination="FB9.DT" />
+      <Connection Source="T2" Destination="FB10.DT" />
+      <Connection Source="FB6.setWaterLevel" Destination="Select_level.IN2" dx1="2917.229" />
+      <Connection Source="FB6.setWaterTemp" Destination="Select_tempereature.IN2" dx1="2917.229" />
+      <Connection Source="Y3" Destination="FB6.Y3" />
+      <Connection Source="Y4" Destination="FB6.Y4" />
+      <Connection Source="X4" Destination="FB6.X4" />
+      <Connection Source="X3" Destination="FB6.X3" />
+      <Connection Source="CurrentLevel" Destination="FB6.waterLevelCurrent" dx1="122.833" dx2="150" dy="110" />
+      <Connection Source="CurrentTemperature" Destination="FB6.waterTempCurrent" dx1="40.83301" dx2="170" dy="50" />
+      <Connection Source="deltaT" Destination="FB6.deltaT" dx1="698.521">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="deltaL" Destination="FB6.deltaL" dx1="350.854" />
+      <Connection Source="deltaT" Destination="FB7.deltaT" dx1="348.521" />
+      <Connection Source="deltaL" Destination="FB7.deltaL" dx1="350.854" />
+      <Connection Source="OverheatInd" Destination="FB7.Overheat" />
+      <Connection Source="StopButton" Destination="FB2.StopButton" dx1="109.125" dx2="30" dy="-350" />
+      <Connection Source="StopButton" Destination="FB6.StopButton" dx1="149.125" dx2="310" dy="290" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

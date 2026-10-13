@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <PropertyGroup>
+    <ProjectGuid>{847CF617-CF8D-4D27-B497-A6B4FD51D0AF}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Main</RootNamespace>
+    <AssemblyName>IEC61499</AssemblyName>
+    <NxtVersion>23.0.0.0</NxtVersion>
+    <Platform Condition=" '$(Platform)' == '' ">Windows</Platform>
+    <CreateHMI>false</CreateHMI>
+    <HMIProject>HMI</HMIProject>
+    <CATInstancesHaveIds>true</CATInstancesHaveIds>
+    <ProjectType>IEC61499</ProjectType>
+    <CreateHMICF>false</CreateHMICF>
+    <VerboseDeploy>False</VerboseDeploy>
+    <DeployOnlyChanges>True</DeployOnlyChanges>
+    <DeployConnectionTimeout>60</DeployConnectionTimeout>
+    <DeployAnswerTimeout>10</DeployAnswerTimeout>
+    <DeployPreConnectWait>2</DeployPreConnectWait>
+    <ArchiveLinkServiceTimeout>30</ArchiveLinkServiceTimeout>
+    <CheckGenericInstances>False</CheckGenericInstances>
+    <ConvertStringValues>False</ConvertStringValues>
+    <HardwareConfigurationMigrationVersion>1</HardwareConfigurationMigrationVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Default\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <IntermediateOutputPath>obj\Default\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Default\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <IntermediateOutputPath>obj\Default\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows' ">
+    <Version>1.0</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'Windows' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <Import Project="$(SharpDevelopBinPath)\NxtControl.Build.61499.Targets" />
+  <ItemGroup>
+    <Compile Include="Basic1_1.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="ChangeDetect_BOOL.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="ChangeDetect_REAL.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="DEMUX.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="DEMUX_X3.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Recipe1.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Recipe2.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Recipe_2.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <None Include="ButtonM\ButtonM.cfg">
+      <DependentUpon>ButtonM.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="Configuration\Certificates\Certificates.xml" />
+    <None Include="Heat_Control_Slider\Heat_Control_Slider.cfg">
+      <DependentUpon>Heat_Control_Slider.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="HMI_BLOCKS\HMI_BLOCKS.cfg">
+      <DependentUpon>HMI_BLOCKS.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="HMI_BLOCKS\HMI_BLOCKS_HMI.meta.xml">
+      <DependentUpon>HMI_BLOCKS_HMI.fbt</DependentUpon>
+    </None>
+    <None Include="IEC61499.iecproj" />
+    <None Include="LevelSensors\LevelSensors.cfg">
+      <DependentUpon>LevelSensors.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="Level_Control_Slider\Level_Control_Slider.cfg">
+      <DependentUpon>Level_Control_Slider.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="Model\Model.cfg">
+      <DependentUpon>Model.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="Project.doc.xml" />
+    <None Include="pump_slider\pump_slider.cfg">
+      <DependentUpon>pump_slider.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="Resistance\Resistance.cfg">
+      <DependentUpon>Resistance.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="Sensor\Sensor.cfg">
+      <DependentUpon>Sensor.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="SnapshotCompiles\{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}\Default\IEC61499.snapshot" />
+    <None Include="System\snapshot.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\System.cfg">
+      <DependentUpon>System.sys</DependentUpon>
+      <IEC61499Type>System</IEC61499Type>
+    </None>
+    <None Include="System\System.Device.Properties.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\System.opcuaclient.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\System.Topology.Binding.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="TankResis\TankResis.cfg">
+      <DependentUpon>TankResis.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="Tank\Tank.cfg">
+      <DependentUpon>Tank.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="ThermometerS\ThermometerS.cfg">
+      <DependentUpon>ThermometerS.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="wtch_trend\wtch_trend.cfg">
+      <DependentUpon>wtch_trend.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <Compile Include="ButtonM\ButtonM.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="ButtonM\ButtonM_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <Usage>Private</Usage>
+      <DependentUpon>ButtonM.fbt</DependentUpon>
+      <HMI>..\HMI\ButtonM\ButtonM_sDefault.cnv.cs</HMI>
+    </Compile>
+    <Compile Include="Controller.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="HeatCalc.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Heat_Control.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="Heat_Control_Slider\Heat_Control_Slider.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="Heat_Control_Slider\Heat_Control_Slider_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <Usage>Private</Usage>
+      <DependentUpon>Heat_Control_Slider.fbt</DependentUpon>
+      <HMI>..\HMI\Heat_Control_Slider\Heat_Control_Slider_sDefault.cnv.cs</HMI>
+    </Compile>
+    <Compile Include="HMI_BLOCKS\HMI_BLOCKS.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="HMI_BLOCKS\HMI_BLOCKS_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <DependentUpon>HMI_BLOCKS\HMI_BLOCKS.fbt</DependentUpon>
+    </Compile>
+    <Compile Include="InRange.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="integEC.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="invert_output.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="LevelSensors\LevelSensors.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="LevelSensors\LevelSensors_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <Usage>Private</Usage>
+      <DependentUpon>LevelSensors.fbt</DependentUpon>
+      <HMI>..\HMI\LevelSensors\LevelSensors_sDefault.cnv.cs</HMI>
+    </Compile>
+    <Compile Include="Level_Control.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="Level_Control_Slider\Level_Control_Slider.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="Level_Control_Slider\Level_Control_Slider_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <DependentUpon>Level_Control_Slider\Level_Control_Slider.fbt</DependentUpon>
+      <Usage>Private</Usage>
+    </Compile>
+    <Compile Include="LimiterLevel.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="LimiterTemp.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Model\Model.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="Model\Model_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <Usage>Private</Usage>
+      <DependentUpon>Model.fbt</DependentUpon>
+      <HMI>..\HMI\Model\Model_sDefault.cnv.cs</HMI>
+    </Compile>
+    <Compile Include="normalise.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="normalise1.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Overpressure.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="PID.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="PID_Level.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="pump_slider\pump_slider.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="pump_slider\pump_slider_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <DependentUpon>pump_slider\pump_slider.fbt</DependentUpon>
+      <Usage>Private</Usage>
+    </Compile>
+    <Compile Include="Resistance\Resistance.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="Resistance\Resistance_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <Usage>Private</Usage>
+      <DependentUpon>Resistance.fbt</DependentUpon>
+      <HMI>..\HMI\Resistance\Resistance_sDefault.cnv.cs</HMI>
+    </Compile>
+    <Compile Include="RP.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Sensor\Sensor.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="Sensor\Sensor_HMI.fbt">
+      <DependentUpon>Sensor\Sensor.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="System\System.sys">
+      <IEC61499Type>System</IEC61499Type>
+    </Compile>
+    <Compile Include="TankResis\TankResis.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="TankResis\TankResis_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <Usage>Private</Usage>
+      <DependentUpon>TankResis.fbt</DependentUpon>
+      <HMI>..\HMI\TankResis\TankResis_sDefault.cnv.cs</HMI>
+    </Compile>
+    <Compile Include="TankValves.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Tank\Tank.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="Tank\Tank_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <Usage>Private</Usage>
+      <DependentUpon>Tank.fbt</DependentUpon>
+      <HMI>..\HMI\Tank\Tank_sDefault.cnv.cs</HMI>
+    </Compile>
+    <Compile Include="ThermometerS\ThermometerS.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="ThermometerS\ThermometerS_HMI.fbt">
+      <DependentUpon>ThermometerS\ThermometerS.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="wtch_trend\wtch_trend.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="wtch_trend\wtch_trend_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <Usage>Private</Usage>
+      <DependentUpon>wtch_trend.fbt</DependentUpon>
+      <HMI>..\HMI\wtch_trend\wtch_trend_sDefault.cnv.cs</HMI>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration" />
+    <Folder Include="Configuration\Certificates" />
+    <Folder Include="License" />
+    <Folder Include="Log" />
+    <Folder Include="SnapshotCompiles" />
+    <Folder Include="SnapshotCompiles\{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}" />
+    <Folder Include="SnapshotCompiles\{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}\Default" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ButtonM\ButtonM_CAT.offline.xml">
+      <DependentUpon>ButtonM.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="ButtonM\ButtonM_CAT.opcua.xml">
+      <DependentUpon>ButtonM.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="Heat_Control_Slider\Heat_Control_Slider_CAT.offline.xml">
+      <DependentUpon>Heat_Control_Slider.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="Heat_Control_Slider\Heat_Control_Slider_CAT.opcua.xml">
+      <DependentUpon>Heat_Control_Slider.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="Level_Control_Slider\Level_Control_Slider_CAT.offline.xml">
+      <DependentUpon>Level_Control_Slider.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="Level_Control_Slider\Level_Control_Slider_CAT.opcua.xml">
+      <DependentUpon>Level_Control_Slider.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="pump_slider\pump_slider_CAT.offline.xml">
+      <DependentUpon>pump_slider.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="pump_slider\pump_slider_CAT.opcua.xml">
+      <DependentUpon>pump_slider.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="Resistance\Resistance_CAT.offline.xml">
+      <DependentUpon>Resistance.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="Resistance\Resistance_CAT.opcua.xml">
+      <DependentUpon>Resistance.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="Sensor\Sensor_CAT.offline.xml">
+      <DependentUpon>Sensor.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="Sensor\Sensor_CAT.opcua.xml">
+      <DependentUpon>Sensor.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="System\System.offline.xml">
+      <DependentUpon>System.sys</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="System\System.opcua.xml">
+      <DependentUpon>System.sys</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="Tank\Tank_CAT.offline.xml">
+      <DependentUpon>Tank.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="Tank\Tank_CAT.opcua.xml">
+      <DependentUpon>Tank.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="Tank\Tank_HMI.opcua.xml">
+      <DependentUpon>Tank.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="ThermometerS\ThermometerS_CAT.offline.xml">
+      <DependentUpon>ThermometerS.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="ThermometerS\ThermometerS_CAT.opcua.xml">
+      <DependentUpon>ThermometerS.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="wtch_trend\wtch_trend_CAT.offline.xml">
+      <DependentUpon>wtch_trend.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="wtch_trend\wtch_trend_CAT.opcua.xml">
+      <DependentUpon>wtch_trend.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Runtime.Base">
+      <Version>23.0.0.15</Version>
+    </Reference>
+    <Reference Include="SE.DPAC">
+      <Version>23.0.0.57</Version>
+    </Reference>
+    <Reference Include="SE.Standard">
+      <Version>23.0.0.14</Version>
+    </Reference>
+    <Reference Include="Standard.HMIExtensions">
+      <Version>23.0.0.5</Version>
+    </Reference>
+  </ItemGroup>
+</Project>

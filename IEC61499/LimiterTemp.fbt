@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="60F95B742231D48A" Name="LimiterTemp" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/22/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Inp" />
+        <With Var="TankLevel" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Out" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Inp" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="TankLevel" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Out" Type="REAL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="REQ" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="1085.647" y="808.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="874.8221" y="555.4568">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="203.2373,122.968,235.4223,145.8984" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="812.2224" y="697.9879">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="220.916,191.2593,188.731,168.3289" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="IF (Inp &gt; 100.0) AND (TankLevel&gt;1.0) THEN&#xD;&#xA;	Out := 100.0;&#xD;&#xA;ELSIF (Inp &lt;= 100.0) AND (TankLevel&gt;1.0) THEN&#xD;&#xA;	Out := Inp;&#xD;&#xA;ELSE&#xD;&#xA;	Out := 20.0;&#xD;&#xA;END_IF;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

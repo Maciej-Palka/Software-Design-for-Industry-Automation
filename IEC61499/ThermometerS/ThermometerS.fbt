@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="AD1282928F3B54E" Name="ThermometerS" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="8" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/21/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="Temperature" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Temperature" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="MinTemp" />
+        <With Var="MaxTemp" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="MinTemp" />
+        <With Var="MaxTemp" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Temperature" Type="REAL" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="MinTemp" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="MaxTemp" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="IThis" Type="ThermometerS_HMI" x="1000" y="240" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="2" Name="FB1" Type="InRange" x="1000" y="840" Namespace="Main">
+      <Parameter Name="Low" Value="40.0" />
+      <Parameter Name="High" Value="100.0" />
+    </FB>
+    <FB ID="3" Name="FB2" Type="InRange" x="1000" y="1420" Namespace="Main">
+      <Parameter Name="Low" Value="80.0" />
+      <Parameter Name="High" Value="100.0" />
+    </FB>
+    <FB ID="6" Name="FB5" Type="E_MERGE" x="2820" y="900" Namespace="IEC61499.Standard" />
+    <FB ID="7" Name="FB6" Type="ChangeDetect_BOOL" x="1920" y="1460" Namespace="Main" />
+    <FB ID="8" Name="FB7" Type="ChangeDetect_BOOL" x="1800" y="900" Namespace="Main" />
+    <Input Name="INIT" x="40" y="251.8542" Type="Event" />
+    <Input Name="REQ" x="40" y="311.8542" Type="Event" />
+    <Input Name="Temperature" x="40" y="571.8542" Type="Data" />
+    <Output Name="INITO" x="1460" y="1431.854" Type="Event" />
+    <Output Name="CNF" x="3240" y="911.8542" Type="Event" />
+    <Output Name="MinTemp" x="2540" y="1272" Type="Data" />
+    <Output Name="MaxTemp" x="2680" y="1692" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="IThis.INIT" dx1="40.83337" />
+      <Connection Source="REQ" Destination="IThis.REQ" dx1="48.95837" />
+      <Connection Source="REQ" Destination="FB1.REQ" dx1="438.9584">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.INITO" Destination="FB1.INIT" dx1="40" dx2="50" dy="462">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.INITO" Destination="FB2.INIT" dx1="80.5" dx2="50" dy="462">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.INITO" Destination="INITO" dx1="43.77087" />
+      <Connection Source="FB2.CHG" Destination="FB6.REQ" dx1="70" />
+      <Connection Source="FB1.CHG" Destination="FB7.REQ" />
+      <Connection Source="FB7.CHG" Destination="FB5.EI1" />
+      <Connection Source="FB6.CHG" Destination="FB5.EI2" dx1="202.5625">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.EO" Destination="CNF" dx1="41.54175" />
+      <Connection Source="REQ" Destination="FB2.REQ" dx1="438.9584">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="Temperature" Destination="FB1.pos" dx1="43.10413" />
+      <Connection Source="Temperature" Destination="FB2.pos" dx1="43.10413" />
+      <Connection Source="Temperature" Destination="IThis.Temperature" dx1="42.52087" />
+      <Connection Source="FB2.result" Destination="FB6.INP" dx1="90" />
+      <Connection Source="FB6.OUT" Destination="MaxTemp" dx1="40" />
+      <Connection Source="FB1.result" Destination="FB7.INP" />
+      <Connection Source="FB7.OUT" Destination="MinTemp" dx1="40" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

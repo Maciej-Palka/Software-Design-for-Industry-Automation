@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ">Position;Attention;TankRupture</Event>
+    <Event Name="REQ2">InletFast;InletSlow;Outlet</Event>
+    <Event Name="REQ3">InletFast;InletSlow;Outlet</Event>
+  </EventInputs>
+  <EventOutputs />
+  <Inputs>
+    <Input Name="Position" Type="REAL" />
+    <Input Name="Attention" Type="BOOL" />
+    <Input Name="TankRupture" Type="BOOL" />
+    <Input Name="InletFast" Type="BOOL" />
+    <Input Name="InletSlow" Type="BOOL" />
+    <Input Name="Outlet" Type="BOOL" />
+  </Inputs>
+  <Outputs />
+</Mapping>

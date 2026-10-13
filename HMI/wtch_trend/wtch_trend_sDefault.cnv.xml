@@ -1,0 +1,11 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ" Map="REQ_1">Water_Level;Water_Temp</Event>
+  </EventInputs>
+  <EventOutputs />
+  <Inputs>
+    <Input Name="Water_Level" Type="REAL" Map="SD_1" />
+    <Input Name="Water_Temp" Type="REAL" Map="SD_2" />
+  </Inputs>
+  <Outputs />
+</Mapping>

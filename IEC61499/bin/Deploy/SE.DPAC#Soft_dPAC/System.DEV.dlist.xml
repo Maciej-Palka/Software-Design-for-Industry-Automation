@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployFiles xmlns="http://tempuri.org/DeploySnapshot.xsd">
+  <Deployable>
+    <DeployInformation Type="Working">
+      <FileGroup Name="FileList">
+        <FileItem Name="Basics/Main#integEC.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>34B462A3565AD3E3347A5AAA8A9B046C0C25F09711C978CFCF44EEF20006DBF8</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#ChangeDetect_REAL.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:12</Modified>
+          <Hash>FBD7244AB8618F0B16DEB87AEDC3868795D092CBD9F387A1259EA8F7656C8550</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#TankValves.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>825D7522F948F42CA605BD2EC65F948A98022D7743C3C02B077647BAED4F2EF6</Hash>
+        </FileItem>
+        <FileItem Name="HMIAccessors/Main#Tank_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>687B0088C124FD20394DBE14BFAD3688420D50784B50B5B42CD0D63CA6F4D70C</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#LimiterLevel.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>2EDF442912F44A113D8CF698132920AC76730B8BFAAF327666B38D2246EC4237</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#Overpressure.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>BF213E458BDF259E451AC4E3FDBC7AF14900DACD572E22CE600EA928626F9616</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Tank.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>7E42D9E0711610657CAA02BD07D2B2AF4FAC714FD0F4851564D3F2461BFA6490</Hash>
+        </FileItem>
+        <FileItem Name="HMIAccessors/Main#Resistance_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>CFA39C3E9910FFB92BD8D2A98E7BBDB48ECAC05B26A9610811BC6240F2171B34</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#LimiterTemp.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>9919C3FE19AF932B155DC6CDDF5971ADC8E63DFBE5BFEBAEAAD00D83B8C4908B</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#HeatCalc.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>DC55740E6517CA56AA9A277403AC9A1298313C44D0C754AD2DCE76AC7D2AD3D5</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Resistance.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>3ADEAA3C024FEAE4D29CB4634B6AF7E46F9BCC4485FDE8201A02D6A8832C37EA</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#TankResis.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>AE9273DF2B1C382AD1F5A848ACC6BA324446443C2C36215F1E7113AAA93AC912</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#ThermometerS_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>B3BF90FC96C02C384DD3A3E7985D03193D26FFC7C78C494A61EBDB717E3205F2</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#InRange.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>C9117BFA27FC4615B16C6A31A0350961C42B7693B775F0D51B91CD37B88D1B92</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#ChangeDetect_BOOL.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:12</Modified>
+          <Hash>D79C2C08861468F101F8DC52C2114A00D24B314E07DBB19FA634BA45AA896684</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#ThermometerS.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>57233DEABEE8F6F99B62A612FEC9A48BC84203AE1AFAABB3582EC8BB2CA48A75</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Sensor_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>C25184F70603EBA54D80C112BD66FF00EE073872D14FE56CEF91612C5C042AA9</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Sensor.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>0FE74CBFD702A7E278448C484E236D94468278119CB11ABE65DC0CC8E78F292C</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#LevelSensors.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>797F895E70B4040552E8F3B738B55FFBCA29D2AF4434771BD2DDBE2D9A5E4722</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Model.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>C9FAED4FB0CD8A344A31ABE14126E624723EE6215F141197E704006F614FDEFD</Hash>
+        </FileItem>
+        <FileItem Name="HMIAccessors/Main#ButtonM_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:12</Modified>
+          <Hash>F80E0D18A78A273C88E4AD8423958D4B5CF58F41892F144703110AB47EC811C7</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#ButtonM.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:12</Modified>
+          <Hash>B8BBA4E5B844E4B5FA1DD5759EE02EE5F712786F743F4D736FBE9004D4BAF4D2</Hash>
+        </FileItem>
+        <FileItem Name="HMIAccessors/Main#Heat_Control_Slider_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>BA6A71A3B975A140B2535D9DFE3AC70B80CB6FAA82CEF9154955558B389AB737</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Heat_Control_Slider.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>C186D4FE7B17A283909CF67A1E18674EF9AB77B9CDFB7B93B23E637E6EA3C601</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Level_Control_Slider_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>953C822046B972640AD0A298D37DED7967A8C5EA6F8ED40E4F4BAD6A471750FB</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Level_Control_Slider.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>BB99FCF3907A24BA0E1AB947FE30D0AF1AFFAB8296829AC87FE9E75CD06000A6</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#HMI_BLOCKS.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>BF4C74B43C28AC7D41588E7E8BC29D01C74C245FE5015EFDCD5DA507013FD9A6</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#RP.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-13T11:34:32</Modified>
+          <Hash>9925759A9C650C0A0A6EA1EBD0381FB9BBAAA7E201EF03671D895C11BCF015A3</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#PID.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:12</Modified>
+          <Hash>F20F102A2071B9679DC90F295E43B1CA7F58E0EA19853F666A2116C6A5083FAA</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#invert_output.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>4F76E93DCFF16997B98070A8E2C7F971A906E4A59D66E61E9219B8DD981D47C3</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Heat_Control.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>FC554B55E742CE340D421AEBD87FF72A33577BA326BB49656C05181553648F30</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#normalise.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>965A52F52307A8CDAB25176DCDA9F31CAC276592554AA175FF593BC2F9891893</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#normalise1.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>AEE37C929E8E6686D6F82640E334A6CD5C11BF902A59C68F2AD863BA1B84BC73</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#PID_Level.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>E944E304B871C1E3CBCAF46698AA473F700A3FAF1DFC5AAE691D68ADC41869A8</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Level_Control.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>38B66D9D74D8815C5332799B6C807803FA53BE78F5645995C0E2BF2D60AE883F</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#Recipe1.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-12T12:51:30</Modified>
+          <Hash>A84B9481F17D799D14B55547C0B8AB439378793EF423540D0A8764D51FFA3456</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#SELECT_749D8B4DE686F02.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>2807FC0F7964901052EA4221F38764DDF3B2F19A222103FFB8E437A82D1228ED</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#Recipe2.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-12T12:51:30</Modified>
+          <Hash>CFF35FB4075A499B5802E5366B9FA74E8C9A547122C1236FB3E9218AD95CF4AE</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Controller.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-13T11:34:32</Modified>
+          <Hash>277144721802F411CF9EC6B30ADD34923AA0B31499FD057B2C59D1A885C164AE</Hash>
+        </FileItem>
+        <FileItem Name="HMIAccessors/Main#wtch_trend_HMI.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>E590A1D1D7CEFEF128AA643D9F26470DAA8DD808FADD7DE1F703F97F41838F4E</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#wtch_trend.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>67C709AA91E8DD51B5E738F39A0C877BA343BB213422B622640DDE00CC9E15A4</Hash>
+        </FileItem>
+        <FileItem Name="Basics/SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin" Library="SE.DPAC.90E02843-42CC-4C2C-B657-AB6EE7D00471.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Hash>116363C9F37EBE35D3921047B0474D6C30AF4446DD37B7C910C03059660184F7</Hash>
+        </FileItem>
+        <FileItem Name="Composites/SE.DPAC#DPAC_FULLINIT.bin" Library="SE.DPAC.90E02843-42CC-4C2C-B657-AB6EE7D00471.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Hash>E08A111D49F885770685F4BDCAB5594ABC1158AEDDEEEE051AB40A04B2D52AF0</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#COMPARE_1329C2AB45109BAAB.bin" Library="IEC61499.dll" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+          <Modified>2026-10-11T22:11:34</Modified>
+          <Hash>DB504F1D9016BEFD6D841497107B751A209009F98E0DC28C41C1CD083C4B0B89</Hash>
+        </FileItem>
+      </FileGroup>
+      <FileGroup Name="DeployList">
+        <FileItem Name="Basics/Main#integEC.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#ChangeDetect_REAL.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#TankValves.bin" Library="IEC61499.dll" />
+        <FileItem Name="HMIAccessors/Main#Tank_HMI.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#LimiterLevel.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#Overpressure.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Tank.bin" Library="IEC61499.dll" />
+        <FileItem Name="HMIAccessors/Main#Resistance_HMI.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#LimiterTemp.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#HeatCalc.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Resistance.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#TankResis.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#ThermometerS_HMI.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#InRange.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#ChangeDetect_BOOL.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#ThermometerS.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Sensor_HMI.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Sensor.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#LevelSensors.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Model.bin" Library="IEC61499.dll" />
+        <FileItem Name="HMIAccessors/Main#ButtonM_HMI.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#ButtonM.bin" Library="IEC61499.dll" />
+        <FileItem Name="HMIAccessors/Main#Heat_Control_Slider_HMI.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Heat_Control_Slider.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Level_Control_Slider_HMI.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Level_Control_Slider.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#HMI_BLOCKS.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#RP.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#PID.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#invert_output.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Heat_Control.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#normalise.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#normalise1.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#PID_Level.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Level_Control.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#Recipe1.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#SELECT_749D8B4DE686F02.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/Main#Recipe2.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#Controller.bin" Library="IEC61499.dll" />
+        <FileItem Name="HMIAccessors/Main#wtch_trend_HMI.bin" Library="IEC61499.dll" />
+        <FileItem Name="Composites/Main#wtch_trend.bin" Library="IEC61499.dll" />
+        <FileItem Name="Basics/SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin" Library="SE.DPAC.90E02843-42CC-4C2C-B657-AB6EE7D00471.dll" />
+        <FileItem Name="Composites/SE.DPAC#DPAC_FULLINIT.bin" Library="SE.DPAC.90E02843-42CC-4C2C-B657-AB6EE7D00471.dll" />
+        <FileItem Name="Basics/Main#COMPARE_1329C2AB45109BAAB.bin" Library="IEC61499.dll" />
+      </FileGroup>
+    </DeployInformation>
+  </Deployable>
+</DeployFiles>

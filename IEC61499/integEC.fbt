@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType Name="integEC" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="milos" Date="2007-06-14" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="inv1" />
+        <With Var="inv2" />
+        <With Var="tBase1" />
+        <With Var="tBase2" />
+        <With Var="sp" />
+        <With Var="preTrip" />
+        <With Var="integType" />
+        <With Var="cycleTime" />
+        <With Var="maxValue" />
+        <With Var="minValue" />
+        <With Var="useLimits" />
+      </Event>
+      <Event Name="RESET" Comment="reset integrator">
+        <With Var="tBase1" />
+        <With Var="tBase2" />
+        <With Var="cycleTime" />
+        <With Var="maxValue" />
+        <With Var="minValue" />
+        <With Var="useLimits" />
+      </Event>
+      <Event Name="C_CYCLE" Comment="cycle calculation call">
+        <With Var="pv1" />
+        <With Var="pv2" />
+      </Event>
+      <Event Name="OP_UPD" Comment="new operator parameter">
+        <With Var="sp" />
+        <With Var="preTrip" />
+        <With Var="inv1" />
+        <With Var="inv2" />
+        <With Var="integType" />
+        <With Var="maxValue" />
+        <With Var="minValue" />
+        <With Var="useLimits" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="out" />
+        <With Var="total" />
+        <With Var="aTotal" />
+        <With Var="error" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="out" />
+        <With Var="total" />
+        <With Var="aTotal" />
+      </Event>
+      <Event Name="TRIP" Comment="total &gt; sp">
+        <With Var="total" />
+      </Event>
+      <Event Name="P_TRIP" Comment="total &gt; (sp - preTrip)">
+        <With Var="total" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="pv1" Type="REAL" InitialValue="0.0" Comment="pv1 to integrate" />
+      <VarDeclaration Name="pv2" Type="REAL" InitialValue="0.0" Comment="pv2 to integrate" />
+      <VarDeclaration Name="inv1" Type="BOOL" InitialValue="FALSE" Comment="invert (multiply with -1) pv1" />
+      <VarDeclaration Name="inv2" Type="BOOL" InitialValue="FALSE" Comment="invert (multiply with -1) pv2" />
+      <VarDeclaration Name="tBase1" Type="REAL" InitialValue="3600.0" Comment="timebase of pv1 [s]" />
+      <VarDeclaration Name="tBase2" Type="REAL" InitialValue="3600.0" Comment="timebase of pv2 [s]" />
+      <VarDeclaration Name="sp" Type="REAL" InitialValue="0.0" Comment="setpoint of integrator" />
+      <VarDeclaration Name="preTrip" Type="REAL" InitialValue="0.0" Comment="distance to setpoint for preTrip to set" />
+      <VarDeclaration Name="integType" Type="INT" InitialValue="0" Comment="integration Type" />
+      <VarDeclaration Name="cycleTime" Type="REAL" InitialValue="1.0" Comment="cycle Time for calculation" />
+      <VarDeclaration Name="maxValue" Type="REAL" />
+      <VarDeclaration Name="minValue" Type="REAL" />
+      <VarDeclaration Name="useLimits" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="out" Type="REAL" InitialValue="0.0" Comment="out value (depends on integType)" />
+      <VarDeclaration Name="total" Type="REAL" InitialValue="0.0" Comment="integrated summation of all pv" />
+      <VarDeclaration Name="aTotal" Type="REAL" InitialValue="0.0" Comment="integrated summation of all ABS(pv)" />
+      <VarDeclaration Name="error" Type="BOOL" InitialValue="FALSE" Comment="error detected" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <InternalVars>
+      <VarDeclaration Name="sumPv" Type="REAL" InitialValue="0.0" Comment="time based sum of pv (with inv correction)" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="644.9409" y="945.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="375.5294" y="353.1765">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="execIntegration" Comment="Normal execution" x="2109.647" y="936.9411">
+        <ECAction Algorithm="calcTotal" Output="CNF" />
+      </ECState>
+      <ECState Name="raiseTrip" x="676.0001" y="1660">
+        <ECAction Output="TRIP" />
+      </ECState>
+      <ECState Name="raisePTrip" x="1760" y="1588">
+        <ECAction Output="P_TRIP" />
+      </ECState>
+      <ECState Name="RESET" x="1664" y="364">
+        <ECAction Algorithm="INIT" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT " x="382.6528" y="694.6799">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="95.33704,198.2636,82.9449,156.6406" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="637.2268" y="630.2385">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="157.2102,135.6437,175.7048,176.2996" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="execIntegration" Condition="C_CYCLE AND NOT error " x="1329.748" y="858.4958" />
+      <ECTransition Source="execIntegration" Destination="START" Condition="1" x="1330.182" y="1024.408" />
+      <ECTransition Source="START" Destination="raiseTrip" Condition="C_CYCLE AND total &gt;= sp AND sp &gt; 0.0" x="740.5102" y="1299.449" />
+      <ECTransition Source="START" Destination="raisePTrip" Condition="C_CYCLE AND preTrip &gt; (sp - total) AND sp &gt; 0.0 AND preTrip &gt; 0.0" x="1248.881" y="1200.391" />
+      <ECTransition Source="raisePTrip" Destination="START" Condition="1" x="1190.456" y="1341.706" />
+      <ECTransition Source="raiseTrip" Destination="START" Condition="1" x="451.838" y="1337.368">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="101.2828,362.6566,99.07252,311.8047" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="RESET" Condition="RESET" x="1145.866" y="578.0985" />
+      <ECTransition Source="RESET" Destination="START" Condition="1" x="1200.797" y="721.5798" />
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="&#xD;&#xA;out := 0.0;&#xD;&#xA;total := 0.0;&#xD;&#xA;aTotal := 0.0;&#xD;&#xA;error := (tBase1 &lt;= 0.0) OR (tBase2 &lt;= 0.0) OR (cycleTime &lt;= 0.0);&#xD;&#xA;" />
+    </Algorithm>
+    <Algorithm Name="calcTotal">
+      <ST Text="&#xD;&#xA;aTotal := aTotal + cycleTime * (pv1/tBase1 + pv2/tBase2);&#xD;&#xA;&#xD;&#xA;IF inv1 THEN&#xD;&#xA; sumPv := pv1/tBase1 * -1;&#xD;&#xA;ELSE&#xD;&#xA; sumPv := pv1/tBase1;&#xD;&#xA;END_IF;&#xD;&#xA;IF inv2 THEN&#xD;&#xA; sumPv := sumPv + pv2/tBase2 * -1;&#xD;&#xA;ELSE&#xD;&#xA; sumPv := sumPv + pv2/tBase2;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;total := total + cycleTime * sumPv;&#xD;&#xA;&#xD;&#xA;IF useLimits THEN&#xD;&#xA; total := LIMIT(minValue, total, maxValue);&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF integType = 1 AND sp &gt; 0.0 THEN&#xD;&#xA; out := sp-total;&#xD;&#xA;ELSE&#xD;&#xA; out := total;&#xD;&#xA;END_IF;&#xD;&#xA;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

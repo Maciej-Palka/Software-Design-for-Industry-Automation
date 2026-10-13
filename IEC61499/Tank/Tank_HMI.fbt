@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="e4057f74-bd3d-4e14-af2b-e5dc1a933d29" Name="Tank_HMI" Comment="Service Interface Function Block Type" Namespace="Main">
+  <Attribute Name="Runtime.Persistence.Storage" Value="0" />
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH " Version="0.0" Author="Andrei" Date="6/20/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event ID="474599A6C82ADE09" Name="INIT">
+        <With Var="QI" />
+      </Event>
+      <Event ID="867F4CA3E029B6C4" Name="REQ">
+        <With Var="Position" />
+        <With Var="Attention" />
+        <With Var="TankRupture" />
+      </Event>
+      <Event ID="9223D19EA0405A9B" Name="REQ2">
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Outlet" />
+      </Event>
+      <Event ID="17FAE52798A5CD9D" Name="REQ3">
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Outlet" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event ID="CC36B874DC90CD53" Name="INITO">
+        <With Var="QO" />
+        <With Var="STATUS" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration ID="E3C139A024B892C1" Name="QI" Type="BOOL" />
+      <VarDeclaration ID="30A407D8FE9D6B44" Name="Position" Type="REAL" />
+      <VarDeclaration ID="9B4E8C3AF180365E" Name="Attention" Type="BOOL" />
+      <VarDeclaration ID="8F3F3BE1BBCC51F7" Name="TankRupture" Type="BOOL" />
+      <VarDeclaration ID="4745779D9671D4C3" Name="InletFast" Type="BOOL" />
+      <VarDeclaration ID="374E953FF4D3E403" Name="InletSlow" Type="BOOL" />
+      <VarDeclaration ID="F625E535E547A4D8" Name="Outlet" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration ID="3CEBF7A5B13F53EF" Name="QO" Type="BOOL" Comment="Event Output Qualifier" />
+      <VarDeclaration ID="E7AD3304FAA14F1E" Name="STATUS" Type="STRING" Comment="Service Status" />
+    </OutputVars>
+  </InterfaceList>
+  <Service RightInterface="" LeftInterface="">
+    <ServiceSequence Name="" />
+  </Service>
+</FBType>

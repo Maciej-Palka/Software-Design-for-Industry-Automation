@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="D06E54695327C1CF" Name="Level_Control" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="3" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="prana" Date="1/6/2020" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="CurrentLevel" />
+        <With Var="SetLevel" />
+        <With Var="Offset" />
+      </Event>
+      <Event Name="REQ1">
+        <With Var="CurrentLevel" />
+        <With Var="SetLevel" />
+        <With Var="Offset" />
+      </Event>
+      <Event Name="REQ">
+        <With Var="CurrentLevel" />
+        <With Var="SetLevel" />
+        <With Var="Offset" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Output" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="CurrentLevel" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="SetLevel" Type="REAL" />
+      <VarDeclaration Name="Offset" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Output" Type="REAL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="normalise" x="1100" y="1260" Namespace="Main" />
+    <FB ID="2" Name="FB2" Type="normalise1" x="1100" y="620" Namespace="Main" />
+    <FB ID="3" Name="FB3" Type="PID_Level" x="2280" y="800" Namespace="Main">
+      <Parameter Name="KP" Value="1" />
+      <Parameter Name="TR" Value="0.02" />
+      <Parameter Name="TD" Value="0.02" />
+      <Parameter Name="DLT" Value="0.02" />
+    </FB>
+    <Input Name="INIT" x="420" y="632" Type="Event" />
+    <Input Name="CurrentLevel" x="360" y="952" Type="Data" />
+    <Input Name="SetLevel" x="400" y="1532" Type="Data" />
+    <Input Name="REQ1" x="420" y="692" Type="Event" />
+    <Input Name="REQ" x="500" y="1332" Type="Event" />
+    <Input Name="Offset" x="360" y="1012" Type="Data" />
+    <Output Name="CNF" x="2720" y="972" Type="Event" />
+    <Output Name="Output" x="2780" y="1172" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="FB2.INIT" />
+      <Connection Source="FB1.CNF" Destination="FB3.REQ" dx1="63.77087" />
+      <Connection Source="FB2.CNF" Destination="FB3.REQ" dx1="60.04175" />
+      <Connection Source="FB3.CNF" Destination="CNF" dx1="65.0835" />
+      <Connection Source="INIT" Destination="FB1.INIT" dx1="291.4167">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ1" Destination="FB2.REQ" />
+      <Connection Source="REQ" Destination="FB1.REQ" />
+      <Connection Source="REQ" Destination="FB2.REQ1" dx1="259.5417">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="SetLevel" Destination="FB1.QI" />
+      <Connection Source="CurrentLevel" Destination="FB2.QI" />
+      <Connection Source="FB1.QO" Destination="FB3.X0" dx1="70" />
+      <Connection Source="FB1.QO" Destination="FB3.SP" dx1="733.7708">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.QO" Destination="FB3.PV" dx1="193.771">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.OUT" Destination="Output" dx1="45.0835" />
+      <Connection Source="Offset" Destination="FB2.Offset" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Guid="847CF617-CF8D-4D27-B497-A6B4FD51D0AF" SnapshotGuid="4346CD1F-4DE9-4D70-ADE9-FF012C83688E" xmlns="http://tempuri.org/XMLSchema.xsd">
+  <Device Name="DEV" Id="9036EFF3756127F0">
+    <Backend Type="RotatingFiles" Index="1">
+      <Configuration Name="RateLimitPerHour" Value="12" />
+    </Backend>
+    <Resource Name="RES0" Id="52E15276625AF793">
+      <FB Path="HMI_Blocks.Temp_Value.IThis1" Id="92AFBE479E54DE14">
+        <Data Name="Heat_Value" Id="61C2A76517CDDFAF" Type="Parameter" OfflineOnly="false">
+          <Target Index="1" />
+        </Data>
+      </FB>
+      <FB Path="HMI_Blocks.Level_Value.IThis1" Id="1A6EE44BEB34E93C">
+        <Data Name="Level_Value" Id="EC8D8E9DC26A3E30" Type="Parameter" OfflineOnly="false">
+          <Target Index="1" />
+        </Data>
+      </FB>
+      <FB Path="ALARM_1" Id="9153DD40252EC2CB">
+        <Data Name="State" Id="22F6E911E48B588B" Type="Alarm" OfflineOnly="false">
+          <Target Index="1" />
+        </Data>
+      </FB>
+      <FB Path="ALARM_2" Id="DA955B084BB70BA1">
+        <Data Name="State" Id="FB38CC5595FF3556" Type="Alarm" OfflineOnly="false">
+          <Target Index="1" />
+        </Data>
+      </FB>
+    </Resource>
+  </Device>
+</Project>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="1B77F4EC2BE5EFA3" Name="ButtonM" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="1" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/20/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT">
+        <With Var="Label" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="QO" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Label" Type="STRING" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="QO" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="IThis" Type="ButtonM_HMI" x="680" y="300" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <Input Name="Label" x="80" y="652" Type="Data" />
+    <Input Name="INIT" x="240" y="352" Type="Event" />
+    <Output Name="CNF" x="1280" y="371.8542" Type="Event" />
+    <Output Name="QO" x="1280" y="691.8542" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="IThis.INIT" dx1="41.41669" />
+      <Connection Source="IThis.REQ" Destination="CNF" dx1="57.04175" />
+      <Connection Source="INIT" Destination="IThis.INIT1" dx1="41.41669" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="Label" Destination="IThis.Label" dx1="40" />
+      <Connection Source="IThis.Button" Destination="QO" dx1="77.04175" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

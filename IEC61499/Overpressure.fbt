@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType Name="Overpressure" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/22/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Level" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Attention" />
+        <With Var="Permit" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Level" Type="REAL" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Attention" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="Permit" Type="BOOL" InitialValue="TRUE" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" x="1444" y="688">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="1040.607" y="470.3499">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="232.6581,103.8678,289.9789,121.3277" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="1008.432" y="643.7255">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="280.8981,173.7542,225.7428,157.7479" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="REQ" Comment="Initialization algorithm">
+      <ST Text="IF Level &gt;= 450.0 THEN&#xD;&#xA;	Attention := TRUE;&#xD;&#xA;ELSE&#xD;&#xA;	Attention := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;IF Level &gt; 599.0 THEN&#xD;&#xA;	Permit := FALSE;&#xD;&#xA;ELSE&#xD;&#xA;	Permit := TRUE;&#xD;&#xA;END_IF;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

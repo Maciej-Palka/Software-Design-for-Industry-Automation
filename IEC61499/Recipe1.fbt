@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="5011ccb5-5371-4a24-985d-13aa53790635" Name="Recipe1" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmBH" Version="0.0" Author="macie" Date="10/11/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="RECIPE_START" Comment="Initialization Request">
+        <With Var="waterLevelCurrent" />
+        <With Var="waterTempCurrent" />
+        <With Var="deltaT" />
+        <With Var="deltaL" />
+        <With Var="X1" />
+        <With Var="X2" />
+        <With Var="Y1" />
+        <With Var="Y2" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="waterLevelCurrent" />
+        <With Var="waterTempCurrent" />
+      </Event>
+      <Event Name="STOP">
+        <With Var="StopButton" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="RECIPE_COMPLETE" Comment="Initialization Confirm">
+        <With Var="setWaterLevel" />
+        <With Var="setWaterTemp" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="setWaterLevel" />
+        <With Var="setWaterTemp" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="waterLevelCurrent" Type="REAL" />
+      <VarDeclaration Name="waterTempCurrent" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="deltaT" Type="REAL" />
+      <VarDeclaration Name="deltaL" Type="REAL" />
+      <VarDeclaration Name="X1" Type="REAL" />
+      <VarDeclaration Name="X2" Type="REAL" />
+      <VarDeclaration Name="Y1" Type="REAL" />
+      <VarDeclaration Name="Y2" Type="REAL" />
+      <VarDeclaration Name="StopButton" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="setWaterLevel" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="setWaterTemp" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ,DRAIN,PHASE_1,PHASE_2,PHASE_3" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="452.9412" y="213.4117" />
+      <ECState Name="DRAIN_TANK" x="1616" y="376">
+        <ECAction Algorithm="DRAIN" Output="CNF" />
+      </ECState>
+      <ECState Name="PHASE_1" x="1900" y="920">
+        <ECAction Algorithm="PHASE_1" Output="CNF" />
+      </ECState>
+      <ECState Name="PHASE_2" x="1924" y="1448">
+        <ECAction Algorithm="PHASE_2" Output="CNF" />
+      </ECState>
+      <ECState Name="PHASE_3" x="1752" y="1952">
+        <ECAction Algorithm="PHASE_3" Output="CNF" />
+      </ECState>
+      <ECState Name="STATE1" x="356" y="1424">
+        <ECAction Output="RECIPE_COMPLETE" />
+      </ECState>
+      <ECTransition Source="START" Destination="DRAIN_TANK" Condition="RECIPE_START" x="1003.255" y="203.6505">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="215.8002,41.62751,282.0597,50.6032" />
+      </ECTransition>
+      <ECTransition Source="DRAIN_TANK" Destination="PHASE_1" Condition="REQ [waterLevelCurrent &lt; (0 + deltaL)]" x="1832.315" y="613.2908">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="452.0986,132.1121,471.2249,168.7484" />
+      </ECTransition>
+      <ECTransition Source="PHASE_1" Destination="PHASE_2" Condition="REQ [((X1+deltaL) &gt; waterLevelCurrent &gt; (X1-deltaL)) AND ((Y1+deltaT) &gt; waterTempCurrent &gt; (Y1-deltaT)) ]" x="1993.679" y="1180.594">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="502.1719,277.2133,503.7766,312.5163" />
+      </ECTransition>
+      <ECTransition Source="PHASE_2" Destination="PHASE_3" Condition="REQ [((X2+deltaL) &gt; waterLevelCurrent &gt; (X2-deltaL)) AND ((Y2+deltaT) &gt; waterTempCurrent &gt; (Y2-deltaT)) ]" x="1916.648" y="1724.224">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="488.8428,416.423,477.4775,449.726" />
+      </ECTransition>
+      <ECTransition Source="PHASE_3" Destination="STATE1" Condition="REQ [((X1+deltaL) &gt; waterLevelCurrent &gt; (X1-deltaL)) AND ((Y2+deltaT) &gt; waterTempCurrent &gt; (Y2-deltaT)) ]" x="1061.491" y="1766.485">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="317.1145,465.6041,220.4722,428.9056" />
+      </ECTransition>
+      <ECTransition Source="STATE1" Destination="START" Condition="1" x="384.7878" y="915.8102">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="91.05485,283.1578,98.39918,190.9314" />
+      </ECTransition>
+      <ECTransition Source="DRAIN_TANK" Destination="START" Condition="STOP [StopButton]" x="993.774" y="373.4559">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="282.7288,102.0471,214.1582,92.4613" />
+      </ECTransition>
+      <ECTransition Source="PHASE_1" Destination="START" Condition="STOP [StopButton]" x="1165.8" y="642.2521">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="345.5062,191.7691,242.7291,141.5838" />
+      </ECTransition>
+      <ECTransition Source="PHASE_2" Destination="START" Condition="STOP [StopButton]" x="1184.638" y="905.7058">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="353.2303,279.7691,241.005,185.5838" />
+      </ECTransition>
+      <ECTransition Source="PHASE_3" Destination="START" Condition="STOP [StopButton]" x="1100.791" y="1157.706">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="326.4959,363.7691,224.7394,227.5838" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST><![CDATA[;]]></ST>
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST><![CDATA[;]]></ST>
+    </Algorithm>
+    <Algorithm Name="DRAIN">
+      <ST><![CDATA[;
+setWaterLevel := 0;
+setWaterTemp := 0;]]></ST>
+    </Algorithm>
+    <Algorithm Name="PHASE_1">
+      <ST><![CDATA[;
+setWaterLevel := X1;
+setWaterTemp := Y1;]]></ST>
+    </Algorithm>
+    <Algorithm Name="PHASE_2">
+      <ST><![CDATA[;
+setWaterLevel := X2;
+setWaterTemp := Y2;]]></ST>
+    </Algorithm>
+    <Algorithm Name="PHASE_3">
+      <ST><![CDATA[;
+setWaterLevel := X1;
+setWaterTemp := Y2;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

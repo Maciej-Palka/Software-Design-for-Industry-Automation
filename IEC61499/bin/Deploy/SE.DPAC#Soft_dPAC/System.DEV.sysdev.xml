@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System Name="System" ProjectName="HotWaterTank_FirstName_LastName_v23" ProjectGuid="{847CF617-CF8D-4D27-B497-A6B4FD51D0AF}" BuildTime="2026-10-13 10:36:05Z" DeployTime="" StudioVersion="IEC 61499 IDE, Panther UAOv23.0 g5173 4181ef5 Thu Oct 12 16:53:40 2023" SnapshotGuid="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}">
+  <Device ID="27b9f9b6-52a6-4347-9c44-89eefc9b3dfd" Name="DEV" Type="Soft_dPAC" Namespace="SE.DPAC">
+    <Resource ID="539033A9C5E64858" Name="RES0" Type="EMB_RES_ECO" Namespace="Runtime.Management">
+      <FBNetwork>
+        <FB ID="E0DBA2FEB2866DC7" Name="HotWaterTankModel_APP2" Type="Model" Namespace="Main">
+          <Parameter Name="Outlet" Value="1" />
+        </FB>
+        <FB ID="E6DFF154C1FB278D" Name="HMI_Blocks" Type="HMI_BLOCKS" Namespace="Main" />
+        <FB ID="C17CBC8FF50BA34A" Name="Controller" Type="Controller" Namespace="Main">
+          <Parameter Name="InitialLevel" Value="280" />
+          <Parameter Name="InitialTemperature" Value="44" />
+          <Parameter Name="Offset" Value="-15" />
+          <Parameter Name="X1" Value="200" />
+          <Parameter Name="Y1" Value="56" />
+          <Parameter Name="X2" Value="316" />
+          <Parameter Name="Y2" Value="54" />
+          <Parameter Name="X3" Value="181" />
+          <Parameter Name="Y3" Value="49" />
+          <Parameter Name="X4" Value="380" />
+          <Parameter Name="Y4" Value="75" />
+          <Parameter Name="deltaT" Value="0.3" />
+          <Parameter Name="deltaL" Value="1" />
+          <Parameter Name="T1" Value="T#4s" />
+          <Parameter Name="T2" Value="T#5s" />
+        </FB>
+        <FB ID="E0686B99E4269217" Name="FB2" Type="E_SPLIT" Namespace="IEC61499.Standard" />
+        <FB ID="53F52810EDD79EF7" Name="Trends" Type="wtch_trend" Namespace="Main" />
+        <FB ID="F1B9BBCD6539B29B" Name="FB1" Type="DPAC_FULLINIT" Namespace="SE.DPAC" />
+        <FB ID="973025CDE8B289BE" Name="ALARM_1" Type="ALARM_BIT" Namespace="Runtime.Standard">
+          <Parameter Name="DELAY" Value="T#10ms" />
+          <Parameter Name="ACTIVE" Value="TRUE" />
+          <Parameter Name="ACKTYPE_1" Value="2" />
+          <Parameter Name="TYPE" Value="1" />
+          <Parameter Name="INFOVAL" Value="1.0" />
+        </FB>
+        <FB ID="BBC69E1F82E4E7B" Name="FB3" Type="COMPARE_1329C2AB45109BAAB" Namespace="Main">
+          <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;IN${CNT}:REAL" />
+          <Parameter Name="IN2" Value="400" />
+        </FB>
+        <FB ID="34900EA992CA6991" Name="ALARM_2" Type="ALARM_BIT" Namespace="Runtime.Standard">
+          <Parameter Name="TYPE" Value="1" />
+          <Parameter Name="ACKTYPE_1" Value="2" />
+          <Parameter Name="ACTIVE" Value="TRUE" />
+          <Parameter Name="DELAY" Value="T#10ms" />
+          <Parameter Name="INFOVAL" Value="2.0" />
+        </FB>
+        <FB Name="START" Type="E_RESTART" Namespace="IEC61499.Standard" />
+        <EventConnections>
+          <Connection Source="HMI_Blocks.Receipe1" Destination="Controller.Receipe1E" />
+          <Connection Source="HMI_Blocks.Receipe2" Destination="Controller.Receipe2E" />
+          <Connection Source="HMI_Blocks.Sliders" Destination="Controller.SlidersE" />
+          <Connection Source="HMI_Blocks.Start" Destination="Controller.Start" />
+          <Connection Source="HMI_Blocks.Stop" Destination="Controller.StopE" />
+          <Connection Source="Trends.INITO" Destination="FB2.EI" />
+          <Connection Source="FB2.EO1" Destination="Controller.INIT" />
+          <Connection Source="FB2.EO2" Destination="HMI_Blocks.INIT" />
+          <Connection Source="Controller.CNF" Destination="HotWaterTankModel_APP2.REQ" />
+          <Connection Source="HotWaterTankModel_APP2.CNF" Destination="Controller.REQ" />
+          <Connection Source="HotWaterTankModel_APP2.INITO" Destination="Trends.INIT" />
+          <Connection Source="HotWaterTankModel_APP2.CNF" Destination="Trends.REQ" />
+          <Connection Source="START.COLD" Destination="FB1.INIT" />
+          <Connection Source="START.WARM" Destination="FB1.INIT" />
+          <Connection Source="START.ONLINECHANGE" Destination="FB1.OC_RETRIGGER" />
+          <Connection Source="FB1.INITO" Destination="HotWaterTankModel_APP2.INIT" />
+          <Connection Source="HotWaterTankModel_APP2.INITO" Destination="ALARM_1.INIT" />
+          <Connection Source="ALARM_1.INITO" Destination="ALARM_1.REQ_INITDATA" />
+          <Connection Source="ALARM_1.CNF_INITDATA" Destination="ALARM_1.ACTIVATE" />
+          <Connection Source="HotWaterTankModel_APP2.CNF" Destination="FB3.REQ" />
+          <Connection Source="FB3.CNF" Destination="ALARM_1.REQ" />
+          <Connection Source="ALARM_2.INITO" Destination="ALARM_2.REQ_INITDATA" />
+          <Connection Source="ALARM_2.CNF_INITDATA" Destination="ALARM_2.ACTIVATE" />
+          <Connection Source="HotWaterTankModel_APP2.CNF" Destination="ALARM_2.REQ" />
+          <Connection Source="HotWaterTankModel_APP2.INITO" Destination="ALARM_2.INIT" />
+          <Connection Source="ALARM_2.IND_1" Destination="Controller.Alarm_2" />
+        </EventConnections>
+        <DataConnections>
+          <Connection Source="HMI_Blocks.Receipe1Button" Destination="Controller.Receipe1Button" />
+          <Connection Source="HMI_Blocks.Receipe2Button" Destination="Controller.Receipe2Button" />
+          <Connection Source="HMI_Blocks.TemperatureSlider" Destination="Controller.TemperatureSlider" />
+          <Connection Source="HMI_Blocks.WaterLevelSlider" Destination="Controller.WaterLevelSlider" />
+          <Connection Source="HMI_Blocks.StartButton" Destination="Controller.StartButton" />
+          <Connection Source="HMI_Blocks.StopButton" Destination="Controller.StopButton" />
+          <Connection Source="Controller.Heat" Destination="HotWaterTankModel_APP2.Heat" />
+          <Connection Source="Controller.Inlet" Destination="HotWaterTankModel_APP2.InletFast" />
+          <Connection Source="Controller.Inlet" Destination="HotWaterTankModel_APP2.InletSlow" />
+          <Connection Source="HotWaterTankModel_APP2.WaterTemp" Destination="Controller.CurrentTemperature" />
+          <Connection Source="HotWaterTankModel_APP2.WaterLevel" Destination="Controller.CurrentLevel" />
+          <Connection Source="Controller.HeatPower" Destination="HotWaterTankModel_APP2.HeatPower" />
+          <Connection Source="HotWaterTankModel_APP2.WaterLevel" Destination="Trends.Water_Level" />
+          <Connection Source="HotWaterTankModel_APP2.WaterTemp" Destination="Trends.Water_Temp" />
+          <Connection Source="HotWaterTankModel_APP2.WaterLevel" Destination="FB3.IN1" />
+          <Connection Source="FB3.GE" Destination="ALARM_1.INP" />
+          <Connection Source="HotWaterTankModel_APP2.MaxTemp" Destination="ALARM_2.INP" />
+          <Connection Source="ALARM_2.PRESENT_1" Destination="Controller.OverheatInd" />
+        </DataConnections>
+        <AdapterConnections />
+      </FBNetwork>
+    </Resource>
+    <FBNetwork />
+  </Device>
+</System>

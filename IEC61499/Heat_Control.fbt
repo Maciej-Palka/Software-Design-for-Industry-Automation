@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="1347510AFFA707D7" Name="Heat_Control" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="4" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="prana" Date="1/6/2020" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="CurrentValue" />
+        <With Var="SetValue" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Heat" />
+        <With Var="HeatPower" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="CurrentValue" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="SetValue" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Heat" Type="REAL" />
+      <VarDeclaration Name="HeatPower" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="PID" x="1200" y="260" Namespace="Main">
+      <Parameter Name="KP" Value="1" />
+      <Parameter Name="TR" Value="0.02" />
+      <Parameter Name="TD" Value="0.02" />
+      <Parameter Name="DLT" Value="0.02" />
+    </FB>
+    <FB ID="2" Name="FB2" Type="invert_output" x="1800" y="260" Namespace="Main" />
+    <Input Name="REQ" x="900" y="272" Type="Event" />
+    <Input Name="CurrentValue" x="260" y="772" Type="Data" />
+    <Input Name="SetValue" x="260" y="652" Type="Data" />
+    <Output Name="HeatPower" x="2520" y="452" Type="Data" />
+    <Output Name="CNF" x="2540" y="272" Type="Event" />
+    <Output Name="Heat" x="2540" y="532" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB2.CNF" Destination="CNF" />
+      <Connection Source="REQ" Destination="FB1.REQ">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.CNF" Destination="FB2.REQ">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB2.heat" Destination="Heat" />
+      <Connection Source="CurrentValue" Destination="FB1.PV" />
+      <Connection Source="SetValue" Destination="FB1.SP" />
+      <Connection Source="SetValue" Destination="FB1.X0" dx1="203.9375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.OUT" Destination="FB2.Inp">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.NEG" Destination="FB2.Neg">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.Op" Destination="HeatPower" dx1="70" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

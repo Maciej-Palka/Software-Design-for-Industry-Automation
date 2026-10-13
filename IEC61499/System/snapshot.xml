@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<baseline xmlns:xsd="http://www.nxtControl.com/Snapshot" xmlns="http://tempuri.org/XMLSchema1.xsd">
+  <snapshot guid="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}" compiler="Default" created="2026-10-13T11:34:34" base="{00000000-0000-0000-0000-000000000000}">
+    <DeployInformation Type="Working">
+      <FileGroup Name="FileList" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+        <FileItem Name="Main#Basic1_1.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:13</Modified>
+          <Hash>20443E7AFD17B9124</Hash>
+        </FileItem>
+        <FileItem Name="Main#ChangeDetect_BOOL.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:13</Modified>
+          <Hash>53EC2371E50549A3</Hash>
+        </FileItem>
+        <FileItem Name="Main#ChangeDetect_REAL.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:13</Modified>
+          <Hash>751392BAA39BFBA4</Hash>
+        </FileItem>
+        <FileItem Name="Main#HeatCalc.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>135E9C755645C35C3</Hash>
+        </FileItem>
+        <FileItem Name="Main#InRange.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>237672F6C9D4453CE</Hash>
+        </FileItem>
+        <FileItem Name="Main#integEC.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>862BFD3D70623F5</Hash>
+        </FileItem>
+        <FileItem Name="Main#invert_output.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>13738BD1B147F0788</Hash>
+        </FileItem>
+        <FileItem Name="Main#LimiterLevel.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>144F3D589D719AF9B</Hash>
+        </FileItem>
+        <FileItem Name="Main#LimiterTemp.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>36742811F8B11E72</Hash>
+        </FileItem>
+        <FileItem Name="Main#normalise.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>141646983BC3CBFB2</Hash>
+        </FileItem>
+        <FileItem Name="Main#normalise1.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>209EF7F12CCFFC65D</Hash>
+        </FileItem>
+        <FileItem Name="Main#Overpressure.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>170BD20A43634D674</Hash>
+        </FileItem>
+        <FileItem Name="Main#PID.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:13</Modified>
+          <Hash>229B024110E36E5AC</Hash>
+        </FileItem>
+        <FileItem Name="Main#PID_Level.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>96D7396D4B73292D</Hash>
+        </FileItem>
+        <FileItem Name="Main#RP.bin" Library="Main" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-13T11:34:32</Modified>
+          <Hash>183A38FA2A5EEB75E</Hash>
+        </FileItem>
+        <FileItem Name="Main#TankValves.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>25560F236F770A535</Hash>
+        </FileItem>
+        <FileItem Name="Main#ButtonM.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:13</Modified>
+          <Hash>2BC23CED39F8A89</Hash>
+        </FileItem>
+        <FileItem Name="Main#Controller.bin" Library="Main" BuildSnapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-13T11:34:32</Modified>
+          <Hash>2356C9075CC567399</Hash>
+        </FileItem>
+        <FileItem Name="Main#Heat_Control.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>572983E5F1E25F12</Hash>
+        </FileItem>
+        <FileItem Name="Main#Heat_Control_Slider.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>3686D54D9F70FF2A</Hash>
+        </FileItem>
+        <FileItem Name="Main#HMI_BLOCKS.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>2244D3162E526BFC0</Hash>
+        </FileItem>
+        <FileItem Name="Main#HMI_BLOCKS_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>158C764468B55CBCC</Hash>
+        </FileItem>
+        <FileItem Name="Main#LevelSensors.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>2136E8DFC32058271</Hash>
+        </FileItem>
+        <FileItem Name="Main#Level_Control.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>116729AC2799D14B</Hash>
+        </FileItem>
+        <FileItem Name="Main#Level_Control_Slider.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>1850598208EC04452</Hash>
+        </FileItem>
+        <FileItem Name="Main#Level_Control_Slider_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>124EE8447B653C4D</Hash>
+        </FileItem>
+        <FileItem Name="Main#Model.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>48AFCA25E1FA4A83</Hash>
+        </FileItem>
+        <FileItem Name="Main#pump_slider.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>141E38BAC8899C940</Hash>
+        </FileItem>
+        <FileItem Name="Main#pump_slider_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>13673405D724372E2</Hash>
+        </FileItem>
+        <FileItem Name="Main#Resistance.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>128B168881D7C323A</Hash>
+        </FileItem>
+        <FileItem Name="Main#Sensor.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>21900655EF26B644B</Hash>
+        </FileItem>
+        <FileItem Name="Main#Sensor_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>1517F58AB4777AC18</Hash>
+        </FileItem>
+        <FileItem Name="Main#TankResis.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>5935550E05D6979F</Hash>
+        </FileItem>
+        <FileItem Name="Main#Tank.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>53178BD8EB70D44C</Hash>
+        </FileItem>
+        <FileItem Name="Main#ThermometerS.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>2319FFCC97FC9AC99</Hash>
+        </FileItem>
+        <FileItem Name="Main#ThermometerS_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>1616E1BAB8AA41768</Hash>
+        </FileItem>
+        <FileItem Name="Main#wtch_trend.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>78B7F992053EFEA3</Hash>
+        </FileItem>
+        <FileItem Name="Main#ButtonM_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:13</Modified>
+          <Hash>125AD08CFAAEF13FF</Hash>
+        </FileItem>
+        <FileItem Name="Main#Heat_Control_Slider_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>15989207DBF80CE52</Hash>
+        </FileItem>
+        <FileItem Name="Main#LevelSensors_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>15C8E92F90735A80</Hash>
+        </FileItem>
+        <FileItem Name="Main#Model_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>03DE3D906A59C02</Hash>
+        </FileItem>
+        <FileItem Name="Main#Resistance_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>110541A8CF8098D76</Hash>
+        </FileItem>
+        <FileItem Name="Main#TankResis_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>1217970ED1A53540A</Hash>
+        </FileItem>
+        <FileItem Name="Main#Tank_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>200133CDA4DE210C1</Hash>
+        </FileItem>
+        <FileItem Name="Main#wtch_trend_HMI.bin" Library="Main" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>2034D8A70C8C4CAF3</Hash>
+        </FileItem>
+        <FileItem Name="Main#Recipe1.bin" Library="IEC61499.dll" BuildSnapshot="{E0F01E57-A2EB-4D18-AA7E-DF2057D744C3}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-12T12:51:31</Modified>
+          <Hash>18693F0CB5F005CC8</Hash>
+        </FileItem>
+        <FileItem Name="Main#DEMUX.bin" Library="IEC61499.dll" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:13</Modified>
+          <Hash>74A2DCFF31C2F147</Hash>
+        </FileItem>
+        <FileItem Name="Main#DEMUX_X3.bin" Library="IEC61499.dll" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:13</Modified>
+          <Hash>22926A30BB794A19B</Hash>
+        </FileItem>
+        <FileItem Name="Main#SELECT_749D8B4DE686F02.bin" Library="IEC61499.dll" BuildSnapshot="{8C366A91-481B-4E2B-B15A-B9CA3B0E0444}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T21:17:14</Modified>
+          <Hash>749D8B4DE686F02</Hash>
+        </FileItem>
+        <FileItem Name="Main#Recipe2.bin" Library="IEC61499.dll" BuildSnapshot="{E0F01E57-A2EB-4D18-AA7E-DF2057D744C3}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-12T12:51:31</Modified>
+          <Hash>87D42DE70411B5C8</Hash>
+        </FileItem>
+        <FileItem Name="Main#COMPARE_1329C2AB45109BAAB.bin" Library="IEC61499.dll" BuildSnapshot="{F3925D23-E2DC-44CC-8E9B-451F36C956EB}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T22:11:34</Modified>
+          <Hash>1329C2AB45109BAAB</Hash>
+        </FileItem>
+        <FileItem Name="Main#AND_88A3DD8EC65DD11C.bin" Library="IEC61499.dll" BuildSnapshot="{494972BE-0CAF-4EF3-A66F-69E0DD3757C8}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-11T22:26:23</Modified>
+          <Hash>88A3DD8EC65DD11C</Hash>
+        </FileItem>
+        <LibraryItem Name="Runtime.Base" Version="23.0.0.15" />
+        <LibraryItem Name="SE.DPAC" Version="23.0.0.57" />
+        <LibraryItem Name="SE.Standard" Version="23.0.0.14" />
+        <LibraryItem Name="Standard.HMIExtensions" Version="23.0.0.5" />
+        <DeviceItem ID="27b9f9b6-52a6-4347-9c44-89eefc9b3dfd" Hash="237EB576BDF56D8D5" />
+      </FileGroup>
+      <Device Name="DEV" ID="27b9f9b6-52a6-4347-9c44-89eefc9b3dfd" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+        <FileItem Name="Basics/Main#integEC.bin">
+          <Hash>34B462A3565AD3E3347A5AAA8A9B046C0C25F09711C978CFCF44EEF20006DBF8</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#ChangeDetect_REAL.bin">
+          <Hash>FBD7244AB8618F0B16DEB87AEDC3868795D092CBD9F387A1259EA8F7656C8550</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#TankValves.bin">
+          <Hash>825D7522F948F42CA605BD2EC65F948A98022D7743C3C02B077647BAED4F2EF6</Hash>
+        </FileItem>
+        <FileItem Name="HMIAccessors/Main#Tank_HMI.bin">
+          <Hash>687B0088C124FD20394DBE14BFAD3688420D50784B50B5B42CD0D63CA6F4D70C</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#LimiterLevel.bin">
+          <Hash>2EDF442912F44A113D8CF698132920AC76730B8BFAAF327666B38D2246EC4237</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#Overpressure.bin">
+          <Hash>BF213E458BDF259E451AC4E3FDBC7AF14900DACD572E22CE600EA928626F9616</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Tank.bin">
+          <Hash>7E42D9E0711610657CAA02BD07D2B2AF4FAC714FD0F4851564D3F2461BFA6490</Hash>
+        </FileItem>
+        <FileItem Name="HMIAccessors/Main#Resistance_HMI.bin">
+          <Hash>CFA39C3E9910FFB92BD8D2A98E7BBDB48ECAC05B26A9610811BC6240F2171B34</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#LimiterTemp.bin">
+          <Hash>9919C3FE19AF932B155DC6CDDF5971ADC8E63DFBE5BFEBAEAAD00D83B8C4908B</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#HeatCalc.bin">
+          <Hash>DC55740E6517CA56AA9A277403AC9A1298313C44D0C754AD2DCE76AC7D2AD3D5</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Resistance.bin">
+          <Hash>3ADEAA3C024FEAE4D29CB4634B6AF7E46F9BCC4485FDE8201A02D6A8832C37EA</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#TankResis.bin">
+          <Hash>AE9273DF2B1C382AD1F5A848ACC6BA324446443C2C36215F1E7113AAA93AC912</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#ThermometerS_HMI.bin">
+          <Hash>B3BF90FC96C02C384DD3A3E7985D03193D26FFC7C78C494A61EBDB717E3205F2</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#InRange.bin">
+          <Hash>C9117BFA27FC4615B16C6A31A0350961C42B7693B775F0D51B91CD37B88D1B92</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#ChangeDetect_BOOL.bin">
+          <Hash>D79C2C08861468F101F8DC52C2114A00D24B314E07DBB19FA634BA45AA896684</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#ThermometerS.bin">
+          <Hash>57233DEABEE8F6F99B62A612FEC9A48BC84203AE1AFAABB3582EC8BB2CA48A75</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Sensor_HMI.bin">
+          <Hash>C25184F70603EBA54D80C112BD66FF00EE073872D14FE56CEF91612C5C042AA9</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Sensor.bin">
+          <Hash>0FE74CBFD702A7E278448C484E236D94468278119CB11ABE65DC0CC8E78F292C</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#LevelSensors.bin">
+          <Hash>797F895E70B4040552E8F3B738B55FFBCA29D2AF4434771BD2DDBE2D9A5E4722</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Model.bin">
+          <Hash>C9FAED4FB0CD8A344A31ABE14126E624723EE6215F141197E704006F614FDEFD</Hash>
+        </FileItem>
+        <FileItem Name="HMIAccessors/Main#ButtonM_HMI.bin">
+          <Hash>F80E0D18A78A273C88E4AD8423958D4B5CF58F41892F144703110AB47EC811C7</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#ButtonM.bin">
+          <Hash>B8BBA4E5B844E4B5FA1DD5759EE02EE5F712786F743F4D736FBE9004D4BAF4D2</Hash>
+        </FileItem>
+        <FileItem Name="HMIAccessors/Main#Heat_Control_Slider_HMI.bin">
+          <Hash>BA6A71A3B975A140B2535D9DFE3AC70B80CB6FAA82CEF9154955558B389AB737</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Heat_Control_Slider.bin">
+          <Hash>C186D4FE7B17A283909CF67A1E18674EF9AB77B9CDFB7B93B23E637E6EA3C601</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Level_Control_Slider_HMI.bin">
+          <Hash>953C822046B972640AD0A298D37DED7967A8C5EA6F8ED40E4F4BAD6A471750FB</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Level_Control_Slider.bin">
+          <Hash>BB99FCF3907A24BA0E1AB947FE30D0AF1AFFAB8296829AC87FE9E75CD06000A6</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#HMI_BLOCKS.bin">
+          <Hash>BF4C74B43C28AC7D41588E7E8BC29D01C74C245FE5015EFDCD5DA507013FD9A6</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#RP.bin">
+          <Hash>9925759A9C650C0A0A6EA1EBD0381FB9BBAAA7E201EF03671D895C11BCF015A3</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#PID.bin">
+          <Hash>F20F102A2071B9679DC90F295E43B1CA7F58E0EA19853F666A2116C6A5083FAA</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#invert_output.bin">
+          <Hash>4F76E93DCFF16997B98070A8E2C7F971A906E4A59D66E61E9219B8DD981D47C3</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Heat_Control.bin">
+          <Hash>FC554B55E742CE340D421AEBD87FF72A33577BA326BB49656C05181553648F30</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#normalise.bin">
+          <Hash>965A52F52307A8CDAB25176DCDA9F31CAC276592554AA175FF593BC2F9891893</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#normalise1.bin">
+          <Hash>AEE37C929E8E6686D6F82640E334A6CD5C11BF902A59C68F2AD863BA1B84BC73</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#PID_Level.bin">
+          <Hash>E944E304B871C1E3CBCAF46698AA473F700A3FAF1DFC5AAE691D68ADC41869A8</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Level_Control.bin">
+          <Hash>38B66D9D74D8815C5332799B6C807803FA53BE78F5645995C0E2BF2D60AE883F</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#Recipe1.bin">
+          <Hash>A84B9481F17D799D14B55547C0B8AB439378793EF423540D0A8764D51FFA3456</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#SELECT_749D8B4DE686F02.bin">
+          <Hash>2807FC0F7964901052EA4221F38764DDF3B2F19A222103FFB8E437A82D1228ED</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#Recipe2.bin">
+          <Hash>CFF35FB4075A499B5802E5366B9FA74E8C9A547122C1236FB3E9218AD95CF4AE</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#Controller.bin">
+          <Hash>277144721802F411CF9EC6B30ADD34923AA0B31499FD057B2C59D1A885C164AE</Hash>
+        </FileItem>
+        <FileItem Name="HMIAccessors/Main#wtch_trend_HMI.bin">
+          <Hash>E590A1D1D7CEFEF128AA643D9F26470DAA8DD808FADD7DE1F703F97F41838F4E</Hash>
+        </FileItem>
+        <FileItem Name="Composites/Main#wtch_trend.bin">
+          <Hash>67C709AA91E8DD51B5E738F39A0C877BA343BB213422B622640DDE00CC9E15A4</Hash>
+        </FileItem>
+        <FileItem Name="Basics/SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin">
+          <Hash>116363C9F37EBE35D3921047B0474D6C30AF4446DD37B7C910C03059660184F7</Hash>
+        </FileItem>
+        <FileItem Name="Composites/SE.DPAC#DPAC_FULLINIT.bin">
+          <Hash>E08A111D49F885770685F4BDCAB5594ABC1158AEDDEEEE051AB40A04B2D52AF0</Hash>
+        </FileItem>
+        <FileItem Name="Basics/Main#COMPARE_1329C2AB45109BAAB.bin">
+          <Hash>DB504F1D9016BEFD6D841497107B751A209009F98E0DC28C41C1CD083C4B0B89</Hash>
+        </FileItem>
+      </Device>
+    </DeployInformation>
+  </snapshot>
+  <deployment>
+    <network_profile name="(Default)">
+      <device id="27b9f9b6-52a6-4347-9c44-89eefc9b3dfd" />
+    </network_profile>
+    <network_profile name="(Local Test)">
+      <device id="27b9f9b6-52a6-4347-9c44-89eefc9b3dfd">
+        <sref snapshot="{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}" state="ACTIVE" />
+      </device>
+    </network_profile>
+  </deployment>
+</baseline>

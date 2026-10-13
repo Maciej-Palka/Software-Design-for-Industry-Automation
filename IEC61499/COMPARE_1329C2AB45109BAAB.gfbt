@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType Name="COMPARE_1329C2AB45109BAAB" Comment="Compare" Namespace="Main">
+  <Attribute Name="Runtime.FBType.ImplementingType" Value="Runtime.Standard#DYNGEN_COMPARE" />
+  <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;IN${CNT}:REAL" />
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="1.1" Author="winkhub" Date="24.06.2019" Remarks="support all types" />
+  <CompilerInfo>
+    <Compiler Language="Cpp" />
+  </CompilerInfo>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="IN1" />
+        <With Var="IN2" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="LT" />
+        <With Var="LE" />
+        <With Var="EQ" />
+        <With Var="NE" />
+        <With Var="GE" />
+        <With Var="GT" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="IN1" Type="REAL" Comment="Argument" />
+      <VarDeclaration Name="IN2" Type="REAL" Comment="Argument" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="LT" Type="BOOL" Comment="IN1 &lt; IN2" />
+      <VarDeclaration Name="LE" Type="BOOL" Comment="IN1 &lt;= IN2" />
+      <VarDeclaration Name="EQ" Type="BOOL" Comment="IN1 = IN2" />
+      <VarDeclaration Name="NE" Type="BOOL" Comment="IN1 &lt;&gt; IN2" />
+      <VarDeclaration Name="GE" Type="BOOL" Comment="IN1 &gt;= IN2" />
+      <VarDeclaration Name="GT" Type="BOOL" Comment="IN1 &gt; IN2" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" />
+    </ECC>
+  </BasicFB>
+</FBType>

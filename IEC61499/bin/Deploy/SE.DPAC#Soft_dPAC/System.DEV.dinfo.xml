@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployInformation ProjectName="HotWaterTank_FirstName_LastName_v23" ProjectGuid="{847CF617-CF8D-4D27-B497-A6B4FD51D0AF}" System="System" DeviceName="DEV" DeviceID="27b9f9b6-52a6-4347-9c44-89eefc9b3dfd">
+  <UsedDll>IEC61499.dll|Runtime.Base.90E02843-42CC-4C2C-B657-AB6EE7D00471.dll|SE.DPAC.90E02843-42CC-4C2C-B657-AB6EE7D00471.dll</UsedDll>
+  <FileName>C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\IEC61499\System\System.sys</FileName>
+  <BuildTime>2026-10-13 10:36:05Z</BuildTime>
+  <StudioVersion>IEC 61499 IDE, Panther UAOv23.0 g5173 4181ef5 Thu Oct 12 16:53:40 2023</StudioVersion>
+  <StudioInfo>V1;9FAB40F99A287E72F881BB26A735355BACB4942BA334335BACB4BF24BD34343784BBB667873F3547B7B8B02FAD254076A8B2E702A1255976B1B2A81EAF3F654883BEA839BA1F6F7AA088962BBD254076A8B2853CFC623547B7B8B02FAD254962ACB3E731F665395483E1EB7DE312482F81FAEE0EFC662355F1EEED678F674C238393EF7B8A614F51B8EC;</StudioInfo>
+  <ConfigFolder>C:\Users\macie\Desktop\szwecja\SDfIA\DA4\HotWaterTank_FirstName_LastName_v23\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\Configuration</ConfigFolder>
+  <Actions />
+  <DeviceFileName>System.DEV.smartdev.xml</DeviceFileName>
+  <DependenciesFileName>System.DEV.fbdep.txt</DependenciesFileName>
+  <SnapshotGuid>{4346CD1F-4DE9-4D70-ADE9-FF012C83688E}</SnapshotGuid>
+</DeployInformation>

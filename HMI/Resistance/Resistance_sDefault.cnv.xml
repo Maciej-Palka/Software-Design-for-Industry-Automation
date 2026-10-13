@@ -1,0 +1,12 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ" Map="REQ_1">HeatON;Overheating;ResistBroken</Event>
+  </EventInputs>
+  <EventOutputs />
+  <Inputs>
+    <Input Name="HeatON" Type="BOOL" Map="SD_1" />
+    <Input Name="Overheating" Type="BOOL" Map="SD_2" />
+    <Input Name="ResistBroken" Type="BOOL" Map="SD_3" />
+  </Inputs>
+  <Outputs />
+</Mapping>

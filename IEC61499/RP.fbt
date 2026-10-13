@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="5B307F986C0B1448" Name="RP" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="prana" Date="1/4/2020" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT">
+        <With Var="StartButton" />
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+        <With Var="StopButton" />
+        <With Var="InitialTemp" />
+        <With Var="InitialLevel" />
+        <With Var="WaterLevelCurrent" />
+        <With Var="WaterTempCurrent" />
+        <With Var="deltaT" />
+        <With Var="deltaL" />
+      </Event>
+      <Event Name="Start">
+        <With Var="StartButton" />
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+        <With Var="StopButton" />
+        <With Var="InitialTemp" />
+        <With Var="InitialLevel" />
+        <With Var="WaterLevelCurrent" />
+        <With Var="WaterTempCurrent" />
+      </Event>
+      <Event Name="Receipe1E" Comment="Initialization Request">
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+        <With Var="WaterLevelCurrent" />
+        <With Var="WaterTempCurrent" />
+      </Event>
+      <Event Name="Receipe2E" Comment="Normal Execution Request">
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+        <With Var="WaterLevelCurrent" />
+        <With Var="WaterTempCurrent" />
+      </Event>
+      <Event Name="SlidersE">
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+        <With Var="WaterLevelCurrent" />
+        <With Var="WaterTempCurrent" />
+      </Event>
+      <Event Name="StopE">
+        <With Var="StartButton" />
+        <With Var="Receipe1Button" />
+        <With Var="Receipe2Button" />
+        <With Var="TemperatureSlider" />
+        <With Var="WaterLevelSlider" />
+        <With Var="StopButton" />
+        <With Var="InitialTemp" />
+        <With Var="InitialLevel" />
+        <With Var="WaterLevelCurrent" />
+        <With Var="WaterTempCurrent" />
+      </Event>
+      <Event Name="REQ">
+        <With Var="WaterLevelCurrent" />
+        <With Var="WaterTempCurrent" />
+      </Event>
+      <Event Name="RECEIPE_1_COMPLETED" />
+      <Event Name="RECEIPE_2_COMPLETED" />
+      <Event Name="ALARM">
+        <With Var="Overheat" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="WaterLevel" />
+        <With Var="WaterTemp" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="WaterTemp" />
+        <With Var="WaterLevel" />
+        <With Var="OutputPair" />
+      </Event>
+      <Event Name="START_RECIPE_1">
+        <With Var="OutputPair" />
+      </Event>
+      <Event Name="START_RECIPE_2">
+        <With Var="OutputPair" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="StartButton" Type="BOOL" />
+      <VarDeclaration Name="Receipe1Button" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="Receipe2Button" Type="BOOL" />
+      <VarDeclaration Name="TemperatureSlider" Type="REAL" />
+      <VarDeclaration Name="WaterLevelSlider" Type="REAL" />
+      <VarDeclaration Name="StopButton" Type="BOOL" />
+      <VarDeclaration Name="InitialTemp" Type="REAL" />
+      <VarDeclaration Name="InitialLevel" Type="REAL" />
+      <VarDeclaration Name="WaterLevelCurrent" Type="REAL" />
+      <VarDeclaration Name="WaterTempCurrent" Type="REAL" />
+      <VarDeclaration Name="deltaT" Type="REAL" />
+      <VarDeclaration Name="deltaL" Type="REAL" />
+      <VarDeclaration Name="Overheat" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="OutputPair" Type="USINT" InitialValue="2" />
+      <VarDeclaration Name="WaterTemp" Type="REAL" />
+      <VarDeclaration Name="WaterLevel" Type="REAL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,Stp,SliderControl,start,X1,X2,Drain,Recipe_1,ManualOutput,Recipe_2,ReturnToInit" />
+    <InternalVars>
+      <VarDeclaration Name="X1" Type="REAL" InitialValue="165.50" />
+      <VarDeclaration Name="Y1" Type="REAL" InitialValue="50.00" />
+      <VarDeclaration Name="X2" Type="REAL" InitialValue="250.50" />
+      <VarDeclaration Name="Y2" Type="REAL" InitialValue="68.96" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="1822.274" y="1345.412" />
+      <ECState Name="SliderControl" x="5685.539" y="1374.159">
+        <ECAction Algorithm="SliderControl" Output="CNF" />
+      </ECState>
+      <ECState Name="Start" x="4071.619" y="1025.144">
+        <ECAction Algorithm="start" Output="CNF" />
+        <ECAction Output="INITO" />
+      </ECState>
+      <ECState Name="Stop" x="1072.048" y="2154.001">
+        <ECAction Algorithm="Stp" Output="CNF" />
+      </ECState>
+      <ECState Name="INIT" x="1790.333" y="904.0007">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="RECEIPE_1" x="2855.19" y="2037.714">
+        <ECAction Algorithm="Recipe_1" Output="START_RECIPE_1" />
+      </ECState>
+      <ECState Name="RETURN_TO_MANUAL" x="2330.19" y="3703.476">
+        <ECAction Output="CNF" />
+      </ECState>
+      <ECState Name="RECEIPE_2" x="4915.333" y="2137.571">
+        <ECAction Algorithm="Recipe_2" Output="START_RECIPE_2" />
+      </ECState>
+      <ECState Name="Wait" x="4287.723" y="1545.714" />
+      <ECState Name="RETURN_TO_INIT" x="4044.104" y="3870.72">
+        <ECAction Algorithm="ReturnToInit" Output="CNF" />
+      </ECState>
+      <ECState Name="ALARM" x="3933.667" y="2637.667" />
+      <ECTransition Source="Wait" Destination="SliderControl" Condition="SlidersE AND NOT ( Receipe1Button OR Receipe2Button)" x="4922.827" y="1371.668">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1183.504,344.2037,1275.703,331.2933" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="Start" Condition="Start[StartButton &amp; NOT StopButton]" x="2956.155" y="1119.506">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="653.6476,287.2744,823.3737,263.8777" />
+      </ECTransition>
+      <ECTransition Source="Wait" Destination="RECEIPE_1" Condition="Receipe1E [StartButton &amp; Receipe1Button AND NOT Receipe2Button]" x="3493.735" y="1772.216">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="912.584,426.3929,820.4764,458.8819" />
+      </ECTransition>
+      <ECTransition Source="Stop" Destination="START" Condition="StopE AND StopButton AND NOT StartButton" x="1349.713" y="1819.952">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="302.6527,490.4377,357.4184,431.2459" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="1713.897" y="1135.518">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="424.6863,298.8148,422.8428,270.7463" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="1894.922" y="1121.33">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="477.401,266.0069,479.1609,294.0953" />
+      </ECTransition>
+      <ECTransition Source="RECEIPE_1" Destination="RETURN_TO_MANUAL" Condition="RECEIPE_1_COMPLETED" x="2532.008" y="2699.102">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="650.0978,593.7288,608.5189,727.2397" />
+      </ECTransition>
+      <ECTransition Source="RECEIPE_2" Destination="RETURN_TO_INIT" Condition="RECEIPE_2_COMPLETED" x="4440.509" y="3127.865">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1143.364,708.8907,1069.768,875.6616" />
+      </ECTransition>
+      <ECTransition Source="Wait" Destination="RECEIPE_2" Condition="Receipe2E [StartButton &amp; Receipe2Button AND NOT Receipe1Button]" x="4898.333" y="1885.542">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1224.915,455.87,1262.224,495.003" />
+      </ECTransition>
+      <ECTransition Source="RETURN_TO_MANUAL" Destination="Stop" Condition="StopE AND StopButton AND NOT StartButton" x="1412.255" y="3172.995">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="369.8446,858.8085,301.1696,768.3984" />
+      </ECTransition>
+      <ECTransition Source="SliderControl" Destination="Wait" Condition="1" x="4968.392" y="1548.684">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1290.851,386.2201,1195.659,397.8216" />
+      </ECTransition>
+      <ECTransition Source="Start" Destination="Wait" Condition="REQ [(WaterLevelCurrent &gt; (InitialLevel - deltaL)) AND (WaterTempCurrent &gt; (InitialTemp - deltaT))]" x="4261.271" y="1265.307">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1062.782,297.3285,1076.467,331.9717" />
+      </ECTransition>
+      <ECTransition Source="Wait" Destination="Stop" Condition="StopE AND StopButton AND NOT StartButton" x="2560.186" y="1338.594">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="756.6315,272.3864,506.7544,318.9418" />
+      </ECTransition>
+      <ECTransition Source="RETURN_TO_INIT" Destination="RETURN_TO_MANUAL" Condition="REQ [(WaterLevelCurrent &gt; (InitialLevel - deltaL)) AND (WaterTempCurrent &gt; (InitialTemp - deltaT))]" x="3069.514" y="3842.617">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="802.1461,968.2963,716.8701,957.915" />
+      </ECTransition>
+      <ECTransition Source="RECEIPE_1" Destination="Stop" Condition="StopE [StopButton]" x="1931.879" y="2163.857">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="546.3701,540.6569,421.9262,549.203" />
+      </ECTransition>
+      <ECTransition Source="RECEIPE_1" Destination="ALARM" Condition="ALARM [Overheat]" x="3490.531" y="2280.266">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="839.8619,544.7236,910.0594,585.8387" />
+      </ECTransition>
+      <ECTransition Source="RECEIPE_2" Destination="ALARM" Condition="ALARM [Overheat]" x="4480.994" y="2459.875">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1155.196,602.6862,1088.233,637.3043" />
+      </ECTransition>
+      <ECTransition Source="RETURN_TO_INIT" Destination="ALARM" Condition="ALARM [Overheat]" x="3935.436" y="3262.485">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="984.9785,863.217,975.1967,769.4072" />
+      </ECTransition>
+      <ECTransition Source="ALARM" Destination="Stop" Condition="1" x="3459.962" y="1563.235">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1049.628,343.4763,830.8884,307.0424" />
+      </ECTransition>
+      <ECTransition Source="RECEIPE_2" Destination="Stop" Condition="StopE [StopButton]" x="3352.665" y="4506.492">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1647.5,1480,88,1158" />
+      </ECTransition>
+      <ECTransition Source="Wait" Destination="ALARM" Condition="ALARM [Overheat]" x="4188.801" y="2115.667">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="1065.769,489.7532,1039.09,572.0768" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+OutputPair := 2;]]></ST>
+    </Algorithm>
+    <Algorithm Name="SliderControl">
+      <ST><![CDATA[WaterLevel := WaterLevelSlider;
+WaterTemp := TemperatureSlider;]]></ST>
+    </Algorithm>
+    <Algorithm Name="start">
+      <ST><![CDATA[WaterLevel := InitialLevel;
+WaterTemp := InitialTemp;
+OutputPair := 2;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Stp">
+      <ST><![CDATA[WaterLevel := 0;
+WaterTemp := 0;
+OutputPair := 2;]]></ST>
+    </Algorithm>
+    <Algorithm Name="X1">
+      <ST><![CDATA[
+
+WaterLevel := X1;
+WaterTemp := Y2;
+
+]]></ST>
+    </Algorithm>
+    <Algorithm Name="X2">
+      <ST><![CDATA[
+
+WaterLevel := X2;
+WaterTemp := Y2;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Drain">
+      <ST><![CDATA[
+WaterLevel := 0;
+WaterTemp := 0;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Recipe_1">
+      <ST><![CDATA[;
+OutputPair := 0;]]></ST>
+    </Algorithm>
+    <Algorithm Name="ManualOutput">
+      <ST><![CDATA[;
+OutputPair := 2;]]></ST>
+    </Algorithm>
+    <Algorithm Name="Recipe_2">
+      <ST><![CDATA[;
+OutputPair := 1;]]></ST>
+    </Algorithm>
+    <Algorithm Name="ReturnToInit">
+      <ST><![CDATA[;
+WaterLevel := InitialLevel;
+WaterTemp := InitialTemp;
+OutputPair := 2;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

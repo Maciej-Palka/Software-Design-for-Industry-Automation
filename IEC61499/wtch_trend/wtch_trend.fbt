@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="B9A3279D1E99CFA7" Name="wtch_trend" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="1" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="prana" Date="12/30/2019" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="Water_Level" />
+        <With Var="Water_Temp" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Water_Level" />
+        <With Var="Water_Temp" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm" />
+      <Event Name="CNF" Comment="Execution Confirmation" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Water_Level" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="Water_Temp" Type="REAL" />
+    </InputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="IThis1" Type="wtch_trend_HMI" x="840" y="240" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <Input Name="INIT" x="100" y="252" Type="Event" />
+    <Input Name="REQ" x="100" y="312" Type="Event" />
+    <Input Name="Water_Level" x="100" y="572" Type="Data" />
+    <Input Name="Water_Temp" x="100" y="632" Type="Data" />
+    <Output Name="INITO" x="1620" y="352" Type="Event" />
+    <Output Name="CNF" x="1640" y="232" Type="Event" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="IThis1.INIT" />
+      <Connection Source="REQ" Destination="IThis1.REQ" />
+      <Connection Source="IThis1.INITO" Destination="INITO" dx1="112.6459">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="Water_Level" Destination="IThis1.Water_Level" />
+      <Connection Source="Water_Temp" Destination="IThis1.Water_Temp" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="C0D46AD28BFA22AC" Name="Tank" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="13" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/20/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Outlet" />
+        <With Var="pv1" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="InletFast" />
+        <With Var="InletSlow" />
+        <With Var="Outlet" />
+        <With Var="pv1" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="WaterLevel" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="WaterLevel" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="InletFast" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="InletSlow" Type="REAL" />
+      <VarDeclaration Name="Outlet" Type="REAL" />
+      <VarDeclaration Name="pv1" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="WaterLevel" Type="REAL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="Water" Type="integEC" x="3040" y="1300" Namespace="Main">
+      <Parameter Name="inv1" Value="FALSE" />
+      <Parameter Name="inv2" Value="FALSE" />
+      <Parameter Name="tBase1" Value="4.0" />
+      <Parameter Name="tBase2" Value="4.0" />
+      <Parameter Name="sp" Value="100.0" />
+      <Parameter Name="preTrip" Value="0.0" />
+      <Parameter Name="integType" Value="0" />
+      <Parameter Name="cycleTime" Value="0.02" />
+      <Parameter Name="maxValue" Value="600.0" />
+      <Parameter Name="minValue" Value="0.0" />
+      <Parameter Name="useLimits" Value="TRUE" />
+      <Parameter Name="pv2" Value="0.0" />
+    </FB>
+    <FB ID="3" Name="FB3" Type="ChangeDetect_REAL" x="5680" y="2520" Namespace="Main" />
+    <FB ID="4" Name="FB4" Type="E_CYCLE" x="2260" y="920" Namespace="IEC61499.Standard">
+      <Parameter Name="DT" Value="t#20ms" />
+    </FB>
+    <FB ID="2" Name="FB2" Type="TankValves" x="2000" y="1420" Namespace="Main" />
+    <FB ID="8" Name="FB6" Type="E_PERMIT" x="600" y="1480" Namespace="IEC61499.Standard" />
+    <FB ID="5" Name="IThis" Type="Tank_HMI" x="5060" y="1160" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="11" Name="FB9" Type="E_PERMIT" x="4100" y="2920" Namespace="IEC61499.Standard" />
+    <FB ID="13" Name="FB7" Type="LimiterLevel" x="5100" y="2920" Namespace="Main" />
+    <FB ID="6" Name="FB1" Type="Overpressure" x="2740" y="2860" Namespace="Main" />
+    <Input Name="INIT" x="1600" y="1431.854" Type="Event" />
+    <Input Name="REQ" x="180" y="1492" Type="Event" />
+    <Input Name="InletFast" x="1120" y="1752" Type="Data" />
+    <Input Name="InletSlow" x="1120" y="1812" Type="Data" />
+    <Input Name="Outlet" x="1120" y="1872" Type="Data" />
+    <Input Name="pv1" x="1060" y="2372" Type="Data" />
+    <Output Name="INITO" x="5860" y="1171.854" Type="Event" />
+    <Output Name="CNF" x="5640" y="2931.854" Type="Event" />
+    <Output Name="WaterLevel" x="5640" y="3131.854" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB2.CNF" Destination="Water.OP_UPD" />
+      <Connection Source="INIT" Destination="FB2.INIT" dx1="41.41663" />
+      <Connection Source="FB6.EO" Destination="FB2.REQ" />
+      <Connection Source="FB4.EO" Destination="Water.C_CYCLE" dx1="278.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.INITO" Destination="Water.INIT" dx1="50" />
+      <Connection Source="Water.CNF" Destination="FB1.REQ" dx1="154.1875" dx2="50" dy="1222">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="FB6.EI" />
+      <Connection Source="Water.CNF" Destination="FB9.EI" dx1="354.1875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB9.EO" Destination="FB7.REQ" />
+      <Connection Source="FB7.CNF" Destination="FB3.REQ" dx1="50" />
+      <Connection Source="FB7.CNF" Destination="CNF" dx1="69.854" />
+      <Connection Source="Water.INITO" Destination="IThis.INIT" dx1="50" />
+      <Connection Source="FB1.CNF" Destination="IThis.REQ">
+        <Points>
+          <Points>
+            <X>787.7292</X>
+            <Y>725</Y>
+          </Points>
+          <Points>
+            <X>850.0001</X>
+            <Y>725</Y>
+          </Points>
+          <Points>
+            <X>850.0001</X>
+            <Y>665</Y>
+          </Points>
+          <Points>
+            <X>1180</X>
+            <Y>665</Y>
+          </Points>
+          <Points>
+            <X>1180</X>
+            <Y>315</Y>
+          </Points>
+          <Points>
+            <X>1260</X>
+            <Y>315</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.CHG" Destination="IThis.REQ" dx1="57.229" dx2="300" dy="-108">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.HMI_E" Destination="IThis.REQ2">
+        <Points>
+          <Points>
+            <X>641.364563</X>
+            <Y>395</Y>
+          </Points>
+          <Points>
+            <X>663.864563</X>
+            <Y>395</Y>
+          </Points>
+          <Points>
+            <X>663.864563</X>
+            <Y>307.5</Y>
+          </Points>
+          <Points>
+            <X>892.5</X>
+            <Y>307.5</Y>
+          </Points>
+          <Points>
+            <X>892.5</X>
+            <Y>330</Y>
+          </Points>
+          <Points>
+            <X>1260</X>
+            <Y>330</Y>
+          </Points>
+        </Points>
+      </Connection>
+      <Connection Source="IThis.INITO" Destination="FB4.START">
+        <Points>
+          <Points>
+            <X>1403.73962</X>
+            <Y>300</Y>
+          </Points>
+          <Points>
+            <X>1369.67212</X>
+            <Y>300</Y>
+          </Points>
+          <Points>
+            <X>1369.67212</X>
+            <Y>212</Y>
+          </Points>
+          <Points>
+            <X>502.172119</X>
+            <Y>212</Y>
+          </Points>
+          <Points>
+            <X>502.172119</X>
+            <Y>240</Y>
+          </Points>
+          <Points>
+            <X>560</X>
+            <Y>240</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.INITO" Destination="INITO" dx1="40" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="InletFast" Destination="FB2.InletFast" />
+      <Connection Source="InletSlow" Destination="FB2.InletSlow" />
+      <Connection Source="Outlet" Destination="FB2.Outlet" />
+      <Connection Source="Water.out" Destination="FB1.Level" dx1="94.1875" dx2="120" dy="842">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.Permit" Destination="FB9.PERMIT" />
+      <Connection Source="Water.out" Destination="FB7.Inp">
+        <Points>
+          <Points>
+            <X>881.4531</X>
+            <Y>430</Y>
+          </Points>
+          <Points>
+            <X>1050</X>
+            <Y>430</Y>
+          </Points>
+          <Points>
+            <X>1050</X>
+            <Y>684.5</Y>
+          </Points>
+          <Points>
+            <X>1175</X>
+            <Y>684.5</Y>
+          </Points>
+          <Points>
+            <X>1175</X>
+            <Y>790</Y>
+          </Points>
+          <Points>
+            <X>1270</X>
+            <Y>790</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.Permit" Destination="FB6.PERMIT" dx1="99.08325" dx2="30" dy="-370" />
+      <Connection Source="FB7.Out" Destination="FB3.INP" dx1="119.854">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB7.Out" Destination="WaterLevel" dx1="49.854" />
+      <Connection Source="FB2.pv1" Destination="Water.pv1" dx1="90" />
+      <Connection Source="FB3.OUT" Destination="IThis.Position" dx1="107.229" dx2="240" dy="-358">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.Attention" Destination="IThis.Attention">
+        <Points>
+          <Points>
+            <X>787.7292</X>
+            <Y>775</Y>
+          </Points>
+          <Points>
+            <X>875.0001</X>
+            <Y>775</Y>
+          </Points>
+          <Points>
+            <X>875.0001</X>
+            <Y>675</Y>
+          </Points>
+          <Points>
+            <X>1140</X>
+            <Y>675</Y>
+          </Points>
+          <Points>
+            <X>1140</X>
+            <Y>425</Y>
+          </Points>
+          <Points>
+            <X>1260</X>
+            <Y>425</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.Permit" Destination="IThis.TankRupture" dx1="609.0837">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.InletFastHMI" Destination="IThis.InletFast">
+        <Attribute Name="Configuration.Connections.CrossReference" Value="True" />
+      </Connection>
+      <Connection Source="FB2.InletSlowHMI" Destination="IThis.InletSlow">
+        <Attribute Name="Configuration.Connections.CrossReference" Value="True" />
+      </Connection>
+      <Connection Source="FB2.OutletHMI" Destination="IThis.Outlet">
+        <Attribute Name="Configuration.Connections.CrossReference" Value="True" />
+      </Connection>
+    </DataConnections>
+  </FBNetwork>
+</FBType>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Guid="847CF617-CF8D-4D27-B497-A6B4FD51D0AF" SnapshotGuid="4346CD1F-4DE9-4D70-ADE9-FF012C83688E" xmlns="http://tempuri.org/XMLSchema.xsd">
+  <Device Name="DEV" Id="9036EFF3756127F0">
+    <Resource Name="RES0" Id="52E15276625AF793">
+      <FB Path="ALARM_1" Id="9153DD40252EC2CB" />
+      <FB Path="ALARM_2" Id="DA955B084BB70BA1" />
+    </Resource>
+  </Device>
+</Project>
