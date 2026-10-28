@@ -1,122 +1,122 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <baseline xmlns:xsd="http://www.nxtControl.com/Snapshot" xmlns="http://tempuri.org/XMLSchema1.xsd">
-  <snapshot guid="{C324BB25-414B-4374-9750-1B6A3E4517C2}" compiler="Default" created="2026-10-25T11:37:41" base="{00000000-0000-0000-0000-000000000000}">
+  <snapshot guid="{85E488F5-73BE-4A52-B5A1-2BC5802726C0}" compiler="Default" created="2026-10-28T19:01:01" base="{00000000-0000-0000-0000-000000000000}">
     <DeployInformation Type="Working">
       <FileGroup Name="FileList" xmlns="http://tempuri.org/DeploySnapshot.xsd">
-        <FileItem Name="Main#ADDER.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#ADDER.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>524A2A2BF4D542C3</Hash>
         </FileItem>
-        <FileItem Name="Main#ArmControl.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#ArmControl.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>17638D3DF8221CE32</Hash>
         </FileItem>
-        <FileItem Name="Main#BigDemux.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#BigDemux.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>61E9F0421BDDB753</Hash>
         </FileItem>
-        <FileItem Name="Main#Bool2Real.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#Bool2Real.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>17DB521105EA79F5</Hash>
         </FileItem>
-        <FileItem Name="Main#ChangeDetect.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#ChangeDetect.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>209B78D6B227CF7AD</Hash>
         </FileItem>
-        <FileItem Name="Main#CylControl.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#CylControl.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>85D243FEDE1E09A6</Hash>
         </FileItem>
-        <FileItem Name="Main#Demux.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#Demux.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>526E9C64EDE2DC3D</Hash>
         </FileItem>
-        <FileItem Name="Main#FeederControl.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#FeederControl.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>106E66557DECF145F</Hash>
         </FileItem>
-        <FileItem Name="Main#FeederModel.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#FeederModel.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>3304AC1D6F157D7</Hash>
         </FileItem>
-        <FileItem Name="Main#InRange.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#InRange.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>205CE70A82C3A73F6</Hash>
         </FileItem>
-        <FileItem Name="Main#integEC.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#integEC.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>169764E62BF4E6D0C</Hash>
         </FileItem>
-        <FileItem Name="Main#Muxer.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#Muxer.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>9C71003AA26B8ED</Hash>
         </FileItem>
-        <FileItem Name="Main#PhysicsRulesWorkPieces.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#PhysicsRulesWorkPieces.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>73884BEDE970F041</Hash>
         </FileItem>
-        <FileItem Name="Main#Real2Bool.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#Real2Bool.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>83E7EA0A08C6DD63</Hash>
         </FileItem>
-        <FileItem Name="Main#Real2Int.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#Real2Int.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>93505E3C40758499</Hash>
         </FileItem>
-        <FileItem Name="Main#NOT_42C76073DCEB1A7A.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#NOT_42C76073DCEB1A7A.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>42C76073DCEB1A7A</Hash>
         </FileItem>
-        <FileItem Name="Main#ADD_1990CFD1468AAE4A6.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#ADD_1990CFD1468AAE4A6.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>1990CFD1468AAE4A6</Hash>
         </FileItem>
-        <FileItem Name="Main#ButtonsPanel.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#ButtonsPanel.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>210E4086D5EE59127</Hash>
         </FileItem>
-        <FileItem Name="Main#ButtonsPanel_HMI.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#ButtonsPanel_HMI.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>149E7BC67EF5CD768</Hash>
         </FileItem>
-        <FileItem Name="Main#Controller.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-25T11:37:39</Modified>
+        <FileItem Name="Main#Controller.bin" Library="Main" BuildSnapshot="{85E488F5-73BE-4A52-B5A1-2BC5802726C0}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T19:00:59</Modified>
           <Hash>2051157DFE5237FE4</Hash>
         </FileItem>
-        <FileItem Name="Main#Model.bin" Library="Main" BuildSnapshot="{FA6C15A3-76E8-4132-B8A1-2B04F2F96FAA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-24T23:20:59</Modified>
+        <FileItem Name="Main#Model.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>148ABBCC31A73A46F</Hash>
         </FileItem>
-        <FileItem Name="Main#Model_HMI.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#Model_HMI.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>699156ED7C73C9C4</Hash>
         </FileItem>
-        <FileItem Name="Main#Pusher.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#Pusher.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>438C0A1E18D35E7C</Hash>
         </FileItem>
-        <FileItem Name="Main#Test.bin" Library="Main" BuildSnapshot="{FA6C15A3-76E8-4132-B8A1-2B04F2F96FAA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-24T23:20:59</Modified>
+        <FileItem Name="Main#Test.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>183B51FE3C4837738</Hash>
         </FileItem>
-        <FileItem Name="Main#Test_HMI.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#Test_HMI.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>2298A5A85A3A23002</Hash>
         </FileItem>
-        <FileItem Name="Main#TransferUnit.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#TransferUnit.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>713DE1476B47226</Hash>
         </FileItem>
-        <FileItem Name="Main#WorkPieces.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#WorkPieces.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>1077E0FFFADF77CA1</Hash>
         </FileItem>
-        <FileItem Name="Main#Wp.bin" Library="Main" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#Wp.bin" Library="Main" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>67C77FBE806C0A5C</Hash>
         </FileItem>
-        <FileItem Name="Main#MUX_MY.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#MUX_MY.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>134A6440EB4ABEDD6</Hash>
         </FileItem>
         <FileItem Name="Main#AckIlluminator.bin" Library="IEC61499.dll" BuildSnapshot="{A300A80F-D443-4399-9CD9-2061EB2EFF29}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
@@ -124,79 +124,79 @@
           <Hash>279E348F4ACE62A5</Hash>
         </FileItem>
         <FileItem Name="Main#AutomaticOperation.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-25T11:37:39</Modified>
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>1821E701F20DFC5FB</Hash>
         </FileItem>
-        <FileItem Name="Main#DEMUX_2.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#DEMUX_2.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>1705932F35F51F06C</Hash>
         </FileItem>
-        <FileItem Name="Main#ManualOperation.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#ManualOperation.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>2066FBA437B06844</Hash>
         </FileItem>
-        <FileItem Name="Main#BtnController.bin" Library="IEC61499.dll" BuildSnapshot="{F1E2D41F-54B1-4B4B-A5AD-8C74FB62F998}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-24T02:26:35</Modified>
-          <Hash>146611722310E9FD6</Hash>
+        <FileItem Name="Main#BtnController.bin" Library="IEC61499.dll" BuildSnapshot="{85E488F5-73BE-4A52-B5A1-2BC5802726C0}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T19:00:59</Modified>
+          <Hash>641A0AB2C07E9E88</Hash>
         </FileItem>
-        <FileItem Name="Main#SELECT_783952938E11160B.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#SELECT_783952938E11160B.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>783952938E11160B</Hash>
         </FileItem>
-        <FileItem Name="Main#E_MERGE_5.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#E_MERGE_5.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>117910C5CF1CAB0F5</Hash>
         </FileItem>
-        <FileItem Name="Main#LightControll.bin" Library="IEC61499.dll" BuildSnapshot="{B7233CD9-10AF-4422-A088-475B34AE24A0}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-24T02:22:30</Modified>
+        <FileItem Name="Main#LightControll.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>1127E0A5AA8B1232C</Hash>
         </FileItem>
-        <FileItem Name="Main#StartLedControl.bin" Library="IEC61499.dll" BuildSnapshot="{B7233CD9-10AF-4422-A088-475B34AE24A0}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-24T02:22:30</Modified>
+        <FileItem Name="Main#StartLedControl.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>24364CF258AD280BC</Hash>
         </FileItem>
-        <FileItem Name="Main#InitState.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#InitState.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>2022505218A21F26</Hash>
         </FileItem>
-        <FileItem Name="Main#ResetLedControl.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#ResetLedControl.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>1287364D08E0F2910</Hash>
         </FileItem>
-        <FileItem Name="Main#AckHelper.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#AckHelper.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>62CA9940DBF30EB1</Hash>
         </FileItem>
-        <FileItem Name="Main#AckLedControl.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#AckLedControl.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>12478E8C0F1975C3D</Hash>
         </FileItem>
-        <FileItem Name="Main#E_SELECT_5.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#E_SELECT_5.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>187BE22054B1ADF1D</Hash>
         </FileItem>
-        <FileItem Name="Main#buttons_manual.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#buttons_manual.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>14736BB83C931E181</Hash>
         </FileItem>
         <FileItem Name="Main#pusher_sensors.bin" Library="IEC61499.dll" BuildSnapshot="{D8F018F2-C0D3-4E8E-BF3B-0708196526D6}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
           <Modified>2026-10-22T22:43:00</Modified>
           <Hash>75D72D9C244BA5B0</Hash>
         </FileItem>
-        <FileItem Name="Main#Pusher_IMC.bin" Library="IEC61499.dll" BuildSnapshot="{FA6C15A3-76E8-4132-B8A1-2B04F2F96FAA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-24T23:20:59</Modified>
-          <Hash>253086532BBA6A6B2</Hash>
+        <FileItem Name="Main#Pusher_IMC.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
+          <Hash>1577D5CB50BCF3D5F</Hash>
         </FileItem>
-        <FileItem Name="Main#pusher_position.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#pusher_position.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>71A510EA13A90CC6</Hash>
         </FileItem>
-        <FileItem Name="Main#pusher_info.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#pusher_info.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>1232D37B65A164BFA</Hash>
         </FileItem>
         <FileItem Name="Main#Automatic_Pusher.bin" Library="IEC61499.dll" BuildSnapshot="{FA6C15A3-76E8-4132-B8A1-2B04F2F96FAA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-24T23:20:59</Modified>
+          <Modified>2026-10-24T23:20:58</Modified>
           <Hash>1890E15A700F705C8</Hash>
         </FileItem>
         <FileItem Name="Main#pos_pusher.bin" Library="IEC61499.dll" BuildSnapshot="{B7F3BB48-F2F6-4EDE-A42F-1058A5F19707}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
@@ -207,45 +207,49 @@
           <Modified>2026-10-22T23:38:18</Modified>
           <Hash>153A4E092E468FCFA</Hash>
         </FileItem>
-        <FileItem Name="Main#Algorithm_tu.bin" Library="IEC61499.dll" BuildSnapshot="{FA6C15A3-76E8-4132-B8A1-2B04F2F96FAA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-24T23:20:59</Modified>
+        <FileItem Name="Main#Algorithm_tu.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>31875F8622DF33B3</Hash>
         </FileItem>
-        <FileItem Name="Main#lamp_control.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#lamp_control.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>2310A5882C6763FCA</Hash>
         </FileItem>
-        <FileItem Name="Main#buttons_automatic.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#buttons_automatic.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>198B2BE288CBF9CCD</Hash>
         </FileItem>
-        <FileItem Name="Main#pos_init.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#pos_init.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>1006D390621194F4E</Hash>
         </FileItem>
-        <FileItem Name="Main#system_info.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#system_info.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>7758ECAC8888798F</Hash>
         </FileItem>
-        <FileItem Name="Main#control_IMC.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#control_IMC.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>13384E3B92E88F245</Hash>
         </FileItem>
-        <FileItem Name="Main#pos_IMC.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#pos_IMC.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>2399A659EA42B52D8</Hash>
         </FileItem>
-        <FileItem Name="Main#vcm_control.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#vcm_control.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>223C6A15C1F3119E0</Hash>
         </FileItem>
-        <FileItem Name="Main#tu_pos.bin" Library="IEC61499.dll" BuildSnapshot="{AEBCCB2D-4F1C-42E8-A8DF-2D4CACBC49A4}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-23T21:40:56</Modified>
+        <FileItem Name="Main#tu_pos.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>656E9E0172D29C85</Hash>
         </FileItem>
-        <FileItem Name="Main#TransferUnit_IMC.bin" Library="IEC61499.dll" BuildSnapshot="{FA6C15A3-76E8-4132-B8A1-2B04F2F96FAA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-          <Modified>2026-10-24T23:20:59</Modified>
+        <FileItem Name="Main#TransferUnit_IMC.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
           <Hash>151ECC0E9279040B0</Hash>
+        </FileItem>
+        <FileItem Name="Main#Algorithm_p.bin" Library="IEC61499.dll" BuildSnapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2026-10-28T17:54:54</Modified>
+          <Hash>2056E2CAEEB4CBE54</Hash>
         </FileItem>
         <LibraryItem Name="Runtime.Base" Version="23.0.0.15" />
         <LibraryItem Name="SE.DPAC" Version="23.0.0.57" />
@@ -254,134 +258,133 @@
       </FileGroup>
       <Device Name="EcoRT_0" ID="D166C33F-F415-406D-AF33-1F9D600E8C6B" xmlns="http://tempuri.org/DeploySnapshot.xsd">
         <FileItem Name="Composites/Main#Test_HMI.bin">
-          <Hash>ACF50AFCCAB97E9B49D3081B017B81C2AE2C4BC466BA447184005DC354675B9A</Hash>
+          <Hash>8C7B95B2EE5D222942712A7D4600BA499DE758A6C94AC5105CB5C3891658E70F</Hash>
         </FileItem>
         <FileItem Name="Adapters/Main#buttons_manual.bin">
-          <Hash>91078E010217AC8F828A09CD7DC0F3C0E76929F6A87B730A4E5A80B2493EBC36</Hash>
+          <Hash>0799D25182BCA28BD70C6CF292A4C65A616DE0DC4DC411B35C6F4BE43859BC8F</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#Test.bin">
-          <Hash>6B733AE85B17B5A3EAFAD2B321F72AB43DCDC308BE2CE7140D50765729B22901</Hash>
+          <Hash>0A619142C3DFA5ADF4C21B8585D4E5241D6B2DEDA241301050DE5DD0D42A39AB</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#ChangeDetect.bin">
-          <Hash>E8F7430EDF6B8A4A0AAFA4D30983316939C547EFBD2F9DFE9A00E033380641A1</Hash>
+          <Hash>630A10DD8C0998ECCA2C29A5C7E6F8BF5D41AAB672AC890226B9C4ADA3BE2B1F</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#BigDemux.bin">
-          <Hash>FCC455FCCAD903CD470833EE657B7A7871B430660B228DB1FD88F36FC02442C8</Hash>
+          <Hash>59B86B4F0A6A460E7803ED0F803FCF4A9DB912669A17FBF533C5EAD46B8F146E</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#PhysicsRulesWorkPieces.bin">
-          <Hash>5425F340183EA95065B456ADB7FF3DFFAA6C8C74A095962D52436D2F0EC9B67F</Hash>
+          <Hash>9E1AB07AD395B8EF00F7D38C2894C593ADADA96E514577DA84131E870D4098F7</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#Real2Bool.bin">
-          <Hash>D97838D27B71501924D9A2CDCD55C2DAD153D04AF3CE99D164FCF67F0CC98412</Hash>
+          <Hash>946E95018A245EC0C762A90F496E591C8151ACD34E9DED8840D280652C13F90D</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#Bool2Real.bin">
-          <Hash>7093D185E86E6B7880265DF9DB9BAD5E3B46F02AE31200876CF753837A27B2C1</Hash>
+          <Hash>85B86B7340CEE7FEEA14B8CFC4133E49BA8186D21E2A263287D6A0E292EB0978</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#WorkPieces.bin">
-          <Hash>ED37197593827D97F314DC575724F447306FEE9EBB242DC4BCD35AFA714EB5D7</Hash>
+          <Hash>D1373BAA1AA3CC336E4A93507DEFFB23071FBA5AF2D4D612D7E9844D78330679</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#Model_HMI.bin">
-          <Hash>30D9F6B06C4458BB9A68541C99E87B755380B054C26508386EB7EE933109C461</Hash>
+          <Hash>79959A03C062FD0C55AE7BDE4CB5E4DA46B2A930F3E99790A66DCFCFCDFE84D9</Hash>
         </FileItem>
         <FileItem Name="Adapters/Main#pos_IMC.bin">
-          <Hash>BFD6C1A2171473E970D472770EDC8B27AE84301A40C708085D23E1D835FB4FA3</Hash>
+          <Hash>BB8E92ECCB48E19A21918DDD5799F73CF02222217FFBD26637DBFD2D9EBFA3E8</Hash>
         </FileItem>
         <FileItem Name="Adapters/Main#vcm_control.bin">
-          <Hash>8EEFFF10E43E4B400A08CD05B04FDBA1E8DFEB38092B213C7E155FFDCB566615</Hash>
+          <Hash>4C3188C403486726EE33CCD8337F9803832EF3493013545D32839654FC57E562</Hash>
         </FileItem>
         <FileItem Name="Adapters/Main#system_info.bin">
-          <Hash>999DD1CB059810652CA15B233D9487FAB7A702BF195DB79D5CC64B13E99E40C9</Hash>
+          <Hash>C199C1AE3D88434382423492C613B6C0015141EC7D8ECB2252F1C573B325CA6D</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#Model.bin">
-          <Hash>7418A53213EDBFF8AE3459EDBE4F9B4CCE6143F29668090931913884B710BC64</Hash>
+          <Hash>0E3CDDDC17ED57C18D2D2EE5ED2C420CFE7DE1627E7193AF87B825FAF61B341B</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#ButtonsPanel_HMI.bin">
-          <Hash>F742671B79AD26670E2E85F8B974B2C32B6BA1D459AF9CB939722A179E09BFA0</Hash>
+          <Hash>236FDFA34C36E40F2259D8ACF29B03E1A0F30FBD61D4180CC5FABC8E703B1B3E</Hash>
         </FileItem>
         <FileItem Name="Adapters/Main#lamp_control.bin">
-          <Hash>AF4AB7D9AA3BB560D52F14A59A8F597536224A2168C6BAD505692317410C5AF6</Hash>
+          <Hash>169849B5428F0ECC05F3B91251664AABC5DAA3E941FE156606E1689CC43AD0D2</Hash>
         </FileItem>
         <FileItem Name="Adapters/Main#buttons_automatic.bin">
-          <Hash>CDE53F32C0C170A696C6B6261B34263DA72B560FAFD27563B7797C37A7188AC3</Hash>
+          <Hash>D587A45256F3553CFB3E16708AB70E37230D3656271673D2CEDE5F43A2E442D6</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#ButtonsPanel.bin">
-          <Hash>280B8E6F5422177B949DA307BB85600967CA62F7B304D1EBC0166CF4FEEEC170</Hash>
+          <Hash>183314BEEE06798BDBE47808BD63C37B4C5FC9D58ECCB7215A9B121D16C656BD</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#BtnController.bin">
-          <Hash>69B7FEB6AB58B73813400ECC60B0B79884E6B0D5B570FD52B1F8025C1A24E829</Hash>
+          <Hash>FC232102B3943E850A2DBF04EA7DFE4ECC10B77EE71ED666B1FAA4A8592B6EFB</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#AutomaticOperation.bin">
           <Hash>F48FAFC8261391B996A968D7C35A09461A7B453760104D11ED795168B03B8FA0</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#StartLedControl.bin">
-          <Hash>35B429F0E266DCCBC3100B9FC3AFEE54A4F31C65A05ED745EE1F560D9CFED39A</Hash>
+          <Hash>42BD290C8FF807BF4B73BC8D6EE4E933B60E742D0010B15B6EA44982648EBB19</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#ResetLedControl.bin">
-          <Hash>1EA3413E13A9C5C471FAE4C7F5D7302634048C9633AC1331C08D6BB5FCF90B50</Hash>
+          <Hash>EC56BB531CA5DE54661461390AD5C642C85CFE4E07A80E55993AE51D9341EA42</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#MUX_MY.bin">
-          <Hash>E921CDA47F3A343DFB4C6CEBFD0DD02DB28AE9206DB0CBC2C3C03BB7DB31AE3E</Hash>
+          <Hash>B1359C0A57EF343BD471649FC0809CF2A47FC65CDC729D510D1A43D2B101AFFB</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#AckHelper.bin">
-          <Hash>F8C2B0770CA8BAD1BB856726FB83B6BED74F137992D0671FB1C06B9912683201</Hash>
+          <Hash>6F11E4C55925E7EC89ECCC3A3C0099A10B1449970C21DD2936C0B98982241E72</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#NOT_42C76073DCEB1A7A.bin">
-          <Hash>C2E6DF1BFACF36D8EF2E7D26840EFE8A35C85AA1EBA3CFE87860B15DFFE325D1</Hash>
+          <Hash>1B8DF0E9755DB08DBF66FDB8557B1D05345D396F1C485A329873528C3D7C35A5</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#AckLedControl.bin">
-          <Hash>043526DE436644D57329267D2FB8D910D2517226A814BB314B3D4B2CAB7860EA</Hash>
+          <Hash>DF4760FC49B9EFB32E29EBB2EAA480F8D1578A8F10DCB1E07485B62E897AC4B3</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#LightControll.bin">
-          <Hash>2B25856708196C262B306821916616E364D6D22AF14BBA6B414852E817E9184E</Hash>
+          <Hash>455FDCC4E0EAACDDCC530D575BF9A3DFA8561F7C470A28D449CA17EBC0DDBE76</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#InitState.bin">
-          <Hash>36D362983CA7E235A137C582D03CA0275567A2144CAA2AE119BF15BDFF45E1CF</Hash>
+          <Hash>99E4920B7F8672E0EDCDD96C15201FD9BB8AA312EAD067AE6825664512235036</Hash>
         </FileItem>
         <FileItem Name="Adapters/Main#pos_init.bin">
-          <Hash>0A94BDDEF218F6F75BC4599B2587230A6ADBB9DAA6E4B77BF0CD7A1F3CC93ECE</Hash>
+          <Hash>5268FDDE94329AE9F278EFE2E6716DADA42AD7B11678EF35D1089691D2BC6A29</Hash>
         </FileItem>
         <FileItem Name="Adapters/Main#control_IMC.bin">
-          <Hash>AEB36ABFF36E789F877C463DEFE21F4E134676574D5D70DF2FBA1EDAFC6A694F</Hash>
+          <Hash>D8ABF35FCFAB55BB536BECA1C37674281BD71C6106649420904DBCD1D42A7AFF</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#Controller.bin">
-          <Hash>6A54914131494A28CEC602E9E8920AD4EBBED2332FDC60D26880DE83BD5DBBFE</Hash>
+          <Hash>149E9BD34E9072D4B436E718FBF920166F9C07BEA0D931FF88294DB2DB50C555</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#InRange.bin">
-          <Hash>06317258278CC6DE919B1D5C321CB52CE19A13FBECEBA775B83FE5DD827EACC7</Hash>
+          <Hash>BB23C6D5E5A02E984C5341654A457D091771462DD57F3A4A38251A6ACDAAD5DF</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#CylControl.bin">
-          <Hash>A32330CC2087CC842A498025C9FA2B75567467561DF6C37BC837463DDC29B9CC</Hash>
+          <Hash>2626849AD825B7667313A04C3BEC7096AC4E8EE1AD58D314095AE3C9B765B6D0</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#integEC.bin">
-          <Hash>B514F85517D49903F21725FC228FF595843A2A63573B0FC4F7D3CD6CBE10BD15</Hash>
+          <Hash>EBEB8233E6FB0956F15B86B4DF70BB35C8D09F1952C29BDA9C7796D1C45E2D59</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#Pusher.bin">
-          <Hash>91D8CA5FDE7CB6A6AB1663B83E35058D00B4A08EF228B6D4D2DC7E82DBF9B60C</Hash>
+          <Hash>E738A1BABF6572E8409A4A5C00D763DEA7644760990F5050635CD8222D6813D6</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#pusher_position.bin">
-          <Hash>B76BC1D7BD50BC3448C67AAD885128A17AC236A302D28602FEEDBD1945ABDD0A</Hash>
+          <Hash>7521ECAB7E18EFCEC300C1EB8CB858DFCD873065B38331C8AAFC4F82CF6AAADF</Hash>
         </FileItem>
-        <FileItem Name="Basics/Main#Automatic_Pusher.bin">
-          <Hash>5C9B3F802251FB73B7CD1F67153F1EEE73DC22377CAA3CF894F9BD6A1B67D360</Hash>
+        <FileItem Name="Basics/Main#Algorithm_p.bin">
+          <Hash>D3F5A93F2E666B38B727AC0B035CD6968E8645F07EFC230AB8409067D28A219A</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#Pusher_IMC.bin">
-          <Hash>C27D784705A341623CB08FFB9CCDBC248AC5F6FF71C5468DAB9BE1645778C283</Hash>
-          <Changed>true</Changed>
+          <Hash>74F8C55300C6353CCDF1459C749DE7A281C736C803F72D2871B42B59DAC4D990</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#ArmControl.bin">
-          <Hash>AF8D23A999A843A4BCE292E282CA5898357386A618100AD5231A2376104BE448</Hash>
+          <Hash>5A81BEDFD41C8B7879A245C6630BE653F9E30E8095786954549085E655FDBD13</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#TransferUnit.bin">
-          <Hash>C00D8F0C0DD3066B898729C062C44A15780579F2E0DD0BF21B232D119CB1CAF6</Hash>
+          <Hash>D169CB9185A65419DB95A2249A55BB17844E33BCA2B2F9245ED893AB4C362524</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#tu_pos.bin">
-          <Hash>1F0329CDAD0971061CA458F32561CD5F919C6CFF43A2432739BFC04BB85E0B86</Hash>
+          <Hash>7EC5794B32E86B91032B8ECAAADFE9441D7240BF8DB60030BA07D3AD4DCEDE69</Hash>
         </FileItem>
         <FileItem Name="Basics/Main#Algorithm_tu.bin">
-          <Hash>3E06093E49E0315499E64B0BC2BE95D657A9B6310E487BB19D9330A449A9AFA5</Hash>
+          <Hash>F90C44DDDF2640A884A061B55FF1C3115FE62F62969BA2FD83E489C8B9D86D49</Hash>
         </FileItem>
         <FileItem Name="Composites/Main#TransferUnit_IMC.bin">
-          <Hash>95F7CB6EB80837E8622A6332D32B77A5865EE3268F1631F3CDCA3B80525E7EC6</Hash>
+          <Hash>C06958422781848DC6FF6BC5DEC39447158D7A95AED41704FB2DBDE628CE6430</Hash>
         </FileItem>
       </Device>
     </DeployInformation>
@@ -389,7 +392,7 @@
   <deployment>
     <network_profile name="(Local Test)">
       <device id="D166C33F-F415-406D-AF33-1F9D600E8C6B">
-        <sref snapshot="{C324BB25-414B-4374-9750-1B6A3E4517C2}" state="ACTIVE_MODIFIED" />
+        <sref snapshot="{85E488F5-73BE-4A52-B5A1-2BC5802726C0}" state="ACTIVE" />
       </device>
     </network_profile>
   </deployment>

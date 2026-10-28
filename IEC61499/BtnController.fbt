@@ -91,55 +91,55 @@
       <ECState Name="INTERLOCK_1" x="2916" y="324">
         <ECAction Algorithm="INTERLOCK1" Output="CNF" />
       </ECState>
-      <ECTransition Source="START" Destination="AUTO_WORK" Condition="REQ_P [start AND NOT mode AND (ready_flag OR in_cycle) AND NOT empty]" x="1140.613" y="1266.548">
+      <ECTransition Source="START" Destination="AUTO_WORK" Condition="REQ_P [start AND (mode_flag = 1) AND NOT mode AND (ready_flag OR in_cycle) AND NOT empty]" x="1140.62" y="1266.548">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="327.894,283.7383,246.7436,359.0977" />
       </ECTransition>
-      <ECTransition Source="AUTO_WORK" Destination="START" Condition="1" x="1131.917" y="1110.061">
+      <ECTransition Source="AUTO_WORK" Destination="START" Condition="1" x="1131.915" y="1110.061">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="246.8643,306.9396,327.9632,231.5719" />
       </ECTransition>
-      <ECTransition Source="START" Destination="AUTO_STOP" Condition="REQ_P [(stop AND NOT mode AND in_cycle)]" x="1762.355" y="1224.171">
+      <ECTransition Source="START" Destination="AUTO_STOP" Condition="REQ_P [(stop AND NOT mode AND in_cycle)]" x="1762.291" y="1224.171">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="439.9811,261.773,450.3781,345.5564" />
       </ECTransition>
-      <ECTransition Source="START" Destination="AUTO_RESET" Condition="REQ_P [reset AND NOT mode]" x="2055.154" y="1059.754">
+      <ECTransition Source="START" Destination="AUTO_RESET" Condition="REQ_P [reset AND NOT mode]" x="2055.093" y="1059.754">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="492.0254,232.9219,541.1949,288.4631" />
       </ECTransition>
-      <ECTransition Source="AUTO_RESET" Destination="START" Condition="1" x="1933.964" y="1150.755">
+      <ECTransition Source="AUTO_RESET" Destination="START" Condition="1" x="1933.902" y="1150.755">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="506.5704,320.1767,453.8031,261.8755" />
       </ECTransition>
-      <ECTransition Source="AUTO_STOP" Destination="START" Condition="1" x="1641.663" y="1306.633">
+      <ECTransition Source="AUTO_STOP" Destination="START" Condition="1" x="1641.58" y="1306.632">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="411.8969,372.8666,401.8513,289.4374" />
       </ECTransition>
-      <ECTransition Source="START" Destination="MODE_M" Condition="[mode AND (NOT in_cycle AND ready_flag)]" x="1305.744" y="384.9158">
+      <ECTransition Source="START" Destination="MODE_M" Condition="[mode AND (NOT in_cycle AND ready_flag)]" x="1305.769" y="384.8086">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="351.0063,104.073,300.627,75.80767" />
       </ECTransition>
-      <ECTransition Source="MODE_M" Destination="START" Condition="1" x="1173.762" y="611.1022">
+      <ECTransition Source="MODE_M" Destination="START" Condition="1" x="1173.781" y="611.0367">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="262.822,141.3175,319.1174,182.7947" />
       </ECTransition>
-      <ECTransition Source="START" Destination="MODE_A" Condition="REQ_P [NOT mode AND ready_flag AND init_flag]" x="944.6307" y="605.7895">
+      <ECTransition Source="START" Destination="MODE_A" Condition="REQ_P [NOT mode AND ready_flag AND init_flag]" x="944.6306" y="605.9316">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="262.0229,145.9532,203.8948,146.6934" />
       </ECTransition>
-      <ECTransition Source="MODE_A" Destination="START" Condition="1" x="915.254" y="767.34">
+      <ECTransition Source="MODE_A" Destination="START" Condition="1" x="915.2541" y="767.5057">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="186.2036,195.5832,260.1298,195.775" />
       </ECTransition>
-      <ECTransition Source="START" Destination="RESET_HANDLING" Condition="REQ_C [reset_flag AND ready_flag AND (mode_flag = 1)]" x="2273.25" y="927.2172">
+      <ECTransition Source="START" Destination="RESET_HANDLING" Condition="REQ_C [reset_flag AND ready_flag AND (mode_flag = 1)]" x="2273.184" y="927.2372">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="530.9808,208.3406,610.836,247.5714" />
       </ECTransition>
-      <ECTransition Source="RESET_HANDLING" Destination="START" Condition="1" x="2093.721" y="1016.967">
+      <ECTransition Source="RESET_HANDLING" Destination="START" Condition="1" x="2093.572" y="1016.967">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="552.7873,273.9695,484.6003,240.2242" />
       </ECTransition>
-      <ECTransition Source="START" Destination="STATE2" Condition="REQ_S [(mode_flag = 1) AND NOT empty AND ready_flag]" x="1777.85" y="433.715">
+      <ECTransition Source="START" Destination="STATE2" Condition="REQ_S [(mode_flag = 1) AND NOT empty AND ready_flag]" x="1777.607" y="433.7151">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="428.003,119.2576,455.0076,90.43481" />
       </ECTransition>
-      <ECTransition Source="STATE2" Destination="START" Condition="1" x="1966.32" y="519.3661">
+      <ECTransition Source="STATE2" Destination="START" Condition="1" x="1966.297" y="519.2635">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="508.2933,118.8747,481.7293,147.7051" />
       </ECTransition>
-      <ECTransition Source="START" Destination="START_HANDLING" Condition="REQ_S [ready_flag AND (mode_flag = 1) AND empty]" x="1168.885" y="1006.065">
+      <ECTransition Source="START" Destination="START_HANDLING" Condition="REQ_S [ready_flag AND (mode_flag = 1) AND empty]" x="1169.468" y="1006.065">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="325.6469,240.9452,260.8985,270.9807" />
       </ECTransition>
-      <ECTransition Source="START_HANDLING" Destination="START" Condition="1" x="1073.078" y="872.4622">
+      <ECTransition Source="START_HANDLING" Destination="START" Condition="1" x="1073.163" y="872.5228">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="232.3862,229.3488,308.6701,195.7918" />
       </ECTransition>
-      <ECTransition Source="START" Destination="INTERLOCK_1" Condition="REQ_P [(mode_flag = 1) AND mode]" x="2241.772" y="441.0686">
+      <ECTransition Source="START" Destination="INTERLOCK_1" Condition="REQ_P [(mode_flag = 1) AND mode]" x="2241.772" y="441.0685">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="522.0967,117.5056,603.6058,93.2756" />
       </ECTransition>
       <ECTransition Source="INTERLOCK_1" Destination="START" Condition="1" x="2282.121" y="596.9406">

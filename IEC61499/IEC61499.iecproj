@@ -25,7 +25,7 @@
     </Graphics>
   </Graphics>
   <WebGraphics Name="WebGraphics" IsExternal="false" />
-  <Security Level="Internal" IsActive="true">
+  <Security Level="Internal">
     <Info>﻿&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;UserManager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" HighestID="2"&gt;&lt;UserInfos Name="D7033E" Password="$1$C0F6808D4904A552278F3413BBB2A94B34C816B8B82CD1CEE608E4F990DE14FE$A77434B7E7651CC54EAF5BA7AFB6517DFEE84B3C4BFED0C7A59A3F6E49860901" SecurityToken="127" ID="1" MeetsCalLaw="true" /&gt;&lt;/UserManager&gt;</Info>
   </Security>
   <PluginGUIDs />

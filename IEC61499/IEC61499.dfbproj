@@ -65,7 +65,7 @@
       <IEC61499Type>CAT</IEC61499Type>
     </None>
     <None Include="Project.doc.xml" />
-    <None Include="SnapshotCompiles\{C324BB25-414B-4374-9750-1B6A3E4517C2}\Default\IEC61499.snapshot" />
+    <None Include="SnapshotCompiles\{85E488F5-73BE-4A52-B5A1-2BC5802726C0}\Default\IEC61499.snapshot" />
     <None Include="System\snapshot.xml">
       <DependentUpon>System.sys</DependentUpon>
     </None>
@@ -264,8 +264,8 @@
     <Folder Include="License" />
     <Folder Include="Log" />
     <Folder Include="SnapshotCompiles" />
-    <Folder Include="SnapshotCompiles\{C324BB25-414B-4374-9750-1B6A3E4517C2}" />
-    <Folder Include="SnapshotCompiles\{C324BB25-414B-4374-9750-1B6A3E4517C2}\Default" />
+    <Folder Include="SnapshotCompiles\{85E488F5-73BE-4A52-B5A1-2BC5802726C0}" />
+    <Folder Include="SnapshotCompiles\{85E488F5-73BE-4A52-B5A1-2BC5802726C0}\Default" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ButtonsPanel\ButtonsPanel_CAT.offline.xml">

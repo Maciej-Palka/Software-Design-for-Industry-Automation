@@ -1,9 +1,9 @@
 {
   "snapshot": {
-    "guid": "c324bb25-414b-4374-9750-1b6a3e4517c2",
-    "hash": "D1EC2138ADE22C6297947F687139317979AC6075A56639FF90D2987EF9B266B8",
+    "guid": "85e488f5-73be-4a52-b5a1-2bc5802726c0",
+    "hash": "35A18805BF5E66B0F861EA020D0E0168AFA1D4CE07DC754D06473E459443EBF0",
     "app": {
-      "hash": "D1EC2138ADE22C6297947F687139317979AC6075A56639FF90D2987EF9B266B8",
+      "hash": "35A18805BF5E66B0F861EA020D0E0168AFA1D4CE07DC754D06473E459443EBF0",
       "items": [
         "Main#Test_HMI.bin",
         "Main#buttons_manual.bin",
@@ -41,7 +41,7 @@
         "Main#integEC.bin",
         "Main#Pusher.bin",
         "Main#pusher_position.bin",
-        "Main#Automatic_Pusher.bin",
+        "Main#Algorithm_p.bin",
         "Main#Pusher_IMC.bin",
         "Main#ArmControl.bin",
         "Main#TransferUnit.bin",
