@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="rectangle1.Name" xml:space="preserve">
+    <value>rectangle1</value>
+  </metadata>
+  <metadata name="pusher.Name" xml:space="preserve">
+    <value>pusher</value>
+  </metadata>
+  <metadata name="TransArm.Name" xml:space="preserve">
+    <value>TransArm</value>
+  </metadata>
+  <metadata name="rectangle3.Name" xml:space="preserve">
+    <value>rectangle3</value>
+  </metadata>
+  <metadata name="rectangle4.Name" xml:space="preserve">
+    <value>rectangle4</value>
+  </metadata>
+  <metadata name="wp1.Name" xml:space="preserve">
+    <value>wp1</value>
+  </metadata>
+  <metadata name="PosPusher.Name" xml:space="preserve">
+    <value>PosPusher</value>
+  </metadata>
+  <metadata name="PosPusher.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="AngleTransUnit.Name" xml:space="preserve">
+    <value>AngleTransUnit</value>
+  </metadata>
+  <metadata name="AngleTransUnit.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="ellipse1.Name" xml:space="preserve">
+    <value>ellipse1</value>
+  </metadata>
+  <metadata name="rectangle2.Name" xml:space="preserve">
+    <value>rectangle2</value>
+  </metadata>
+  <metadata name="polygon1.Name" xml:space="preserve">
+    <value>polygon1</value>
+  </metadata>
+  <metadata name="rectangle5.Name" xml:space="preserve">
+    <value>rectangle5</value>
+  </metadata>
+  <metadata name="wp1X.Name" xml:space="preserve">
+    <value>wp1X</value>
+  </metadata>
+  <metadata name="wp1X.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp1Y.Name" xml:space="preserve">
+    <value>wp1Y</value>
+  </metadata>
+  <metadata name="wp1Y.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp2.Name" xml:space="preserve">
+    <value>wp2</value>
+  </metadata>
+  <metadata name="wp3.Name" xml:space="preserve">
+    <value>wp3</value>
+  </metadata>
+  <metadata name="wp4.Name" xml:space="preserve">
+    <value>wp4</value>
+  </metadata>
+  <metadata name="wp5.Name" xml:space="preserve">
+    <value>wp5</value>
+  </metadata>
+  <metadata name="wp6.Name" xml:space="preserve">
+    <value>wp6</value>
+  </metadata>
+  <metadata name="wp2X.Name" xml:space="preserve">
+    <value>wp2X</value>
+  </metadata>
+  <metadata name="wp2X.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp2Y.Name" xml:space="preserve">
+    <value>wp2Y</value>
+  </metadata>
+  <metadata name="wp2Y.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp3X.Name" xml:space="preserve">
+    <value>wp3X</value>
+  </metadata>
+  <metadata name="wp3X.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp3Y.Name" xml:space="preserve">
+    <value>wp3Y</value>
+  </metadata>
+  <metadata name="wp3Y.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp4X.Name" xml:space="preserve">
+    <value>wp4X</value>
+  </metadata>
+  <metadata name="wp4X.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp4Y.Name" xml:space="preserve">
+    <value>wp4Y</value>
+  </metadata>
+  <metadata name="wp4Y.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp5X.Name" xml:space="preserve">
+    <value>wp5X</value>
+  </metadata>
+  <metadata name="wp5X.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp5Y.Name" xml:space="preserve">
+    <value>wp5Y</value>
+  </metadata>
+  <metadata name="wp5Y.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp6X.Name" xml:space="preserve">
+    <value>wp6X</value>
+  </metadata>
+  <metadata name="wp6X.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="wp6Y.Name" xml:space="preserve">
+    <value>wp6Y</value>
+  </metadata>
+  <metadata name="wp6Y.Text" xml:space="preserve">
+    <value>Execution Shape</value>
+  </metadata>
+  <metadata name="rectangle6.Name" xml:space="preserve">
+    <value>rectangle6</value>
+  </metadata>
+  <metadata name="rectangle7.Name" xml:space="preserve">
+    <value>rectangle7</value>
+  </metadata>
+  <metadata name="rectangle9.Name" xml:space="preserve">
+    <value>rectangle9</value>
+  </metadata>
+  <metadata name="mgzEmpty.Name" xml:space="preserve">
+    <value>mgzEmpty</value>
+  </metadata>
+  <metadata name="vcmON.Name" xml:space="preserve">
+    <value>vcmON</value>
+  </metadata>
+  <metadata name="vacum.Name" xml:space="preserve">
+    <value>vacum</value>
+  </metadata>
+  <metadata name="$this.GridSize" type="System.Drawing.Size, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>5, 5</value>
+  </metadata>
+  <metadata name="$this.Name" xml:space="preserve">
+    <value>sDefault</value>
+  </metadata>
+  <metadata name="$this.LayerActive" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>0</value>
+  </metadata>
+  <metadata name="$this.Size" type="System.Drawing.Size, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>730, 310</value>
+  </metadata>
+  <metadata name="$this.LayerSelectable" xml:space="preserve">
+    <value>1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1</value>
+  </metadata>
+  <metadata name="$this.SnapToGrid" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="$this.ShowGrid" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="$this.LayerVisible" xml:space="preserve">
+    <value>1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1</value>
+  </metadata>
+</root>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FBType GUID="5f9fd5c7-2cee-4a35-a19d-328144769418" Name="E_MERGE_5" Comment="Extracted Composite Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Author="macie" Date="10/20/2026" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="FB7_EI2" Comment="Second input event" />
+      <Event Name="FB7_EI1" Comment="First input event" />
+      <Event Name="FB8_EI2" Comment="Second input event" />
+      <Event Name="FB8_EI1" Comment="First input event" />
+      <Event Name="FB9_EI2" Comment="Second input event" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="FB10_EO" Comment="Output Event" />
+    </EventOutputs>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="FB7" Type="E_MERGE" x="6500" y="1380" Namespace="IEC61499.Standard" />
+    <FB Name="FB8" Type="E_MERGE" x="6480" y="300" Namespace="IEC61499.Standard" />
+    <FB Name="FB9" Type="E_MERGE" x="7200" y="1640" Namespace="IEC61499.Standard" />
+    <FB Name="FB10" Type="E_MERGE" x="7560" y="860" Namespace="IEC61499.Standard" />
+    <EventConnections>
+      <Connection Source="FB7.EO" Destination="FB9.EI1" dx1="91.5415">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB8.EO" Destination="FB10.EI1" dx1="41.5415" />
+      <Connection Source="FB9.EO" Destination="FB10.EI2" dx1="41.5415" />
+      <Connection Source="FB7_EI2" Destination="FB7.EI2" />
+      <Connection Source="FB7_EI1" Destination="FB7.EI1" />
+      <Connection Source="FB8_EI2" Destination="FB8.EI2" />
+      <Connection Source="FB8_EI1" Destination="FB8.EI1" />
+      <Connection Source="FB9_EI2" Destination="FB9.EI2" />
+      <Connection Source="FB10.EO" Destination="FB10_EO" />
+    </EventConnections>
+  </FBNetwork>
+</FBType>

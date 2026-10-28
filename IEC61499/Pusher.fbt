@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="3b3d9aa4-5636-4beb-896d-bc6ed2bba918" Name="Pusher" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="13" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="7/14/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="Retract" />
+        <With Var="Stop" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Retract" />
+        <With Var="Stop" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CHG">
+        <With Var="Retracted" />
+        <With Var="Extended" />
+      </Event>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="Pos" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Pos" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Retract" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="Stop" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Pos" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="Retracted" Type="BOOL" />
+      <VarDeclaration Name="Extended" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="3" Name="RetractedSensor" Type="InRange" x="3120" y="880" Namespace="Main">
+      <Parameter Name="Range" Value="[-0.5,0.0]" />
+    </FB>
+    <FB ID="4" Name="ExtendedSensor" Type="InRange" x="3120" y="1480" Namespace="Main">
+      <Parameter Name="Range" Value="[-115.0,-114.5]" />
+    </FB>
+    <FB ID="5" Name="FB5" Type="ChangeDetect" x="2120" y="940" Namespace="Main" />
+    <FB ID="6" Name="FB6" Type="E_MERGE" x="5880" y="940" Namespace="IEC61499.Standard" />
+    <FB ID="7" Name="FB7" Type="E_CYCLE" x="600" y="340" Namespace="IEC61499.Standard">
+      <Parameter Name="DT" Value="t#20ms" />
+    </FB>
+    <FB ID="8" Name="FB8" Type="ChangeDetect" x="4180" y="940" Namespace="Main" />
+    <FB ID="9" Name="FB9" Type="ChangeDetect" x="4180" y="1540" Namespace="Main" />
+    <FB ID="1" Name="FB1" Type="CylControl" x="600" y="940" Namespace="Main" />
+    <FB ID="2" Name="FB2" Type="integEC" x="1460" y="760" Namespace="Main">
+      <Parameter Name="pv2" Value="0.0" />
+      <Parameter Name="inv1" Value="FALSE" />
+      <Parameter Name="inv2" Value="FALSE" />
+      <Parameter Name="tBase1" Value="1.0" />
+      <Parameter Name="tBase2" Value="1.0" />
+      <Parameter Name="sp" Value="100.0" />
+      <Parameter Name="preTrip" Value="0.0" />
+      <Parameter Name="integType" Value="0" />
+      <Parameter Name="cycleTime" Value="0.02" />
+      <Parameter Name="maxValue" Value="0.0" />
+      <Parameter Name="minValue" Value="-115.0" />
+      <Parameter Name="useLimits" Value="TRUE" />
+      <Parameter Name="initValue" Value="-115.0" />
+    </FB>
+    <FB ID="10" Name="FB3" Type="Bool2Real" x="3680" y="940" Namespace="Main" />
+    <FB ID="11" Name="FB4" Type="Bool2Real" x="3700" y="1540" Namespace="Main" />
+    <FB ID="12" Name="FB10" Type="Real2Bool" x="4700" y="940" Namespace="Main" />
+    <FB ID="13" Name="FB11" Type="Real2Bool" x="4700" y="1540" Namespace="Main" />
+    <Input Name="INIT" x="1100" y="771.8542" Type="Event" />
+    <Input Name="REQ" x="20" y="951.8542" Type="Event" />
+    <Input Name="Retract" x="20" y="1151.854" Type="Data" />
+    <Input Name="Stop" x="20" y="1211.854" Type="Data" />
+    <Output Name="INITO" x="4140" y="1392" Type="Event" />
+    <Output Name="CNF" x="2620" y="1671.854" Type="Event" />
+    <Output Name="Pos" x="3080" y="2111.854" Type="Data" />
+    <Output Name="CHG" x="6280" y="952" Type="Event" />
+    <Output Name="Retracted" x="5180" y="1152" Type="Data" />
+    <Output Name="Extended" x="5200" y="1752" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB1.CNF" Destination="FB2.OP_UPD" />
+      <Connection Source="FB2.CNF" Destination="FB5.REQ" dx1="44.1875" />
+      <Connection Source="FB5.CHG" Destination="RetractedSensor.REQ" />
+      <Connection Source="FB5.CHG" Destination="ExtendedSensor.REQ" dx1="127.2292">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.INITO" Destination="RetractedSensor.INIT" dx1="654.1875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="RetractedSensor.INITO" Destination="ExtendedSensor.INIT" dx1="60" dx2="50" dy="422">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="ExtendedSensor.INITO" Destination="INITO" dx1="50.5" />
+      <Connection Source="FB6.EO" Destination="CHG" dx1="41.54199" />
+      <Connection Source="FB5.CHG" Destination="CNF" dx1="127.2292">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB7.EO" Destination="FB2.C_CYCLE" dx1="118.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="FB2.INIT" dx1="45.41663" />
+      <Connection Source="FB2.INITO" Destination="FB7.START" dx1="94.1875" dx2="80" dy="-558">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="FB1.REQ" dx1="48.95837" />
+      <Connection Source="RetractedSensor.CHG" Destination="FB3.REQ" />
+      <Connection Source="ExtendedSensor.CHG" Destination="FB4.REQ" />
+      <Connection Source="FB8.CHG" Destination="FB10.REQ" />
+      <Connection Source="FB9.CHG" Destination="FB11.REQ" />
+      <Connection Source="FB3.CNF" Destination="FB8.REQ" />
+      <Connection Source="FB4.CNF" Destination="FB9.REQ" />
+      <Connection Source="FB10.CNF" Destination="FB6.EI1" />
+      <Connection Source="FB11.CNF" Destination="FB6.EI2" dx1="50" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB1.FORCE" Destination="FB2.pv1" />
+      <Connection Source="FB2.out" Destination="FB5.INP" />
+      <Connection Source="FB5.OUT" Destination="Pos" dx1="67.22925">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.OUT" Destination="ExtendedSensor.pos" dx1="67.22925">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.OUT" Destination="RetractedSensor.pos" />
+      <Connection Source="Retract" Destination="FB1.BKWD" dx1="40" />
+      <Connection Source="Stop" Destination="FB1.Stop" dx1="40" />
+      <Connection Source="RetractedSensor.result" Destination="FB3.Input" />
+      <Connection Source="ExtendedSensor.result" Destination="FB4.Input" />
+      <Connection Source="FB8.OUT" Destination="FB10.Input" />
+      <Connection Source="FB9.OUT" Destination="FB11.Input" />
+      <Connection Source="FB3.Output" Destination="FB8.INP" />
+      <Connection Source="FB4.Output" Destination="FB9.INP" />
+      <Connection Source="FB10.Output" Destination="Retracted" />
+      <Connection Source="FB11.Output" Destination="Extended" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

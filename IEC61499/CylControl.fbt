@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="3b9ea9a3-550f-4c21-ab3f-df149ae5778f" Name="CylControl" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="valvya" Date="8/12/2014" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="BKWD" />
+        <With Var="Stop" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="FORCE" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="BKWD" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="Stop" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="FORCE" Type="REAL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="569.647" y="812.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="645.2219" y="617.9127">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="164.7932,142.5743,165.8065,165.8381" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="561.4624" y="702.6992">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="140.8302,191.926,139.8169,168.6622" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="IF BKWD AND NOT(Stop) THEN &#xD;&#xA;  FORCE:=100;&#xD;&#xA;ELSIF NOT(BKWD) AND Stop THEN&#xD;&#xA;  FORCE :=0;&#xD;&#xA;ELSE&#xD;&#xA;	FORCE :=-100;&#xD;&#xA;END_IF;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

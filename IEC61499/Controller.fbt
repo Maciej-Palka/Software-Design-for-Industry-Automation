@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="dc80079e-ffe1-43ea-a810-0f38c0b4d4f8" Name="Controller" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="38" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="7/13/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="CNF_P" />
+      <Event Name="CNF_TU" />
+    </EventInputs>
+    <Sockets>
+      <AdapterDeclaration Name="pusher_state" Type="pos_init" Namespace="Main" x="140" y="460" />
+      <AdapterDeclaration ID="34" Name="buttons_automatic" Type="buttons_automatic" Namespace="Main" x="180" y="1900" />
+      <AdapterDeclaration ID="35" Name="system_info" Type="system_info" Namespace="Main" x="100" y="1220" />
+      <AdapterDeclaration ID="38" Name="tu_state" Type="pos_init" Namespace="Main" x="60" y="840" />
+    </Sockets>
+    <Plugs>
+      <AdapterDeclaration Name="pusher_control" Type="control_IMC" Namespace="Main" x="4240" y="2040" />
+      <AdapterDeclaration Name="tu_control" Type="control_IMC" Namespace="Main" x="4240" y="2660" />
+      <AdapterDeclaration Name="lamp_control" Type="lamp_control" Namespace="Main" x="5500" y="3160" />
+    </Plugs>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="6" Name="FB4" Type="BtnController" x="1260" y="1780" Namespace="Main" />
+    <FB ID="7" Name="FB5" Type="AutomaticOperation" x="3100" y="1420" Namespace="Main" />
+    <FB ID="28" Name="FB2" Type="LightControll" x="4820" y="3160" Namespace="Main" />
+    <FB ID="30" Name="FB8" Type="InitState" x="2820" y="620" Namespace="Main" />
+    <Input Name="CNF_P" x="2680" y="1432" Type="Event" />
+    <Input Name="CNF_TU" x="2680" y="1492" Type="Event" />
+    <EventConnections>
+      <Connection Source="FB8.CNF" Destination="FB4.REQ_C" dx1="129.5833" dx2="200" dy="720">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.CNF_L" Destination="FB2.REQ" dx1="61.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="pusher_state.CNF" Destination="FB8.REQ" dx1="999.3541">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="buttons_automatic.REQ" Destination="FB4.REQ_P" dx1="50" />
+      <Connection Source="buttons_automatic.REQ" Destination="FB2.REQ" dx1="141.2708" />
+      <Connection Source="system_info.CNF" Destination="FB8.REQ" dx1="532.2916">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="system_info.CNF" Destination="FB2.REQ" dx1="532.2916">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.CNF" Destination="lamp_control.CNF_P" />
+      <Connection Source="tu_state.CNF" Destination="FB8.REQ" dx1="479.3541">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="CNF_P" Destination="FB5.P_COMPLETED" />
+      <Connection Source="CNF_TU" Destination="FB5.TU_COMPLETED" />
+      <Connection Source="FB5.CNF" Destination="FB4.REQ_O">
+        <Points>
+          <Points>
+            <X>956.885437</X>
+            <Y>395</Y>
+          </Points>
+          <Points>
+            <X>967.5</X>
+            <Y>395</Y>
+          </Points>
+          <Points>
+            <X>967.5</X>
+            <Y>482.5</Y>
+          </Points>
+          <Points>
+            <X>762.5</X>
+            <Y>482.5</Y>
+          </Points>
+          <Points>
+            <X>762.5</X>
+            <Y>427.5</Y>
+          </Points>
+          <Points>
+            <X>292.5</X>
+            <Y>427.5</Y>
+          </Points>
+          <Points>
+            <X>292.5</X>
+            <Y>470</Y>
+          </Points>
+          <Points>
+            <X>310</X>
+            <Y>470</Y>
+          </Points>
+        </Points>
+      </Connection>
+      <Connection Source="FB5.P_ACTION" Destination="pusher_control.ACTIVATE" dx1="332.4583">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.TU_ACTION" Destination="tu_control.ACTIVATE" dx1="272.4583">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="system_info.CNF" Destination="pusher_control.CHECK_POS" dx1="2252.292">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="system_info.CNF" Destination="tu_control.CHECK_POS" dx1="532.2916">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.CNF" Destination="FB5.REQ" dx1="40" />
+      <Connection Source="FB4.CNF" Destination="pusher_control.CNF" dx1="40" />
+      <Connection Source="FB4.CNF" Destination="tu_control.CNF" dx1="40" />
+      <Connection Source="system_info.CNF" Destination="FB4.REQ_S" dx1="532.2916">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.CNF" Destination="FB2.REQ" dx1="140" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB4.reset_flag" Destination="FB5.reset_flag" dx1="111.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.start_flag" Destination="FB5.start_flag" dx1="151.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.stop_flag" Destination="FB2.stop_flag" dx1="661.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.start_flag" Destination="FB2.start_flag" dx1="541.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.reset_flag" Destination="FB2.reset_flag" dx1="601.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.mode_flag" Destination="FB2.mode" dx1="101.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.in_cycle" Destination="FB4.in_cycle" dx1="152.4585" dx2="160" dy="960">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB8.init_flag" Destination="FB4.init_flag" dx1="20" dx2="280" dy="380">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB8.init_flag" Destination="FB2.init_flag" dx1="1349.583">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.in_cycle" Destination="FB2.in_cycle" dx1="52.4585">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="pusher_state.sensor_info" Destination="FB8.pusher_pos" dx1="739.3541">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.stop_flag" Destination="pusher_control.stop_flag" dx1="661.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="buttons_automatic.start" Destination="FB4.start">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="buttons_automatic.reset" Destination="FB4.reset">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="buttons_automatic.ack" Destination="FB4.ack">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="buttons_automatic.manual" Destination="FB4.mode">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="buttons_automatic.stop" Destination="FB4.stop">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="buttons_automatic.reset" Destination="FB2.reset" dx1="101.2708" />
+      <Connection Source="buttons_automatic.ack" Destination="FB2.ack" dx1="591.2711">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="system_info.empty" Destination="FB2.empty" dx1="492.2917">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.mode_flag" Destination="pusher_control.mode" dx1="101.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.start_led" Destination="lamp_control.start_led" />
+      <Connection Source="FB2.reset_led" Destination="lamp_control.reset_led" />
+      <Connection Source="FB2.ack_led" Destination="lamp_control.ack_led" />
+      <Connection Source="FB4.mode_flag" Destination="tu_control.mode" dx1="101.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.stop_flag" Destination="tu_control.stop_flag" dx1="661.375">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="tu_state.sensor_info" Destination="FB8.tu_pos" dx1="759.3541">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.ready_flag" Destination="FB4.ready_flag" dx1="42.4585" dx2="230" dy="960">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="system_info.empty" Destination="FB4.empty" dx1="492.2917">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </DataConnections>
+  </FBNetwork>
+</FBType>

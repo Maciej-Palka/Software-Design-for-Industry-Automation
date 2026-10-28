@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="14293c41-2041-4fa2-9e44-3b67dea4768e" Name="LightControll" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="5" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/20/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="ack" />
+        <With Var="start_flag" />
+        <With Var="stop_flag" />
+        <With Var="reset_flag" />
+        <With Var="mode" />
+        <With Var="empty" />
+        <With Var="init_flag" />
+        <With Var="in_cycle" />
+        <With Var="reset" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="start_led" />
+        <With Var="reset_led" />
+        <With Var="ack_led" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="ack" Type="BOOL" />
+      <VarDeclaration Name="start_flag" Type="BOOL" />
+      <VarDeclaration Name="stop_flag" Type="BOOL" />
+      <VarDeclaration Name="reset_flag" Type="BOOL" />
+      <VarDeclaration Name="mode" Type="USINT" />
+      <VarDeclaration Name="empty" Type="BOOL" />
+      <VarDeclaration Name="init_flag" Type="BOOL" />
+      <VarDeclaration Name="in_cycle" Type="BOOL" />
+      <VarDeclaration Name="reset" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="start_led" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="reset_led" Type="BOOL" />
+      <VarDeclaration Name="ack_led" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="StartLedControl" x="1660" y="80" Namespace="Main" />
+    <FB ID="2" Name="FB2" Type="ResetLedControl" x="1640" y="1040" Namespace="Main" />
+    <FB ID="3" Name="FB3" Type="E_MERGE" x="3260" y="420" Namespace="IEC61499.Standard" />
+    <FB ID="4" Name="FB4" Type="AckLedControl" x="1640" y="1800" Namespace="Main" />
+    <FB ID="5" Name="FB5" Type="E_MERGE" x="3700" y="860" Namespace="IEC61499.Standard" />
+    <Input Name="REQ" x="40" y="92" Type="Event" />
+    <Input Name="ack" x="1040" y="2172" Type="Data" />
+    <Input Name="stop_flag" x="20" y="412" Type="Data" />
+    <Input Name="reset_flag" x="20" y="352" Type="Data" />
+    <Input Name="mode" x="20" y="472" Type="Data" />
+    <Input Name="start_flag" x="20" y="292" Type="Data" />
+    <Input Name="empty" x="20" y="532" Type="Data" />
+    <Input Name="init_flag" x="20" y="592" Type="Data" />
+    <Input Name="in_cycle" x="20" y="652" Type="Data" />
+    <Input Name="reset" x="940" y="2092" Type="Data" />
+    <Output Name="CNF" x="4200" y="872" Type="Event" />
+    <Output Name="start_led" x="2240" y="292" Type="Data" />
+    <Output Name="reset_led" x="2300" y="1252" Type="Data" />
+    <Output Name="ack_led" x="2320" y="1992" Type="Data" />
+    <EventConnections>
+      <Connection Source="REQ" Destination="FB1.REQ" />
+      <Connection Source="REQ" Destination="FB2.REQ" dx1="1179.542">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.CNF" Destination="FB3.EI1" dx1="951.2712">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.CNF" Destination="FB3.EI2" dx1="949.9165">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.EO" Destination="FB5.EI1" dx1="41.54175" />
+      <Connection Source="FB4.CNF" Destination="FB5.EI2" dx1="1541.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.EO" Destination="CNF" />
+      <Connection Source="REQ" Destination="FB4.REQ" dx1="1179.542">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="stop_flag" Destination="FB1.stop_flag" />
+      <Connection Source="mode" Destination="FB1.mode" />
+      <Connection Source="start_flag" Destination="FB1.start_flag" />
+      <Connection Source="FB1.StartLed" Destination="start_led" />
+      <Connection Source="reset_flag" Destination="FB1.reset_flag" />
+      <Connection Source="empty" Destination="FB1.empty" />
+      <Connection Source="init_flag" Destination="FB1.init_state" />
+      <Connection Source="in_cycle" Destination="FB1.in_cycle" />
+      <Connection Source="stop_flag" Destination="FB2.stop_flag" dx1="177.0208">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="reset_flag" Destination="FB2.reset_flag" dx1="222.8125">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="mode" Destination="FB2.mode" dx1="174.0833">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.ResetLed" Destination="reset_led" />
+      <Connection Source="in_cycle" Destination="FB2.in_cycle" dx1="95.79166">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="start_flag" Destination="FB2.start_flag" dx1="294.6875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.AckLed" Destination="ack_led" dx1="40" />
+      <Connection Source="empty" Destination="FB4.empty" dx1="44.0625" />
+      <Connection Source="reset" Destination="FB4.reset" dx1="45.39575" />
+      <Connection Source="ack" Destination="FB4.ack" dx1="40" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

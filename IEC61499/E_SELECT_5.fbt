@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="fc1a2799-3fae-476d-a495-2f45f204f3a1" Name="E_SELECT_5" Comment="Extracted Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="5" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Author="macie" Date="10/22/2026" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="mode" />
+        <With Var="retract_manual" />
+        <With Var="retract_auto" />
+        <With Var="to_mgz_manual" />
+        <With Var="to_mgz_auto" />
+        <With Var="to_nxt_manual" />
+        <With Var="to_nxt_auto" />
+        <With Var="vcm_on_manual" />
+        <With Var="vcm_on_auto" />
+        <With Var="vcm_off_manual" />
+        <With Var="vcm_off_auto" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="retract" />
+        <With Var="to_mgz" />
+        <With Var="to_nxt" />
+        <With Var="vcm_on" />
+        <With Var="vcm_off" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="mode" Type="USINT" Comment="Selector" />
+      <VarDeclaration Name="retract_manual" Type="BOOL" Comment="Argument" />
+      <VarDeclaration Name="retract_auto" Type="BOOL" Comment="Argument" />
+      <VarDeclaration Name="to_mgz_manual" Type="BOOL" Comment="Argument" />
+      <VarDeclaration Name="to_mgz_auto" Type="BOOL" Comment="Argument" />
+      <VarDeclaration Name="to_nxt_manual" Type="BOOL" Comment="Argument" />
+      <VarDeclaration Name="to_nxt_auto" Type="BOOL" Comment="Argument" />
+      <VarDeclaration Name="vcm_on_manual" Type="BOOL" Comment="Argument" />
+      <VarDeclaration Name="vcm_on_auto" Type="BOOL" Comment="Argument" />
+      <VarDeclaration Name="vcm_off_manual" Type="BOOL" Comment="Argument" />
+      <VarDeclaration Name="vcm_off_auto" Type="BOOL" Comment="Argument" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="retract" Type="BOOL" Comment="Result: IN1 or IN2 or ... according to the SELECT input (SELECT = 0 selects IN1)" />
+      <VarDeclaration Name="to_mgz" Type="BOOL" Comment="Result: IN1 or IN2 or ... according to the SELECT input (SELECT = 0 selects IN1)" />
+      <VarDeclaration Name="to_nxt" Type="BOOL" Comment="Result: IN1 or IN2 or ... according to the SELECT input (SELECT = 0 selects IN1)" />
+      <VarDeclaration Name="vcm_on" Type="BOOL" Comment="Result: IN1 or IN2 or ... according to the SELECT input (SELECT = 0 selects IN1)" />
+      <VarDeclaration Name="vcm_off" Type="BOOL" Comment="Result: IN1 or IN2 or ... according to the SELECT input (SELECT = 0 selects IN1)" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="SELECT_RETRACT" Type="SELECT_783952938E11160B" x="5100" y="140" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;IN${CNT}:BOOL" />
+    </FB>
+    <FB ID="2" Name="SELECT_TO_MGZ" Type="SELECT_783952938E11160B" x="5120" y="660" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;IN${CNT}:BOOL" />
+    </FB>
+    <FB ID="3" Name="SELECT_TO_NXT" Type="SELECT_783952938E11160B" x="5120" y="1180" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;IN${CNT}:BOOL" />
+    </FB>
+    <FB ID="4" Name="SELECT_VCM_ON" Type="SELECT_783952938E11160B" x="5120" y="1680" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;IN${CNT}:BOOL" />
+    </FB>
+    <FB ID="5" Name="SELECT_VCM_OFF" Type="SELECT_783952938E11160B" x="5120" y="2180" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;IN${CNT}:BOOL" />
+    </FB>
+    <Input Name="REQ" x="3560" y="152" Type="Event" />
+    <Input Name="mode" x="3980.292" y="352" Type="Data" />
+    <Input Name="retract_manual" x="4089.313" y="412" Type="Data" />
+    <Input Name="retract_auto" x="4089.313" y="472" Type="Data" />
+    <Input Name="to_mgz_manual" x="4133.208" y="932" Type="Data" />
+    <Input Name="to_mgz_auto" x="4133.208" y="992" Type="Data" />
+    <Input Name="to_nxt_manual" x="4142.666" y="1452" Type="Data" />
+    <Input Name="to_nxt_auto" x="4142.667" y="1512" Type="Data" />
+    <Input Name="vcm_on_manual" x="4128.438" y="1952" Type="Data" />
+    <Input Name="vcm_on_auto" x="4128.438" y="2012" Type="Data" />
+    <Input Name="vcm_off_manual" x="4107.125" y="2452" Type="Data" />
+    <Input Name="vcm_off_auto" x="4107.125" y="2512" Type="Data" />
+    <Output Name="CNF" x="5696.042" y="152" Type="Event" />
+    <Output Name="retract" x="5696.041" y="352" Type="Data" />
+    <Output Name="to_mgz" x="5716.042" y="872" Type="Data" />
+    <Output Name="to_nxt" x="5716.042" y="1392" Type="Data" />
+    <Output Name="vcm_on" x="5716.041" y="1892" Type="Data" />
+    <Output Name="vcm_off" x="5716.041" y="2392" Type="Data" />
+    <EventConnections>
+      <Connection Source="SELECT_RETRACT.CNF" Destination="CNF" />
+      <Connection Source="REQ" Destination="SELECT_RETRACT.REQ" />
+      <Connection Source="REQ" Destination="SELECT_TO_MGZ.REQ" dx1="1139.542">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="SELECT_TO_NXT.REQ" dx1="1139.542">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="SELECT_VCM_ON.REQ" dx1="1139.542">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="REQ" Destination="SELECT_VCM_OFF.REQ" dx1="1139.542">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="mode" Destination="SELECT_RETRACT.SELECT" />
+      <Connection Source="retract_manual" Destination="SELECT_RETRACT.IN1" />
+      <Connection Source="retract_auto" Destination="SELECT_RETRACT.IN2" />
+      <Connection Source="SELECT_RETRACT.OUT" Destination="retract" />
+      <Connection Source="to_mgz_manual" Destination="SELECT_TO_MGZ.IN1" />
+      <Connection Source="to_mgz_auto" Destination="SELECT_TO_MGZ.IN2" />
+      <Connection Source="SELECT_TO_MGZ.OUT" Destination="to_mgz" />
+      <Connection Source="to_nxt_manual" Destination="SELECT_TO_NXT.IN1" />
+      <Connection Source="to_nxt_auto" Destination="SELECT_TO_NXT.IN2" />
+      <Connection Source="SELECT_TO_NXT.OUT" Destination="to_nxt" />
+      <Connection Source="vcm_on_manual" Destination="SELECT_VCM_ON.IN1" />
+      <Connection Source="vcm_on_auto" Destination="SELECT_VCM_ON.IN2" />
+      <Connection Source="SELECT_VCM_ON.OUT" Destination="vcm_on" />
+      <Connection Source="vcm_off_manual" Destination="SELECT_VCM_OFF.IN1" />
+      <Connection Source="vcm_off_auto" Destination="SELECT_VCM_OFF.IN2" />
+      <Connection Source="SELECT_VCM_OFF.OUT" Destination="vcm_off" />
+      <Connection Source="mode" Destination="SELECT_VCM_OFF.SELECT" dx1="323.792" />
+      <Connection Source="mode" Destination="SELECT_TO_MGZ.SELECT" dx1="263.792" />
+      <Connection Source="mode" Destination="SELECT_TO_NXT.SELECT" dx1="323.792" />
+      <Connection Source="mode" Destination="SELECT_VCM_ON.SELECT" dx1="323.792" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

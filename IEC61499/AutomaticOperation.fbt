@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="64c3b965-3c1e-409b-a036-8918e04c9689" Name="AutomaticOperation" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/19/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="P_COMPLETED" Comment="Normal Execution Request" />
+      <Event Name="TU_COMPLETED" />
+      <Event Name="REQ">
+        <With Var="reset_flag" />
+        <With Var="start_flag" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="P_ACTION" Comment="Execution Confirmation">
+        <With Var="in_cycle" />
+        <With Var="ready_flag" />
+      </Event>
+      <Event Name="TU_ACTION">
+        <With Var="in_cycle" />
+        <With Var="ready_flag" />
+      </Event>
+      <Event Name="CNF">
+        <With Var="in_cycle" />
+        <With Var="ready_flag" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="reset_flag" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="start_flag" Type="BOOL" InitialValue="FALSE" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="in_cycle" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="ready_flag" Type="BOOL" InitialValue="TRUE" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,STEP1,STEP2,STEP3,STEP4,STEP0,READY" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="198.6555" y="357.9832" />
+      <ECState Name="READY" x="840" y="820">
+        <ECAction Algorithm="READY" Output="CNF" />
+      </ECState>
+      <ECState Name="STATE1" x="1668" y="372">
+        <ECAction Output="P_ACTION" />
+        <ECAction Algorithm="INIT" Output="CNF" />
+        <ECAction Output="TU_ACTION" />
+      </ECState>
+      <ECState Name="STATE2" x="2992" y="332" />
+      <ECTransition Source="START" Destination="READY" Condition="1" x="574.7067" y="526.5413">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="123.7584,112.0611,165.1311,141.8654" />
+      </ECTransition>
+      <ECTransition Source="READY" Destination="STATE1" Condition="REQ [NOT reset_flag AND start_flag]" x="1049.945" y="464.2714">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="260,129,240,86" />
+      </ECTransition>
+      <ECTransition Source="STATE1" Destination="STATE2" Condition="P_COMPLETED" x="2330" y="269.6999">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="539.2307,64.30723,625.7693,61.69277" />
+      </ECTransition>
+      <ECTransition Source="STATE2" Destination="READY" Condition="TU_COMPLETED" x="2267.926" y="1174.88">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="670.7961,321.5585,514.5164,356.9976" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+ready_flag := FALSE;
+in_cycle := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP1" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+in_cycle := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP2">
+      <ST><![CDATA[;
+]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP3">
+      <ST><![CDATA[;
+]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP4">
+      <ST><![CDATA[;
+]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP0">
+      <ST><![CDATA[;
+
+ready_flag := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="READY">
+      <ST><![CDATA[;
+ready_flag := TRUE;
+in_cycle := FALSE;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

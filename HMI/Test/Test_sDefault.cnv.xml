@@ -1,0 +1,14 @@
+<Mapping>
+  <EventInputs />
+  <EventOutputs>
+    <Event Name="CNF" Map="IND_1">retract;to_mgz;to_next;vcm_on;vcm_off</Event>
+  </EventOutputs>
+  <Inputs />
+  <Outputs>
+    <Output Name="retract" Type="BOOL" Map="RD_1" />
+    <Output Name="to_mgz" Type="BOOL" Map="RD_2" />
+    <Output Name="to_next" Type="BOOL" Map="RD_3" />
+    <Output Name="vcm_on" Type="BOOL" Map="RD_4" />
+    <Output Name="vcm_off" Type="BOOL" Map="RD_5" />
+  </Outputs>
+</Mapping>

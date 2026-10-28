@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="6ae7d943-4602-4a9c-b4f2-ca306935f61b" Name="InitState" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/21/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="pusher_pos" />
+        <With Var="tu_pos" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="init_flag" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="pusher_pos" Type="BOOL" />
+      <VarDeclaration Name="tu_pos" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="init_flag" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,NOT_INIT" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="INIT" Comment="Normal execution" x="1733.647" y="712.9412">
+        <ECAction Algorithm="INIT" Output="CNF" />
+      </ECState>
+      <ECState Name="NOT_INIT" x="1852" y="1576">
+        <ECAction Algorithm="NOT_INIT" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="1" x="1179.329" y="496.1208">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="256.336,110.0024,336.247,129.1918" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="NOT_INIT" Condition="REQ [NOT pusher_pos OR NOT tu_pos]" x="2279.184" y="1138.259">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="598.1296,252.8653,606.7996,316.0898" />
+      </ECTransition>
+      <ECTransition Source="NOT_INIT" Destination="INIT" Condition="REQ [pusher_pos AND tu_pos]" x="1376.278" y="1111.679">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="321.0833,306.8926,312.4132,243.6681" />
+      </ECTransition>
+      <ECTransition Source="NOT_INIT" Destination="NOT_INIT" Condition="REQ [NOT pusher_pos OR NOT tu_pos]" x="1852" y="1758.086" />
+      <ECTransition Source="INIT" Destination="INIT" Condition="REQ [pusher_pos AND tu_pos]" x="1733.647" y="895.0273" />
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+init_flag := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="NOT_INIT" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+init_flag := FALSE;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="9f03a4cc-08bf-49f8-a553-32b3ccc03cfa" Name="AckHelper" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/22/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="ack" />
+        <With Var="reset" />
+        <With Var="empty" />
+      </Event>
+      <Event Name="REQ_T">
+        <With Var="ack" />
+        <With Var="reset" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="output" />
+        <With Var="output_select" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="ack" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="reset" Type="BOOL" />
+      <VarDeclaration Name="empty" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="output" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="output_select" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="STEP_0,STEP_1,STEP_2,WORK" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="INIT" x="1264" y="1000">
+        <ECAction Algorithm="STEP_0" Output="CNF" />
+      </ECState>
+      <ECState Name="STEP_1" x="2052" y="1544">
+        <ECAction Algorithm="STEP_1" Output="CNF" />
+      </ECState>
+      <ECState Name="STEP_2" x="1504" y="2112">
+        <ECAction Algorithm="STEP_2" Output="CNF" />
+      </ECState>
+      <ECState Name="STABLE" x="968" y="1572">
+        <ECAction Algorithm="WORK" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="1" x="967.1014" y="656.2107">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="218.5557,139.7521,266.9725,178.604" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="STEP_1" Condition="REQ_T" x="1684.917" y="1199.942">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="392.7215,275.815,450.101,313.8951" />
+      </ECTransition>
+      <ECTransition Source="STEP_1" Destination="STEP_2" Condition="REQ [ack]" x="1841.858" y="1880.074">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="481.1295,455.0399,443.8537,493.6762" />
+      </ECTransition>
+      <ECTransition Source="STEP_2" Destination="STABLE" Condition="REQ [reset]" x="1227.175" y="1917">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="327.017,503.6515,290.983,467.3485" />
+      </ECTransition>
+      <ECTransition Source="STABLE" Destination="STEP_1" Condition="REQ_T" x="1511.536" y="1474.234">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="344.6115,365.3495,411.1567,363.6306" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="STEP_0" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+output := TRUE;
+output_select := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP_1">
+      <ST><![CDATA[;
+output_select := TRUE;
+]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP_2">
+      <ST><![CDATA[;
+output := FALSE;
+output_select := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="WORK">
+      <ST><![CDATA[;
+output := empty;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

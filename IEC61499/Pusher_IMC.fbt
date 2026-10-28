@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="7f6a1dad-0422-4c0c-9958-45bf33d3ec1f" Name="Pusher_IMC" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="11" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/22/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="Stop_pusher" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm" />
+      <Event Name="CNF" Comment="Execution Confirmation" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Stop_pusher" Type="BOOL" Comment="Input event qualifier" />
+    </InputVars>
+    <Sockets>
+      <AdapterDeclaration Name="Manual_buttons" Type="buttons_manual" Namespace="Main" x="160" y="1500" />
+      <AdapterDeclaration Name="Pusher_control" Type="control_IMC" Namespace="Main" x="180" y="580" />
+    </Sockets>
+    <Plugs>
+      <AdapterDeclaration Name="Position" Type="pos_IMC" Namespace="Main" x="4200" y="640" />
+      <AdapterDeclaration Name="Position_sensors" Type="pos_init" Namespace="Main" x="5380" y="1100" />
+    </Plugs>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="3" Name="FB3" Type="Pusher" x="2740" y="520" Namespace="Main" />
+    <FB ID="5" Name="FB4" Type="E_MERGE" x="3840" y="180" Namespace="IEC61499.Standard" />
+    <FB ID="7" Name="FB2" Type="pusher_position" x="4620" y="1100" Namespace="Main" />
+    <FB ID="10" Name="FB1" Type="Algorithm_p" x="1220" y="580" Namespace="Main" />
+    <Input Name="INIT" x="2340" y="532" Type="Event" />
+    <Input Name="Stop_pusher" x="1920" y="1032" Type="Data" />
+    <Output Name="INITO" x="3300" y="592" Type="Event" />
+    <Output Name="CNF" x="2120" y="652" Type="Event" />
+    <EventConnections>
+      <Connection Source="FB3.CHG" Destination="FB4.EI1" dx1="50" />
+      <Connection Source="FB3.CNF" Destination="FB4.EI2" dx1="457.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="FB3.INIT" />
+      <Connection Source="FB3.INITO" Destination="INITO" />
+      <Connection Source="FB3.CNF" Destination="Position.CNF" />
+      <Connection Source="FB2.CNF" Destination="Position_sensors.CNF" />
+      <Connection Source="FB1.CNF" Destination="FB3.REQ" />
+      <Connection Source="FB3.INITO" Destination="Position.INITO" dx1="97.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.CHG" Destination="FB1.UPDATE" dx1="147.5" dx2="70" dy="-110" />
+      <Connection Source="Pusher_control.ACTIVATE" Destination="FB1.REQ" />
+      <Connection Source="Pusher_control.CNF" Destination="FB1.UPDATE" />
+      <Connection Source="Manual_buttons.REQ" Destination="FB1.MANUAL" dx1="516.3125">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.CNF_CYCLE" Destination="CNF" />
+      <Connection Source="Pusher_control.CHECK_POS" Destination="FB2.REQ">
+        <Points>
+          <Points>
+            <X>150.75</X>
+            <Y>185</Y>
+          </Points>
+          <Points>
+            <X>172.5</X>
+            <Y>185</Y>
+          </Points>
+          <Points>
+            <X>172.5</X>
+            <Y>485</Y>
+          </Points>
+          <Points>
+            <X>1077.5</X>
+            <Y>485</Y>
+          </Points>
+          <Points>
+            <X>1077.5</X>
+            <Y>285</Y>
+          </Points>
+          <Points>
+            <X>1150</X>
+            <Y>285</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="Stop_pusher" Destination="FB3.Stop" dx1="124.2395">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.Retracted" Destination="FB2.extended" dx1="357.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.Extended" Destination="FB2.retracted" dx1="277.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.Pos" Destination="Position.pos" dx1="517.5">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.Retracted" Destination="FB3.Retract" dx1="560" />
+      <Connection Source="FB3.Retracted" Destination="FB1.extended" dx1="47.5" dx2="30" dy="360">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.Extended" Destination="FB1.retracted" dx1="150" dx2="100" dy="360">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="Pusher_control.stop_flag" Destination="FB1.stop_flag" dx1="47" />
+      <Connection Source="Pusher_control.mode" Destination="FB1.mode" dx1="137">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="Manual_buttons.retract" Destination="FB1.manual_input" dx1="70" />
+      <Connection Source="FB2.is_init" Destination="Position_sensors.sensor_info" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="12a23e92-01a4-4d0a-b9cc-da8343c049be" Name="ResetLedControl" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/21/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="stop_flag" />
+        <With Var="reset_flag" />
+        <With Var="mode" />
+        <With Var="in_cycle" />
+        <With Var="start_flag" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="ResetLed" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="start_flag" Type="BOOL" />
+      <VarDeclaration Name="stop_flag" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="reset_flag" Type="BOOL" />
+      <VarDeclaration Name="mode" Type="USINT" />
+      <VarDeclaration Name="in_cycle" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="ResetLed" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="ON_LED,OFF_LED" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="1344.941" y="521.4117" />
+      <ECState Name="OFF" Comment="Normal execution" x="2037.647" y="1020.941">
+        <ECAction Algorithm="OFF_LED" Output="CNF" />
+      </ECState>
+      <ECState Name="ON_LED" x="2084" y="1756">
+        <ECAction Algorithm="ON_LED" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="OFF" Condition="1" x="1746.501" y="709.125">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="414.6136,156.0514,460.2788,188.9818" />
+      </ECTransition>
+      <ECTransition Source="OFF" Destination="ON_LED" Condition="REQ [stop_flag AND (mode = 1) AND in_cycle]" x="2296.731" y="1360.018">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="587.1605,311.3543,590.4748,363.9122" />
+      </ECTransition>
+      <ECTransition Source="ON_LED" Destination="OFF" Condition="REQ [((reset_flag OR start_flag) AND (mode = 1)) OR (mode = 0)]" x="1856.646" y="1355.487">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="453.1048,362.4019,449.7906,309.8441" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="ON_LED" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+ResetLed := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="OFF_LED" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+ResetLed := FALSE;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

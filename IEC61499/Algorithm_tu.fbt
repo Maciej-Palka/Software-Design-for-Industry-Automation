@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="7f21ff82-3575-4332-9bad-62e322bed337" Name="Algorithm_tu" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/23/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="ACTIVATE" Comment="Initialization Request">
+        <With Var="at_nxt" />
+        <With Var="at_mgz" />
+        <With Var="vmon" />
+        <With Var="stop_flag" />
+        <With Var="mode" />
+      </Event>
+      <Event Name="UPDATE" Comment="Normal Execution Request">
+        <With Var="at_nxt" />
+        <With Var="at_mgz" />
+        <With Var="vmon" />
+        <With Var="stop_flag" />
+        <With Var="mode" />
+      </Event>
+      <Event Name="MANUAL">
+        <With Var="to_nxt" />
+        <With Var="to_mgz" />
+        <With Var="vcm_on" />
+        <With Var="vcm_off" />
+        <With Var="mode" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="nxt_cmd" />
+        <With Var="mgz_cmd" />
+        <With Var="von_cmd" />
+        <With Var="voff_cmd" />
+      </Event>
+      <Event Name="CNF_CYCLE" Comment="Initialization Confirm" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="at_mgz" Type="BOOL" />
+      <VarDeclaration Name="at_nxt" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="vmon" Type="BOOL" />
+      <VarDeclaration Name="to_mgz" Type="BOOL" />
+      <VarDeclaration Name="to_nxt" Type="BOOL" />
+      <VarDeclaration Name="vcm_on" Type="BOOL" />
+      <VarDeclaration Name="vcm_off" Type="BOOL" />
+      <VarDeclaration Name="mode" Type="USINT" />
+      <VarDeclaration Name="stop_flag" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="mgz_cmd" Type="BOOL" />
+      <VarDeclaration Name="nxt_cmd" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="von_cmd" Type="BOOL" />
+      <VarDeclaration Name="voff_cmd" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="MANUAL,STEP1,STEP2,STEP3,STEP4,STEP_5" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="WAIT" x="1632" y="1060" />
+      <ECState Name="MANUAL" x="2356" y="588">
+        <ECAction Algorithm="MANUAL" Output="CNF" />
+      </ECState>
+      <ECState Name="STEP_1" x="2496" y="1712">
+        <ECAction Algorithm="STEP1" Output="CNF" />
+      </ECState>
+      <ECState Name="STEP_2" x="2508" y="2248">
+        <ECAction Algorithm="STEP2" Output="CNF" />
+      </ECState>
+      <ECState Name="STEP_3" x="1944" y="2772">
+        <ECAction Algorithm="STEP3" Output="CNF" />
+      </ECState>
+      <ECState Name="STEP_4" x="928" y="2256">
+        <ECAction Algorithm="STEP4" Output="CNF" />
+      </ECState>
+      <ECState Name="STEP_5" x="948" y="1692">
+        <ECAction Algorithm="STEP_5" Output="CNF_CYCLE" />
+        <ECAction Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="WAIT" Condition="1" x="1139.444" y="678.6234">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="248.2118,142.6659,323.251,186.5179" />
+      </ECTransition>
+      <ECTransition Source="WAIT" Destination="MANUAL" Condition="MANUAL [mode = 0 AND NOT stop_flag]" x="1951.319" y="767.1395">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="468.4676,200.2196,508.7802,173.9369" />
+      </ECTransition>
+      <ECTransition Source="MANUAL" Destination="WAIT" Condition="1" x="2026.079" y="893.6099">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="526.5601,215.2711,486.7485,241.4901" />
+      </ECTransition>
+      <ECTransition Source="WAIT" Destination="STEP_1" Condition="ACTIVATE [NOT stop_flag AND mode = 1]" x="2125.527" y="1327.113">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="503.447,304.2431,563.8737,350.1243" />
+      </ECTransition>
+      <ECTransition Source="STEP_1" Destination="STEP_2" Condition="UPDATE [NOT stop_flag AND at_mgz]" x="2583.638" y="1978.321">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="650.0911,476.4556,650.8964,512.4252" />
+      </ECTransition>
+      <ECTransition Source="STEP_2" Destination="STEP_3" Condition="UPDATE [NOT stop_flag AND vmon]" x="2277.358" y="2560.878">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="585.9171,630.2782,555.1823,658.6404" />
+      </ECTransition>
+      <ECTransition Source="STEP_3" Destination="STEP_4" Condition="UPDATE [NOT stop_flag AND at_nxt]" x="1414.045" y="2582.629">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="386.0954,666.7405,323.4161,634.7565" />
+      </ECTransition>
+      <ECTransition Source="STEP_4" Destination="STEP_5" Condition="UPDATE [NOT stop_flag AND NOT vmon]" x="937.7048" y="1899">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="233.8209,487.6515,235.1791,449.3485" />
+      </ECTransition>
+      <ECTransition Source="STEP_5" Destination="WAIT" Condition="1" x="1282.336" y="1301">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="298.7063,340.9848,346.2937,297.0152" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="MANUAL">
+      <ST><![CDATA[;
+nxt_cmd := to_nxt;
+mgz_cmd := to_mgz;
+von_cmd := vcm_on;
+voff_cmd := vcm_off;]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP1">
+      <ST><![CDATA[;
+mgz_cmd := TRUE;
+nxt_cmd := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP2">
+      <ST><![CDATA[;
+von_cmd := TRUE;
+voff_cmd := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP3">
+      <ST><![CDATA[;
+nxt_cmd := TRUE;
+mgz_cmd := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP4">
+      <ST><![CDATA[;
+voff_cmd := TRUE;
+von_cmd := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="STEP_5">
+      <ST><![CDATA[;
+vcm_off := FALSE;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

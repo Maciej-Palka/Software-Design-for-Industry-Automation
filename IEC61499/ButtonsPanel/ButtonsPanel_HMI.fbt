@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="E05481DFB6EBF3B4" Name="ButtonsPanel_HMI" Comment="Service Interface Function Block Type" Namespace="Main">
+  <Attribute Name="Runtime.Persistence.Storage" Value="0" />
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH " Version="0.0" Author="Andrei" Date="7/13/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT">
+        <With Var="QI" />
+      </Event>
+      <Event Name="INIT1" />
+      <Event Name="REQ">
+        <With Var="start_led" />
+        <With Var="reset_led" />
+        <With Var="ack_led" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO">
+        <With Var="QO" />
+        <With Var="STATUS" />
+      </Event>
+      <Event Name="INITO1">
+        <With Var="start" />
+        <With Var="reset" />
+        <With Var="ack" />
+        <With Var="manual" />
+        <With Var="stop" />
+      </Event>
+      <Event Name="CNF">
+        <With Var="start" />
+        <With Var="reset" />
+        <With Var="ack" />
+        <With Var="manual" />
+        <With Var="stop" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="QI" Type="BOOL" />
+      <VarDeclaration Name="start_led" Type="BOOL" />
+      <VarDeclaration Name="reset_led" Type="BOOL" />
+      <VarDeclaration Name="ack_led" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="QO" Type="BOOL" Comment="Event Output Qualifier" />
+      <VarDeclaration Name="STATUS" Type="STRING" Comment="Service Status" />
+      <VarDeclaration Name="start" Type="BOOL" />
+      <VarDeclaration Name="reset" Type="BOOL" />
+      <VarDeclaration Name="ack" Type="BOOL" />
+      <VarDeclaration Name="manual" Type="BOOL" />
+      <VarDeclaration Name="stop" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <Service RightInterface="" LeftInterface="">
+    <ServiceSequence Name="" />
+  </Service>
+</FBType>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="37F8E71C3837F071" Name="ButtonsPanel" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="3" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="7/13/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request" />
+    </EventInputs>
+    <Sockets>
+      <AdapterDeclaration ID="3" Name="lamp_control" Type="lamp_control" Namespace="Main" x="200" y="580" />
+    </Sockets>
+    <Plugs>
+      <AdapterDeclaration Name="buttons_automatic" Type="buttons_automatic" Namespace="Main" x="2520" y="500" />
+    </Plugs>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="IThis" Type="ButtonsPanel_HMI" x="1000" y="400" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <Input Name="INIT" x="300" y="411.8542" Type="Event" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="IThis.INIT" dx1="40.83337" />
+      <Connection Source="IThis.INITO" Destination="IThis.INIT1" dx1="186.1041" dx2="70" dy="-110" />
+      <Connection Source="lamp_control.CNF_P" Destination="IThis.REQ" dx1="54.41663" />
+      <Connection Source="IThis.INITO1" Destination="buttons_automatic.INIT" dx1="166.1041" />
+      <Connection Source="IThis.CNF" Destination="buttons_automatic.REQ" dx1="146.1041" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="lamp_control.start_led" Destination="IThis.start_led" />
+      <Connection Source="lamp_control.reset_led" Destination="IThis.reset_led" />
+      <Connection Source="lamp_control.ack_led" Destination="IThis.ack_led" />
+      <Connection Source="IThis.start" Destination="buttons_automatic.start" dx1="110" />
+      <Connection Source="IThis.reset" Destination="buttons_automatic.reset" dx1="130" />
+      <Connection Source="IThis.ack" Destination="buttons_automatic.ack" dx1="150" />
+      <Connection Source="IThis.manual" Destination="buttons_automatic.manual" dx1="170" />
+      <Connection Source="IThis.stop" Destination="buttons_automatic.stop" dx1="190" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

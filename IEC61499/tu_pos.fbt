@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="98cd207c-db0d-4b12-aabd-198928c71448" Name="tu_pos" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/23/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="at_mgz" />
+        <With Var="at_nxt" />
+        <With Var="vmon" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="is_init" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="at_mgz" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="at_nxt" Type="BOOL" />
+      <VarDeclaration Name="vmon" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="is_init" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,NOT_INIT" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="NOT_INIT" Comment="Normal execution" x="2641.647" y="1076.941">
+        <ECAction Algorithm="NOT_INIT" Output="CNF" />
+      </ECState>
+      <ECState Name="INIT" x="460" y="1208">
+        <ECAction Algorithm="INIT" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="NOT_INIT" Condition="REQ [at_mgz OR NOT at_nxt OR vmon]" x="1583.771" y="670.5391">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="316.3,138.2558,472.3699,185.7143" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="505.8239" y="743.7059">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="123.2642,207.7691,129.9711,151.5838" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="INIT" Condition="REQ [NOT at_mgz AND at_nxt AND NOT vmon]" x="585.6949" y="827.5957">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="154.7949,179.5471,148.088,235.7324" />
+      </ECTransition>
+      <ECTransition Source="NOT_INIT" Destination="START" Condition="1" x="1671.403" y="841.3176">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="501.7612,240.1546,349.2548,193.3304" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+is_init := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="NOT_INIT" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+is_init := 0;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

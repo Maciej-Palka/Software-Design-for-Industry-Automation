@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System Name="System" ProjectName="DistributionStation_EAE" ProjectGuid="{6CABFB28-5AC2-4ED5-B23B-1C5638756E6E}" BuildTime="2026-10-25 10:37:40Z" DeployTime="" StudioVersion="IEC 61499 IDE, Panther UAOv23.0 g5173 4181ef5 Thu Oct 12 16:53:40 2023" SnapshotGuid="{C324BB25-414B-4374-9750-1B6A3E4517C2}">
+  <Device ID="D166C33F-F415-406D-AF33-1F9D600E8C6B" Name="EcoRT_0" Type="Soft_dPAC" Namespace="SE.DPAC">
+    <Resource ID="A915E0452356BD1" Name="RES0" Type="EMB_RES_ECO" Namespace="Runtime.Management">
+      <FBNetwork>
+        <FB ID="449F5213D11653A3" Name="TestPanel" Type="Test" Namespace="Main" />
+        <FB ID="2296FA8D8232BF54" Name="DistributionStation" Type="Model" Namespace="Main" />
+        <FB ID="42AD414C1D0D1405" Name="PanelButtons" Type="ButtonsPanel" Namespace="Main" />
+        <FB ID="864C585DD7B55DD2" Name="FB3" Type="Controller" Namespace="Main" />
+        <FB ID="AD3D5E1E204F4E49" Name="FB4" Type="Pusher_IMC" Namespace="Main" />
+        <FB ID="9E777D386855989B" Name="FB1" Type="TransferUnit_IMC" Namespace="Main" />
+        <FB Name="START" Type="E_RESTART" Namespace="IEC61499.Standard" />
+        <EventConnections>
+          <Connection Source="DistributionStation.INITO" Destination="PanelButtons.INIT" />
+          <Connection Source="START.COLD" Destination="TestPanel.INIT" />
+          <Connection Source="TestPanel.INITO" Destination="FB4.INIT" />
+          <Connection Source="FB4.INITO" Destination="FB1.INIT" />
+          <Connection Source="FB1.INITO" Destination="DistributionStation.INIT" />
+          <Connection Source="FB1.CNF" Destination="FB3.CNF_TU" />
+          <Connection Source="FB4.CNF" Destination="FB3.CNF_P" />
+        </EventConnections>
+        <DataConnections>
+          <Connection Source="DistributionStation.stop_pusher" Destination="FB4.Stop_pusher" />
+        </DataConnections>
+        <AdapterConnections>
+          <Connection Source="TestPanel.manual_buttons_1" Destination="FB4.Manual_buttons" />
+          <Connection Source="FB4.Position_sensors" Destination="FB3.pusher_state" />
+          <Connection Source="PanelButtons.buttons_automatic" Destination="FB3.buttons_automatic" />
+          <Connection Source="DistributionStation.system_info" Destination="FB3.system_info" />
+          <Connection Source="FB3.lamp_control" Destination="PanelButtons.lamp_control" />
+          <Connection Source="FB3.pusher_control" Destination="FB4.Pusher_control" />
+          <Connection Source="FB4.Position" Destination="DistributionStation.pusher_pos" />
+          <Connection Source="FB3.tu_control" Destination="FB1.tu_control" />
+          <Connection Source="FB1.vcm_control" Destination="DistributionStation.vcm_control" />
+          <Connection Source="FB1.pos" Destination="DistributionStation.tu_pos" />
+          <Connection Source="TestPanel.manual_buttons_2" Destination="FB1.manual_buttons" />
+          <Connection Source="DistributionStation.tu_info" Destination="FB1.tu_info" />
+          <Connection Source="FB1.pos_init" Destination="FB3.tu_state" />
+        </AdapterConnections>
+      </FBNetwork>
+    </Resource>
+    <FBNetwork />
+  </Device>
+</System>

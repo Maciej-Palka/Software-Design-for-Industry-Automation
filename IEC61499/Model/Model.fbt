@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="B4BD245457C99328" Name="Model" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="13" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="7/13/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="stop_pusher" />
+      </Event>
+    </EventOutputs>
+    <OutputVars>
+      <VarDeclaration Name="stop_pusher" Type="BOOL" />
+    </OutputVars>
+    <Sockets>
+      <AdapterDeclaration ID="9" Name="pusher_pos" Type="pos_IMC" Namespace="Main" x="620" y="460" />
+      <AdapterDeclaration ID="11" Name="vcm_control" Type="vcm_control" Namespace="Main" x="620" y="940" />
+      <AdapterDeclaration ID="12" Name="tu_pos" Type="pos_IMC" Namespace="Main" x="640" y="1420" />
+    </Sockets>
+    <Plugs>
+      <AdapterDeclaration Name="system_info" Type="system_info" Namespace="Main" x="5260" y="960" />
+      <AdapterDeclaration ID="13" Name="tu_info" Type="system_info" Namespace="Main" x="5280" y="1460" />
+    </Plugs>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="3" Name="FB3" Type="E_MERGE" x="4380" y="400" Namespace="IEC61499.Standard" />
+    <FB ID="7" Name="FB5" Type="E_MERGE" x="4980" y="400" Namespace="IEC61499.Standard" />
+    <FB ID="6" Name="FB4" Type="WorkPieces" x="2680" y="400" Namespace="Main" />
+    <FB ID="8" Name="IThis" Type="Model_HMI" x="4120" y="1740" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <Input Name="INIT" x="900" y="152" Type="Event" />
+    <Output Name="stop_pusher" x="4000" y="1612" Type="Data" />
+    <Output Name="INITO" x="4780" y="1751.854" Type="Event" />
+    <EventConnections>
+      <Connection Source="FB4.CHG" Destination="FB3.EI2" />
+      <Connection Source="FB3.EO" Destination="FB5.EI1" />
+      <Connection Source="INIT" Destination="FB4.INIT" dx1="331.4166">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="pusher_pos.CNF" Destination="FB4.REQ" />
+      <Connection Source="vcm_control.CNF" Destination="FB4.REQ" dx1="290.7916">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="tu_pos.CNF" Destination="FB4.REQ" dx1="306.2291">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.CNF" Destination="system_info.CNF" dx1="832.6875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.INITO" Destination="IThis.INIT" dx1="383.6038">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.CNF" Destination="IThis.REQ" dx1="352.6875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.INITO" Destination="INITO" dx1="40" />
+      <Connection Source="FB4.CNF" Destination="tu_info.CNF" dx1="692.6875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB4.StopPusher" Destination="stop_pusher" dx1="42.6875" />
+      <Connection Source="pusher_pos.pos" Destination="FB4.PosPusher">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="vcm_control.vcm_on" Destination="FB4.VcmON" dx1="70" />
+      <Connection Source="vcm_control.vcm_off" Destination="FB4.VcmOFF" dx1="830.7916">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="tu_pos.pos" Destination="FB4.AngleTransferUnit" dx1="886.2291">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.vmon" Destination="system_info.vmon" dx1="772.6875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.empty" Destination="system_info.empty" dx1="532.6875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.vmon" Destination="IThis.vcmON" dx1="592.6875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.empty" Destination="IThis.mgzEmpty" dx1="532.6875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp1X" Destination="IThis.wp1X" dx1="307.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp1Y" Destination="IThis.wp1Y" dx1="287.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp2X" Destination="IThis.wp2X" dx1="267.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp2Y" Destination="IThis.wp2Y" dx1="247.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp3X" Destination="IThis.wp3X" dx1="227.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp3Y" Destination="IThis.wp3Y" dx1="207.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp4X" Destination="IThis.wp4X" dx1="187.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp4Y" Destination="IThis.wp4Y" dx1="167.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp5X" Destination="IThis.wp5X" dx1="147.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp5Y" Destination="IThis.wp5Y" dx1="127.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp6X" Destination="IThis.wp6X" dx1="107.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.wp6Y" Destination="IThis.wp6Y" dx1="87.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="pusher_pos.pos" Destination="IThis.PosPusher" dx1="1226.229">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="tu_pos.pos" Destination="IThis.AngleTransUnit" dx1="40" />
+      <Connection Source="FB4.vmon" Destination="tu_info.vmon" dx1="1732.688">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </DataConnections>
+  </FBNetwork>
+</FBType>

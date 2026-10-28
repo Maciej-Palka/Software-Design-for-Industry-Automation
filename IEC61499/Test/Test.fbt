@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="215E2403323B6187" Name="Test" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="4" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="7/14/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm" />
+    </EventOutputs>
+    <Plugs>
+      <AdapterDeclaration Name="manual_buttons_1" Type="buttons_manual" Namespace="Main" x="2400" y="740" />
+      <AdapterDeclaration ID="4" Name="manual_buttons_2" Type="buttons_manual" Namespace="Main" x="2420" y="1520" />
+    </Plugs>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="IThis" Type="Test_HMI" x="920" y="620" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <Input Name="INIT" x="500" y="631.8542" Type="Event" />
+    <Output Name="INITO" x="1940" y="632" Type="Event" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="IThis.INIT" dx1="40.83337" />
+      <Connection Source="IThis.INITO" Destination="INITO" />
+      <Connection Source="IThis.INITO" Destination="manual_buttons_1.INIT" dx1="591.1041">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.INITO" Destination="manual_buttons_2.INIT" dx1="591.1041">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.CNF" Destination="manual_buttons_1.REQ" dx1="141.1041" />
+      <Connection Source="IThis.CNF" Destination="manual_buttons_2.REQ" dx1="141.1041" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="IThis.retract" Destination="manual_buttons_1.retract" />
+      <Connection Source="IThis.retract" Destination="manual_buttons_2.retract" dx1="531.1041">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.to_mgz" Destination="manual_buttons_1.to_mgz" />
+      <Connection Source="IThis.to_mgz" Destination="manual_buttons_2.to_mgz" dx1="451.1041">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.to_next" Destination="manual_buttons_1.to_nxt" />
+      <Connection Source="IThis.to_next" Destination="manual_buttons_2.to_nxt" dx1="371.1041">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.vcm_on" Destination="manual_buttons_1.vcm_on" />
+      <Connection Source="IThis.vcm_on" Destination="manual_buttons_2.vcm_on" dx1="291.1041">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="IThis.vcm_off" Destination="manual_buttons_1.vcm_off" />
+      <Connection Source="IThis.vcm_off" Destination="manual_buttons_2.vcm_off" dx1="231.1042">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+    </DataConnections>
+  </FBNetwork>
+</FBType>

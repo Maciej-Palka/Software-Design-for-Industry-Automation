@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="8abf3bf7-7e83-4420-82e1-e1433dab7870" Name="ManualOperation" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/19/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request" />
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Retract_cmd" />
+        <With Var="to_mgz_cmd" />
+        <With Var="to_nxt_cmd" />
+        <With Var="von_cmd" />
+        <With Var="voff_cmd" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="retract" />
+        <With Var="to_next" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="retract" />
+        <With Var="to_mgz" />
+        <With Var="to_next" />
+        <With Var="vcm_off" />
+        <With Var="vcm_on" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Retract_cmd" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="to_mgz_cmd" Type="BOOL" />
+      <VarDeclaration Name="to_nxt_cmd" Type="BOOL" />
+      <VarDeclaration Name="von_cmd" Type="BOOL" />
+      <VarDeclaration Name="voff_cmd" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="retract" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="to_mgz" Type="BOOL" />
+      <VarDeclaration Name="to_next" Type="BOOL" />
+      <VarDeclaration Name="vcm_on" Type="BOOL" />
+      <VarDeclaration Name="vcm_off" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,RETRACT,PUSH,TO_MGZ,TO_NXT,VCM_ON,VCM_OFF" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="2392.941" y="793.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="2359.529" y="369.1765">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="RETRACT" Comment="Normal execution" x="661.647" y="584.9412">
+        <ECAction Algorithm="RETRACT" Output="CNF" />
+      </ECState>
+      <ECState Name="PUSH" x="1156" y="1784">
+        <ECAction Algorithm="PUSH" Output="CNF" />
+      </ECState>
+      <ECState Name="TO_MGZ" x="2436" y="1932">
+        <ECAction Algorithm="TO_MGZ" Output="CNF" />
+      </ECState>
+      <ECState Name="TO_NXT" x="3464" y="1736">
+        <ECAction Algorithm="TO_NXT" Output="CNF" />
+      </ECState>
+      <ECState Name="VCM_ON" x="3732" y="1088">
+        <ECAction Algorithm="VCM_ON" Output="CNF" />
+      </ECState>
+      <ECState Name="VCM_OFF" x="3520" y="536">
+        <ECAction Algorithm="VCM_OFF" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="2303.058" y="592.3615">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="573.1718,162.3406,571.0724,135.6847" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="2459.264" y="575.4055">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="617.932,130.0327,620.0314,156.6886" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="RETRACT" Condition="REQ [Retract_cmd]" x="1354.241" y="961.0382">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="391.9951,267.9137,262.9952,249.9031" />
+      </ECTransition>
+      <ECTransition Source="RETRACT" Destination="START" Condition="1" x="1571.994" y="444.3781">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="333.3588,86.83504,454.7726,103.2513" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="PUSH" Condition="REQ [NOT Retract_cmd]" x="1820.807" y="1348.499">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="503.2802,305.1628,410.7462,379.0525" />
+      </ECTransition>
+      <ECTransition Source="PUSH" Destination="START" Condition="1" x="1591.595" y="1248.572">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="340.0189,345.7488,432.8131,271.8481" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="TO_MGZ" Condition="REQ [to_mgz_cmd AND NOT to_nxt_cmd]" x="2484.335" y="1343.466">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="623.8849,290.8069,627.8935,377.7192" />
+      </ECTransition>
+      <ECTransition Source="TO_MGZ" Destination="START" Condition="1" x="2331.696" y="1478.594">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="580.4641,423.9465,574.369,334.6654" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="TO_NXT" Condition="REQ [to_nxt_cmd AND NOT to_mgz_cmd]" x="2967.597" y="1202.377">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="703.3712,260.6889,783.085,330.1114" />
+      </ECTransition>
+      <ECTransition Source="TO_NXT" Destination="START" Condition="1" x="2942.848" y="1355.414">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="779.2626,381.6351,697.8138,311.1897" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="VCM_ON" Condition="REQ [von_cmd AND NOT voff_cmd]" x="3074.746" y="860.1215">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="724.8658,200.6134,813.7726,220.1726" />
+      </ECTransition>
+      <ECTransition Source="VCM_ON" Destination="START" Condition="1" x="3048.018" y="1020.622">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="806.1044,269.5357,718.2894,249.9975" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="VCM_OFF" Condition="REQ [voff_cmd AND NOT von_cmd]" x="2934.086" y="586.6811">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="699.6174,150.198,768.6472,134.4321" />
+      </ECTransition>
+      <ECTransition Source="VCM_OFF" Destination="START" Condition="1" x="2960.535" y="747.9458">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="774.2137,183.8045,705.1838,199.5704" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+retract := FALSE;
+to_mgz := FALSE;
+to_next := TRUE;
+vcm_off := FALSE;
+vcm_on := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="RETRACT" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+retract := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="PUSH">
+      <ST><![CDATA[;
+retract := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="TO_MGZ">
+      <ST><![CDATA[;
+to_mgz := TRUE;
+to_next := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="TO_NXT">
+      <ST><![CDATA[;
+to_mgz := FALSE;
+to_next := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="VCM_ON">
+      <ST><![CDATA[;
+vcm_on := TRUE;
+vcm_off := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="VCM_OFF">
+      <ST><![CDATA[;
+
+vcm_on := FALSE;
+vcm_off := TRUE;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

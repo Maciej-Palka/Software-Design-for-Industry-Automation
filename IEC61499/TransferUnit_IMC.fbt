@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="11b81b7c-3d1b-4dd9-8eb0-1243e54492c6" Name="TransferUnit_IMC" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="10" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/23/2026" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm" />
+      <Event Name="CNF" Comment="Execution Confirmation" />
+    </EventOutputs>
+    <Sockets>
+      <AdapterDeclaration ID="1" Name="manual_buttons" Type="buttons_manual" Namespace="Main" x="520" y="1000" />
+      <AdapterDeclaration ID="2" Name="tu_control" Type="control_IMC" Namespace="Main" x="520" y="1680" />
+      <AdapterDeclaration ID="7" Name="tu_info" Type="system_info" Namespace="Main" x="640" y="2360" />
+    </Sockets>
+    <Plugs>
+      <AdapterDeclaration Name="vcm_control" Type="vcm_control" Namespace="Main" x="3200" y="1320" />
+      <AdapterDeclaration Name="pos" Type="pos_IMC" Namespace="Main" x="5080" y="1000" />
+      <AdapterDeclaration Name="pos_init" Type="pos_init" Namespace="Main" x="5060" y="1620" />
+    </Plugs>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="3" Name="FB1" Type="TransferUnit" x="2940" y="660" Namespace="Main" />
+    <FB ID="5" Name="FB2" Type="E_MERGE" x="3780" y="800" Namespace="IEC61499.Standard" />
+    <FB ID="8" Name="FB3" Type="tu_pos" x="4220" y="1620" Namespace="Main" />
+    <FB ID="9" Name="FB4" Type="Algorithm_tu" x="1680" y="820" Namespace="Main" />
+    <Input Name="INIT" x="2320" y="672" Type="Event" />
+    <Output Name="INITO" x="5080" y="672" Type="Event" />
+    <Output Name="CNF" x="2320" y="892" Type="Event" />
+    <EventConnections>
+      <Connection Source="FB1.INITO" Destination="pos.INITO" dx1="1480.458">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.CNF" Destination="FB2.EI1" dx1="360.4583">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.CHG" Destination="FB2.EI2" dx1="260.4583">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB2.EO" Destination="pos.CNF" dx1="41.54175" />
+      <Connection Source="INIT" Destination="FB1.INIT" />
+      <Connection Source="FB1.INITO" Destination="INITO" />
+      <Connection Source="tu_control.CHECK_POS" Destination="FB3.REQ" dx1="2607" />
+      <Connection Source="manual_buttons.REQ" Destination="FB4.MANUAL" dx1="456.3125">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="tu_control.CNF" Destination="FB4.UPDATE" dx1="257">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="tu_control.ACTIVATE" Destination="FB4.ACTIVATE" dx1="50" />
+      <Connection Source="tu_info.CNF" Destination="FB4.UPDATE" dx1="272.2916">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.CNF" Destination="FB1.REQ" dx1="50" />
+      <Connection Source="FB4.CNF" Destination="vcm_control.CNF" dx1="417.875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.CNF" Destination="pos_init.CNF" />
+      <Connection Source="FB4.CNF_CYCLE" Destination="CNF" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB1.angle" Destination="pos.pos" dx1="380.4583">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.at_mgz" Destination="FB3.at_mgz" dx1="340.4583">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.at_next" Destination="FB3.at_nxt" dx1="300.4583">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="tu_info.vmon" Destination="FB3.vmon" dx1="2592.292">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="manual_buttons.to_mgz" Destination="FB4.to_mgz">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="manual_buttons.to_nxt" Destination="FB4.to_nxt">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="manual_buttons.vcm_on" Destination="FB4.vcm_on">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="manual_buttons.vcm_off" Destination="FB4.vcm_off">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="tu_control.mode" Destination="FB4.mode" dx1="297">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="tu_control.stop_flag" Destination="FB4.stop_flag" dx1="357">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="tu_info.vmon" Destination="FB4.vmon" dx1="412.2916">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.at_next" Destination="FB4.at_nxt" dx1="120.4583" dx2="180" dy="-760">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.at_mgz" Destination="FB4.at_mgz" dx1="60" dx2="110" dy="-640">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.mgz_cmd" Destination="FB1.to_mgz" dx1="90" />
+      <Connection Source="FB4.nxt_cmd" Destination="FB1.to_next" dx1="110" />
+      <Connection Source="FB4.von_cmd" Destination="vcm_control.vcm_on" dx1="137.875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.voff_cmd" Destination="vcm_control.vcm_off" dx1="97.875">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.is_init" Destination="pos_init.sensor_info" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

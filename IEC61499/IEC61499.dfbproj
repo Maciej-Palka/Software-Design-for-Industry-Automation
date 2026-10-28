@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{6CABFB28-5AC2-4ED5-B23B-1C5638756E6E}</ProjectGuid>
+    <ProjectTypeGuids>{EAD1E85F-CEF5-4861-AFF8-597F2DDE70FC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Windows</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Main</RootNamespace>
+    <AssemblyName>IEC61499</AssemblyName>
+    <NxtVersion>23.0.0.0</NxtVersion>
+    <CheckConnectionsStrictly>TRUE</CheckConnectionsStrictly>
+    <CreateHMI>false</CreateHMI>
+    <HMIProject>HMI</HMIProject>
+    <CATInstancesHaveIds>true</CATInstancesHaveIds>
+    <ProjectType>IEC61499</ProjectType>
+    <CheckGenericInstances>False</CheckGenericInstances>
+    <ConvertStringValues>False</ConvertStringValues>
+    <HardwareConfigurationMigrationVersion>1</HardwareConfigurationMigrationVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'Windows' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Default\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <IntermediateOutputPath>obj\Default\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Default\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <IntermediateOutputPath>obj\Default\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows' ">
+    <Version>1.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Runtime.Base">
+      <Version>23.0.0.15</Version>
+    </Reference>
+    <Reference Include="SE.DPAC">
+      <Version>23.0.0.57</Version>
+    </Reference>
+    <Reference Include="SE.Standard">
+      <Version>23.0.0.14</Version>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ButtonsPanel\ButtonsPanel.cfg">
+      <DependentUpon>ButtonsPanel.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="Configuration\Certificates\Certificates.xml" />
+    <None Include="IEC61499.iecproj" />
+    <none Include="Languages\neutral\Dictionary.Resources.xml" />
+    <None Include="Model\Model.cfg">
+      <DependentUpon>Model.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="Project.doc.xml" />
+    <None Include="SnapshotCompiles\{C324BB25-414B-4374-9750-1B6A3E4517C2}\Default\IEC61499.snapshot" />
+    <None Include="System\snapshot.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\System.cfg">
+      <DependentUpon>System.sys</DependentUpon>
+      <IEC61499Type>System</IEC61499Type>
+    </None>
+    <None Include="System\System.Device.Properties.xml">
+      <DependentUpon>System.sys</DependentUpon>
+      <IEC61499Type>System</IEC61499Type>
+    </None>
+    <None Include="Test\Test.cfg">
+      <DependentUpon>Test.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
+    <None Include="Test\Test_HMI.meta.xml">
+      <DependentUpon>Test_HMI.fbt</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AckHelper.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="AckLedControl.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="ADDER.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Algorithm_p.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Algorithm_tu.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="ArmControl.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="AutomaticOperation.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="BigDemux.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Bool2Real.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="BtnController.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="ButtonsPanel\ButtonsPanel.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="ButtonsPanel\ButtonsPanel_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <DependentUpon>ButtonsPanel\ButtonsPanel.fbt</DependentUpon>
+      <Usage>Private</Usage>
+    </Compile>
+    <Compile Include="buttons_automatic.adp">
+      <IEC61499Type>Adapter</IEC61499Type>
+    </Compile>
+    <Compile Include="buttons_manual.adp">
+      <IEC61499Type>Adapter</IEC61499Type>
+    </Compile>
+    <Compile Include="ChangeDetect.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Controller.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="control_IMC.adp">
+      <IEC61499Type>Adapter</IEC61499Type>
+    </Compile>
+    <Compile Include="CylControl.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Demux.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="DEMUX_2.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="E_MERGE_5.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="E_SELECT_5.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="FeederControl.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="FeederModel.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="InitState.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="InRange.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="integEC.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="lamp_control.adp">
+      <IEC61499Type>Adapter</IEC61499Type>
+    </Compile>
+    <Compile Include="LightControll.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="ManualOperation.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Model\Model.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="Model\Model_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <DependentUpon>Model\Model.fbt</DependentUpon>
+      <Usage>Private</Usage>
+    </Compile>
+    <Compile Include="Muxer.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="MUX_MY.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="PhysicsRulesWorkPieces.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="pos_IMC.adp">
+      <IEC61499Type>Adapter</IEC61499Type>
+    </Compile>
+    <Compile Include="pos_init.adp">
+      <IEC61499Type>Adapter</IEC61499Type>
+    </Compile>
+    <Compile Include="Pusher.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="Pusher_IMC.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="pusher_info.adp">
+      <IEC61499Type>Adapter</IEC61499Type>
+    </Compile>
+    <Compile Include="pusher_position.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Real2Bool.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Real2Int.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="ResetLedControl.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="StartLedControl.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="System\System.sys">
+      <IEC61499Type>System</IEC61499Type>
+    </Compile>
+    <Compile Include="system_info.adp">
+      <IEC61499Type>Adapter</IEC61499Type>
+    </Compile>
+    <Compile Include="Test\Test.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="Test\Test_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <DependentUpon>Test\Test.fbt</DependentUpon>
+      <Usage>Private</Usage>
+    </Compile>
+    <Compile Include="TransferUnit.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="TransferUnit_IMC.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="tu_pos.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="vcm_control.adp">
+      <IEC61499Type>Adapter</IEC61499Type>
+    </Compile>
+    <Compile Include="WorkPieces.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="Wp.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration" />
+    <Folder Include="Configuration\Certificates" />
+    <Folder Include="License" />
+    <Folder Include="Log" />
+    <Folder Include="SnapshotCompiles" />
+    <Folder Include="SnapshotCompiles\{C324BB25-414B-4374-9750-1B6A3E4517C2}" />
+    <Folder Include="SnapshotCompiles\{C324BB25-414B-4374-9750-1B6A3E4517C2}\Default" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ButtonsPanel\ButtonsPanel_CAT.offline.xml">
+      <DependentUpon>ButtonsPanel.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="ButtonsPanel\ButtonsPanel_CAT.opcua.xml">
+      <DependentUpon>ButtonsPanel.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="Model\Model_CAT.offline.xml">
+      <DependentUpon>Model.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="Model\Model_CAT.opcua.xml">
+      <DependentUpon>Model.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="Test\Test_CAT.offline.xml">
+      <DependentUpon>Test.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="Test\Test_CAT.opcua.xml">
+      <DependentUpon>Test.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(SharpDevelopBinPath)\NxtControl.Build.61499.Targets" />
+</Project>

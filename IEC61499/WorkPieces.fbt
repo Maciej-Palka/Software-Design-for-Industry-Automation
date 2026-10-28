@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="0dc06ccb-ef25-46d3-a85d-2c69477794d3" Name="WorkPieces" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="11" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="7/14/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="PosPusher" />
+        <With Var="AngleTransferUnit" />
+        <With Var="VcmON" />
+        <With Var="VcmOFF" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="PosPusher" />
+        <With Var="AngleTransferUnit" />
+        <With Var="VcmON" />
+        <With Var="VcmOFF" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="vmon" />
+      </Event>
+      <Event Name="CHG">
+        <With Var="vmon" />
+        <With Var="empty" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="vmon" />
+        <With Var="empty" />
+        <With Var="wp1X" />
+        <With Var="wp1Y" />
+        <With Var="wp2X" />
+        <With Var="wp2Y" />
+        <With Var="wp3X" />
+        <With Var="wp3Y" />
+        <With Var="wp4X" />
+        <With Var="wp4Y" />
+        <With Var="wp5X" />
+        <With Var="wp5Y" />
+        <With Var="wp6X" />
+        <With Var="wp6Y" />
+        <With Var="StopPusher" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="PosPusher" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="VcmON" Type="BOOL" />
+      <VarDeclaration Name="VcmOFF" Type="BOOL" />
+      <VarDeclaration Name="AngleTransferUnit" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="vmon" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="empty" Type="BOOL" />
+      <VarDeclaration Name="wp1X" Type="REAL" />
+      <VarDeclaration Name="wp1Y" Type="REAL" />
+      <VarDeclaration Name="wp2X" Type="REAL" />
+      <VarDeclaration Name="wp2Y" Type="REAL" />
+      <VarDeclaration Name="wp3X" Type="REAL" />
+      <VarDeclaration Name="wp3Y" Type="REAL" />
+      <VarDeclaration Name="wp4X" Type="REAL" />
+      <VarDeclaration Name="wp4Y" Type="REAL" />
+      <VarDeclaration Name="wp5X" Type="REAL" />
+      <VarDeclaration Name="wp5Y" Type="REAL" />
+      <VarDeclaration Name="wp6X" Type="REAL" />
+      <VarDeclaration Name="wp6Y" Type="REAL" />
+      <VarDeclaration Name="StopPusher" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="3" Name="FB2" Type="E_CYCLE" x="520" y="220" Namespace="IEC61499.Standard">
+      <Parameter Name="DT" Value="t#20ms" />
+    </FB>
+    <FB ID="5" Name="FB4" Type="ChangeDetect" x="2840" y="1920" Namespace="Main" />
+    <FB ID="6" Name="FB5" Type="ChangeDetect" x="2840" y="2340" Namespace="Main" />
+    <FB ID="7" Name="FB6" Type="E_MERGE" x="4300" y="1920" Namespace="IEC61499.Standard" />
+    <FB ID="4" Name="FB3" Type="BigDemux" x="2840" y="820" Namespace="Main" />
+    <FB ID="2" Name="FB1" Type="PhysicsRulesWorkPieces" x="1040" y="700" Namespace="Main">
+      <Parameter Name="CycleTime" Value="0.02" />
+      <Parameter Name="FallSpeed" Value="75" />
+    </FB>
+    <FB ID="8" Name="FB7" Type="Real2Bool" x="3320" y="1920" Namespace="Main" />
+    <FB ID="9" Name="FB8" Type="Real2Bool" x="3320" y="2340" Namespace="Main" />
+    <FB ID="10" Name="FB9" Type="Bool2Real" x="2280" y="1920" Namespace="Main" />
+    <FB ID="11" Name="FB10" Type="Bool2Real" x="2280" y="2340" Namespace="Main" />
+    <Input Name="INIT" x="100" y="771.8541" Type="Event" />
+    <Input Name="REQ" x="100" y="831.8541" Type="Event" />
+    <Input Name="PosPusher" x="100" y="1031.854" Type="Data" />
+    <Input Name="AngleTransferUnit" x="100" y="1091.854" Type="Data" />
+    <Input Name="VcmON" x="100" y="1151.854" Type="Data" />
+    <Input Name="VcmOFF" x="100" y="1211.854" Type="Data" />
+    <Output Name="INITO" x="2800" y="631.8541" Type="Event" />
+    <Output Name="CNF" x="3500" y="831.8541" Type="Event" />
+    <Output Name="vmon" x="3720" y="2132" Type="Data" />
+    <Output Name="CHG" x="4660" y="1932" Type="Event" />
+    <Output Name="empty" x="3720" y="2552" Type="Data" />
+    <Output Name="wp1X" x="3500" y="1031.854" Type="Data" />
+    <Output Name="wp2Y" x="3500" y="1211.854" Type="Data" />
+    <Output Name="wp2X" x="3500" y="1151.854" Type="Data" />
+    <Output Name="wp3X" x="3500" y="1271.854" Type="Data" />
+    <Output Name="wp3Y" x="3500" y="1331.854" Type="Data" />
+    <Output Name="wp4X" x="3500" y="1391.854" Type="Data" />
+    <Output Name="wp5X" x="3500" y="1511.854" Type="Data" />
+    <Output Name="wp6X" x="3500" y="1631.854" Type="Data" />
+    <Output Name="wp6Y" x="3500" y="1691.854" Type="Data" />
+    <Output Name="wp1Y" x="3500" y="1091.854" Type="Data" />
+    <Output Name="wp4Y" x="3500" y="1451.854" Type="Data" />
+    <Output Name="wp5Y" x="3500" y="1571.854" Type="Data" />
+    <Output Name="StopPusher" x="1820" y="1271.854" Type="Data" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="FB1.INIT" dx1="40.83334" />
+      <Connection Source="REQ" Destination="FB1.REQ" dx1="48.95837" />
+      <Connection Source="FB2.EO" Destination="FB1.C_Cycle" dx1="48.5" />
+      <Connection Source="FB1.CNF" Destination="FB3.REQ" dx1="1062.479">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB4.CHG" Destination="FB7.REQ" />
+      <Connection Source="FB5.CHG" Destination="FB8.REQ" />
+      <Connection Source="FB6.EO" Destination="CHG" dx1="45.771" />
+      <Connection Source="FB1.CNF" Destination="FB9.REQ" dx1="362.4792">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.CNF" Destination="FB10.REQ" dx1="221.2396">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB3.CNF" Destination="CNF" dx1="248.1042" />
+      <Connection Source="FB1.INITO" Destination="INITO" dx1="122.4792">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.INITO" Destination="FB2.START" dx1="122.4792" dx2="50" dy="-598">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB7.CNF" Destination="FB6.EI1" />
+      <Connection Source="FB8.CNF" Destination="FB6.EI2" dx1="50" />
+      <Connection Source="FB9.CNF" Destination="FB4.REQ" />
+      <Connection Source="FB10.CNF" Destination="FB5.REQ" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="PosPusher" Destination="FB1.PosPusher" dx1="40" />
+      <Connection Source="AngleTransferUnit" Destination="FB1.AngleTransUnit" dx1="40" />
+      <Connection Source="VcmON" Destination="FB1.VcmON" dx1="40" />
+      <Connection Source="VcmOFF" Destination="FB1.VcmOFF" dx1="40" />
+      <Connection Source="FB1.DataOut" Destination="FB3.DataIn" />
+      <Connection Source="FB4.OUT" Destination="FB7.Input" />
+      <Connection Source="FB5.OUT" Destination="FB8.Input" />
+      <Connection Source="FB1.vmon" Destination="FB9.Input" dx1="281.2396">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB1.empty" Destination="FB10.Input" dx1="60" />
+      <Connection Source="FB3.Wp1X" Destination="wp1X" dx1="248.1042" />
+      <Connection Source="FB3.Wp1Y" Destination="wp1Y" dx1="240" dx2="40" dy="1" />
+      <Connection Source="FB3.Wp2X" Destination="wp2X" dx1="229.052" />
+      <Connection Source="FB3.Wp2Y" Destination="wp2Y" dx1="208.1042" />
+      <Connection Source="FB3.Wp3X" Destination="wp3X" dx1="188.1042" />
+      <Connection Source="FB3.Wp3Y" Destination="wp3Y" dx1="168.1042" />
+      <Connection Source="FB3.Wp4X" Destination="wp4X" dx1="148.1042" />
+      <Connection Source="FB3.Wp4Y" Destination="wp4Y" dx1="128.1042" />
+      <Connection Source="FB3.Wp5X" Destination="wp5X" dx1="108.1042" />
+      <Connection Source="FB3.Wp5Y" Destination="wp5Y" dx1="88.10425" />
+      <Connection Source="FB3.Wp6X" Destination="wp6X" dx1="68.10425" />
+      <Connection Source="FB3.Wp6Y" Destination="wp6Y" dx1="48.10425" />
+      <Connection Source="FB1.StopPusher" Destination="StopPusher" dx1="40" />
+      <Connection Source="FB7.Output" Destination="vmon" />
+      <Connection Source="FB8.Output" Destination="empty" />
+      <Connection Source="FB9.Output" Destination="FB4.INP" />
+      <Connection Source="FB10.Output" Destination="FB5.INP" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

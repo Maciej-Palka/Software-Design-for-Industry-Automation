@@ -1,0 +1,22 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="INIT1" Map="REQ_1" />
+    <Event Name="REQ" Map="REQ_2">start_led;reset_led;ack_led</Event>
+  </EventInputs>
+  <EventOutputs>
+    <Event Name="INITO1" Map="IND_1">start;reset;ack;manual;stop</Event>
+    <Event Name="CNF" Map="IND_2">start;reset;ack;manual;stop</Event>
+  </EventOutputs>
+  <Inputs>
+    <Input Name="start_led" Type="BOOL" Map="SD_1" />
+    <Input Name="reset_led" Type="BOOL" Map="SD_2" />
+    <Input Name="ack_led" Type="BOOL" Map="SD_3" />
+  </Inputs>
+  <Outputs>
+    <Output Name="start" Type="BOOL" Map="RD_1" />
+    <Output Name="reset" Type="BOOL" Map="RD_2" />
+    <Output Name="ack" Type="BOOL" Map="RD_3" />
+    <Output Name="manual" Type="BOOL" Map="RD_4" />
+    <Output Name="stop" Type="BOOL" Map="RD_5" />
+  </Outputs>
+</Mapping>

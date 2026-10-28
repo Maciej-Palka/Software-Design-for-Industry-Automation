@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="c85948ee-15a3-4c88-bef0-07ba281d0cab" Name="Algorithm_p" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/22/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="retracted" />
+        <With Var="extended" />
+        <With Var="stop_flag" />
+        <With Var="mode" />
+      </Event>
+      <Event Name="UPDATE">
+        <With Var="retracted" />
+        <With Var="extended" />
+        <With Var="stop_flag" />
+        <With Var="mode" />
+      </Event>
+      <Event Name="MANUAL">
+        <With Var="retracted" />
+        <With Var="extended" />
+        <With Var="stop_flag" />
+        <With Var="manual_input" />
+        <With Var="mode" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Retracted" />
+      </Event>
+      <Event Name="CNF_CYCLE" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="retracted" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="extended" Type="BOOL" />
+      <VarDeclaration Name="stop_flag" Type="BOOL" />
+      <VarDeclaration Name="manual_input" Type="BOOL" />
+      <VarDeclaration Name="mode" Type="INT" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Retracted" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="RETRACT,EXTEND,MANUAL" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="WAIT" x="1112" y="636" />
+      <ECState Name="EXTEND" x="1752" y="988">
+        <ECAction Algorithm="EXTEND" Output="CNF" />
+      </ECState>
+      <ECState Name="RETRACT" x="1812" y="1948">
+        <ECAction Algorithm="RETRACT" Output="CNF" />
+      </ECState>
+      <ECState Name="END" x="516" y="1656">
+        <ECAction Output="CNF_CYCLE" />
+      </ECState>
+      <ECState Name="MANUAL" x="1976" y="292">
+        <ECAction Algorithm="MANUAL" Output="CNF" />
+      </ECState>
+      <ECTransition Source="WAIT" Destination="EXTEND" Condition="REQ [NOT stop_flag AND mode = 1]" x="1475.953" y="741.9435">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="351.2877,170.7765,388.8082,191.4127" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="WAIT" Condition="1" x="875.6216" y="458.3243">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="206.0027,105.7426,232.7524,115.6274" />
+      </ECTransition>
+      <ECTransition Source="EXTEND" Destination="RETRACT" Condition="UPDATE [extended AND NOT retracted AND NOT stop_flag]" x="1860.729" y="1463.322">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="468.2231,329.7891,472.6795,401.092" />
+      </ECTransition>
+      <ECTransition Source="RETRACT" Destination="END" Condition="UPDATE [NOT extended AND retracted AND NOT stop_flag]" x="1119.389" y="1871.561">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="322.0642,481.6427,235.9969,462.5841" />
+      </ECTransition>
+      <ECTransition Source="END" Destination="WAIT" Condition="1" x="820.9135" y="1085.365">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="184.0181,304.422,228.519,228.1543" />
+      </ECTransition>
+      <ECTransition Source="WAIT" Destination="MANUAL" Condition="MANUAL [mode = 0 AND NOT stop_flag]" x="1520.836" y="388.346">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="356.0467,102.611,407.2529,81.98046" />
+      </ECTransition>
+      <ECTransition Source="MANUAL" Destination="WAIT" Condition="1" x="1568.275" y="542.2737">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="418.4584,129.9854,366.4348,150.6985" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="RETRACT" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+Retracted := FALSE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="EXTEND" Comment="Normally executed algorithm">
+      <ST><![CDATA[;
+Retracted := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="MANUAL">
+      <ST><![CDATA[;
+Retracted := manual_input;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="8c533e1d-d682-4dfd-b256-3a232a787081" Name="Wp" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="10" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="7/15/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request" />
+      <Event Name="UpdPos" Comment="Normal Execution Request" />
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="QO" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="QO" />
+        <With Var="CalcPos" />
+      </Event>
+      <Event Name="CNF1" Comment="Execution Confirmation" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Pos" Type="REAL" ArraySize="2" Comment="Input event qualifier" />
+      <VarDeclaration Name="Reset" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="QO" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="CalcPos" Type="REAL" ArraySize="3" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="1" Name="FB1" Type="E_PERMIT" x="1300" y="1660" Namespace="IEC61499.Standard" />
+    <FB ID="2" Name="FB2" Type="ChangeDetect" x="2180" y="520" Namespace="Main" />
+    <FB ID="3" Name="FB3" Type="integEC" x="2260" y="1540" Namespace="Main">
+      <Parameter Name="minValue" Value="0.0" />
+      <Parameter Name="maxValue" Value="10.0" />
+      <Parameter Name="pv1" Value="20.0" />
+      <Parameter Name="cycleTime" Value="0.02" />
+      <Parameter Name="preTrip" Value="0.0" />
+      <Parameter Name="integType" Value="0" />
+      <Parameter Name="sp" Value="100.0" />
+      <Parameter Name="tBase1" Value="1.0" />
+      <Parameter Name="tBase2" Value="4.0" />
+      <Parameter Name="useLimits" Value="TRUE" />
+      <Parameter Name="pv2" Value="0.0" />
+      <Parameter Name="inv1" Value="FALSE" />
+      <Parameter Name="inv2" Value="FALSE" />
+    </FB>
+    <FB ID="4" Name="FB5" Type="NOT_42C76073DCEB1A7A" x="660" y="1660" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=1;OUT${CNT}:BOOL" />
+    </FB>
+    <FB ID="5" Name="FB6" Type="ADD_1990CFD1468AAE4A6" x="3500" y="1600" Namespace="Main">
+      <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.Standard#CNT:=2;IN${CNT}:LREAL" />
+    </FB>
+    <FB ID="6" Name="FB9" Type="ChangeDetect" x="2180" y="920" Namespace="Main" />
+    <FB ID="7" Name="FB7" Type="Demux" x="1240" y="520" Namespace="Main" />
+    <FB ID="8" Name="FB4" Type="E_PERMIT" x="1300" y="2100" Namespace="IEC61499.Standard" />
+    <FB ID="9" Name="FB8" Type="Muxer" x="4020" y="1600" Namespace="Main" />
+    <FB ID="10" Name="FB10" Type="ADDER" x="3500" y="2080" Namespace="Main" />
+    <Input Name="INIT" x="1700" y="1551.854" Type="Event" />
+    <Input Name="UpdPos" x="140" y="1671.854" Type="Event" />
+    <Input Name="Pos" x="360" y="732" Type="Data" />
+    <Input Name="Reset" x="120" y="2311.854" Type="Data" />
+    <Output Name="INITO" x="2117.646" y="12" Type="Event" />
+    <Output Name="CNF" x="2143.729" y="72" Type="Event" />
+    <Output Name="QO" x="2023.292" y="132" Type="Data" />
+    <Output Name="CNF1" x="4596.584" y="1611.854" Type="Event" />
+    <Output Name="CalcPos" x="4548.292" y="1811.854" Type="Data" />
+    <EventConnections>
+      <Connection Source="FB1.EO" Destination="FB3.C_CYCLE" />
+      <Connection Source="UpdPos" Destination="FB5.REQ" dx1="49.62503" />
+      <Connection Source="FB5.CNF" Destination="FB1.EI" />
+      <Connection Source="FB3.CNF" Destination="FB10.REQ" dx1="64.1875" />
+      <Connection Source="FB7.CNF" Destination="FB2.REQ" />
+      <Connection Source="FB7.CNF" Destination="FB9.REQ" dx1="306.6041">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="UpdPos" Destination="FB7.REQ" dx1="49.62503" />
+      <Connection Source="FB10.CNF" Destination="FB8.REQ" dx1="49.85425" />
+      <Connection Source="FB8.CNF" Destination="CNF1" dx1="60" />
+      <Connection Source="FB4.EO" Destination="FB3.RESET" dx1="37.16675">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB5.CNF" Destination="FB4.EI" dx1="53.75">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="INIT" Destination="FB3.INIT" dx1="40" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="FB5.OUT1" Destination="FB1.PERMIT" />
+      <Connection Source="FB3.out" Destination="FB10.In2" dx1="44.1875" />
+      <Connection Source="Reset" Destination="FB5.IN1" dx1="48.20837" />
+      <Connection Source="FB7.X" Destination="FB2.INP" />
+      <Connection Source="FB7.Y" Destination="FB9.INP" dx1="46.60425">
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="Pos" Destination="FB7.InData" />
+      <Connection Source="FB7.Y" Destination="FB10.In1">
+        <Points>
+          <Points>
+            <X>398.348938</X>
+            <Y>205</Y>
+          </Points>
+          <Points>
+            <X>408.348938</X>
+            <Y>205</Y>
+          </Points>
+          <Points>
+            <X>408.348938</X>
+            <Y>365</Y>
+          </Points>
+          <Points>
+            <X>860</X>
+            <Y>365</Y>
+          </Points>
+          <Points>
+            <X>860</X>
+            <Y>580</Y>
+          </Points>
+          <Points>
+            <X>870</X>
+            <Y>580</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB10.Out" Destination="FB8.Y" dx1="70" />
+      <Connection Source="FB7.X" Destination="FB8.X">
+        <Points>
+          <Points>
+            <X>398.348938</X>
+            <Y>190</Y>
+          </Points>
+          <Points>
+            <X>429.999969</X>
+            <Y>190</Y>
+          </Points>
+          <Points>
+            <X>429.999969</X>
+            <Y>350</Y>
+          </Points>
+          <Points>
+            <X>970</X>
+            <Y>350</Y>
+          </Points>
+          <Points>
+            <X>970</X>
+            <Y>460</Y>
+          </Points>
+          <Points>
+            <X>1000</X>
+            <Y>460</Y>
+          </Points>
+        </Points>
+        <AvoidsNodes>false</AvoidsNodes>
+      </Connection>
+      <Connection Source="FB8.DataOut" Destination="CalcPos" dx1="40" />
+      <Connection Source="Reset" Destination="FB4.PERMIT" dx1="48.20837" />
+      <Connection Source="FB3.out" Destination="FB8.Ye">
+        <Points>
+          <Points>
+            <X>686.4531</X>
+            <Y>490</Y>
+          </Points>
+          <Points>
+            <X>697.5</X>
+            <Y>490</Y>
+          </Points>
+          <Points>
+            <X>697.5</X>
+            <Y>497.5</Y>
+          </Points>
+          <Points>
+            <X>967.5</X>
+            <Y>497.5</Y>
+          </Points>
+          <Points>
+            <X>967.5</X>
+            <Y>490</Y>
+          </Points>
+          <Points>
+            <X>1000</X>
+            <Y>490</Y>
+          </Points>
+        </Points>
+      </Connection>
+    </DataConnections>
+  </FBNetwork>
+</FBType>

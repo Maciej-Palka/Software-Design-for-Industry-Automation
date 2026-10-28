@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DistributionStation_EAE" Guid="{6CABFB28-5AC2-4ED5-B23B-1C5638756E6E}" Version="1.5.0.0" xmlns="http://www.nxtcontrol.com/IEC61499.xsd">
+  <Archive>
+    <ExcludeDir>
+      <string>Exports</string>
+      <string>Imports</string>
+      <string>Documentation</string>
+      <string>TestReports</string>
+    </ExcludeDir>
+  </Archive>
+  <References />
+  <CanvasResolution StartCanvasClass="HMI.Main.Canvases.StartCanvas_1" Width="1024" Height="600" WorkAreaWidth="1024" WorkAreaHeight="530" Template="Default" Login="true" NavigationControl="1" CurrentUser="true" LanguageButton="true" RuntimeConnection="true" Logger="false" NavigationBar="true" NewVersionDeployed="true" Exit="false" ShowWarningMessage="false" WarningText="" SiblingButtonCount="0" ChildButtonCount="0" IsCanvasTopologyPanel="true" ResizeBehaviour="None" AliasNameToggle="false" CanvasButtonHeight="30">
+    <Topology Name="Default">
+      <Canvases>
+        <Canvas Name="Canvas1" Title="" Tooltip="" Instance="HMI.Main.Canvases.Canvas1" />
+      </Canvases>
+    </Topology>
+  </CanvasResolution>
+  <CanvasResolution StartCanvasClass="" Width="-1" Height="-1" WorkAreaWidth="-1" WorkAreaHeight="-1" Template="" Login="true" NavigationControl="0" CurrentUser="true" LanguageButton="true" RuntimeConnection="true" Logger="false" NavigationBar="true" NewVersionDeployed="true" Exit="false" ShowWarningMessage="false" WarningText="" SiblingButtonCount="5" ChildButtonCount="5" IsCanvasTopologyPanel="true" ResizeBehaviour="None" AliasNameToggle="false" CanvasButtonHeight="30">
+    <Topology Name="Default" />
+  </CanvasResolution>
+  <Graphics Name="Graphics" IsExternal="false">
+    <Graphics>
+      <Graphic Name="Graphic1" Instance="HMI.Main.Graphics.Graphic1" />
+    </Graphics>
+  </Graphics>
+  <WebGraphics Name="WebGraphics" IsExternal="false" />
+  <Security Level="Internal" IsActive="true">
+    <Info>﻿&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;UserManager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" HighestID="2"&gt;&lt;UserInfos Name="D7033E" Password="$1$C0F6808D4904A552278F3413BBB2A94B34C816B8B82CD1CEE608E4F990DE14FE$A77434B7E7651CC54EAF5BA7AFB6517DFEE84B3C4BFED0C7A59A3F6E49860901" SecurityToken="127" ID="1" MeetsCalLaw="true" /&gt;&lt;/UserManager&gt;</Info>
+  </Security>
+  <PluginGUIDs />
+  <ConnectableAdapterList>
+    <ConnectableAdapters>
+      <CompatibleType Type="IHwSlaveConfig" Namespace="SE.FieldDevice" />
+      <CompatibleType Type="IHwSlaveConfig" Namespace="Standard.IoModbus" />
+    </ConnectableAdapters>
+  </ConnectableAdapterList>
+</ProjectDatabase>

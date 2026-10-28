@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="c8492b67-fb58-4183-9bf8-3a10dab6c114" Name="Demux" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/8/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="InData" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="X" />
+        <With Var="Y" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="InData" Type="REAL" ArraySize="2" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="X" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="Y" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="977.647" y="748.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="823.2139" y="525.8871">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="194.4374,118.3515,218.2698,136.2819" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="757.6558" y="666.9928">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="203.1664,180.5927,179.4806,162.9956" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="X := InData[0];&#xD;&#xA;Y := InData[1];" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

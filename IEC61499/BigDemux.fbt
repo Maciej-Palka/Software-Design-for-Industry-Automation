@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="9a55b3f7-99d4-4a04-a4ad-1c4f752b3f5b" Name="BigDemux" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/8/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="DataIn" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Wp1X" />
+        <With Var="Wp1Y" />
+        <With Var="Wp2X" />
+        <With Var="Wp2Y" />
+        <With Var="Wp3X" />
+        <With Var="Wp3Y" />
+        <With Var="Wp4X" />
+        <With Var="Wp4Y" />
+        <With Var="Wp5X" />
+        <With Var="Wp5Y" />
+        <With Var="Wp6X" />
+        <With Var="Wp6Y" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="DataIn" Type="REAL" ArraySize="12" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Wp1X" Type="REAL" Comment="Output event qualifier" />
+      <VarDeclaration Name="Wp1Y" Type="REAL" />
+      <VarDeclaration Name="Wp2X" Type="REAL" />
+      <VarDeclaration Name="Wp2Y" Type="REAL" />
+      <VarDeclaration Name="Wp3X" Type="REAL" />
+      <VarDeclaration Name="Wp3Y" Type="REAL" />
+      <VarDeclaration Name="Wp4X" Type="REAL" />
+      <VarDeclaration Name="Wp4Y" Type="REAL" />
+      <VarDeclaration Name="Wp5X" Type="REAL" />
+      <VarDeclaration Name="Wp5Y" Type="REAL" />
+      <VarDeclaration Name="Wp6X" Type="REAL" />
+      <VarDeclaration Name="Wp6Y" Type="REAL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="961.647" y="756.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="817.3302" y="531.6891">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="193.3542,119.487,216.5605,138.0841" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="749.3677" y="672.601">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="200.9266,182.5927,177.7204,163.9956" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="Wp1X := DataIn[0];&#xD;&#xA;Wp1Y := DataIn[1];&#xD;&#xA;Wp2X := DataIn[2];&#xD;&#xA;Wp2Y := DataIn[3];&#xD;&#xA;Wp3X := DataIn[4];&#xD;&#xA;Wp3Y := DataIn[5];&#xD;&#xA;Wp4X := DataIn[6];&#xD;&#xA;Wp4Y := DataIn[7];&#xD;&#xA;Wp5X := DataIn[8];&#xD;&#xA;Wp5Y := DataIn[9];&#xD;&#xA;Wp6X := DataIn[10];&#xD;&#xA;Wp6Y := DataIn[11];" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

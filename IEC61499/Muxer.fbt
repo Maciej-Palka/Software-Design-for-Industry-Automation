@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="4ab3861d-89d6-4573-83e5-642530075a2e" Name="Muxer" Comment="Basic Function Block Type" Namespace="Main">
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH" Version="0.0" Author="Andrei" Date="6/8/2016" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="X" />
+        <With Var="Y" />
+        <With Var="Ye" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="DataOut" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="X" Type="REAL" Comment="Input event qualifier" />
+      <VarDeclaration Name="Y" Type="REAL" />
+      <VarDeclaration Name="Ye" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="DataOut" Type="REAL" ArraySize="3" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="1093.647" y="732.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="871.0392" y="511.2039">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="203.2782,115.1955,232.8441,131.7926" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="817.1241" y="661.6027">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="220.6065,178.5927,191.0405,161.9956" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="DataOut[0] := X;&#xD;&#xA;DataOut[1] := Y;&#xD;&#xA;DataOut[2] := Ye;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

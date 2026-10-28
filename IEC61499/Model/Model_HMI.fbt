@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="998FAD8354ADB26D" Name="Model_HMI" Comment="Service Interface Function Block Type" Namespace="Main">
+  <Attribute Name="Runtime.Persistence.Storage" Value="0" />
+  <Attribute Name="Configuration.FB.IDCounter" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="nxtControl GmbH " Version="0.0" Author="Andrei" Date="7/13/2016" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT">
+        <With Var="QI" />
+      </Event>
+      <Event Name="REQ">
+        <With Var="vcmON" />
+        <With Var="mgzEmpty" />
+        <With Var="wp1X" />
+        <With Var="wp1Y" />
+        <With Var="wp2X" />
+        <With Var="wp2Y" />
+        <With Var="wp3X" />
+        <With Var="wp3Y" />
+        <With Var="wp4X" />
+        <With Var="wp4Y" />
+        <With Var="wp5X" />
+        <With Var="wp5Y" />
+        <With Var="wp6X" />
+        <With Var="wp6Y" />
+        <With Var="PosPusher" />
+        <With Var="AngleTransUnit" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO">
+        <With Var="QO" />
+        <With Var="STATUS" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="QI" Type="BOOL" />
+      <VarDeclaration Name="vcmON" Type="BOOL" />
+      <VarDeclaration Name="mgzEmpty" Type="BOOL" />
+      <VarDeclaration Name="wp1X" Type="REAL" />
+      <VarDeclaration Name="wp1Y" Type="REAL" />
+      <VarDeclaration Name="wp2X" Type="REAL" />
+      <VarDeclaration Name="wp2Y" Type="REAL" />
+      <VarDeclaration Name="wp3X" Type="REAL" />
+      <VarDeclaration Name="wp3Y" Type="REAL" />
+      <VarDeclaration Name="wp4X" Type="REAL" />
+      <VarDeclaration Name="wp4Y" Type="REAL" />
+      <VarDeclaration Name="wp5X" Type="REAL" />
+      <VarDeclaration Name="wp5Y" Type="REAL" />
+      <VarDeclaration Name="wp6X" Type="REAL" />
+      <VarDeclaration Name="wp6Y" Type="REAL" />
+      <VarDeclaration Name="PosPusher" Type="REAL" />
+      <VarDeclaration Name="AngleTransUnit" Type="REAL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="QO" Type="BOOL" Comment="Event Output Qualifier" />
+      <VarDeclaration Name="STATUS" Type="STRING" Comment="Service Status" />
+    </OutputVars>
+  </InterfaceList>
+  <Service RightInterface="" LeftInterface="">
+    <ServiceSequence Name="" />
+  </Service>
+</FBType>

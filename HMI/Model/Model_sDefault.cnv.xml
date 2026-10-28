@@ -1,0 +1,25 @@
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ" Map="REQ_1">vcmON;mgzEmpty;wp1X;wp1Y;wp2X;wp2Y;wp3X;wp3Y;wp4X;wp4Y;wp5X;wp5Y;wp6X;wp6Y;PosPusher;AngleTransUnit</Event>
+  </EventInputs>
+  <EventOutputs />
+  <Inputs>
+    <Input Name="vcmON" Type="BOOL" Map="SD_1" />
+    <Input Name="mgzEmpty" Type="BOOL" Map="SD_2" />
+    <Input Name="wp1X" Type="REAL" Map="SD_3" />
+    <Input Name="wp1Y" Type="REAL" Map="SD_4" />
+    <Input Name="wp2X" Type="REAL" Map="SD_5" />
+    <Input Name="wp2Y" Type="REAL" Map="SD_6" />
+    <Input Name="wp3X" Type="REAL" Map="SD_7" />
+    <Input Name="wp3Y" Type="REAL" Map="SD_8" />
+    <Input Name="wp4X" Type="REAL" Map="SD_9" />
+    <Input Name="wp4Y" Type="REAL" Map="SD_10" />
+    <Input Name="wp5X" Type="REAL" Map="SD_11" />
+    <Input Name="wp5Y" Type="REAL" Map="SD_12" />
+    <Input Name="wp6X" Type="REAL" Map="SD_13" />
+    <Input Name="wp6Y" Type="REAL" Map="SD_14" />
+    <Input Name="PosPusher" Type="REAL" Map="SD_15" />
+    <Input Name="AngleTransUnit" Type="REAL" Map="SD_16" />
+  </Inputs>
+  <Outputs />
+</Mapping>

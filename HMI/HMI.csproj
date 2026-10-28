@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{3D01D4A4-B1C9-417D-A0BF-BFAD2B94FC24}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HMI</RootNamespace>
+    <AssemblyName>HMI</AssemblyName>
+    <ProjectType>HMI</ProjectType>
+    <HMILibraries>HMIBaseSymbols:</HMILibraries>
+    <Theme>DefaultLight:Default|DefaultLight</Theme>
+    <NxtVersion>23.0.0.0</NxtVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <CanvasLookAndFeel>Theme</CanvasLookAndFeel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'Windows' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\$(Platform)\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\$(Platform)\Release</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows' ">
+    <DefineConstants>DEBUG%3bTRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows' ">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="ButtonsPanel\ButtonsPanel.def.cs" />
+    <Compile Include="ButtonsPanel\ButtonsPanel.event.cs" />
+    <Compile Include="ButtonsPanel\ButtonsPanel_sDefault.cnv.cs" />
+    <Compile Include="ButtonsPanel\ButtonsPanel_sDefault.cnv.Designer.cs">
+      <DependentUpon>ButtonsPanel_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Canvas1.cnv.cs">
+      <Canvas>true</Canvas>
+    </Compile>
+    <Compile Include="Canvas1.cnv.Designer.cs">
+      <DependentUpon>Canvas1.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Colors\ProjectColors.cs" />
+    <Compile Include="Colors\ProjectDrawingObjects.cs" />
+    <Compile Include="Graphic1.cnv.cs">
+      <Graphic>true</Graphic>
+    </Compile>
+    <Compile Include="Graphic1.cnv.Designer.cs">
+      <DependentUpon>Graphic1.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.def.cs" />
+    <Compile Include="Model\Model.event.cs" />
+    <Compile Include="Model\Model_sDefault.cnv.cs" />
+    <Compile Include="Model\Model_sDefault.cnv.Designer.cs">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartCanvas_1.cnv.cs" />
+    <Compile Include="StartCanvas_1.cnv.Designer.cs">
+      <DependentUpon>StartCanvas_1.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\Test.def.cs" />
+    <Compile Include="Test\Test.event.cs" />
+    <Compile Include="Test\Test_sDefault.cnv.cs" />
+    <Compile Include="Test\Test_sDefault.cnv.Designer.cs">
+      <DependentUpon>Test_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Alarms\AlarmClasses.xml" />
+    <None Include="ButtonsPanel\ButtonsPanel.Design.resx" />
+    <None Include="Colors\Default.color.theme" />
+    <None Include="Colors\Default.do.theme" />
+    <None Include="Colors\DefaultLight.color.theme" />
+    <None Include="Colors\DefaultLight.do.theme" />
+    <None Include="Colors\ProjectColors.xml" />
+    <None Include="Colors\ProjectDrawingObjects.xml" />
+    <None Include="ImageStorage\ImageStorage.xml" />
+    <none Include="Languages\neutral\Dictionary.Resources.xml" />
+    <None Include="Model\Model.Design.resx" />
+    <None Include="Test\Test.Design.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Alarms\AlarmClasses.xml" />
+    <EmbeddedResource Include="Alarms\SystemAlarmClasses.xml" />
+    <EmbeddedResource Include="ButtonsPanel\ButtonsPanel_sDefault.cnv.resx">
+      <DependentUpon>ButtonsPanel_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ButtonsPanel\ButtonsPanel_sDefault.cnv.xml">
+      <DependentUpon>ButtonsPanel_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Canvas1.cnv.resx">
+      <DependentUpon>Canvas1.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configurations\HistoryTrend.xml" />
+    <EmbeddedResource Include="Configurations\Journalling.xml" />
+    <EmbeddedResource Include="Configurations\TagValueEditor.xml" />
+    <EmbeddedResource Include="Graphic1.cnv.resx">
+      <DependentUpon>Graphic1.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Model_sDefault.cnv.resx">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Model_sDefault.cnv.xml">
+      <DependentUpon>Model_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartCanvas_1.cnv.resx">
+      <DependentUpon>StartCanvas_1.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\Test_sDefault.cnv.resx">
+      <DependentUpon>Test_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\Test_sDefault.cnv.xml">
+      <DependentUpon>Test_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CommunicationProfile">
+      <HintPath>CommunicationProfile</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HMIBaseSymbols">
+      <HintPath>HMIBaseSymbols</HintPath>
+    </Reference>
+    <Reference Include="NxtControl.ComponentModel">
+      <HintPath>NxtControl.ComponentModel</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NxtControl.GuiFramework">
+      <HintPath>NxtControl.GuiFramework</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SE.DPAC.HMI">
+      <Version>23.0.0.57</Version>
+      <HintPath>SE.DPAC.HMI</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <Import Project="$(SharpDevelopBinPath)\SharpDevelop.Build.CSharp.targets" />
+</Project>

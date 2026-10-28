@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="ad541c82-f33e-4624-a97d-c8a709558989" Name="DEMUX_2" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/19/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="QI" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="E0" Comment="Execution Confirmation" />
+      <Event Name="E1" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="QI" Type="BOOL" Comment="Input event qualifier" />
+    </InputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="E0" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Output="E0" />
+      </ECState>
+      <ECState Name="E1" x="1224" y="748">
+        <ECAction Output="E1" />
+      </ECState>
+      <ECTransition Source="START" Destination="E0" Condition="REQ [QI]" x="444.7026" y="649.1765">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="123.1467,156.6527,104.2188,174.9165" />
+      </ECTransition>
+      <ECTransition Source="E0" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+      <ECTransition Source="START" Destination="E1" Condition="REQ [NOT QI]" x="930.1826" y="516.2048">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="214.0383,115.6664,251.6408,133.5184" />
+      </ECTransition>
+      <ECTransition Source="E1" Destination="START" Condition="1" x="920.9915" y="673.1425">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="254.9549,182.5737,212.1161,164.2852" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST><![CDATA[;]]></ST>
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST><![CDATA[;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>

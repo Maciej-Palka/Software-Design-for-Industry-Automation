@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="c5ebdb05-75bd-4cc4-a25b-84837c501a75" Name="pusher_position" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="macie" Date="10/22/2026" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="extended" />
+        <With Var="retracted" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="is_init" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="extended" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="retracted" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="is_init" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="RETRACTED,UNKNOWN" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="2408.941" y="233.4117" />
+      <ECState Name="RETRACTED" Comment="Normal execution" x="765.6471" y="872.9412">
+        <ECAction Algorithm="RETRACTED" Output="CNF" />
+      </ECState>
+      <ECState Name="UNKNOWN" x="4352" y="1416">
+        <ECAction Algorithm="UNKNOWN" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="RETRACTED" Condition="REQ [retracted AND NOT extended]" x="1630.685" y="623.3015">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="463.9666,138.9902,348.9832,183.7389" />
+      </ECTransition>
+      <ECTransition Source="RETRACTED" Destination="START" Condition="1" x="1584.571" y="474.5219">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="339.9163,135.441,454.8997,90.69232" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="UNKNOWN" Condition="REQ [NOT retracted OR extended]" x="3433.806" y="777.0306">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="787.7148,145.1397,934.4167,235.4297" />
+      </ECTransition>
+      <ECTransition Source="UNKNOWN" Destination="START" Condition="1" x="3330.102" y="873.6779">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="903.8411,267.1999,756.4276,177.8011" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="RETRACTED" Comment="Initialization algorithm">
+      <ST><![CDATA[;
+is_init := TRUE;]]></ST>
+    </Algorithm>
+    <Algorithm Name="UNKNOWN">
+      <ST><![CDATA[;
+is_init := FALSE;]]></ST>
+    </Algorithm>
+  </BasicFB>
+</FBType>
