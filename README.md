@@ -48,8 +48,9 @@ The system supports two mutually coordinated operating modes with controlled tra
 
 <p align="center">
   <img src="additional_materials/system_1.png" alt="Figure 1"><br>
-  <i>Figure 1. System. In the picture above we can see whole system – pusher, transfer unit, sensors and manual and automatic operating mode buttons.</i>
+  <i>Figure 1. System.</i>
 </p>
+In the picture above we can see whole system – pusher, transfer unit, sensors and manual and automatic operating mode buttons.
 
 ### Pusher positions:
 
