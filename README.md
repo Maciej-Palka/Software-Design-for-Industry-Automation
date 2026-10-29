@@ -223,4 +223,6 @@ While the overall system behaviour remains unchanged after refactoring, the unde
 | **RSA-03** | Operating-Mode Transitions | Inhibits mode transitions during an active production cycle or when not in default state. | BtnController (StateController) ECC checking operation flags, button position and ready_flag. | 
 | **RG-01** | System Ready indication | Illuminates Start LED when in Auto mode and actuators are home. | LightControl CFB, StartLedControl FB logic. Monitoring operation flags. | 
 | **RG-02** | System state indicators | Turns off Start and Reset LEDs during active automatic production. | LightControl CFB, StartLedControl, ResetLedControl logic. Monitoring operation flags. | 
-| **RG-03** |
+| **RG-03** | System state indicators | Illuminates Start and Reset LEDs when automatic operation is stopped. | LightControl CFB, StartLedControl, ResetLedControl logic. Monitoring operation flags. | 
+| **RG-04** | Process Completion indication | Flashes Ack indicator when the Stack Magazine empty sensor triggers. | LightControl CFB AckLedControl FB logic monitoring empty signal from model. | 
+| **RG-05** | Process Completion indication | Turns off the Ack indicator when the Ack button is pressed during a flashing state. | LightControl CFB logic, AckLedControl FB, monitoring Ack button value. | 
