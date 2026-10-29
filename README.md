@@ -46,32 +46,46 @@ The system supports two mutually coordinated operating modes with controlled tra
 
 ### Visualization:
 
-![Figure 1](additional_materials/system_1.png)
-*Figure 1. System. In the picture above we can see whole system – pusher, transfer unit, sensors and manual and automatic operating mode buttons.*
+<p align="center">
+  <img src="additional_materials/system_1.png" alt="Figure 1"><br>
+  <i>Figure 1. System. In the picture above we can see whole system – pusher, transfer unit, sensors and manual and automatic operating mode buttons.</i>
+</p>
 
 ### Pusher positions:
 
-![Figure 2](additional_materials/pusher_retracted.png)
-*Figure 2. Pusher in retracted position*
+<p align="center">
+  <img src="additional_materials/pusher_retracted.png" alt="Figure 2"><br>
+  <i>Figure 2. Pusher in retracted position</i>
+</p>
 
-![Figure 3](additional_materials/pusher_extended.png)
-*Figure 3. Pusher in extended position*
+<p align="center">
+  <img src="additional_materials/pusher_extended.png" alt="Figure 3"><br>
+  <i>Figure 3. Pusher in extended position</i>
+</p>
 
 ### Transfer unit positions:
 
-![Figure 4](additional_materials/tu_nxt.png)
-*Figure 4. Transfer unit at Put/at_nxt/NXT position*
+<p align="center">
+  <img src="additional_materials/tu_nxt.png" alt="Figure 4"><br>
+  <i>Figure 4. Transfer unit at Put/at_nxt/NXT position</i>
+</p>
 
-![Figure 5](additional_materials/tu_mgz.png)
-*Figure 5. Transfer unit at Put/at_mgz/MGZ position*
+<p align="center">
+  <img src="additional_materials/tu_mgz.png" alt="Figure 5"><br>
+  <i>Figure 5. Transfer unit at Put/at_mgz/MGZ position</i>
+</p>
 
 ### Vacuum gripper states:
 
-![Figure 6](additional_materials/voff.png)
-*Figure 6. Object released*
+<p align="center">
+  <img src="additional_materials/voff.png" alt="Figure 6"><br>
+  <i>Figure 6. Object released</i>
+</p>
 
-![Figure 7](additional_materials/von.png)
-*Figure 7. Object gripped*
+<p align="center">
+  <img src="additional_materials/von.png" alt="Figure 7"><br>
+  <i>Figure 7. Object gripped</i>
+</p>
 
 # 2. System Requirements
 
@@ -133,39 +147,59 @@ The system supports two mutually coordinated operating modes with controlled tra
 
 ## Before refactoring
 
-![Figure 8](additional_materials/system_before.png)
-*Figure 8. Whole system*
+<p align="center">
+  <img src="additional_materials/system_before.png" alt="Figure 8"><br>
+  <i>Figure 8. Whole system</i>
+</p>
 
-![Figure 9](additional_materials/controller_before.png)
-*Figure 9. Insides of Controller block*
+<p align="center">
+  <img src="additional_materials/controller_before.png" alt="Figure 9"><br>
+  <i>Figure 9. Insides of Controller block</i>
+</p>
 
-![Figure 10](additional_materials/BtnController_before.png)
-*Figure 10. BtnController ECC*
+<p align="center">
+  <img src="additional_materials/BtnController_before.png" alt="Figure 10"><br>
+  <i>Figure 10. BtnController ECC</i>
+</p>
 
 ## After refactoring
 
-![Figure 11](additional_materials/system_after.png)
-*Figure 11. System*
+<p align="center">
+  <img src="additional_materials/system_after.png" alt="Figure 11"><br>
+  <i>Figure 11. System</i>
+</p>
 
-![Figure 12](additional_materials/controller_after.png)
-*Figure 12. Insides of controller block*
+<p align="center">
+  <img src="additional_materials/controller_after.png" alt="Figure 12"><br>
+  <i>Figure 12. Insides of controller block</i>
+</p>
 
 While the overall system behaviour remains unchanged after refactoring, the underlying software architecture is significantly different. The design transitioned from a single, centralized controller handling all raw I/O to a distributed architecture where individual IMC modules manage the local control cycles for each mechatronic unit. The main controller now operates at a supervisory level, issuing high-level command events to the IMCs and waiting for status confirmations before proceeding to the next step in the sequence. Furthermore, the inputs and outputs of most function blocks were encapsulated using Adapter interfaces (Plugs and Sockets) to improve modularity.
 
-![Figure 13](additional_materials/sequence.png)
-*Figure 13. Automatic operation cycle controller*
+<p align="center">
+  <img src="additional_materials/sequence.png" alt="Figure 13"><br>
+  <i>Figure 13. Automatic operation cycle controller</i>
+</p>
 
-![Figure 14](additional_materials/pusher_algorithm.png)
-*Figure 14. Pusher operation algorithm state machine*
+<p align="center">
+  <img src="additional_materials/pusher_algorithm.png" alt="Figure 14"><br>
+  <i>Figure 14. Pusher operation algorithm state machine</i>
+</p>
 
-![Figure 15](additional_materials/tu_algorithm.png)
-*Figure 15. Transfer unit operation algorithm state machine*
+<p align="center">
+  <img src="additional_materials/tu_algorithm.png" alt="Figure 15"><br>
+  <i>Figure 15. Transfer unit operation algorithm state machine</i>
+</p>
 
-![Figure 16](additional_materials/pusher_IMC.png)
-*Figure 16. Pusher IMC*
+<p align="center">
+  <img src="additional_materials/pusher_IMC.png" alt="Figure 16"><br>
+  <i>Figure 16. Pusher IMC</i>
+</p>
 
-![Figure 17](additional_materials/tu_IMC.png)
-*Figure 17. Transfer unit IMC*
+<p align="center">
+  <img src="additional_materials/tu_IMC.png" alt="Figure 17"><br>
+  <i>Figure 17. Transfer unit IMC</i>
+</p>
 
 # 4. Requirement Coverage Table
 
@@ -189,6 +223,4 @@ While the overall system behaviour remains unchanged after refactoring, the unde
 | **RSA-03** | Operating-Mode Transitions | Inhibits mode transitions during an active production cycle or when not in default state. | BtnController (StateController) ECC checking operation flags, button position and ready_flag. | 
 | **RG-01** | System Ready indication | Illuminates Start LED when in Auto mode and actuators are home. | LightControl CFB, StartLedControl FB logic. Monitoring operation flags. | 
 | **RG-02** | System state indicators | Turns off Start and Reset LEDs during active automatic production. | LightControl CFB, StartLedControl, ResetLedControl logic. Monitoring operation flags. | 
-| **RG-03** | System state indicators | Illuminates Start and Reset LEDs when automatic operation is stopped. | LightControl CFB, StartLedControl, ResetLedControl logic. Monitoring operation flags. | 
-| **RG-04** | Process Completion indication | Flashes Ack indicator when the Stack Magazine empty sensor triggers. | LightControl CFB AckLedControl FB logic monitoring empty signal from model. | 
-| **RG-05** | Process Completion indication | Turns off the Ack indicator when the Ack button is pressed during a flashing state. | LightControl CFB logic, AckLedControl FB, monitoring Ack button value. | 
+| **RG-03** |
